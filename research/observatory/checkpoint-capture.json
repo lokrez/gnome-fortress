@@ -1,0 +1,10 @@
+{
+  "mode": "checkpoint",
+  "exit_code": 0,
+  "capture_bytes": 4446,
+  "elapsed_seconds": 8.759644092999224,
+  "cpu_seconds": 7.53221,
+  "traceback": false,
+  "roster_rendered": true,
+  "path": "research/observatory/checkpoint-terminal.ansi"
+}

@@ -1,0 +1,14 @@
+{
+  "source": "research/phase2/data/endurance/seed-01/final.sqlite",
+  "tick": 100000,
+  "living": 373,
+  "founders": 60,
+  "dead_founders": 60,
+  "load_seconds": 6.398272957994777,
+  "index_seconds": 0.3283047999939299,
+  "layout_seconds": 0.001520410639932379,
+  "source_sha256": "210bb6c7aa7a5039a03aef04507a529fe5151e6c6331b6b275f9c00ed0a10bae",
+  "source_unchanged": true,
+  "births": 20792,
+  "deaths": 20479
+}

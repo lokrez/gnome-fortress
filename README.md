@@ -125,3 +125,30 @@ device failure or corruption after a successful commit.
 
 See the [Phase 3 engineering report](research/phase3/REPORT.md) for measurements,
 exact equivalence coverage, persistence recovery tests, limitations and reproduction.
+
+## Founders' Observatory (terminal)
+
+From any terminal on Ubuntu:
+
+```bash
+cd ~/gnome-fortress && .venv/bin/python -m gnome_fortress.observatory
+```
+
+This creates the standard seeded world, paused, without writing files. All 60
+original founders remain selectable, including after death. Arrows/Tab select;
+PgUp/PgDn scroll the inspector; Space pauses/resumes; `.` advances one paused tick;
+`+`/`-` change simulated ticks per second; `[`/`]` change display refresh; `q` quits.
+Use `--seed 42` to choose initial conditions. At 140 columns by 35 rows the entire
+roster and the first inspector section fit together. An 80x24 terminal also shows
+the whole roster with a shorter inspector; smaller terminals scroll.
+
+To inspect a checkpoint, append `--checkpoint PATH`. Inspection is frozen and
+never saves. Add `--live` to allow unsaved continuation of a loaded copy, initially
+paused. **All progress in this observer is discarded on exit.** Use the standard
+Pygame/headless application for persistent runs. Checkpoints must be closed,
+rollback-mode SQLite files without WAL/journal sidecars; the observatory refuses
+files needing recovery. Loading/indexing runs in a worker so the terminal can
+redraw and process quit; exit waits for an in-progress worker to finish.
+
+The terminal observer uses Python's standard Ubuntu curses support, with no new
+package dependencies. [Observatory verification and limitations](research/observatory/REPORT.md).

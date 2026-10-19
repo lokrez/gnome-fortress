@@ -1,0 +1,35 @@
+FOUNDERS' OBSERVATORY | tick 100000 | PAUSED
+Living 373 | births 20792 (excludes founders) | deaths 20479
+60 slots | rate 10 ticks/s | refresh 5 Hz |
+60 original founders A=alive S=sleep D=dead | rows 1-10/10
+>01:D   02:D   03:D   04:D   05:D   06:D   | Gnome 00001 | ID 1 | DEAD
+ 07:D   08:D   09:D   10:D   11:D   12:D   | Parents: none (founder) | born tick 0
+ 13:D   14:D   15:D   16:D   17:D   18:D   | Children count: 5
+ 19:D   20:D   21:D   22:D   23:D   24:D   | Age: 2232 ticks (includes age at entry)
+ 25:D   26:D   27:D   28:D   29:D   30:D   | Death tick: 2048 | cause: old_age
+ 31:D   32:D   33:D   34:D   35:D   36:D   | Location: (34, 8) | health: 100
+ 37:D   38:D   39:D   40:D   41:D   42:D   | Hunger: 48 | thirst: 22 | fatigue: 52
+ 43:D   44:D   45:D   46:D   47:D   48:D   | Sleep until: 2002 | cooldown: 0
+ 49:D   50:D   51:D   52:D   53:D   54:D   | Latest action: dead
+ 55:D   56:D   57:D   58:D   59:D   60:D   | Deceased values are retained terminal state.
+                                           |
+                                           | INHERITED TRAITS (0-100; founders sampled 20-80)
+                                           | curiosity: 78
+                                           | caution: 40
+                                           | sociability: 34
+                                           | fertility: 40
+                                           | stamina: 36
+                                           | vision: 73
+                                           |
+                                           | VALUE SUMMARY (programmed tendencies, not diagnoses)
+                                           | Novelty weight curiosity=78;
+                                           | hazard aversion caution=40.
+                                           | Other traits govern social/reproduction propensity,
+                                           | age limit and sensory radius; no inferred biography.
+                                           |
+                                           | SCHEDULER (founders are not slots)
+                                           | Assigned slot indexes (0-based): []
+                                           | Eligible: False | cursor: 20702
+                                           | Assignments are retained snapshots, not decision counts.
+                                           |
+Arrows/Tab select | PgUp/Dn details | Space pause | . step | +/- rate | [/] refresh | q quit

@@ -1,0 +1,10 @@
+{
+  "mode": "fresh",
+  "exit_code": 0,
+  "capture_bytes": 4139,
+  "elapsed_seconds": 1.4201420190001954,
+  "cpu_seconds": 0.067354,
+  "traceback": false,
+  "roster_rendered": true,
+  "path": "research/observatory/fresh-terminal.ansi"
+}

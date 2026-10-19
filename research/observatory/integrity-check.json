@@ -1,0 +1,42 @@
+{
+  "baseline": "2f5213c23300e61330ea665bfb4789622bf38bc6",
+  "tag": "2f5213c23300e61330ea665bfb4789622bf38bc6",
+  "existing_package_files_unchanged": {
+    "gnome_fortress/__init__.py": true,
+    "gnome_fortress/__main__.py": true,
+    "gnome_fortress/engine.py": true,
+    "gnome_fortress/model.py": true,
+    "gnome_fortress/runtime.py": true,
+    "gnome_fortress/storage.py": true,
+    "gnome_fortress/viewer.py": true
+  },
+  "archive_sha256_after_terminal_capture": "210bb6c7aa7a5039a03aef04507a529fe5151e6c6331b6b275f9c00ed0a10bae",
+  "seed1_founders": 60,
+  "seed1_unique_trait_vectors": 60,
+  "seed1_trait_ranges": {
+    "curiosity": [
+      23,
+      80
+    ],
+    "caution": [
+      21,
+      80
+    ],
+    "sociability": [
+      20,
+      80
+    ],
+    "fertility": [
+      20,
+      80
+    ],
+    "stamina": [
+      20,
+      79
+    ],
+    "vision": [
+      23,
+      79
+    ]
+  }
+}
