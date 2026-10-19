@@ -1,0 +1,82 @@
+[
+  {
+    "slots": 60,
+    "mean_loop_seconds": 10.358440532665554,
+    "ticks_per_second": 289.61888525009516,
+    "cpu_percent_one_core": 99.58579527297648,
+    "peak_loop_rss_mib": 40.96875,
+    "peak_overall_rss_mib": 101.83203125,
+    "scheduler_percent": 0.7788484416380198,
+    "population_range": [
+      363,
+      378
+    ],
+    "peak_population": 385,
+    "decisions_per_agent_tick": 0.23340350272738386,
+    "assigned_utilization": 0.993574074074074
+  },
+  {
+    "slots": 120,
+    "mean_loop_seconds": 26.28660440166641,
+    "ticks_per_second": 114.12657010236812,
+    "cpu_percent_one_core": 99.64902879204173,
+    "peak_loop_rss_mib": 52.78125,
+    "peak_overall_rss_mib": 145.3359375,
+    "scheduler_percent": 0.40954710501333746,
+    "population_range": [
+      516,
+      540
+    ],
+    "peak_population": 572,
+    "decisions_per_agent_tick": 0.3335963017402556,
+    "assigned_utilization": 0.9271592592592592
+  },
+  {
+    "slots": 240,
+    "mean_loop_seconds": 61.451048750999085,
+    "ticks_per_second": 48.81934582037911,
+    "cpu_percent_one_core": 99.77090623480998,
+    "peak_loop_rss_mib": 68.83984375,
+    "peak_overall_rss_mib": 206.984375,
+    "scheduler_percent": 0.21355135673123848,
+    "population_range": [
+      628,
+      654
+    ],
+    "peak_population": 738,
+    "decisions_per_agent_tick": 0.48798056881626223,
+    "assigned_utilization": 0.7939513888888889
+  },
+  {
+    "slots": 480,
+    "mean_loop_seconds": 121.95667400900008,
+    "ticks_per_second": 24.598899768114435,
+    "cpu_percent_one_core": 99.70957224067901,
+    "peak_loop_rss_mib": 91.59375,
+    "peak_overall_rss_mib": 293.75390625,
+    "scheduler_percent": 0.11402453272578124,
+    "population_range": [
+      729,
+      746
+    ],
+    "peak_population": 823,
+    "decisions_per_agent_tick": 0.7739551328060789,
+    "assigned_utilization": 0.6330078703703703
+  },
+  {
+    "slots": 960,
+    "mean_loop_seconds": 141.94561578033367,
+    "ticks_per_second": 21.134854947845774,
+    "cpu_percent_one_core": 99.77140872893474,
+    "peak_loop_rss_mib": 99.3203125,
+    "peak_overall_rss_mib": 328.4140625,
+    "scheduler_percent": 0.10206205797216213,
+    "population_range": [
+      695,
+      770
+    ],
+    "peak_population": 810,
+    "decisions_per_agent_tick": 0.8575416567708859,
+    "assigned_utilization": 0.351878125
+  }
+]

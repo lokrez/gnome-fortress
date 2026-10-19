@@ -21,3 +21,22 @@ Pilot defect, before correction:
   launched. Correction: namespace all death-cause counters with `cause:`; preserve
   both failed pilot directories/logs, add a focused regression, and rerun pilots.
   This affects only new telemetry, not core state, random draws or baseline rules.
+
+Late-window export defect, identified before the supplement ran:
+
+- The optional production-save probe adds two fields to just one row, whereas
+  the shared CSV writer takes its columns from the first row. Export would reject
+  the extra fields after timing completed. Correction: declare both optional
+  fields as null on every timing row before populating the measured row. This
+  changes only the new supplement's output schema, not any campaign or rules.
+
+Measured operating limitation, no correction applied:
+
+- The ordinary production `storage.save` call on the seed-1 world at tick
+  100,200 took 18.007 seconds to a fresh probe file in the quiet supplement.
+  The observer invokes saving synchronously on its event loop. This can cause
+  long visible pauses even when headless simulation exceeds the target tick rate.
+  Existing-file overwrite latency and mature desktop rendering were not measured.
+  Keep this separate from logical simulation correctness and from the more
+  expensive scientific checkpoint fork/replay verification. No save or viewer
+  behavior is modified in Phase 2.

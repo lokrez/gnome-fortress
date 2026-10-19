@@ -1,0 +1,418 @@
+{
+  "code_hashes": {
+    "research/phase2_analyze.py": "690a877acd5a218406148b8f0ef6282a429149eac0dbf81cb6f3488eeca38122",
+    "research/phase2_benchmark.py": "05dc6fc73f20627cb3339f28e607541d87281b9557590b11786cc1e4d5f36c43",
+    "research/phase2_campaign.py": "73d8cad804b11f6d3b79fcb8276979fc0532ad1617d576ea2c8b1af919437663",
+    "research/phase2_controls.py": "abda4ad552cbd76dbca8f13f76242e250f503952ccb5da941b0ce49245ed7fce",
+    "research/phase2_package.py": "66a5264d09dc7bea634c3692cbd36ab38d4a9473d0309f0863bc906c25217be7",
+    "research/phase2_run.py": "3a3a4c942a7297ac797a5dc0ec7d33ac25ce2c41c9dff3f4f2db85179e1fff28",
+    "research/phase2_verify.py": "17d953993595cdabdf5c28df37a7b42743242c5a7ba45c527dbd9dac07704a06"
+  },
+  "jobs": [
+    {
+      "checkpoints": [
+        50000
+      ],
+      "final_checkpoint_check": true,
+      "memory": "enabled",
+      "out": "research/phase2/data/endurance/seed-01",
+      "resume": "research/phase1/data/seed-01/final.sqlite",
+      "sample": 100,
+      "seed": 1,
+      "slots": 60,
+      "ticks": 100000
+    },
+    {
+      "checkpoints": [
+        50000
+      ],
+      "final_checkpoint_check": true,
+      "memory": "enabled",
+      "out": "research/phase2/data/endurance/seed-02",
+      "resume": "research/phase1/data/seed-02/final.sqlite",
+      "sample": 100,
+      "seed": 2,
+      "slots": 60,
+      "ticks": 100000
+    },
+    {
+      "checkpoints": [
+        50000
+      ],
+      "final_checkpoint_check": true,
+      "memory": "enabled",
+      "out": "research/phase2/data/endurance/seed-03",
+      "resume": "research/phase1/data/seed-03/final.sqlite",
+      "sample": 100,
+      "seed": 3,
+      "slots": 60,
+      "ticks": 100000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1001-enabled",
+      "replay": true,
+      "sample": 100,
+      "seed": 1001,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1001-ablated",
+      "replay": true,
+      "sample": 100,
+      "seed": 1001,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1002-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1002,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1002-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1002,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1003-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1003,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1003-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1003,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1004-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1004,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1004-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1004,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1005-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1005,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1005-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1005,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1006-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1006,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1006-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1006,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1007-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1007,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1007-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1007,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1008-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1008,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1008-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1008,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1009-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1009,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1009-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1009,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1010-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1010,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1010-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1010,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1011-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1011,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1011-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1011,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1012-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1012,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1012-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1012,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1013-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1013,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1013-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1013,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1014-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1014,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1014-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1014,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1015-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1015,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1015-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1015,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1016-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1016,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1016-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1016,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1017-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1017,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1017-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1017,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1018-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1018,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1018-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1018,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1019-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1019,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1019-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1019,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "enabled",
+      "out": "research/phase2/data/memory/seed-1020-enabled",
+      "replay": false,
+      "sample": 100,
+      "seed": 1020,
+      "slots": 60,
+      "ticks": 20000
+    },
+    {
+      "memory": "ablated",
+      "out": "research/phase2/data/memory/seed-1020-ablated",
+      "replay": false,
+      "sample": 100,
+      "seed": 1020,
+      "slots": 60,
+      "ticks": 20000
+    }
+  ],
+  "notes": "A/C are observationally instrumented; only A ablated readout changes policy. Capacities remain 60. Fresh spawned process per job.",
+  "original_rule_commit": "f32c1a6",
+  "parent_commit": "1e67c3e64bfa8f89bca2a6426b2c013fcae526ef",
+  "phase1_commit": "232dd30",
+  "protocol_sha256": "24a8f6f33150f8d0641320e9efc99e14125ff47894c240599c0c7ac408da7424",
+  "workers": 6
+}

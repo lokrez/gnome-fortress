@@ -1,0 +1,31 @@
+         288272430 function calls in 70.737 seconds
+
+   Ordered by: cumulative time
+   List reduced from 50 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.118    0.118   70.755   70.755 engine.py:123(step)
+   119393    0.300    0.000   70.322    0.001 phase2_controls.py:117(decide)
+   119393    0.234    0.000   69.982    0.001 engine.py:153(decide)
+   194636   40.182    0.000   56.350    0.000 engine.py:149(_nearby_agents)
+    94259    0.170    0.000   40.307    0.000 phase2_controls.py:91(move)
+    94259    3.151    0.000   40.138    0.000 engine.py:203(move)
+261585460   18.215    0.000   18.215    0.000 {built-in method builtins.abs}
+    94259    2.675    0.000    4.152    0.000 engine.py:71(observations)
+  2957678    1.126    0.000    3.698    0.000 {built-in method builtins.min}
+  3211848    0.823    0.000    1.199    0.000 engine.py:217(<genexpr>)
+  3211848    0.786    0.000    1.155    0.000 engine.py:218(<genexpr>)
+ 10172479    0.995    0.000    0.995    0.000 engine.py:63(cell)
+   117659    0.132    0.000    0.547    0.000 phase2_controls.py:105(remember)
+   117659    0.280    0.000    0.378    0.000 engine.py:77(remember)
+  1381557    0.205    0.000    0.251    0.000 {built-in method builtins.max}
+   840820    0.223    0.000    0.223    0.000 {method 'get' of 'dict' objects}
+   138021    0.167    0.000    0.220    0.000 engine.py:91(_biology)
+   621992    0.149    0.000    0.218    0.000 engine.py:221(<genexpr>)
+    94259    0.057    0.000    0.177    0.000 random.py:347(choice)
+   165163    0.097    0.000    0.154    0.000 random.py:245(_randbelow_with_getrandbits)
+   112080    0.120    0.000    0.120    0.000 engine.py:66(neighbors)
+    17821    0.045    0.000    0.105    0.000 engine.py:145(_drinkable)
+    68824    0.039    0.000    0.103    0.000 random.py:294(randrange)
+      200    0.001    0.000    0.091    0.000 phase2_controls.py:83(schedule)
+   437473    0.069    0.000    0.069    0.000 {method 'append' of 'list' objects}

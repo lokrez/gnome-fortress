@@ -1,0 +1,15 @@
+{
+  "cases": [
+    "research/phase2/data/scaling/seed-11-slots-60",
+    "research/phase2/data/scaling/seed-11-slots-120",
+    "research/phase2/data/scaling/seed-11-slots-240",
+    "research/phase2/data/scaling/seed-11-slots-480",
+    "research/phase2/data/scaling/seed-11-slots-960",
+    "research/phase2/data/endurance/seed-01",
+    "research/phase2/data/endurance/seed-02",
+    "research/phase2/data/endurance/seed-03"
+  ],
+  "code_sha256": "bbe2977ab859e5eadab2d98a8cc4b51749c6061fdf9a1271ca1deeb2b9d0e0cb",
+  "quiet_sequential": true,
+  "ticks": 200
+}

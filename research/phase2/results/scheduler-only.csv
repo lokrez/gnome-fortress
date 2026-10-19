@@ -1,0 +1,11 @@
+calls,cpu_seconds,eligible,microseconds_per_call,note,peak_rss_mib,slots,total_identities,wall_seconds
+10000,2.696816893,2688,269.869878299869,"Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions",27.30078125,120,3840,2.69869878299869
+10000,2.6773446919999997,2688,267.8613961001247,"Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions",26.9453125,240,3840,2.678613961001247
+10000,2.602026374,2688,260.3903728999285,"Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions",27.0234375,480,3840,2.603903728999285
+10000,2.6805431919999996,2688,268.7296314001287,"Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions",27.375,60,3840,2.687296314001287
+10000,2.7715420120000003,2688,281.7415562996757,"Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions",26.71875,960,3840,2.817415562996757
+10000,0.680300218,672,68.06469149996701,"Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions",23.3203125,120,960,0.6806469149996701
+10000,0.68251822,672,68.31590920010058,"Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions",23.4921875,240,960,0.6831590920010058
+10000,0.705384072,672,70.57468189996143,"Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions",23.48828125,480,960,0.7057468189996143
+10000,0.6852899720000001,672,69.05800820022705,"Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions",23.3671875,60,960,0.6905800820022705
+10000,0.7126849350000001,672,71.2858838000102,"Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions",23.18359375,960,960,0.712858838000102

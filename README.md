@@ -93,3 +93,10 @@ simulation source and tests remain unchanged. See the [population study report](
 for ten 20,000-tick runs, CSV data, plots, observer verification and controlled-memory
 experiment designs. Reproduction instructions are in the
 [data dictionary](research/phase1/DATA_DICTIONARY.md).
+
+## Phase 2 memory, scaling and extended survival
+
+See the [Phase 2 experiment report](research/phase2/REPORT.md) for matched memory
+ablations, five scheduler capacities and three 100,000-tick endurance worlds.
+The standard rules and 60-slot default remain unchanged.
+[Reproducibility and data](research/phase2/DATA_DICTIONARY.md).

@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zerkol/gnome-fortress/research/phase2_run.py", line 225, in <module>
+    main()
+    ~~~~^^
+  File "/home/zerkol/gnome-fortress/research/phase2_run.py", line 221, in main
+    run(spec)
+    ~~~^^^^^^
+  File "/home/zerkol/gnome-fortress/research/phase2_run.py", line 153, in run
+    assert sum(a["hazard_entries"] for a in agent_rows) == totals["hazard"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

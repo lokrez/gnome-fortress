@@ -1,0 +1,9 @@
+{
+  "memory": "enabled",
+  "out": "research/phase2/data/memory/seed-1011-enabled",
+  "replay": false,
+  "sample": 100,
+  "seed": 1011,
+  "slots": 60,
+  "ticks": 20000
+}

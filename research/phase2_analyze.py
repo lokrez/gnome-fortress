@@ -50,6 +50,7 @@ def outcome(folder):
     tail=[r for r in pop if r['tick']>horizon-5000]
     rows=dict(seed=summary['seed'],memory=summary['memory'],slots=summary['slots'],
               final_population=summary['final_population'],offspring=summary['offspring'],deaths=summary['deaths'],
+              max_population=summary['max_measured_population'],hazard_encounters=summary['events'].get('hazard',0),
               complete_cohort_mean_age=summary['complete_cohort_mean_age'],complete_cohort_n=summary['complete_cohort_n'],
               hazards_per_1000_decisions=counters.get('hazard',0)/counters['decisions']*1000,
               deaths_per_1000_agent_ticks=counters.get('death',0)/counters['agent_ticks']*1000,

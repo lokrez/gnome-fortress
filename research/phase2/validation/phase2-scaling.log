@@ -1,0 +1,41 @@
+LAUNCH research/phase2/specs/scaling/seed-11-slots-60.json
+COMPLETE research/phase2/data/scaling/seed-11-slots-60: living=363 tps=283.5
+LAUNCH research/phase2/specs/scaling/seed-11-slots-240.json
+COMPLETE research/phase2/data/scaling/seed-11-slots-240: living=653 tps=49.1
+LAUNCH research/phase2/specs/scaling/seed-11-slots-960.json
+COMPLETE research/phase2/data/scaling/seed-11-slots-960: living=770 tps=20.6
+LAUNCH research/phase2/specs/scaling/seed-11-slots-120.json
+COMPLETE research/phase2/data/scaling/seed-11-slots-120: living=540 tps=119.1
+LAUNCH research/phase2/specs/scaling/seed-11-slots-480.json
+COMPLETE research/phase2/data/scaling/seed-11-slots-480: living=746 tps=24.6
+LAUNCH research/phase2/specs/scaling/seed-12-slots-480.json
+COMPLETE research/phase2/data/scaling/seed-12-slots-480: living=729 tps=25.2
+LAUNCH research/phase2/specs/scaling/seed-12-slots-120.json
+COMPLETE research/phase2/data/scaling/seed-12-slots-120: living=530 tps=112.3
+LAUNCH research/phase2/specs/scaling/seed-12-slots-960.json
+COMPLETE research/phase2/data/scaling/seed-12-slots-960: living=736 tps=22.1
+LAUNCH research/phase2/specs/scaling/seed-12-slots-240.json
+COMPLETE research/phase2/data/scaling/seed-12-slots-240: living=654 tps=49.2
+LAUNCH research/phase2/specs/scaling/seed-12-slots-60.json
+COMPLETE research/phase2/data/scaling/seed-12-slots-60: living=378 tps=284.6
+LAUNCH research/phase2/specs/scaling/seed-13-slots-120.json
+COMPLETE research/phase2/data/scaling/seed-13-slots-120: living=516 tps=111.3
+LAUNCH research/phase2/specs/scaling/seed-13-slots-480.json
+COMPLETE research/phase2/data/scaling/seed-13-slots-480: living=742 tps=24.0
+LAUNCH research/phase2/specs/scaling/seed-13-slots-60.json
+COMPLETE research/phase2/data/scaling/seed-13-slots-60: living=373 tps=301.4
+LAUNCH research/phase2/specs/scaling/seed-13-slots-960.json
+COMPLETE research/phase2/data/scaling/seed-13-slots-960: living=695 tps=20.8
+LAUNCH research/phase2/specs/scaling/seed-13-slots-240.json
+COMPLETE research/phase2/data/scaling/seed-13-slots-240: living=628 tps=48.2
+{"slots": 60, "total_identities": 960, "eligible": 672, "calls": 10000, "wall_seconds": 0.6905800820022705, "cpu_seconds": 0.6852899720000001, "microseconds_per_call": 69.05800820022705, "block_microseconds": [68.09509599952435, 69.03432050057745, 68.83507649945386, 67.67884200053231, 71.6373699997348], "peak_rss_mib": 23.3671875, "note": "Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions"}
+{"slots": 120, "total_identities": 960, "eligible": 672, "calls": 10000, "wall_seconds": 0.6806469149996701, "cpu_seconds": 0.680300218, "microseconds_per_call": 68.06469149996701, "block_microseconds": [68.711138499566, 67.7546729984897, 68.20906749999267, 67.84717949994956, 67.79128850030247], "peak_rss_mib": 23.3203125, "note": "Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions"}
+{"slots": 240, "total_identities": 960, "eligible": 672, "calls": 10000, "wall_seconds": 0.6831590920010058, "cpu_seconds": 0.68251822, "microseconds_per_call": 68.31590920010058, "block_microseconds": [67.54252350037859, 68.81432999944082, 68.44239699967147, 68.8377100013895, 67.93329550055205], "peak_rss_mib": 23.4921875, "note": "Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions"}
+{"slots": 480, "total_identities": 960, "eligible": 672, "calls": 10000, "wall_seconds": 0.7057468189996143, "cpu_seconds": 0.705384072, "microseconds_per_call": 70.57468189996143, "block_microseconds": [70.64341250043071, 70.86027650075266, 70.8613865008374, 70.45584350089484, 70.04382949889987], "peak_rss_mib": 23.48828125, "note": "Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions"}
+{"slots": 960, "total_identities": 960, "eligible": 672, "calls": 10000, "wall_seconds": 0.712858838000102, "cpu_seconds": 0.7126849350000001, "microseconds_per_call": 71.2858838000102, "block_microseconds": [70.7800740001403, 70.52267899962317, 71.84929649883998, 71.8693524995615, 71.3992370001506], "peak_rss_mib": 23.18359375, "note": "Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions"}
+{"slots": 60, "total_identities": 3840, "eligible": 2688, "calls": 10000, "wall_seconds": 2.687296314001287, "cpu_seconds": 2.6805431919999996, "microseconds_per_call": 268.7296314001287, "block_microseconds": [266.891563000172, 266.1259454998799, 261.5058154988219, 280.74517300046864, 268.37056949989346], "peak_rss_mib": 27.375, "note": "Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions"}
+{"slots": 120, "total_identities": 3840, "eligible": 2688, "calls": 10000, "wall_seconds": 2.69869878299869, "cpu_seconds": 2.696816893, "microseconds_per_call": 269.869878299869, "block_microseconds": [269.3017685014638, 271.4538950003771, 270.7224285004486, 270.5027860010887, 267.3595434989693], "peak_rss_mib": 27.30078125, "note": "Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions"}
+{"slots": 240, "total_identities": 3840, "eligible": 2688, "calls": 10000, "wall_seconds": 2.678613961001247, "cpu_seconds": 2.6773446919999997, "microseconds_per_call": 267.8613961001247, "block_microseconds": [276.0327824998967, 276.15212250020704, 273.18867900066834, 258.69363700076065, 255.2299645012681], "peak_rss_mib": 26.9453125, "note": "Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions"}
+{"slots": 480, "total_identities": 3840, "eligible": 2688, "calls": 10000, "wall_seconds": 2.603903728999285, "cpu_seconds": 2.602026374, "microseconds_per_call": 260.3903728999285, "block_microseconds": [261.44555999962904, 261.70169999932114, 260.9425105001719, 257.9994384996098, 259.8526444999152], "peak_rss_mib": 27.0234375, "note": "Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions"}
+{"slots": 960, "total_identities": 3840, "eligible": 2688, "calls": 10000, "wall_seconds": 2.817415562996757, "cpu_seconds": 2.7715420120000003, "microseconds_per_call": 281.7415562996757, "block_microseconds": [310.4541230004543, 282.8617254999699, 275.7042974990327, 270.4490625001199, 269.2281079998793], "peak_rss_mib": 26.71875, "note": "Fixed synthetic alive/sleep/dead population; selection only, no biology/decisions"}
+SCALING COMPLETE

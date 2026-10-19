@@ -1,0 +1,2 @@
+c2326b0c2b355b373e0aa847391fdce246f88b0fd48e16214a001270b15b8a57  research/phase2/phase2-study.zip
+6e41c7f3b2b81fc96c09195aed4bd2d06c41e4dc516437fbfda8ff784fcd73d1  research/phase2/CONTENTS.sha256

@@ -1,0 +1,29 @@
+{
+  "code_sha256": {
+    "research/phase2_analyze.py": "690a877acd5a218406148b8f0ef6282a429149eac0dbf81cb6f3488eeca38122",
+    "research/phase2_benchmark.py": "05dc6fc73f20627cb3339f28e607541d87281b9557590b11786cc1e4d5f36c43",
+    "research/phase2_campaign.py": "73d8cad804b11f6d3b79fcb8276979fc0532ad1617d576ea2c8b1af919437663",
+    "research/phase2_controls.py": "abda4ad552cbd76dbca8f13f76242e250f503952ccb5da941b0ce49245ed7fce",
+    "research/phase2_extinction.py": "20a821944a43f6e30d38496d75ae9cfdb69618de50548bde7b5b24a34624a7dc",
+    "research/phase2_lifespans.py": "cd5e7b87ff26644c89a65c1215cca562652deb47c0914676220fcdffe89503c2",
+    "research/phase2_package.py": "66a5264d09dc7bea634c3692cbd36ab38d4a9473d0309f0863bc906c25217be7",
+    "research/phase2_run.py": "3a3a4c942a7297ac797a5dc0ec7d33ac25ce2c41c9dff3f4f2db85179e1fff28",
+    "research/phase2_tailbench.py": "bbe2977ab859e5eadab2d98a8cc4b51749c6061fdf9a1271ca1deeb2b9d0e0cb",
+    "research/phase2_verify.py": "17d953993595cdabdf5c28df37a7b42743242c5a7ba45c527dbd9dac07704a06"
+  },
+  "experiment_controls_commit": "1e67c3e",
+  "local_sqlite_snapshots": 62,
+  "note": "Bundle contains CSV/JSON, figures, logs and experiment code; SQLite snapshots remain local or can be regenerated.",
+  "original_commit": "f32c1a612e36b046faa501273640bbabfce5159d",
+  "original_engine_sha256": {
+    "gnome_fortress/__init__.py": "313de453d04da78032195e3b64c7a2a835a889806328cf8c28802a6cd1aeaf4d",
+    "gnome_fortress/__main__.py": "1632f98cd60a87abe0d19178a3cb1099fb7f77eb5838bd0f9c4034f09907643e",
+    "gnome_fortress/engine.py": "6c6d02329df821bceb149237884bab17488eab0ac10a013d04a811648a867646",
+    "gnome_fortress/model.py": "e9049172b657da2dc103907029fbbfe07d30a88438bd44c4ebd0436c9a048229",
+    "gnome_fortress/storage.py": "635d256845ba85b74b0c41d598935cadd3c199d7914dcea1caf78effe6bdc96a",
+    "gnome_fortress/viewer.py": "f612518627885d865d32ebbd8f93a920af1011cab29749a529cab6b61a527dad"
+  },
+  "phase1_commit": "232dd30ce56a4d3645efb3d1dc35cd0539deb497",
+  "runs": 58,
+  "source_and_phase1_unchanged": true
+}

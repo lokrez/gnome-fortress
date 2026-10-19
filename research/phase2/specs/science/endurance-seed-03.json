@@ -1,0 +1,13 @@
+{
+  "checkpoints": [
+    50000
+  ],
+  "final_checkpoint_check": true,
+  "memory": "enabled",
+  "out": "research/phase2/data/endurance/seed-03",
+  "resume": "research/phase1/data/seed-03/final.sqlite",
+  "sample": 100,
+  "seed": 3,
+  "slots": 60,
+  "ticks": 100000
+}

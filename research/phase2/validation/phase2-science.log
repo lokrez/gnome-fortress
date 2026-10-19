@@ -1,0 +1,295 @@
+seed-1001-ablated: tick=5000 living=0 born=90
+seed-1001-ablated: tick=10000 living=0 born=90
+seed-1001-ablated: tick=15000 living=0 born=90
+seed-1001-ablated: tick=20000 living=0 born=90
+COMPLETE research/phase2/data/memory/seed-1001-ablated: living=0 tps=6306.9
+VERIFIED research/phase2/data/memory/seed-1001-ablated: 010c17c58463a0c8bffec2be9e5ed04c5f915def8c6949d9ca883b857e1120b3
+seed-1002-ablated: tick=5000 living=0 born=88
+seed-1002-ablated: tick=10000 living=0 born=88
+seed-1002-ablated: tick=15000 living=0 born=88
+seed-1002-ablated: tick=20000 living=0 born=88
+COMPLETE research/phase2/data/memory/seed-1002-ablated: living=0 tps=6718.6
+VERIFIED research/phase2/data/memory/seed-1002-ablated: 728ea25504e58f8767d1bbff8da2fbf5336afa53f57e1ccd4ae9ffcc3c476768
+seed-1002-enabled: tick=5000 living=371 born=997
+seed-1001-enabled: tick=5000 living=364 born=1006
+seed-1003-enabled: tick=5000 living=387 born=987
+seed-1001-enabled: tick=10000 living=346 born=1991
+seed-1002-enabled: tick=10000 living=367 born=1977
+seed-1003-enabled: tick=10000 living=372 born=1980
+seed-02: tick=25000 living=340 born=4854
+seed-03: tick=25000 living=384 born=5247
+seed-01: tick=25000 living=373 born=5117
+seed-1002-enabled: tick=15000 living=364 born=3002
+seed-1001-enabled: tick=15000 living=366 born=2987
+seed-1003-enabled: tick=15000 living=374 born=2954
+seed-02: tick=30000 living=364 born=5875
+seed-01: tick=30000 living=367 born=6165
+seed-03: tick=30000 living=386 born=6318
+seed-1002-enabled: tick=20000 living=382 born=4028
+seed-1001-enabled: tick=20000 living=363 born=3978
+seed-1003-enabled: tick=20000 living=381 born=3938
+COMPLETE research/phase2/data/memory/seed-1002-enabled: living=382 tps=155.2
+VERIFIED research/phase2/data/memory/seed-1002-enabled: 44c8098e6c74e4242766d1a8c191124d50ab762b04bd7085cdb7468609ef6a87
+seed-1003-ablated: tick=5000 living=0 born=91
+seed-1003-ablated: tick=10000 living=0 born=91
+seed-1003-ablated: tick=15000 living=0 born=91
+seed-1003-ablated: tick=20000 living=0 born=91
+COMPLETE research/phase2/data/memory/seed-1003-ablated: living=0 tps=6931.2
+VERIFIED research/phase2/data/memory/seed-1003-ablated: be85c937219ba8a639eaaf93663efb642c611fd725d73e1d543adade046dbfaf
+COMPLETE research/phase2/data/memory/seed-1003-enabled: living=381 tps=160.2
+VERIFIED research/phase2/data/memory/seed-1003-enabled: d29c2315229bcb738125e046ad14414447ce232ee9a2194d5b0f72849f5d1f6b
+seed-1004-ablated: tick=5000 living=0 born=91
+seed-1004-ablated: tick=10000 living=0 born=91
+seed-1004-ablated: tick=15000 living=0 born=91
+seed-1004-ablated: tick=20000 living=0 born=91
+COMPLETE research/phase2/data/memory/seed-1004-ablated: living=0 tps=6262.7
+VERIFIED research/phase2/data/memory/seed-1004-ablated: 861f6baa1efe6ca57111aec3e7b4de9063dfa99839105e27eb0aab9ff3ee9c67
+seed-1004-enabled: tick=5000 living=379 born=1002
+seed-1005-enabled: tick=5000 living=367 born=992
+seed-1004-enabled: tick=10000 living=385 born=2002
+seed-02: tick=35000 living=371 born=6885
+seed-1005-enabled: tick=10000 living=356 born=1997
+seed-01: tick=35000 living=370 born=7230
+seed-03: tick=35000 living=387 born=7370
+seed-1004-enabled: tick=15000 living=371 born=3015
+seed-1005-enabled: tick=15000 living=368 born=3014
+COMPLETE research/phase2/data/memory/seed-1001-enabled: living=363 tps=155.1
+VERIFIED research/phase2/data/memory/seed-1001-enabled: 3f2fddc0ae5d44bee15a3d04a1a7d7de169560f277416a07d6289c0c82d524bc
+seed-1005-ablated: tick=5000 living=0 born=92
+seed-1005-ablated: tick=10000 living=0 born=92
+seed-1005-ablated: tick=15000 living=0 born=92
+seed-1005-ablated: tick=20000 living=0 born=92
+COMPLETE research/phase2/data/memory/seed-1005-ablated: living=0 tps=6836.6
+VERIFIED research/phase2/data/memory/seed-1005-ablated: d589523857c572577f1604031eb2053d16012094cb90a71bac3d5dd393ef6b09
+seed-1004-enabled: tick=20000 living=354 born=4033
+seed-1005-enabled: tick=20000 living=374 born=4033
+seed-02: tick=40000 living=352 born=7880
+COMPLETE research/phase2/data/memory/seed-1004-enabled: living=354 tps=157.0
+VERIFIED research/phase2/data/memory/seed-1004-enabled: fbdda4ed33a136334aac2214913f8696d603e031440db1caa3034bc70109744f
+seed-1006-ablated: tick=5000 living=0 born=83
+seed-1006-ablated: tick=10000 living=0 born=83
+seed-1006-ablated: tick=15000 living=0 born=83
+seed-1006-ablated: tick=20000 living=0 born=83
+COMPLETE research/phase2/data/memory/seed-1006-ablated: living=0 tps=8885.8
+VERIFIED research/phase2/data/memory/seed-1006-ablated: 52a8fb2d1e77eb1a138ae0fd3f685bc84b52e67ee63c23bc826a18c026e2d149
+seed-01: tick=40000 living=371 born=8262
+COMPLETE research/phase2/data/memory/seed-1005-enabled: living=374 tps=155.9
+VERIFIED research/phase2/data/memory/seed-1005-enabled: cc6f4faaaf7bdcd6ef4cc33e08d50d8d8441334ede569a6879c88b8b92ce745f
+seed-1006-enabled: tick=5000 living=371 born=962
+seed-03: tick=40000 living=367 born=8419
+seed-1007-ablated: tick=5000 living=0 born=124
+seed-1007-ablated: tick=10000 living=0 born=124
+seed-1007-ablated: tick=15000 living=0 born=124
+seed-1007-ablated: tick=20000 living=0 born=124
+COMPLETE research/phase2/data/memory/seed-1007-ablated: living=0 tps=3879.4
+VERIFIED research/phase2/data/memory/seed-1007-ablated: 83fdc2a31fa908bfc8d74e79ff6c5e292a08977e766fc54cb5831e7cd954caef
+seed-1007-enabled: tick=5000 living=371 born=1017
+seed-1008-enabled: tick=5000 living=370 born=994
+seed-1006-enabled: tick=10000 living=365 born=1915
+seed-1007-enabled: tick=10000 living=365 born=2021
+seed-1008-enabled: tick=10000 living=374 born=2015
+seed-1006-enabled: tick=15000 living=363 born=2872
+seed-1007-enabled: tick=15000 living=373 born=3057
+seed-1008-enabled: tick=15000 living=366 born=3033
+seed-02: tick=45000 living=351 born=8876
+seed-01: tick=45000 living=368 born=9300
+seed-1006-enabled: tick=20000 living=377 born=3854
+seed-03: tick=45000 living=371 born=9485
+COMPLETE research/phase2/data/memory/seed-1006-enabled: living=377 tps=159.8
+VERIFIED research/phase2/data/memory/seed-1006-enabled: a6ecacd71c9b5610a1b0f85274e6f3208b0be61ff00f97bdd3d6b57b8132fd0a
+seed-1008-ablated: tick=5000 living=0 born=82
+seed-1008-ablated: tick=10000 living=0 born=82
+seed-1008-ablated: tick=15000 living=0 born=82
+seed-1008-ablated: tick=20000 living=0 born=82
+COMPLETE research/phase2/data/memory/seed-1008-ablated: living=0 tps=9476.9
+VERIFIED research/phase2/data/memory/seed-1008-ablated: 5cb67b526d1a3ee2dfe9890fa48194861d7eb7eb81089c9c7602fb98f987bc5e
+seed-1007-enabled: tick=20000 living=354 born=4068
+COMPLETE research/phase2/data/memory/seed-1007-enabled: living=354 tps=156.1
+VERIFIED research/phase2/data/memory/seed-1007-enabled: 6af4115769605ddbac7d4e152cf127015683fbfce7d977ae8c1ef81d43d10aa1
+seed-1008-enabled: tick=20000 living=367 born=4048
+seed-1009-ablated: tick=5000 living=0 born=104
+seed-1009-ablated: tick=10000 living=0 born=104
+seed-1009-ablated: tick=15000 living=0 born=104
+seed-1009-ablated: tick=20000 living=0 born=104
+COMPLETE research/phase2/data/memory/seed-1009-ablated: living=0 tps=5165.3
+VERIFIED research/phase2/data/memory/seed-1009-ablated: cb81575df93f3f6b2ab24398029ce4678e69bea9937bd427331d85e539d8891d
+seed-1009-enabled: tick=5000 living=365 born=1015
+COMPLETE research/phase2/data/memory/seed-1008-enabled: living=367 tps=154.5
+VERIFIED research/phase2/data/memory/seed-1008-enabled: 091f350318e106657119aff784ec716bf249c3699bc768a420349d545397ace5
+seed-1010-ablated: tick=5000 living=0 born=79
+seed-1010-ablated: tick=10000 living=0 born=79
+seed-1010-ablated: tick=15000 living=0 born=79
+seed-1010-ablated: tick=20000 living=0 born=79
+COMPLETE research/phase2/data/memory/seed-1010-ablated: living=0 tps=10329.3
+VERIFIED research/phase2/data/memory/seed-1010-ablated: 2461c67e808afacf4dcff741ddb736ed4323906ad229a9c552432a254ee57588
+seed-1010-enabled: tick=5000 living=366 born=986
+seed-1009-enabled: tick=10000 living=358 born=2008
+seed-1011-enabled: tick=5000 living=345 born=974
+seed-1010-enabled: tick=10000 living=373 born=1986
+seed-1011-enabled: tick=10000 living=342 born=1951
+seed-1009-enabled: tick=15000 living=362 born=3033
+seed-02: tick=50000 living=362 born=9875
+seed-1010-enabled: tick=15000 living=355 born=2986
+seed-01: tick=50000 living=375 born=10344
+seed-1011-enabled: tick=15000 living=343 born=2904
+seed-03: tick=50000 living=375 born=10555
+seed-1009-enabled: tick=20000 living=356 born=4042
+COMPLETE research/phase2/data/memory/seed-1009-enabled: living=356 tps=156.0
+VERIFIED research/phase2/data/memory/seed-1009-enabled: 7c0a769b94b49a02ae8ddd8993750d4c18b640407f765287738fafb51416d44e
+seed-1011-ablated: tick=5000 living=0 born=119
+seed-1011-ablated: tick=10000 living=0 born=119
+seed-1011-ablated: tick=15000 living=0 born=119
+seed-1011-ablated: tick=20000 living=0 born=119
+COMPLETE research/phase2/data/memory/seed-1011-ablated: living=0 tps=4433.9
+VERIFIED research/phase2/data/memory/seed-1011-ablated: e15b3afeb0cbc0e5b9e1ce2200e4f605f7647faf0b0874ee0e50fed62e3ea09c
+seed-1010-enabled: tick=20000 living=369 born=4025
+COMPLETE research/phase2/data/memory/seed-1010-enabled: living=369 tps=154.8
+VERIFIED research/phase2/data/memory/seed-1010-enabled: ed70e4c71849c417b473aa53f008e7b48fa7dedad7ad3d727e766ba64fbded46
+seed-1011-enabled: tick=20000 living=337 born=3859
+seed-1012-ablated: tick=5000 living=0 born=90
+seed-1012-ablated: tick=10000 living=0 born=90
+seed-1012-ablated: tick=15000 living=0 born=90
+seed-1012-ablated: tick=20000 living=0 born=90
+COMPLETE research/phase2/data/memory/seed-1012-ablated: living=0 tps=6620.0
+VERIFIED research/phase2/data/memory/seed-1012-ablated: 04cd3b84d6cc26f810567f256c83b53021f5c2179b108c0fcd9476dd34a3dafb
+seed-1012-enabled: tick=5000 living=377 born=983
+COMPLETE research/phase2/data/memory/seed-1011-enabled: living=337 tps=154.2
+VERIFIED research/phase2/data/memory/seed-1011-enabled: 77f11cc7ebb01c8e7db374a7ec5306dae36a0326ff56ab4c4be0f3f9ae801935
+seed-1013-ablated: tick=5000 living=0 born=86
+seed-1013-ablated: tick=10000 living=0 born=86
+seed-1013-ablated: tick=15000 living=0 born=86
+seed-1013-ablated: tick=20000 living=0 born=86
+COMPLETE research/phase2/data/memory/seed-1013-ablated: living=0 tps=8413.7
+VERIFIED research/phase2/data/memory/seed-1013-ablated: 3347085c296e2e10a93d32610c517226d1a0007536030c71941ff7d4e14b06a5
+seed-1013-enabled: tick=5000 living=354 born=976
+seed-1014-enabled: tick=5000 living=387 born=1021
+seed-1012-enabled: tick=10000 living=365 born=1940
+seed-1013-enabled: tick=10000 living=367 born=1931
+seed-1014-enabled: tick=10000 living=380 born=2038
+seed-1012-enabled: tick=15000 living=367 born=2940
+seed-1013-enabled: tick=15000 living=362 born=2912
+seed-1014-enabled: tick=15000 living=380 born=3065
+seed-02: tick=55000 living=359 born=10905
+seed-1012-enabled: tick=20000 living=372 born=3934
+COMPLETE research/phase2/data/memory/seed-1012-enabled: living=372 tps=156.5
+VERIFIED research/phase2/data/memory/seed-1012-enabled: b7585e390630434d24ca5f13ae5bbf94ae646e25a7b0c6d950c07d1a61eace29
+seed-1014-ablated: tick=5000 living=0 born=117
+seed-1014-ablated: tick=10000 living=0 born=117
+seed-1014-ablated: tick=15000 living=0 born=117
+seed-1014-ablated: tick=20000 living=0 born=117
+COMPLETE research/phase2/data/memory/seed-1014-ablated: living=0 tps=3904.4
+VERIFIED research/phase2/data/memory/seed-1014-ablated: 9bb3fe7bb40290c8c3c211b01fa796909a815c9c470e96696254821baff38c6f
+seed-1013-enabled: tick=20000 living=348 born=3869
+seed-1014-enabled: tick=20000 living=376 born=4086
+COMPLETE research/phase2/data/memory/seed-1013-enabled: living=348 tps=156.5
+VERIFIED research/phase2/data/memory/seed-1013-enabled: 7fbde2cf75300541a1bb3aa489a4c79c6e8390e3a9e2a796f4a06e496910d4f5
+seed-1015-ablated: tick=5000 living=0 born=98
+seed-1015-ablated: tick=10000 living=0 born=98
+seed-1015-ablated: tick=15000 living=0 born=98
+seed-1015-ablated: tick=20000 living=0 born=98
+COMPLETE research/phase2/data/memory/seed-1015-ablated: living=0 tps=5819.7
+VERIFIED research/phase2/data/memory/seed-1015-ablated: 9521e543877fcc79ae2315a5b6f10b925c2948e240a0fde6dc7e36670ac92727
+seed-1015-enabled: tick=5000 living=382 born=1018
+COMPLETE research/phase2/data/memory/seed-1014-enabled: living=376 tps=156.3
+VERIFIED research/phase2/data/memory/seed-1014-enabled: fd781df174c181f2acc932e5cb2d0e59aaa1ddf706f1c37aec70e02b0ed91ec0
+seed-1016-ablated: tick=5000 living=0 born=85
+seed-1016-ablated: tick=10000 living=0 born=85
+seed-1016-ablated: tick=15000 living=0 born=85
+seed-1016-ablated: tick=20000 living=0 born=85
+COMPLETE research/phase2/data/memory/seed-1016-ablated: living=0 tps=8081.1
+VERIFIED research/phase2/data/memory/seed-1016-ablated: c9b9033cc24c14451a39102095cd7fb674063738e46d7637546e0ca081130c21
+seed-01: tick=55000 living=383 born=11399
+seed-1016-enabled: tick=5000 living=353 born=991
+seed-1017-enabled: tick=5000 living=350 born=1046
+seed-03: tick=55000 living=385 born=11635
+seed-1015-enabled: tick=10000 living=378 born=2061
+seed-1016-enabled: tick=10000 living=355 born=1974
+seed-1017-enabled: tick=10000 living=345 born=2074
+seed-1015-enabled: tick=15000 living=376 born=3106
+seed-1016-enabled: tick=15000 living=367 born=2983
+seed-1017-enabled: tick=15000 living=359 born=3090
+seed-1015-enabled: tick=20000 living=364 born=4162
+COMPLETE research/phase2/data/memory/seed-1015-enabled: living=364 tps=154.4
+VERIFIED research/phase2/data/memory/seed-1015-enabled: 91c54c438d067bea35ba0ee00fd3c5a9abee71b460398fe225803b3f8564a169
+seed-1016-enabled: tick=20000 living=378 born=3952
+seed-1017-ablated: tick=5000 living=12 born=183
+seed-1017-ablated: tick=10000 living=0 born=185
+seed-1017-ablated: tick=15000 living=0 born=185
+seed-1017-ablated: tick=20000 living=0 born=185
+COMPLETE research/phase2/data/memory/seed-1017-ablated: living=0 tps=1924.1
+VERIFIED research/phase2/data/memory/seed-1017-ablated: fad6f42492ce6c94e313aac03e68f83fc2aa6f65e9063a8a6e8862dda49a3c2d
+seed-02: tick=60000 living=368 born=11924
+COMPLETE research/phase2/data/memory/seed-1016-enabled: living=378 tps=155.5
+VERIFIED research/phase2/data/memory/seed-1016-enabled: 876718ab501de4778058b832ddb5815616773d0ba533e57b5abc5817cb9a67ad
+seed-1017-enabled: tick=20000 living=355 born=4085
+seed-1018-ablated: tick=5000 living=0 born=79
+seed-1018-ablated: tick=10000 living=0 born=79
+seed-1018-ablated: tick=15000 living=0 born=79
+seed-1018-ablated: tick=20000 living=0 born=79
+COMPLETE research/phase2/data/memory/seed-1018-ablated: living=0 tps=10212.4
+VERIFIED research/phase2/data/memory/seed-1018-ablated: 6d8c18c7df950a0464acc7433d6fc8b9f0aacd05c163be0c703964252fccf08f
+COMPLETE research/phase2/data/memory/seed-1017-enabled: living=355 tps=152.6
+VERIFIED research/phase2/data/memory/seed-1017-enabled: 459f0f675e3a5f3a8a52834ee83f6b27f7568055a24eda46678366bd8f9c9fe0
+seed-1019-ablated: tick=5000 living=0 born=116
+seed-1019-ablated: tick=10000 living=0 born=116
+seed-1019-ablated: tick=15000 living=0 born=116
+seed-1019-ablated: tick=20000 living=0 born=116
+seed-1018-enabled: tick=5000 living=369 born=989
+COMPLETE research/phase2/data/memory/seed-1019-ablated: living=0 tps=4049.0
+VERIFIED research/phase2/data/memory/seed-1019-ablated: 60921c41ea5391262457aa2dc2edb39524822198c375103cfd90e24dbb4523db
+seed-1019-enabled: tick=5000 living=356 born=982
+seed-1020-enabled: tick=5000 living=361 born=977
+seed-1018-enabled: tick=10000 living=362 born=1975
+seed-1019-enabled: tick=10000 living=350 born=1972
+seed-01: tick=60000 living=381 born=12394
+seed-1020-enabled: tick=10000 living=354 born=1976
+seed-1018-enabled: tick=15000 living=342 born=2973
+seed-03: tick=60000 living=368 born=12707
+seed-1019-enabled: tick=15000 living=354 born=2935
+seed-1020-enabled: tick=15000 living=364 born=2981
+seed-1018-enabled: tick=20000 living=363 born=3952
+seed-1019-enabled: tick=20000 living=353 born=3915
+COMPLETE research/phase2/data/memory/seed-1018-enabled: living=363 tps=156.7
+VERIFIED research/phase2/data/memory/seed-1018-enabled: 9d4f8dd049fb79830d9f46cda37e60f2eb407fc689ddaa2c5def39fc7b9cb08e
+seed-1020-ablated: tick=5000 living=0 born=83
+seed-1020-ablated: tick=10000 living=0 born=83
+seed-1020-ablated: tick=15000 living=0 born=83
+seed-1020-ablated: tick=20000 living=0 born=83
+COMPLETE research/phase2/data/memory/seed-1020-ablated: living=0 tps=7362.5
+VERIFIED research/phase2/data/memory/seed-1020-ablated: ae4fe138a51b57acbcb878b92cf7dc3de4fea95ed7e7bdbd7a2234c03a9e46c0
+COMPLETE research/phase2/data/memory/seed-1019-enabled: living=353 tps=157.4
+VERIFIED research/phase2/data/memory/seed-1019-enabled: 11c3dd92bbabb124a99f8e353656aeb555fca8cdfa46dd1cf29ce9cdc146345a
+seed-1020-enabled: tick=20000 living=369 born=3968
+COMPLETE research/phase2/data/memory/seed-1020-enabled: living=369 tps=153.7
+VERIFIED research/phase2/data/memory/seed-1020-enabled: 7bf5ea7128d3446f6163aa09fee7d35847040d7ef5111dd5432b6611f0ba9cca
+seed-02: tick=65000 living=386 born=12977
+seed-01: tick=65000 living=386 born=13450
+seed-03: tick=65000 living=382 born=13793
+seed-02: tick=70000 living=382 born=14034
+seed-01: tick=70000 living=376 born=14468
+seed-03: tick=70000 living=380 born=14879
+seed-02: tick=75000 living=373 born=15106
+seed-01: tick=75000 living=376 born=15511
+seed-03: tick=75000 living=381 born=15988
+seed-02: tick=80000 living=363 born=16171
+seed-01: tick=80000 living=379 born=16588
+seed-03: tick=80000 living=380 born=17087
+seed-02: tick=85000 living=381 born=17232
+seed-01: tick=85000 living=375 born=17661
+seed-03: tick=85000 living=381 born=18183
+seed-02: tick=90000 living=389 born=18306
+seed-01: tick=90000 living=393 born=18727
+seed-03: tick=90000 living=374 born=19302
+seed-02: tick=95000 living=378 born=19351
+seed-01: tick=95000 living=377 born=19780
+seed-03: tick=95000 living=387 born=20406
+seed-02: tick=100000 living=387 born=20429
+COMPLETE research/phase2/data/endurance/seed-02: living=387 tps=21.0
+VERIFIED research/phase2/data/endurance/seed-02: 5b1e8f9d58d9853ac4d54858c8ae516a9356f6ef8003369461e15e7df574dd20
+seed-01: tick=100000 living=373 born=20852
+seed-03: tick=100000 living=368 born=21498
+COMPLETE research/phase2/data/endurance/seed-01: living=373 tps=20.2
+VERIFIED research/phase2/data/endurance/seed-01: 548f4cf0aa0e8a1332587bdbf47fb02fb51608724e21a476ba8fc7af52e1dd0f
+COMPLETE research/phase2/data/endurance/seed-03: living=368 tps=19.8
+VERIFIED research/phase2/data/endurance/seed-03: bb95a69f4aed9ff53e3ec0db48b319687c580ce9bf6b27d640b1167659dbce33
+SCIENCE COMPLETE

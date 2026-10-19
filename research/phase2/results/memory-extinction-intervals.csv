@@ -1,0 +1,3 @@
+memory,extinct_worlds,n_worlds,fraction,binomial_95_low,binomial_95_high,interpretation
+enabled,0,20,0.0,0.0,0.1684334709830853,Exploratory within-condition binomial reference; not paired risk-difference CI
+ablated,20,20,1.0,0.8315665290169147,1.0,Exploratory within-condition binomial reference; not paired risk-difference CI

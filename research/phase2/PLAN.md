@@ -33,7 +33,10 @@ research files, core source and original tests. New controls live under research
 
 ## Progress
 
-Controls passed 16 initial tests; a namespace-collision regression passed after the
-pilot telemetry failure was documented and corrected. Corrected pilots completed.
-Pilot assessment and the uncontended B campaign are underway. Statistical analysis
-is implemented before A outcomes; it uses world-seed paired resampling, not agents.
+Steps 1–7 complete: 40 A runs, 15 B runs and three original 100,000-tick C
+worlds; full replay checks, six midpoint/final checkpoint continuation checks,
+all 58 archives independently reconciled, and all 52 tests passed. Eight quiet
+late-window timing cases and the ordinary save probe completed. Scientific
+source hashes and all historical baseline/Phase 1 files remain unchanged.
+Step 8 publishes the verified compact bundle and checksums with the final
+results commit identified by the `phase2-verified` tag.

@@ -1,0 +1,21 @@
+{
+  "cpu_models": [
+    "AMD Ryzen 7 3800X 8-Core Processor"
+  ],
+  "dependencies": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.4",
+    "pygame-ce": "2.5.8",
+    "pytest": "9.1.1",
+    "scipy": "1.18.1"
+  },
+  "executable": "/home/zerkol/gnome-fortress/.venv/bin/python",
+  "logical_cpus": 16,
+  "mem_total": "MemTotal:       65740500 kB",
+  "note": "Metadata captured during endurance campaign. Benchmarks are sequential fresh processes; OS background load, frequency and thermals were not forcibly controlled. No GPU computation.",
+  "os_release": "PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\n",
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "recorded_at": "2026-10-19",
+  "sqlite": "3.46.1"
+}

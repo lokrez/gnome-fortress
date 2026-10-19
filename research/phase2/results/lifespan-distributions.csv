@@ -1,0 +1,233 @@
+study,run,seed,memory,slots,cohort,status,count,biological_age_min,biological_age_q10,biological_age_median,biological_age_q90,biological_age_max,observed_time_min,observed_time_q10,observed_time_median,observed_time_q90,observed_time_max
+memory,seed-1001-ablated,1001,ablated,60,founder,completed death,60,231.0,360.7,723.5,1619.3,2411.0,25.0,184.6,488.0,1394.0,2170.0
+memory,seed-1001-ablated,1001,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1001-ablated,1001,ablated,60,offspring,completed death,30,36.0,208.6,681.5,997.7,1331.0,36.0,208.6,681.5,997.7,1331.0
+memory,seed-1001-ablated,1001,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1001-enabled,1001,enabled,60,founder,completed death,60,1880.0,2073.6,2346.0,2652.0,2748.0,1647.0,1864.7,2126.0,2401.3,2556.0
+memory,seed-1001-enabled,1001,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1001-enabled,1001,enabled,60,offspring,completed death,3555,140.0,558.0,2244.0,2484.0,2832.0,140.0,558.0,2244.0,2484.0,2832.0
+memory,seed-1001-enabled,1001,enabled,60,offspring,right censored alive,363,7.0,137.60000000000002,1049.0,2026.8000000000002,2406.0,7.0,137.60000000000002,1049.0,2026.8000000000002,2406.0
+memory,seed-1002-ablated,1002,ablated,60,founder,completed death,60,175.0,349.6,723.0,1490.0,2157.0,38.0,182.4,518.0,1286.7,1886.0
+memory,seed-1002-ablated,1002,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1002-ablated,1002,ablated,60,offspring,completed death,28,38.0,231.4,494.5,993.0000000000001,1691.0,38.0,231.4,494.5,993.0000000000001,1691.0
+memory,seed-1002-ablated,1002,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1002-enabled,1002,enabled,60,founder,completed death,60,2040.0,2100.0,2376.0,2665.2,2760.0,1818.0,1905.9,2202.0,2462.9,2613.0
+memory,seed-1002-enabled,1002,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1002-enabled,1002,enabled,60,offspring,completed death,3586,124.0,549.0,2244.0,2508.0,2784.0,124.0,549.0,2244.0,2508.0,2784.0
+memory,seed-1002-enabled,1002,enabled,60,offspring,right censored alive,382,2.0,189.9,966.5,2070.5,2549.0,2.0,189.9,966.5,2070.5,2549.0
+memory,seed-1003-ablated,1003,ablated,60,founder,completed death,60,243.0,434.1,752.0,1130.7,2128.0,22.0,204.4,536.5,869.6000000000001,1985.0
+memory,seed-1003-ablated,1003,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1003-ablated,1003,ablated,60,offspring,completed death,31,208.0,253.0,540.0,989.0,1730.0,208.0,253.0,540.0,989.0,1730.0
+memory,seed-1003-ablated,1003,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1003-enabled,1003,enabled,60,founder,completed death,60,1952.0,2136.5,2460.0,2700.0,2748.0,1778.0,1871.6,2242.0,2477.2,2581.0
+memory,seed-1003-enabled,1003,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1003-enabled,1003,enabled,60,offspring,completed death,3497,145.0,580.8000000000001,2340.0,2604.0,2856.0,145.0,580.8000000000001,2340.0,2604.0,2856.0
+memory,seed-1003-enabled,1003,enabled,60,offspring,right censored alive,381,2.0,202.0,1080.0,2142.0,2558.0,2.0,202.0,1080.0,2142.0,2558.0
+memory,seed-1004-ablated,1004,ablated,60,founder,completed death,60,192.0,421.40000000000003,727.0,1289.6000000000001,2160.0,39.0,182.5,493.0,1075.7,2005.0
+memory,seed-1004-ablated,1004,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1004-ablated,1004,ablated,60,offspring,completed death,31,101.0,212.0,669.0,1266.0,1651.0,101.0,212.0,669.0,1266.0,1651.0
+memory,seed-1004-ablated,1004,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1004-enabled,1004,enabled,60,founder,completed death,60,1854.0,2088.0,2298.0,2676.0,2736.0,1692.0,1896.8,2098.5,2459.1,2579.0
+memory,seed-1004-enabled,1004,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1004-enabled,1004,enabled,60,offspring,completed death,3619,156.0,544.8,2220.0,2520.0,2796.0,156.0,544.8,2220.0,2520.0,2796.0
+memory,seed-1004-enabled,1004,enabled,60,offspring,right censored alive,354,2.0,188.30000000000004,999.0,2016.7,2554.0,2.0,188.30000000000004,999.0,2016.7,2554.0
+memory,seed-1005-ablated,1005,ablated,60,founder,completed death,60,253.0,323.4,675.5,1188.3000000000002,1769.0,39.0,139.10000000000002,434.5,1015.5,1643.0
+memory,seed-1005-ablated,1005,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1005-ablated,1005,ablated,60,offspring,completed death,32,31.0,182.3,531.5,1174.7,1474.0,31.0,182.3,531.5,1174.7,1474.0
+memory,seed-1005-ablated,1005,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1005-enabled,1005,enabled,60,founder,completed death,60,210.0,739.0000000000001,2304.0,2630.4,2748.0,31.0,520.8000000000001,2118.5,2419.7000000000003,2566.0
+memory,seed-1005-enabled,1005,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1005-enabled,1005,enabled,60,offspring,completed death,3599,147.0,557.0,2244.0,2508.0,2760.0,147.0,557.0,2244.0,2508.0,2760.0
+memory,seed-1005-enabled,1005,enabled,60,offspring,right censored alive,374,0.0,176.3,993.5,2067.1,2550.0,0.0,176.3,993.5,2067.1,2550.0
+memory,seed-1006-ablated,1006,ablated,60,founder,completed death,60,195.0,299.8,527.0,1053.0,2520.0,22.0,108.4,320.0,874.0,2381.0
+memory,seed-1006-ablated,1006,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1006-ablated,1006,ablated,60,offspring,completed death,23,53.0,123.2,285.0,773.8000000000001,1486.0,53.0,123.2,285.0,773.8000000000001,1486.0
+memory,seed-1006-ablated,1006,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1006-enabled,1006,enabled,60,founder,completed death,60,322.0,2075.7,2304.0,2691.6,2760.0,25.0,1848.3,2114.5,2480.7,2591.0
+memory,seed-1006-enabled,1006,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1006-enabled,1006,enabled,60,offspring,completed death,3417,124.0,579.2,2304.0,2580.0,2832.0,124.0,579.2,2304.0,2580.0,2832.0
+memory,seed-1006-enabled,1006,enabled,60,offspring,right censored alive,377,6.0,212.60000000000002,1080.0,2094.2000000000003,2583.0,6.0,212.60000000000002,1080.0,2094.2000000000003,2583.0
+memory,seed-1007-ablated,1007,ablated,60,founder,completed death,60,246.0,319.3,815.5,1774.4,2532.0,19.0,93.4,659.5,1480.9000000000003,2371.0
+memory,seed-1007-ablated,1007,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1007-ablated,1007,ablated,60,offspring,completed death,64,53.0,268.6,638.5,1736.9000000000003,2436.0,53.0,268.6,638.5,1736.9000000000003,2436.0
+memory,seed-1007-ablated,1007,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1007-enabled,1007,enabled,60,founder,completed death,60,306.0,2076.0,2346.0,2642.4,2760.0,36.0,1835.2,2126.0,2462.1,2590.0
+memory,seed-1007-enabled,1007,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1007-enabled,1007,enabled,60,offspring,completed death,3654,148.0,537.5,2196.0,2460.0,2688.0,148.0,537.5,2196.0,2460.0,2688.0
+memory,seed-1007-enabled,1007,enabled,60,offspring,right censored alive,354,8.0,173.9,936.5,2004.7999999999997,2362.0,8.0,173.9,936.5,2004.7999999999997,2362.0
+memory,seed-1008-ablated,1008,ablated,60,founder,completed death,60,226.0,375.9,594.5,857.7,1576.0,30.0,194.8,368.0,641.6,1365.0
+memory,seed-1008-ablated,1008,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1008-ablated,1008,ablated,60,offspring,completed death,22,90.0,113.9,377.0,596.9,951.0,90.0,113.9,377.0,596.9,951.0
+memory,seed-1008-ablated,1008,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1008-enabled,1008,enabled,60,founder,completed death,60,1442.0,2052.0,2364.0,2653.2,2700.0,1314.0,1860.1,2154.0,2431.2,2487.0
+memory,seed-1008-enabled,1008,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1008-enabled,1008,enabled,60,offspring,completed death,3621,140.0,519.0,2232.0,2520.0,2820.0,140.0,519.0,2232.0,2520.0,2820.0
+memory,seed-1008-enabled,1008,enabled,60,offspring,right censored alive,367,4.0,228.4,998.0,1973.2000000000005,2514.0,4.0,228.4,998.0,1973.2000000000005,2514.0
+memory,seed-1009-ablated,1009,ablated,60,founder,completed death,60,271.0,383.0,780.5,1367.6000000000001,2226.0,109.0,170.7,590.5,1090.5000000000002,2057.0
+memory,seed-1009-ablated,1009,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1009-ablated,1009,ablated,60,offspring,completed death,44,161.0,236.3,669.5,1363.6,1665.0,161.0,236.3,669.5,1363.6,1665.0
+memory,seed-1009-ablated,1009,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1009-enabled,1009,enabled,60,founder,completed death,60,306.0,2052.0,2352.0,2628.8,2760.0,153.0,1816.0,2151.0,2438.5,2637.0
+memory,seed-1009-enabled,1009,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1009-enabled,1009,enabled,60,offspring,completed death,3626,150.0,545.0,2208.0,2472.0,2760.0,150.0,545.0,2208.0,2472.0,2760.0
+memory,seed-1009-enabled,1009,enabled,60,offspring,right censored alive,356,2.0,154.5,1046.5,2028.0,2523.0,2.0,154.5,1046.5,2028.0,2523.0
+memory,seed-1010-ablated,1010,ablated,60,founder,completed death,60,198.0,332.6,509.5,993.7000000000002,1306.0,31.0,117.9,294.5,808.3,1113.0
+memory,seed-1010-ablated,1010,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1010-ablated,1010,ablated,60,offspring,completed death,19,86.0,117.4,400.0,564.8,1029.0,86.0,117.4,400.0,564.8,1029.0
+memory,seed-1010-ablated,1010,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1010-enabled,1010,enabled,60,founder,completed death,60,229.0,1566.0000000000002,2298.0,2605.2,2760.0,66.0,1409.3000000000002,2075.0,2401.0,2511.0
+memory,seed-1010-enabled,1010,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1010-enabled,1010,enabled,60,offspring,completed death,3596,145.0,547.0,2208.0,2460.0,2736.0,145.0,547.0,2208.0,2460.0,2736.0
+memory,seed-1010-enabled,1010,enabled,60,offspring,right censored alive,369,1.0,206.60000000000002,980.0,2061.2,2543.0,1.0,206.60000000000002,980.0,2061.2,2543.0
+memory,seed-1011-ablated,1011,ablated,60,founder,completed death,60,164.0,371.40000000000003,824.5,1586.3,2400.0,15.0,185.3,571.5,1446.3,2168.0
+memory,seed-1011-ablated,1011,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1011-ablated,1011,ablated,60,offspring,completed death,59,61.0,231.8,615.0,1282.6000000000006,2400.0,61.0,231.8,615.0,1282.6000000000006,2400.0
+memory,seed-1011-ablated,1011,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1011-enabled,1011,enabled,60,founder,completed death,60,596.0,1131.8,2214.0,2630.4,2748.0,378.0,911.8000000000001,1996.5,2461.1,2545.0
+memory,seed-1011-enabled,1011,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1011-enabled,1011,enabled,60,offspring,completed death,3462,24.0,536.1,2196.0,2520.0,2952.0,24.0,536.1,2196.0,2520.0,2952.0
+memory,seed-1011-enabled,1011,enabled,60,offspring,right censored alive,337,12.0,196.2,1032.0,2074.8,2547.0,12.0,196.2,1032.0,2074.8,2547.0
+memory,seed-1012-ablated,1012,ablated,60,founder,completed death,60,285.0,436.6,704.0,1074.7,2112.0,137.0,256.0,491.5,869.2,1844.0
+memory,seed-1012-ablated,1012,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1012-ablated,1012,ablated,60,offspring,completed death,30,89.0,189.4,509.0,1638.9,1780.0,89.0,189.4,509.0,1638.9,1780.0
+memory,seed-1012-ablated,1012,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1012-enabled,1012,enabled,60,founder,completed death,60,540.0,2040.0,2322.0,2724.0,2760.0,309.0,1809.9,2091.5,2528.2,2604.0
+memory,seed-1012-enabled,1012,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1012-enabled,1012,enabled,60,offspring,completed death,3502,99.0,581.1,2268.0,2508.0,2736.0,99.0,581.1,2268.0,2508.0,2736.0
+memory,seed-1012-enabled,1012,enabled,60,offspring,right censored alive,372,6.0,190.0,1035.0,2125.0000000000005,2598.0,6.0,190.0,1035.0,2125.0000000000005,2598.0
+memory,seed-1013-ablated,1013,ablated,60,founder,completed death,60,218.0,431.8,622.0,943.0,1370.0,56.0,220.3,405.5,706.9,1086.0
+memory,seed-1013-ablated,1013,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1013-ablated,1013,ablated,60,offspring,completed death,26,168.0,209.0,391.5,806.5,1254.0,168.0,209.0,391.5,806.5,1254.0
+memory,seed-1013-ablated,1013,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1013-enabled,1013,enabled,60,founder,completed death,60,2040.0,2124.0,2382.0,2713.2,2760.0,1759.0,1878.5,2198.5,2499.3,2552.0
+memory,seed-1013-enabled,1013,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1013-enabled,1013,enabled,60,offspring,completed death,3461,130.0,563.0,2276.0,2544.0,2784.0,130.0,563.0,2276.0,2544.0,2784.0
+memory,seed-1013-enabled,1013,enabled,60,offspring,right censored alive,348,0.0,154.4,1044.5,2111.7000000000003,2605.0,0.0,154.4,1044.5,2111.7000000000003,2605.0
+memory,seed-1014-ablated,1014,ablated,60,founder,completed death,60,325.0,540.9,875.0,1688.9,2201.0,92.0,336.8,695.0,1526.1000000000001,2046.0
+memory,seed-1014-ablated,1014,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1014-ablated,1014,ablated,60,offspring,completed death,57,90.0,272.40000000000003,615.0,1490.9999999999995,2472.0,90.0,272.40000000000003,615.0,1490.9999999999995,2472.0
+memory,seed-1014-ablated,1014,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1014-enabled,1014,enabled,60,founder,completed death,60,361.0,2086.8,2292.0,2594.4,2748.0,107.0,1880.1,2094.0,2406.6,2600.0
+memory,seed-1014-enabled,1014,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1014-enabled,1014,enabled,60,offspring,completed death,3650,152.0,560.0,2256.0,2496.0,2796.0,152.0,560.0,2256.0,2496.0,2796.0
+memory,seed-1014-enabled,1014,enabled,60,offspring,right censored alive,376,7.0,166.5,999.5,2013.5,2432.0,7.0,166.5,999.5,2013.5,2432.0
+memory,seed-1015-ablated,1015,ablated,60,founder,completed death,60,296.0,486.9,841.0,1350.7,1986.0,161.0,268.8,654.5,1134.5,1810.0
+memory,seed-1015-ablated,1015,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1015-ablated,1015,ablated,60,offspring,completed death,38,136.0,206.7,569.0,1110.2,1430.0,136.0,206.7,569.0,1110.2,1430.0
+memory,seed-1015-ablated,1015,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1015-enabled,1015,enabled,60,founder,completed death,60,2088.0,2124.0,2423.0,2628.0,2760.0,1813.0,1924.6,2191.5,2433.4,2600.0
+memory,seed-1015-enabled,1015,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1015-enabled,1015,enabled,60,offspring,completed death,3738,151.0,542.7,2238.5,2520.0,2808.0,151.0,542.7,2238.5,2520.0,2808.0
+memory,seed-1015-enabled,1015,enabled,60,offspring,right censored alive,364,1.0,180.60000000000002,957.5,2057.2,2594.0,1.0,180.60000000000002,957.5,2057.2,2594.0
+memory,seed-1016-ablated,1016,ablated,60,founder,completed death,60,213.0,333.2,634.5,994.9,1721.0,28.0,117.5,386.5,761.8000000000001,1516.0
+memory,seed-1016-ablated,1016,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1016-ablated,1016,ablated,60,offspring,completed death,25,114.0,187.20000000000002,502.0,1175.8000000000004,1315.0,114.0,187.20000000000002,502.0,1175.8000000000004,1315.0
+memory,seed-1016-ablated,1016,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1016-enabled,1016,enabled,60,founder,completed death,60,1217.0,2098.8,2286.0,2593.2,2760.0,918.0,1841.1,2107.0,2418.0,2561.0
+memory,seed-1016-enabled,1016,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1016-enabled,1016,enabled,60,offspring,completed death,3514,140.0,583.9000000000001,2196.0,2448.0,2772.0,140.0,583.9000000000001,2196.0,2448.0,2772.0
+memory,seed-1016-enabled,1016,enabled,60,offspring,right censored alive,378,1.0,139.60000000000002,1027.5,2041.2,2519.0,1.0,139.60000000000002,1027.5,2041.2,2519.0
+memory,seed-1017-ablated,1017,ablated,60,founder,completed death,60,340.0,509.1,1001.5,1827.2000000000003,2624.0,91.0,338.1,791.5,1627.7000000000003,2381.0
+memory,seed-1017-ablated,1017,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1017-ablated,1017,ablated,60,offspring,completed death,125,184.0,344.0,1079.0,1968.6000000000001,2628.0,184.0,344.0,1079.0,1968.6000000000001,2628.0
+memory,seed-1017-ablated,1017,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1017-enabled,1017,enabled,60,founder,completed death,60,326.0,2040.0,2286.0,2664.0,2748.0,176.0,1835.1,2098.0,2459.9,2568.0
+memory,seed-1017-enabled,1017,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1017-enabled,1017,enabled,60,offspring,completed death,3670,140.0,509.90000000000003,2112.0,2484.0,2772.0,140.0,509.90000000000003,2112.0,2484.0,2772.0
+memory,seed-1017-enabled,1017,enabled,60,offspring,right censored alive,355,0.0,134.0,930.0,2063.0,2491.0,0.0,134.0,930.0,2063.0,2491.0
+memory,seed-1018-ablated,1018,ablated,60,founder,completed death,60,162.0,329.6,603.0,912.6,1364.0,35.0,121.9,367.5,698.7,1166.0
+memory,seed-1018-ablated,1018,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1018-ablated,1018,ablated,60,offspring,completed death,19,122.0,154.2,428.0,727.1999999999999,1539.0,122.0,154.2,428.0,727.1999999999999,1539.0
+memory,seed-1018-ablated,1018,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1018-enabled,1018,enabled,60,founder,completed death,60,300.0,1248.3000000000002,2370.0,2736.0,2760.0,121.0,1015.9000000000001,2146.0,2515.7,2617.0
+memory,seed-1018-enabled,1018,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1018-enabled,1018,enabled,60,offspring,completed death,3529,120.0,506.0,2244.0,2556.0,2892.0,120.0,506.0,2244.0,2556.0,2892.0
+memory,seed-1018-enabled,1018,enabled,60,offspring,right censored alive,363,1.0,224.8,1010.0,2157.6000000000004,2634.0,1.0,224.8,1010.0,2157.6000000000004,2634.0
+memory,seed-1019-ablated,1019,ablated,60,founder,completed death,60,231.0,497.5,814.0,1433.2,2136.0,28.0,295.0,620.0,1252.1,1904.0
+memory,seed-1019-ablated,1019,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1019-ablated,1019,ablated,60,offspring,completed death,56,128.0,204.5,667.5,1585.0,2274.0,128.0,204.5,667.5,1585.0,2274.0
+memory,seed-1019-ablated,1019,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1019-enabled,1019,enabled,60,founder,completed death,60,233.0,2033.0,2292.5,2667.6,2760.0,30.0,1795.8,2107.5,2480.0,2622.0
+memory,seed-1019-enabled,1019,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1019-enabled,1019,enabled,60,offspring,completed death,3502,140.0,555.1,2220.0,2496.0,2712.0,140.0,555.1,2220.0,2496.0,2712.0
+memory,seed-1019-enabled,1019,enabled,60,offspring,right censored alive,353,9.0,197.20000000000002,1045.0,2131.6000000000004,2454.0,9.0,197.20000000000002,1045.0,2131.6000000000004,2454.0
+memory,seed-1020-ablated,1020,ablated,60,founder,completed death,60,168.0,354.5,708.0,1354.0,1705.0,39.0,169.4,454.5,1120.6,1535.0
+memory,seed-1020-ablated,1020,ablated,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1020-ablated,1020,ablated,60,offspring,completed death,23,118.0,190.4,479.0,822.4000000000001,1561.0,118.0,190.4,479.0,822.4000000000001,1561.0
+memory,seed-1020-ablated,1020,ablated,60,offspring,right censored alive,0,,,,,,,,,,
+memory,seed-1020-enabled,1020,enabled,60,founder,completed death,60,399.0,2050.8,2341.0,2676.0,2760.0,262.0,1830.5,2146.0,2481.7,2620.0
+memory,seed-1020-enabled,1020,enabled,60,founder,right censored alive,0,,,,,,,,,,
+memory,seed-1020-enabled,1020,enabled,60,offspring,completed death,3539,151.0,589.6,2208.0,2472.0,2784.0,151.0,589.6,2208.0,2472.0,2784.0
+memory,seed-1020-enabled,1020,enabled,60,offspring,right censored alive,369,7.0,209.20000000000002,1048.0,2069.4,2440.0,7.0,209.20000000000002,1048.0,2069.4,2440.0
+scaling,seed-11-slots-120,11,enabled,120,founder,completed death,60,335.0,2050.8,2282.0,2665.2,2760.0,39.0,1813.0,2090.0,2413.4,2602.0
+scaling,seed-11-slots-120,11,enabled,120,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-11-slots-120,11,enabled,120,offspring,completed death,303,106.0,330.8,962.0,2250.4,2664.0,106.0,330.8,962.0,2250.4,2664.0
+scaling,seed-11-slots-120,11,enabled,120,offspring,right censored alive,540,2.0,139.9,936.0,1853.3000000000002,2470.0,2.0,139.9,936.0,1853.3000000000002,2470.0
+scaling,seed-11-slots-240,11,enabled,240,founder,completed death,60,335.0,1582.2,2220.0,2665.2,2760.0,39.0,1362.6000000000001,2039.5,2416.1,2602.0
+scaling,seed-11-slots-240,11,enabled,240,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-11-slots-240,11,enabled,240,offspring,completed death,494,45.0,293.6,864.5,2172.0,2724.0,45.0,293.6,864.5,2172.0,2724.0
+scaling,seed-11-slots-240,11,enabled,240,offspring,right censored alive,653,1.0,112.0,750.0,1690.6000000000001,2470.0,1.0,112.0,750.0,1690.6000000000001,2470.0
+scaling,seed-11-slots-480,11,enabled,480,founder,completed death,60,335.0,1558.8000000000002,2220.0,2552.4,2760.0,39.0,1326.6000000000001,2037.0,2406.6,2602.0
+scaling,seed-11-slots-480,11,enabled,480,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-11-slots-480,11,enabled,480,offspring,completed death,577,52.0,242.6,652.0,1934.6,2724.0,52.0,242.6,652.0,1934.6,2724.0
+scaling,seed-11-slots-480,11,enabled,480,offspring,right censored alive,746,0.0,82.0,640.5,1646.5,2470.0,0.0,82.0,640.5,1646.5,2470.0
+scaling,seed-11-slots-60,11,enabled,60,founder,completed death,60,801.0,2050.8,2310.0,2630.4,2760.0,653.0,1815.3,2099.5,2419.7,2602.0
+scaling,seed-11-slots-60,11,enabled,60,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-11-slots-60,11,enabled,60,offspring,completed death,173,208.0,471.6,1384.0,2364.0,2592.0,208.0,471.6,1384.0,2364.0,2592.0
+scaling,seed-11-slots-60,11,enabled,60,offspring,right censored alive,363,3.0,198.60000000000005,1073.0,1993.4,2456.0,3.0,198.60000000000005,1073.0,1993.4,2456.0
+scaling,seed-11-slots-960,11,enabled,960,founder,completed death,60,335.0,1558.8000000000002,2220.0,2533.2,2736.0,39.0,1326.6000000000001,2039.5,2347.7,2600.0
+scaling,seed-11-slots-960,11,enabled,960,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-11-slots-960,11,enabled,960,offspring,completed death,594,30.0,180.60000000000002,548.5,1782.5000000000002,2724.0,30.0,180.60000000000002,548.5,1782.5000000000002,2724.0
+scaling,seed-11-slots-960,11,enabled,960,offspring,right censored alive,770,0.0,89.80000000000001,660.5,1667.7000000000003,2470.0,0.0,89.80000000000001,660.5,1667.7000000000003,2470.0
+scaling,seed-12-slots-120,12,enabled,120,founder,completed death,60,401.0,2074.8,2340.0,2666.4,2760.0,182.0,1875.8,2133.0,2452.0,2552.0
+scaling,seed-12-slots-120,12,enabled,120,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-12-slots-120,12,enabled,120,offspring,completed death,310,37.0,334.9,977.5,2294.4000000000005,2724.0,37.0,334.9,977.5,2294.4000000000005,2724.0
+scaling,seed-12-slots-120,12,enabled,120,offspring,right censored alive,530,0.0,166.9,973.0,1903.0,2517.0,0.0,166.9,973.0,1903.0,2517.0
+scaling,seed-12-slots-240,12,enabled,240,founder,completed death,60,401.0,2064.0,2363.0,2643.9,2760.0,182.0,1842.4,2147.0,2454.1,2552.0
+scaling,seed-12-slots-240,12,enabled,240,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-12-slots-240,12,enabled,240,offspring,completed death,479,36.0,299.6,846.0,2138.2,2616.0,36.0,299.6,846.0,2138.2,2616.0
+scaling,seed-12-slots-240,12,enabled,240,offspring,right censored alive,654,0.0,146.6,794.5,1762.4,2704.0,0.0,146.6,794.5,1762.4,2704.0
+scaling,seed-12-slots-480,12,enabled,480,founder,completed death,60,401.0,2060.8,2274.0,2666.4,2760.0,182.0,1827.1,2091.5,2473.2,2536.0
+scaling,seed-12-slots-480,12,enabled,480,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-12-slots-480,12,enabled,480,offspring,completed death,566,15.0,175.5,607.5,2031.0,2688.0,15.0,175.5,607.5,2031.0,2688.0
+scaling,seed-12-slots-480,12,enabled,480,offspring,right censored alive,729,1.0,96.0,675.0,1705.0000000000002,2704.0,1.0,96.0,675.0,1705.0000000000002,2704.0
+scaling,seed-12-slots-60,12,enabled,60,founder,completed death,60,279.0,2074.8,2340.0,2689.2,2760.0,79.0,1875.8,2141.5,2456.1,2552.0
+scaling,seed-12-slots-60,12,enabled,60,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-12-slots-60,12,enabled,60,offspring,completed death,170,173.0,506.50000000000017,1215.0,2412.0,2652.0,173.0,506.50000000000017,1215.0,2412.0,2652.0
+scaling,seed-12-slots-60,12,enabled,60,offspring,right censored alive,378,3.0,182.90000000000003,1053.0,2009.5,2691.0,3.0,182.90000000000003,1053.0,2009.5,2691.0
+scaling,seed-12-slots-960,12,enabled,960,founder,completed death,60,401.0,2060.6,2323.0,2630.4,2724.0,182.0,1825.3,2140.0,2433.1,2500.0
+scaling,seed-12-slots-960,12,enabled,960,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-12-slots-960,12,enabled,960,offspring,completed death,585,9.0,161.80000000000004,558.0,1873.0000000000007,2724.0,9.0,161.80000000000004,558.0,1873.0000000000007,2724.0
+scaling,seed-12-slots-960,12,enabled,960,offspring,right censored alive,736,2.0,87.5,651.5,1661.5,2680.0,2.0,87.5,651.5,1661.5,2680.0
+scaling,seed-13-slots-120,13,enabled,120,founder,completed death,60,1904.0,2122.8,2334.0,2664.0,2760.0,1628.0,1894.9,2126.0,2478.5,2577.0
+scaling,seed-13-slots-120,13,enabled,120,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-13-slots-120,13,enabled,120,offspring,completed death,337,174.0,360.6,993.0,2188.8,2652.0,174.0,360.6,993.0,2188.8,2652.0
+scaling,seed-13-slots-120,13,enabled,120,offspring,right censored alive,516,3.0,143.5,871.5,1883.5,2574.0,3.0,143.5,871.5,1883.5,2574.0
+scaling,seed-13-slots-240,13,enabled,240,founder,completed death,60,2040.0,2122.8,2328.0,2664.0,2760.0,1823.0,1896.8,2113.5,2464.5,2577.0
+scaling,seed-13-slots-240,13,enabled,240,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-13-slots-240,13,enabled,240,offspring,completed death,543,27.0,286.2,796.0,1992.0000000000005,2652.0,27.0,286.2,796.0,1992.0000000000005,2652.0
+scaling,seed-13-slots-240,13,enabled,240,offspring,right censored alive,628,1.0,122.7,755.5,1764.0000000000014,2521.0,1.0,122.7,755.5,1764.0000000000014,2521.0
+scaling,seed-13-slots-480,13,enabled,480,founder,completed death,60,1793.0,2061.6,2328.0,2653.2,2736.0,1604.0,1861.8,2115.5,2435.6,2577.0
+scaling,seed-13-slots-480,13,enabled,480,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-13-slots-480,13,enabled,480,offspring,completed death,563,33.0,216.2,652.0,1883.6000000000001,2616.0,33.0,216.2,652.0,1883.6000000000001,2616.0
+scaling,seed-13-slots-480,13,enabled,480,offspring,right censored alive,742,1.0,130.10000000000002,672.5,1731.3999999999999,2574.0,1.0,130.10000000000002,672.5,1731.3999999999999,2574.0
+scaling,seed-13-slots-60,13,enabled,60,founder,completed death,60,1777.0,2061.6,2334.0,2664.0,2760.0,1583.0,1874.8,2117.5,2463.5,2577.0
+scaling,seed-13-slots-60,13,enabled,60,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-13-slots-60,13,enabled,60,offspring,completed death,177,153.0,377.0,1226.0,2412.0,2688.0,153.0,377.0,1226.0,2412.0,2688.0
+scaling,seed-13-slots-60,13,enabled,60,offspring,right censored alive,373,0.0,180.0,1011.0,2046.6000000000001,2513.0,0.0,180.0,1011.0,2046.6000000000001,2513.0
+scaling,seed-13-slots-960,13,enabled,960,founder,completed death,60,1793.0,2076.9,2334.5,2619.6,2760.0,1604.0,1892.2,2142.5,2451.3,2577.0
+scaling,seed-13-slots-960,13,enabled,960,founder,right censored alive,0,,,,,,,,,,
+scaling,seed-13-slots-960,13,enabled,960,offspring,completed death,618,18.0,204.0,658.0,1866.500000000001,2520.0,18.0,204.0,658.0,1866.500000000001,2520.0
+scaling,seed-13-slots-960,13,enabled,960,offspring,right censored alive,695,1.0,130.4,715.0,1564.0,2500.0,1.0,130.4,715.0,1564.0,2500.0
+endurance,seed-01,1,enabled,60,founder,completed death,60,207.0,2040.0,2304.0,2617.2,2748.0,54.0,1835.3,2079.5,2421.9,2573.0
+endurance,seed-01,1,enabled,60,founder,right censored alive,0,,,,,,,,,,
+endurance,seed-01,1,enabled,60,offspring,completed death,20419,129.0,514.0,2212.0,2580.0,2940.0,129.0,514.0,2212.0,2580.0,2940.0
+endurance,seed-01,1,enabled,60,offspring,right censored alive,373,3.0,165.2,966.0,2206.8,2728.0,3.0,165.2,966.0,2206.8,2728.0
+endurance,seed-02,2,enabled,60,founder,completed death,60,697.0,2050.8,2286.0,2680.8,2760.0,429.0,1791.9,2098.5,2481.1,2621.0
+endurance,seed-02,2,enabled,60,founder,right censored alive,0,,,,,,,,,,
+endurance,seed-02,2,enabled,60,offspring,completed death,19982,99.0,538.1000000000001,2220.0,2520.0,2784.0,99.0,538.1000000000001,2220.0,2520.0,2784.0
+endurance,seed-02,2,enabled,60,offspring,right censored alive,387,5.0,188.4,979.0,2095.0,2543.0,5.0,188.4,979.0,2095.0,2543.0
+endurance,seed-03,3,enabled,60,founder,completed death,60,1988.0,2086.8,2334.0,2667.6,2736.0,1798.0,1887.8,2118.5,2456.1,2568.0
+endurance,seed-03,3,enabled,60,founder,right censored alive,0,,,,,,,,,,
+endurance,seed-03,3,enabled,60,offspring,completed death,21070,126.0,521.0,2208.0,2484.0,2760.0,126.0,521.0,2208.0,2484.0,2760.0
+endurance,seed-03,3,enabled,60,offspring,right censored alive,368,1.0,178.7,950.0,2014.3000000000002,2547.0,1.0,178.7,950.0,2014.3000000000002,2547.0

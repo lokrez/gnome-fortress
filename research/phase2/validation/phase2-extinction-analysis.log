@@ -1,0 +1,20 @@
+[
+  {
+    "memory": "enabled",
+    "extinct_worlds": 0,
+    "n_worlds": 20,
+    "fraction": 0.0,
+    "binomial_95_low": 0.0,
+    "binomial_95_high": 0.1684334709830853,
+    "interpretation": "Exploratory within-condition binomial reference; not paired risk-difference CI"
+  },
+  {
+    "memory": "ablated",
+    "extinct_worlds": 20,
+    "n_worlds": 20,
+    "fraction": 1.0,
+    "binomial_95_low": 0.8315665290169147,
+    "binomial_95_high": 1.0,
+    "interpretation": "Exploratory within-condition binomial reference; not paired risk-difference CI"
+  }
+]

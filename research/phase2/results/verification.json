@@ -1,0 +1,21 @@
+{
+  "all_archives_reconciled": true,
+  "baseline_and_phase1_unchanged": true,
+  "manifest_source_hashes": {
+    "scaling": {
+      "research/phase2_benchmark.py": true,
+      "research/phase2_controls.py": true,
+      "research/phase2_run.py": true
+    },
+    "science": {
+      "research/phase2_analyze.py": true,
+      "research/phase2_benchmark.py": true,
+      "research/phase2_campaign.py": true,
+      "research/phase2_controls.py": true,
+      "research/phase2_package.py": true,
+      "research/phase2_run.py": true,
+      "research/phase2_verify.py": true
+    }
+  },
+  "runs": 58
+}

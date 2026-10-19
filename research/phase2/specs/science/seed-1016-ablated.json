@@ -1,0 +1,9 @@
+{
+  "memory": "ablated",
+  "out": "research/phase2/data/memory/seed-1016-ablated",
+  "replay": false,
+  "sample": 100,
+  "seed": 1016,
+  "slots": 60,
+  "ticks": 20000
+}
