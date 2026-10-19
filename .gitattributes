@@ -1,2 +1,3 @@
 # Standard CSV CRLF record endings are valid research data serialization.
 research/phase1/results/*.csv whitespace=cr-at-eol
+research/phase2/**/*.csv whitespace=cr-at-eol

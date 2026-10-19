@@ -1,0 +1,54 @@
+{
+  "capacity_order": [
+    [
+      60,
+      240,
+      960,
+      120,
+      480
+    ],
+    [
+      480,
+      120,
+      960,
+      240,
+      60
+    ],
+    [
+      120,
+      480,
+      60,
+      960,
+      240
+    ]
+  ],
+  "code_hashes": {
+    "research/phase2_benchmark.py": "05dc6fc73f20627cb3339f28e607541d87281b9557590b11786cc1e4d5f36c43",
+    "research/phase2_controls.py": "abda4ad552cbd76dbca8f13f76242e250f503952ccb5da941b0ce49245ed7fce",
+    "research/phase2_run.py": "3a3a4c942a7297ac797a5dc0ec7d33ac25ce2c41c9dff3f4f2db85179e1fff28"
+  },
+  "run_order": [
+    "research/phase2/specs/scaling/seed-11-slots-60.json",
+    "research/phase2/specs/scaling/seed-11-slots-240.json",
+    "research/phase2/specs/scaling/seed-11-slots-960.json",
+    "research/phase2/specs/scaling/seed-11-slots-120.json",
+    "research/phase2/specs/scaling/seed-11-slots-480.json",
+    "research/phase2/specs/scaling/seed-12-slots-480.json",
+    "research/phase2/specs/scaling/seed-12-slots-120.json",
+    "research/phase2/specs/scaling/seed-12-slots-960.json",
+    "research/phase2/specs/scaling/seed-12-slots-240.json",
+    "research/phase2/specs/scaling/seed-12-slots-60.json",
+    "research/phase2/specs/scaling/seed-13-slots-120.json",
+    "research/phase2/specs/scaling/seed-13-slots-480.json",
+    "research/phase2/specs/scaling/seed-13-slots-60.json",
+    "research/phase2/specs/scaling/seed-13-slots-960.json",
+    "research/phase2/specs/scaling/seed-13-slots-240.json"
+  ],
+  "seeds": [
+    11,
+    12,
+    13
+  ],
+  "source_commit": "232dd30ce56a4d3645efb3d1dc35cd0539deb497",
+  "ticks": 3000
+}

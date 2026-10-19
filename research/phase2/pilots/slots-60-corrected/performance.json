@@ -1,0 +1,14 @@
+{
+  "checkpoint_seconds": 0.0,
+  "cpu_percent_16_logical": 6.229950027379676,
+  "cpu_percent_one_core": 99.67920043807482,
+  "job_wall_seconds": 3.603964988000371,
+  "loop_cpu_seconds": 3.508885098,
+  "loop_wall_seconds": 3.5201778130031016,
+  "overall_peak_rss_mib": 37.6796875,
+  "scheduler_fraction_of_loop": 0.003989794762105566,
+  "scheduler_seconds": 0.014044787,
+  "simulated_ticks": 1000,
+  "simulation_peak_rss_mib": 29.3046875,
+  "ticks_per_second": 284.07655894714287
+}

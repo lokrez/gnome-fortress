@@ -1,0 +1,9 @@
+{
+  "memory": "enabled",
+  "out": "research/phase2/data/scaling/seed-11-slots-480",
+  "replay": true,
+  "sample": 100,
+  "seed": 11,
+  "slots": 480,
+  "ticks": 3000
+}

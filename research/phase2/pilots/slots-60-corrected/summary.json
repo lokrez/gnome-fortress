@@ -1,0 +1,56 @@
+{
+  "complete_cohort_mean_age": null,
+  "complete_cohort_n": 0,
+  "config": {
+    "memory": "enabled",
+    "slots": 60
+  },
+  "death_causes": {
+    "dehydration": 1,
+    "hazard": 1
+  },
+  "deaths": 2,
+  "events": {
+    "birth": 182,
+    "death": 2,
+    "hazard": 400,
+    "reproduce": 122,
+    "sleep": 1497,
+    "social": 2609,
+    "wake": 1469
+  },
+  "extension_counters": {
+    "agent_ticks": 116201,
+    "birth": 122,
+    "capacity": 60000,
+    "cause:dehydration": 1,
+    "cause:hazard": 1,
+    "death": 2,
+    "decisions": 59005,
+    "eligible": 99918,
+    "food_consumed": 160029,
+    "hazard": 400,
+    "reproduce": 122,
+    "retained": 57507,
+    "scheduler_ns": 14044787,
+    "sleep": 1497,
+    "social": 2609,
+    "wake": 1469
+  },
+  "final_digest": "6150f82f74ad47246a5e86f68bbe14fb76615d667d8459307df92888bd885c16",
+  "final_population": 180,
+  "initial_biological_digest": "6a6812820fd6b91a488537327346d39cc2b2b37cbfef3b747f1dc92e41253804",
+  "initial_digest": "f732f09df3b5d75c4be927e4d4cd106a60e9479601b1cb6f742185b92f0987b5",
+  "max_generation": 4,
+  "max_measured_population": 180,
+  "memory": "enabled",
+  "min_measured_population": 60,
+  "offspring": 122,
+  "python": "3.14.4",
+  "reused_prefix_events": {},
+  "seed": 11,
+  "slots": 60,
+  "start_tick": 0,
+  "ticks": 1000,
+  "total_births": 182
+}

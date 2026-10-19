@@ -1,0 +1,9 @@
+{
+  "seed": 1,
+  "start_tick": 20000,
+  "ticks": 1000,
+  "wall_seconds": 8.601312763999886,
+  "cpu_seconds": 8.572533726,
+  "ticks_per_second": 116.26132282800143,
+  "peak_rss_mib": 328.3203125
+}

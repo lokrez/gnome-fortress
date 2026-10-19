@@ -1,0 +1,54 @@
+{
+  "complete_cohort_mean_age": null,
+  "complete_cohort_n": 0,
+  "config": {
+    "memory": "enabled",
+    "slots": 960
+  },
+  "death_causes": {
+    "hazard": 8
+  },
+  "deaths": 8,
+  "events": {
+    "birth": 206,
+    "death": 8,
+    "hazard": 576,
+    "reproduce": 146,
+    "sleep": 1506,
+    "social": 5160,
+    "wake": 1474
+  },
+  "extension_counters": {
+    "agent_ticks": 116169,
+    "birth": 146,
+    "capacity": 960000,
+    "cause:hazard": 8,
+    "death": 8,
+    "decisions": 99785,
+    "eligible": 99785,
+    "food_consumed": 166222,
+    "hazard": 576,
+    "reproduce": 146,
+    "retained": 98271,
+    "scheduler_ns": 16761465,
+    "sleep": 1506,
+    "social": 5160,
+    "wake": 1474
+  },
+  "final_digest": "b530c2cfe1466064de53e4f7380f6378c09f8f80f6a347f2fb5293b519bbde5f",
+  "final_population": 198,
+  "initial_biological_digest": "6a6812820fd6b91a488537327346d39cc2b2b37cbfef3b747f1dc92e41253804",
+  "initial_digest": "63990b0f3f9c1337b2dca5bd8ff8bda6a94a983d7d6c086af5a49a806625c1cc",
+  "max_generation": 5,
+  "max_measured_population": 198,
+  "memory": "enabled",
+  "min_measured_population": 60,
+  "offspring": 146,
+  "python": "3.14.4",
+  "reused_prefix_events": {},
+  "seed": 11,
+  "slots": 960,
+  "start_tick": 0,
+  "ticks": 1000,
+  "total_births": 206
+}

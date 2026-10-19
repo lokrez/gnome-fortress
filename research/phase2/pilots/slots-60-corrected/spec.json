@@ -1,0 +1,9 @@
+{
+  "memory": "enabled",
+  "no_save": true,
+  "out": "research/phase2/pilots/slots-60-corrected",
+  "replay": false,
+  "seed": 11,
+  "slots": 60,
+  "ticks": 1000
+}
