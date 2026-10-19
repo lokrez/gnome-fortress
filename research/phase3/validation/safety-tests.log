@@ -1,0 +1,51 @@
+........F..                                                              [100%]
+=================================== FAILURES ===================================
+__________ test_sigkill_mid_transaction_recovers_last_committed_tick ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-15/test_sigkill_mid_transaction_r0')
+
+    def test_sigkill_mid_transaction_recovers_last_committed_tick(tmp_path):
+        p=tmp_path/'crash.sqlite'; marker=tmp_path/'ready';w=World();w.step(200);save(w,p)
+        before=w.digest()
+        with sqlite3.connect(p) as db:
+            db.execute('CREATE TRIGGER block_save BEFORE INSERT ON events BEGIN SELECT pause_write(); END')
+        script='''import pathlib,sqlite3,sys,time
+    from gnome_fortress import storage
+    original=sqlite3.connect
+    def connect(*args,**kwargs):
+     db=original(*args,**kwargs);db.execute('PRAGMA cache_size=8')
+     def block():
+      pathlib.Path(sys.argv[2]).write_text('ready');time.sleep(30);return 0
+     db.create_function('pause_write',0,block);return db
+    storage.sqlite3.connect=connect
+    w=storage.load(sys.argv[1]);w.step(30);storage.save(w,sys.argv[1])
+    '''
+        process=subprocess.Popen([sys.executable,'-c',script,str(p),str(marker)],stderr=subprocess.PIPE,text=True)
+        try:
+            deadline=time.monotonic()+15
+            while not marker.exists() and process.poll() is None and time.monotonic()<deadline:time.sleep(.01)
+            assert marker.exists(),process.communicate(timeout=1) if process.poll() is not None else 'writer timeout'
+            journal=p.with_name(p.name+'-journal')
+            assert journal.exists() and journal.stat().st_size>512
+            process.kill();process.communicate(timeout=5)
+>           restored=load(p)
+                     ^^^^^^^
+
+tests/test_persistence_safety.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-15/test_sigkill_mid_transaction_r0/crash.sqlite')
+
+    def load(path):
+        path=Path(path).resolve()
+        uri=path.as_uri()+'?mode=ro'
+        try:
+            with closing(sqlite3.connect(uri,uri=True)) as db:
+>               metadata=dict(db.execute('SELECT key,value FROM metadata'))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               sqlite3.OperationalError: attempt to write a readonly database
+
+gnome_fortress/storage.py:168: OperationalError
+=========================== short test summary info ============================
+FAILED tests/test_persistence_safety.py::test_sigkill_mid_transaction_recovers_last_committed_tick
+1 failed, 10 passed in 4.97s

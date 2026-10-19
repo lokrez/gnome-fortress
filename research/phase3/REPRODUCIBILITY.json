@@ -1,0 +1,26 @@
+{
+  "code_sha256": {
+    "gnome_fortress/__init__.py": "313de453d04da78032195e3b64c7a2a835a889806328cf8c28802a6cd1aeaf4d",
+    "gnome_fortress/__main__.py": "3e2d17fe5733cbceb1650ec44142d57bf2337dcd2edc686ee1f9824710014c07",
+    "gnome_fortress/engine.py": "464d398ab201bfd4c1d61bdc86293c67caf74828d8fea57312e9b2b1a5e7c96f",
+    "gnome_fortress/model.py": "e9049172b657da2dc103907029fbbfe07d30a88438bd44c4ebd0436c9a048229",
+    "gnome_fortress/runtime.py": "942d9eaca51aac2c0fff6d6474d865ba842055d510ce80e660032ee05737ec78",
+    "gnome_fortress/storage.py": "947a628c43083211f1b94edb0700ec5df6687c7d37b2afb6d09a4c69c6e58445",
+    "gnome_fortress/viewer.py": "81e40614dce3561066032fe8f41eb6c11d6019399c77c6624b9ad23d111e9c8b",
+    "research/phase3_after.py": "ade7c68626bee83de3a0491c3104037b9d7ebe60ac9e9b11b19476faee4fb44d",
+    "research/phase3_analyze.py": "4868f370327e19f5f86e0e8f10dd3b25642bccbc58fdfd384d0f520d54d82505",
+    "research/phase3_archives.py": "a5af029c4065391d51daf657d830c2215c2e67faf0d120934f44bb89ab8ea3f7",
+    "research/phase3_benchmark.py": "0e493c42d0853c1ae01dd7c53cd35052cc3e40bdfab199af66938dfa92b478d5",
+    "research/phase3_check.py": "d5349fb85816b0c9058aa88dc87185a95ccf0635491a3a4e7dc40f26e29ad923",
+    "research/phase3_equivalence.py": "f22bbbd8d51009f2bf5690c0c35bbccc8ea2a69c7fd27d519700818e3bdc87db",
+    "research/phase3_observer.py": "dea3a6425025cbc6bc90bccd03b9952f26544910f39eacdbe7476f4bbdd52b8b",
+    "research/phase3_package.py": "11abbf6def06ba4dc7e796edd8df15c7ab48801f36231866b89a9dc5f0308de9",
+    "research/phase3_profile.py": "adc0d214f9ef5cc09907ead96457b6605700fed3f094e59768be0360934d3c05"
+  },
+  "final_tag": "phase3-verified",
+  "historical_archives": 72,
+  "note": "SQLite files remain local. Complete logical histories reproduce from preserved inputs and fixed tick counts.",
+  "reference": "5efc9b1bfdd8d49a13aefd4e9256e6c1e87c024f",
+  "tested_rule_equivalence": true,
+  "tests": 72
+}

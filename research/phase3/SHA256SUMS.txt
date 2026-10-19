@@ -1,0 +1,2 @@
+b0c319f55a18015b3502a09561dab60a7b90a75e8ac568ec0a24cfcfe0d2b19c  research/phase3/phase3-engineering.zip
+4a676e045dc8aca49ee1fe860559411e2e05a7c3603ed6a016b30d625901eed1  research/phase3/CONTENTS.sha256

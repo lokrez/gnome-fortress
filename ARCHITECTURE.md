@@ -102,10 +102,19 @@ SQLite stores world metadata (including full RNG state, scheduler cursor and slo
 terrain and food, agent state, ordered ancestry, recent memories, directional
 relationships and the ordered event log. Learned tables and visit counts are in
 agent JSON state. SQL columns expose identity, liveness, birth and death directly.
-A checkpoint replaces the complete prior snapshot in one transaction. A failed save
-rolls back to the previous snapshot; read-only loading never creates a missing file.
-Both the simulation format and database schema are version 1; incompatible versions
-are rejected. There is no migration protocol yet.
+A checkpoint commits a complete logical snapshot in one SQLite transaction.
+Unchanged, content-checked agent rows are reused; new events append only when the
+complete prior prefix matches. Untrusted targets and divergent histories are fully
+rewritten. Dead records are checked too, so external changes cannot be silently
+omitted. New checkpoints retain schema-1 tables, with an integrity extension marked
+by SQLite user_version=2. Original user_version=0 archives remain readable.
+
+A failed save rolls back to the prior checkpoint. Loading pins one read transaction
+and verifies record sequences and new-format logical checksums. Header checks run
+before materializing dimensions. A hot rollback journal permits existing-file
+read/write recovery; ordinary loading is read-only and never creates missing files.
+The old reader can inspect new table contents; the old writer must not strip the
+new integrity metadata. Simulation state format remains version 1.
 
 Examples using the optional system `sqlite3` command:
 
@@ -142,24 +151,40 @@ and names; their trait vectors are independently sampled, not guaranteed unique.
   are forgotten. Significant events and dead identities are never pruned. Visit
   memory is bounded by world cell count per agent. Archive size grows with births
   and events, so this is a prolonged-run prototype, not a promise of bounded storage
-  for years. SQLite checkpoints rewrite the full snapshot and can pause the viewer.
-- Some rules scan all retained identities. Long runs with many dead agents can slow
-  down. The 60-decision budget limits decisions, not archive size or biology work.
+  for years. Integrity verification still reads and hashes complete retained
+  histories; checkpoints are faster but not constant-time.
+- A derived insertion-ordered index contains living agent references. Proximity
+  queries read current coordinates directly; birth/death and loading maintain the
+  index. No duplicated position cache or sensory-rule change is introduced. The
+  60-decision budget limits decisions, not archive size. Explicit structural
+  interventions must use spawn/kill or reload state, so the index stays valid.
 - The observer can show overlapping dots and corpse crosses on the same tile.
   The panel and SQLite records provide exact population and identity accounting.
 - No editable world interventions are available. Pause, speed and inspection only
   affect observation. Adding interventions later must include a tick-stamped log.
 
-## Next research experiment (not implemented)
+## Research lineage
 
-Measure whether learned hazard aversion improves survival rather than merely
-changing a local choice. Pre-register 30 world seeds and a fixed 5,000-tick horizon;
-run paired normal and movement-association-disabled conditions with identical
-initial states. Keep inherited caution, food, scheduling and biological rules fixed.
-Record hazard-entry rates per decision, cause-specific mortality, reproduction and
-resource access, including extinct runs. Report distributions across seeds rather
-than one selected world. Branching decisions consume different RNG streams after
-divergence; paired initial seeds do not imply matched later random shocks. A later
-controlled experiment could separate environmental and agent RNG streams, but that
-would be a new model version. Do not infer emergent culture or general intelligence
-from hazard avoidance.
+The Phase 0 proposal to test memory survival was carried out in Phase 2 using
+20 matched seed pairs at 20,000 ticks. Its findings and limits remain preserved
+in research/phase2/REPORT.md. Phase 3 changes execution and persistence only.
+The next research objective is whether useful information can pass between
+individuals and survive across generations. That work is not implemented here.
+
+## Phase 3 operational ownership
+
+The observer freezes stepping at a complete tick while one writer thread saves.
+Rendering, inspection, pause, speed and quit events continue; the writer and main
+thread never mutate biological state concurrently. Single-step requests during a
+checkpoint wait until writing finishes. Shutdown joins an outstanding write before
+the final checkpoint. Save wall time creates no simulated catch-up debt.
+
+Running frames limit catch-up work to complete ticks within a short time budget,
+retaining at most 300 ticks of pending pacing work. Speed changes clear that
+wall-clock debt; logical ticks are always executed completely and sequentially. Paused loops sleep at 10 Hz and avoid repeated draws.
+Headless execution supports finite runs or --forever, optional --rate pacing,
+and periodic stderr statistics. None of these clocks or derived caches enters
+serialized biological state or the RNG. See research/phase3/REPORT.md for measured
+performance and the frozen Phase 2 comparison. The next research objective is
+transmission of useful information across individuals and generations; none is
+implemented in this engineering phase.

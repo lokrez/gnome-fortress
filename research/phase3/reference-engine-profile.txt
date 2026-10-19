@@ -1,0 +1,36 @@
+         5164563 function calls in 4.805 seconds
+
+   Ordered by: cumulative time
+   List reduced from 37 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.053    0.053    4.806    4.806 engine.py:123(step)
+     6000    0.016    0.000    4.659    0.001 engine.py:153(decide)
+     4746    4.020    0.001    4.224    0.001 engine.py:149(_nearby_agents)
+     2326    0.073    0.000    2.436    0.001 engine.py:203(move)
+  4099982    0.273    0.000    0.273    0.000 {built-in method builtins.abs}
+   189003    0.058    0.000    0.207    0.000 {built-in method builtins.min}
+     2326    0.051    0.000    0.078    0.000 engine.py:71(observations)
+   200391    0.050    0.000    0.075    0.000 engine.py:217(<genexpr>)
+   200391    0.048    0.000    0.072    0.000 engine.py:218(<genexpr>)
+    37273    0.042    0.000    0.055    0.000 engine.py:91(_biology)
+      100    0.002    0.000    0.038    0.000 engine.py:112(schedule)
+      100    0.004    0.000    0.036    0.000 {built-in method builtins.sorted}
+    32312    0.032    0.000    0.032    0.000 engine.py:113(<genexpr>)
+     5529    0.014    0.000    0.019    0.000 engine.py:77(remember)
+   197354    0.019    0.000    0.019    0.000 engine.py:63(cell)
+     2965    0.007    0.000    0.016    0.000 engine.py:145(_drinkable)
+    74845    0.009    0.000    0.010    0.000 {built-in method builtins.max}
+    14981    0.005    0.000    0.007    0.000 engine.py:146(<genexpr>)
+    22491    0.006    0.000    0.006    0.000 {method 'get' of 'dict' objects}
+     2326    0.002    0.000    0.005    0.000 random.py:347(choice)
+     5291    0.005    0.000    0.005    0.000 engine.py:66(neighbors)
+     4338    0.003    0.000    0.004    0.000 random.py:245(_randbelow_with_getrandbits)
+     1822    0.001    0.000    0.003    0.000 random.py:294(randrange)
+    13867    0.003    0.000    0.003    0.000 {method 'append' of 'list' objects}
+     8473    0.002    0.000    0.002    0.000 engine.py:221(<genexpr>)
+     1114    0.001    0.000    0.002    0.000 engine.py:48(event)
+     4946    0.001    0.000    0.001    0.000 {method 'values' of 'dict' objects}
+     9550    0.001    0.000    0.001    0.000 engine.py:229(<genexpr>)
+     7007    0.001    0.000    0.001    0.000 {method 'getrandbits' of '_random.Random' objects}
+     4819    0.001    0.000    0.001    0.000 {built-in method builtins.len}

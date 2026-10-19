@@ -1,0 +1,513 @@
+FF.F........FFF..........                                                [100%]
+=================================== FAILURES ===================================
+_______________________ test_sqlite_queryable_and_valid ________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_sqlite_queryable_and_vali0')
+
+    def test_sqlite_queryable_and_valid(tmp_path):
+        path = tmp_path / "world.sqlite"
+        w = World(42)
+        w.step(200)
+>       save(w, path)
+
+tests/test_storage.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x77308bb93380>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_sqlite_queryable_and_vali0/world.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.,'event_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix=hashlib.sha256()
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]<count: add_hash(prefix,row)
+            trusted=trusted and len(world.events)>=count and prefix.hexdigest()==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            db.execute('BEGIN IMMEDIATE')
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256()
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',parents)
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',memories)
+>                   db.executemany('INSERT INTO relationships VALUES (?,?,?)',relations)
+E                   sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+gnome_fortress/storage.py:132: IntegrityError
+_______________ test_failed_save_rolls_back_previous_checkpoint ________________
+
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_failed_save_rolls_back_pr0/world.sqlite')
+
+    def load(path):
+        path=Path(path).resolve()
+        uri=path.as_uri()+'?mode=ro'
+        try:
+            with closing(sqlite3.connect(uri,uri=True)) as db:
+                metadata=dict(db.execute('SELECT key,value FROM metadata'))
+                if metadata['schema_version']!='1': raise ValueError('Unsupported checkpoint schema')
+                data=json.loads(metadata['world'])
+                data.update(agents=[],events=[],cells=[])
+                w=World.from_state(data)
+                w.cells=[[None]*w.width for _ in range(w.height)]
+                cells=[]
+                for x,y,terrain,food in db.execute('SELECT * FROM cells ORDER BY y,x'):
+                    if not (0<=x<w.width and 0<=y<w.height): raise ValueError('Invalid cell coordinate')
+                    from .model import Cell
+                    w.cells[y][x]=Cell(terrain,food); cells.append((x,y,terrain,food))
+                if len(cells)!=w.width*w.height or any(c is None for r in w.cells for c in r):
+                    raise ValueError('Incomplete cell grid')
+                for identity,name,alive,born,died,text in db.execute('SELECT * FROM agents ORDER BY id'):
+>                   a=Agent(**json.loads(text))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   TypeError: Agent.__init__() missing 1 required positional argument: 'parents'
+
+gnome_fortress/storage.py:181: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_failed_save_rolls_back_pr0')
+
+    def test_failed_save_rolls_back_previous_checkpoint(tmp_path):
+        path = tmp_path / "world.sqlite"
+        w = World()
+        save(w, path)
+        before = w.digest()
+        with sqlite3.connect(path) as db:
+            db.execute("CREATE TRIGGER fail_save BEFORE INSERT ON memories BEGIN SELECT RAISE(ABORT, 'test failure'); END")
+        w.step(5)
+        with pytest.raises(sqlite3.IntegrityError):
+            save(w, path)
+>       assert load(path).digest() == before
+               ^^^^^^^^^^
+
+tests/test_storage.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_failed_save_rolls_back_pr0/world.sqlite')
+
+    def load(path):
+        path=Path(path).resolve()
+        uri=path.as_uri()+'?mode=ro'
+        try:
+            with closing(sqlite3.connect(uri,uri=True)) as db:
+                metadata=dict(db.execute('SELECT key,value FROM metadata'))
+                if metadata['schema_version']!='1': raise ValueError('Unsupported checkpoint schema')
+                data=json.loads(metadata['world'])
+                data.update(agents=[],events=[],cells=[])
+                w=World.from_state(data)
+                w.cells=[[None]*w.width for _ in range(w.height)]
+                cells=[]
+                for x,y,terrain,food in db.execute('SELECT * FROM cells ORDER BY y,x'):
+                    if not (0<=x<w.width and 0<=y<w.height): raise ValueError('Invalid cell coordinate')
+                    from .model import Cell
+                    w.cells[y][x]=Cell(terrain,food); cells.append((x,y,terrain,food))
+                if len(cells)!=w.width*w.height or any(c is None for r in w.cells for c in r):
+                    raise ValueError('Incomplete cell grid')
+                for identity,name,alive,born,died,text in db.execute('SELECT * FROM agents ORDER BY id'):
+                    a=Agent(**json.loads(text))
+                    if (a.id,a.name,int(a.alive),a.born,a.died)!=(identity,name,alive,born,died):
+                        raise ValueError('Agent column/state mismatch')
+                    w.agents[a.id]=a
+                for child,parent,pos in db.execute('SELECT * FROM ancestry ORDER BY child,position'):
+                    a=w.agents[child]
+                    if pos!=len(a.parents): raise ValueError('Ancestry sequence gap')
+                    a.parents+= (parent,)
+                for identity,seq,tick,action,x,y,feature,reward in db.execute('SELECT * FROM memories ORDER BY agent,sequence'):
+                    a=w.agents[identity]
+                    if seq!=len(a.memories): raise ValueError('Memory sequence gap')
+                    a.memories.append(Episode(tick,action,x,y,feature,reward))
+                for source,target,value in db.execute('SELECT * FROM relationships ORDER BY source,target'):
+                    if target not in w.agents: raise ValueError('Unknown relationship target')
+                    w.agents[source].relationships[target]=value
+                event_digest=hashlib.sha256()
+                for row in db.execute('SELECT * FROM events ORDER BY sequence'):
+                    seq,tick,kind,actor,target,detail=row
+                    if seq!=len(w.events): raise ValueError('Event sequence gap')
+                    if any(i is not None and i not in w.agents for i in (actor,target)):
+                        raise ValueError('Unknown event identity')
+                    w.events.append(Event(tick,kind,actor,target,json.loads(detail)))
+                    if 'integrity' in metadata: add_hash(event_digest,row)
+                w._rebuild_index(); w.validate()
+                if 'integrity' in metadata:
+                    expected=json.loads(metadata['integrity'])
+                    if expected['format']!=1: raise ValueError('Unsupported integrity format')
+                    checks=dict(db.execute('SELECT agent,digest FROM record_checks'))
+                    if len(checks)!=len(w.agents): raise ValueError('Incomplete agent checksums')
+                    agents_digest=hashlib.sha256()
+                    for a in w.agents.values():
+                        digest=record(a)[-1]
+                        if checks.get(a.id)!=digest: raise ValueError(f'Agent checksum mismatch: {a.id}')
+                        add_hash(agents_digest,(a.id,digest))
+                    cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                    actual=dict(format=1,agents=len(w.agents),events=len(w.events),cells=len(cells),
+                        agents_sha256=agents_digest.hexdigest(),events_sha256=event_digest.hexdigest(),
+                        cells_sha256=cell_digest.hexdigest(),header_sha256=hashlib.sha256(metadata['world'].encode()).hexdigest())
+                    if actual!=expected: raise ValueError('Checkpoint integrity mismatch')
+            if 'integrity' in metadata: w._checkpoint_cache={str(path):(signature(path),metadata['revision'])}
+            return w
+        except (KeyError,TypeError,IndexError,AssertionError) as error:
+>           raise ValueError(f'Incomplete or inconsistent checkpoint: {error}') from error
+E           ValueError: Incomplete or inconsistent checkpoint: Agent.__init__() missing 1 required positional argument: 'parents'
+
+gnome_fortress/storage.py:223: ValueError
+______________ test_checkpoint_connections_are_explicitly_closed _______________
+
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_checkpoint_connections_ar0/closed.sqlite')
+
+    def load(path):
+        path=Path(path).resolve()
+        uri=path.as_uri()+'?mode=ro'
+        try:
+            with closing(sqlite3.connect(uri,uri=True)) as db:
+                metadata=dict(db.execute('SELECT key,value FROM metadata'))
+                if metadata['schema_version']!='1': raise ValueError('Unsupported checkpoint schema')
+                data=json.loads(metadata['world'])
+                data.update(agents=[],events=[],cells=[])
+                w=World.from_state(data)
+                w.cells=[[None]*w.width for _ in range(w.height)]
+                cells=[]
+                for x,y,terrain,food in db.execute('SELECT * FROM cells ORDER BY y,x'):
+                    if not (0<=x<w.width and 0<=y<w.height): raise ValueError('Invalid cell coordinate')
+                    from .model import Cell
+                    w.cells[y][x]=Cell(terrain,food); cells.append((x,y,terrain,food))
+                if len(cells)!=w.width*w.height or any(c is None for r in w.cells for c in r):
+                    raise ValueError('Incomplete cell grid')
+                for identity,name,alive,born,died,text in db.execute('SELECT * FROM agents ORDER BY id'):
+>                   a=Agent(**json.loads(text))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   TypeError: Agent.__init__() missing 1 required positional argument: 'parents'
+
+gnome_fortress/storage.py:181: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_checkpoint_connections_ar0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x77308bb8f360>
+
+    def test_checkpoint_connections_are_explicitly_closed(tmp_path, monkeypatch):
+        closed = []
+        original_connect = sqlite3.connect
+    
+        class TrackedConnection(sqlite3.Connection):
+            def close(self):
+                closed.append(self)
+                super().close()
+    
+        def connect(*args, **kwargs):
+            return original_connect(*args, factory=TrackedConnection, **kwargs)
+    
+        monkeypatch.setattr(sqlite3, "connect", connect)
+        path = tmp_path / "closed.sqlite"
+        save(World(), path)
+>       load(path)
+
+tests/test_storage.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_checkpoint_connections_ar0/closed.sqlite')
+
+    def load(path):
+        path=Path(path).resolve()
+        uri=path.as_uri()+'?mode=ro'
+        try:
+            with closing(sqlite3.connect(uri,uri=True)) as db:
+                metadata=dict(db.execute('SELECT key,value FROM metadata'))
+                if metadata['schema_version']!='1': raise ValueError('Unsupported checkpoint schema')
+                data=json.loads(metadata['world'])
+                data.update(agents=[],events=[],cells=[])
+                w=World.from_state(data)
+                w.cells=[[None]*w.width for _ in range(w.height)]
+                cells=[]
+                for x,y,terrain,food in db.execute('SELECT * FROM cells ORDER BY y,x'):
+                    if not (0<=x<w.width and 0<=y<w.height): raise ValueError('Invalid cell coordinate')
+                    from .model import Cell
+                    w.cells[y][x]=Cell(terrain,food); cells.append((x,y,terrain,food))
+                if len(cells)!=w.width*w.height or any(c is None for r in w.cells for c in r):
+                    raise ValueError('Incomplete cell grid')
+                for identity,name,alive,born,died,text in db.execute('SELECT * FROM agents ORDER BY id'):
+                    a=Agent(**json.loads(text))
+                    if (a.id,a.name,int(a.alive),a.born,a.died)!=(identity,name,alive,born,died):
+                        raise ValueError('Agent column/state mismatch')
+                    w.agents[a.id]=a
+                for child,parent,pos in db.execute('SELECT * FROM ancestry ORDER BY child,position'):
+                    a=w.agents[child]
+                    if pos!=len(a.parents): raise ValueError('Ancestry sequence gap')
+                    a.parents+= (parent,)
+                for identity,seq,tick,action,x,y,feature,reward in db.execute('SELECT * FROM memories ORDER BY agent,sequence'):
+                    a=w.agents[identity]
+                    if seq!=len(a.memories): raise ValueError('Memory sequence gap')
+                    a.memories.append(Episode(tick,action,x,y,feature,reward))
+                for source,target,value in db.execute('SELECT * FROM relationships ORDER BY source,target'):
+                    if target not in w.agents: raise ValueError('Unknown relationship target')
+                    w.agents[source].relationships[target]=value
+                event_digest=hashlib.sha256()
+                for row in db.execute('SELECT * FROM events ORDER BY sequence'):
+                    seq,tick,kind,actor,target,detail=row
+                    if seq!=len(w.events): raise ValueError('Event sequence gap')
+                    if any(i is not None and i not in w.agents for i in (actor,target)):
+                        raise ValueError('Unknown event identity')
+                    w.events.append(Event(tick,kind,actor,target,json.loads(detail)))
+                    if 'integrity' in metadata: add_hash(event_digest,row)
+                w._rebuild_index(); w.validate()
+                if 'integrity' in metadata:
+                    expected=json.loads(metadata['integrity'])
+                    if expected['format']!=1: raise ValueError('Unsupported integrity format')
+                    checks=dict(db.execute('SELECT agent,digest FROM record_checks'))
+                    if len(checks)!=len(w.agents): raise ValueError('Incomplete agent checksums')
+                    agents_digest=hashlib.sha256()
+                    for a in w.agents.values():
+                        digest=record(a)[-1]
+                        if checks.get(a.id)!=digest: raise ValueError(f'Agent checksum mismatch: {a.id}')
+                        add_hash(agents_digest,(a.id,digest))
+                    cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                    actual=dict(format=1,agents=len(w.agents),events=len(w.events),cells=len(cells),
+                        agents_sha256=agents_digest.hexdigest(),events_sha256=event_digest.hexdigest(),
+                        cells_sha256=cell_digest.hexdigest(),header_sha256=hashlib.sha256(metadata['world'].encode()).hexdigest())
+                    if actual!=expected: raise ValueError('Checkpoint integrity mismatch')
+            if 'integrity' in metadata: w._checkpoint_cache={str(path):(signature(path),metadata['revision'])}
+            return w
+        except (KeyError,TypeError,IndexError,AssertionError) as error:
+>           raise ValueError(f'Incomplete or inconsistent checkpoint: {error}') from error
+E           ValueError: Incomplete or inconsistent checkpoint: Agent.__init__() missing 1 required positional argument: 'parents'
+
+gnome_fortress/storage.py:223: ValueError
+_______________________ test_checkpoint_continuation[0] ________________________
+
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_checkpoint_continuation_00/world.sqlite')
+
+    def load(path):
+        path=Path(path).resolve()
+        uri=path.as_uri()+'?mode=ro'
+        try:
+            with closing(sqlite3.connect(uri,uri=True)) as db:
+                metadata=dict(db.execute('SELECT key,value FROM metadata'))
+                if metadata['schema_version']!='1': raise ValueError('Unsupported checkpoint schema')
+                data=json.loads(metadata['world'])
+                data.update(agents=[],events=[],cells=[])
+                w=World.from_state(data)
+                w.cells=[[None]*w.width for _ in range(w.height)]
+                cells=[]
+                for x,y,terrain,food in db.execute('SELECT * FROM cells ORDER BY y,x'):
+                    if not (0<=x<w.width and 0<=y<w.height): raise ValueError('Invalid cell coordinate')
+                    w.cells[y][x]=Cell(terrain,food); cells.append((x,y,terrain,food))
+                if len(cells)!=w.width*w.height or any(c is None for r in w.cells for c in r):
+                    raise ValueError('Incomplete cell grid')
+                for identity,name,alive,born,died,text in db.execute('SELECT * FROM agents ORDER BY id'):
+                    a=Agent(**json.loads(text))
+>                   if (a.id,a.name,int(a.alive),a.born,a.died)!=(identity,name,alive,born,died):
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   TypeError: Agent.__init__() missing 1 required positional argument: 'parents'
+
+gnome_fortress/storage.py:181: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_checkpoint_continuation_00')
+checkpoint_tick = 0
+
+    @pytest.mark.parametrize("checkpoint_tick", [0, 91, 500])
+    def test_checkpoint_continuation(tmp_path, checkpoint_tick):
+        a = World(42)
+        a.step(checkpoint_tick)
+        path = tmp_path / "world.sqlite"
+        save(a, path)
+>       b = load(path)
+            ^^^^^^^^^^
+
+tests/test_engine.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_checkpoint_continuation_00/world.sqlite')
+
+>   ???
+E   ValueError: Incomplete or inconsistent checkpoint: Agent.__init__() missing 1 required positional argument: 'parents'
+
+gnome_fortress/storage.py:223: ValueError
+_______________________ test_checkpoint_continuation[91] _______________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_checkpoint_continuation_90')
+checkpoint_tick = 91
+
+    @pytest.mark.parametrize("checkpoint_tick", [0, 91, 500])
+    def test_checkpoint_continuation(tmp_path, checkpoint_tick):
+        a = World(42)
+        a.step(checkpoint_tick)
+        path = tmp_path / "world.sqlite"
+>       save(a, path)
+
+tests/test_engine.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x77308b7274d0>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_checkpoint_continuation_90/world.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.,'event_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix=hashlib.sha256()
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]<count: add_hash(prefix,row)
+            trusted=trusted and len(world.events)>=count and prefix.hexdigest()==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256()
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',parents)
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',memories)
+>                   db.executemany('INSERT INTO relationships VALUES (?,?,?)',relations)
+E                   sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+gnome_fortress/storage.py:132: IntegrityError
+______________________ test_checkpoint_continuation[500] _______________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_checkpoint_continuation_50')
+checkpoint_tick = 500
+
+    @pytest.mark.parametrize("checkpoint_tick", [0, 91, 500])
+    def test_checkpoint_continuation(tmp_path, checkpoint_tick):
+        a = World(42)
+        a.step(checkpoint_tick)
+        path = tmp_path / "world.sqlite"
+>       save(a, path)
+
+tests/test_engine.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x77308c4b7950>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-12/test_checkpoint_continuation_50/world.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.,'event_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix=hashlib.sha256()
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]<count: add_hash(prefix,row)
+            trusted=trusted and len(world.events)>=count and prefix.hexdigest()==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256()
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',parents)
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',memories)
+>                   db.executemany('INSERT INTO relationships VALUES (?,?,?)',relations)
+E                   sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+gnome_fortress/storage.py:132: IntegrityError
+=========================== short test summary info ============================
+FAILED tests/test_storage.py::test_sqlite_queryable_and_valid - sqlite3.Integ...
+FAILED tests/test_storage.py::test_failed_save_rolls_back_previous_checkpoint
+FAILED tests/test_storage.py::test_checkpoint_connections_are_explicitly_closed
+FAILED tests/test_engine.py::test_checkpoint_continuation[0] - ValueError: In...
+FAILED tests/test_engine.py::test_checkpoint_continuation[91] - sqlite3.Integ...
+FAILED tests/test_engine.py::test_checkpoint_continuation[500] - sqlite3.Inte...
+6 failed, 19 passed in 49.00s

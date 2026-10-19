@@ -1,0 +1,6 @@
+{
+  "name": "tick-20000-seed-1",
+  "source": "research/phase1/data/seed-01/final.sqlite",
+  "ticks": 200,
+  "variant": "optimized"
+}

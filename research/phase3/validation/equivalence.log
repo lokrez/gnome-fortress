@@ -1,0 +1,4 @@
+EXACT research/phase1/data/seed-01/final.sqlite 20000,20001,20050,20200
+EXACT research/phase2/data/endurance/seed-01/final.sqlite 100000,100001,100050,100200
+EXACT research/phase2/data/endurance/seed-02/final.sqlite 100000,100001,100050,100200
+EXACT research/phase2/data/endurance/seed-03/final.sqlite 100000,100001,100050,100200

@@ -1,0 +1,14 @@
+{
+  "variant": "optimized",
+  "mature": false,
+  "saving": false,
+  "wall_seconds": 2.206301933998475,
+  "cpu_seconds": 0.07670666,
+  "draws": 1,
+  "cpu_percent_one_core": 3.4767072818988436,
+  "maximum_draw_gap_seconds": 0,
+  "maximum_draw_seconds": 0.006880724002257921,
+  "exact_unchanged_state": true,
+  "peak_rss_mib": 38.703125,
+  "note": "SDL dummy; actual observer loop; paused; no desktop or GPU assertion"
+}

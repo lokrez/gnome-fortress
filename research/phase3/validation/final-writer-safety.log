@@ -1,0 +1,1311 @@
+FFFFFFFFFFF...FF.F...                                                    [100%]
+=================================== FAILURES ===================================
+________________ test_legacy_upgrade_incremental_and_old_reader ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_legacy_upgrade_incrementa0')
+
+    def test_legacy_upgrade_incremental_and_old_reader(tmp_path):
+        path=tmp_path/'state.sqlite'; w=World(42); w.step(100)
+        reference.save(w,path)
+        restored=load(path); assert restored.state()==w.state()
+>       first=save(restored,path); assert not first['incremental']
+              ^^^^^^^^^^^^^^^^^^^
+
+tests/test_persistence_safety.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46d1751d0>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_legacy_upgrade_incrementa0/state.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+____________ test_dead_mutations_and_divergent_prefix_are_not_lost _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_dead_mutations_and_diverg0')
+
+    def test_dead_mutations_and_divergent_prefix_are_not_lost(tmp_path):
+        path=tmp_path/'state.sqlite'; w=World(); w.step(200)
+>       a=w.living()[0]; w.kill(a,'test'); save(w,path)
+                                           ^^^^^^^^^^^^
+
+tests/test_persistence_safety.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46cd082d0>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_dead_mutations_and_diverg0/state.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+________________________ test_corruption_rejected[cell] ________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_cell_0')
+damage = 'cell'
+
+    @pytest.mark.parametrize('damage',['cell','event','memory','header','integrity','truncated'])
+    def test_corruption_rejected(tmp_path,damage):
+>       p=tmp_path/'corrupt.sqlite'; w=World();w.step(100);save(w,p)
+                                                           ^^^^^^^^^
+
+tests/test_persistence_safety.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46a350510>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_cell_0/corrupt.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+_______________________ test_corruption_rejected[event] ________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_event0')
+damage = 'event'
+
+    @pytest.mark.parametrize('damage',['cell','event','memory','header','integrity','truncated'])
+    def test_corruption_rejected(tmp_path,damage):
+>       p=tmp_path/'corrupt.sqlite'; w=World();w.step(100);save(w,p)
+                                                           ^^^^^^^^^
+
+tests/test_persistence_safety.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46a350c30>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_event0/corrupt.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+_______________________ test_corruption_rejected[memory] _______________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_memor0')
+damage = 'memory'
+
+    @pytest.mark.parametrize('damage',['cell','event','memory','header','integrity','truncated'])
+    def test_corruption_rejected(tmp_path,damage):
+>       p=tmp_path/'corrupt.sqlite'; w=World();w.step(100);save(w,p)
+                                                           ^^^^^^^^^
+
+tests/test_persistence_safety.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46cdbfbf0>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_memor0/corrupt.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+_______________________ test_corruption_rejected[header] _______________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_heade0')
+damage = 'header'
+
+    @pytest.mark.parametrize('damage',['cell','event','memory','header','integrity','truncated'])
+    def test_corruption_rejected(tmp_path,damage):
+>       p=tmp_path/'corrupt.sqlite'; w=World();w.step(100);save(w,p)
+                                                           ^^^^^^^^^
+
+tests/test_persistence_safety.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e442665bf0>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_heade0/corrupt.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+_____________________ test_corruption_rejected[integrity] ______________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_integ0')
+damage = 'integrity'
+
+    @pytest.mark.parametrize('damage',['cell','event','memory','header','integrity','truncated'])
+    def test_corruption_rejected(tmp_path,damage):
+>       p=tmp_path/'corrupt.sqlite'; w=World();w.step(100);save(w,p)
+                                                           ^^^^^^^^^
+
+tests/test_persistence_safety.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e4427bfce0>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_integ0/corrupt.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+_____________________ test_corruption_rejected[truncated] ______________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_trunc0')
+damage = 'truncated'
+
+    @pytest.mark.parametrize('damage',['cell','event','memory','header','integrity','truncated'])
+    def test_corruption_rejected(tmp_path,damage):
+>       p=tmp_path/'corrupt.sqlite'; w=World();w.step(100);save(w,p)
+                                                           ^^^^^^^^^
+
+tests/test_persistence_safety.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46cd97850>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_corruption_rejected_trunc0/corrupt.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+_______________ test_external_edit_invalidates_incremental_reuse _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_external_edit_invalidates0')
+
+    def test_external_edit_invalidates_incremental_reuse(tmp_path):
+>       p=tmp_path/'edited.sqlite';w=World();w.step(100);save(w,p)
+                                                         ^^^^^^^^^
+
+tests/test_persistence_safety.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46cd96f50>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_external_edit_invalidates0/edited.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+__________ test_sigkill_mid_transaction_recovers_last_committed_tick ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_sigkill_mid_transaction_r0')
+
+    def test_sigkill_mid_transaction_recovers_last_committed_tick(tmp_path):
+>       p=tmp_path/'crash.sqlite'; marker=tmp_path/'ready';w=World();w.step(200);save(w,p)
+                                                                                 ^^^^^^^^^
+
+tests/test_persistence_safety.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46cd4e990>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_sigkill_mid_transaction_r0/crash.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+________________ test_header_checksum_precedes_materialization _________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_header_checksum_precedes_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x72e46a350e90>
+
+    def test_header_checksum_precedes_materialization(tmp_path,monkeypatch):
+>       p=tmp_path/'bad-header.sqlite';save(World(),p)
+                                       ^^^^^^^^^^^^^^^
+
+tests/test_persistence_safety.py:90: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46cd4e120>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_header_checksum_precedes_0/bad-header.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+_______________________ test_sqlite_queryable_and_valid ________________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_sqlite_queryable_and_vali0')
+
+    def test_sqlite_queryable_and_valid(tmp_path):
+        path = tmp_path / "world.sqlite"
+        w = World(42)
+        w.step(200)
+>       save(w, path)
+
+tests/test_storage.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46ccd3e90>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_sqlite_queryable_and_vali0/world.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+_______________ test_failed_save_rolls_back_previous_checkpoint ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_failed_save_rolls_back_pr0')
+
+    def test_failed_save_rolls_back_previous_checkpoint(tmp_path):
+        path = tmp_path / "world.sqlite"
+        w = World()
+>       save(w, path)
+
+tests/test_storage.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46ccd3290>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_failed_save_rolls_back_pr0/world.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+______________ test_checkpoint_connections_are_explicitly_closed _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_checkpoint_connections_ar0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x72e46a355370>
+
+    def test_checkpoint_connections_are_explicitly_closed(tmp_path, monkeypatch):
+        closed = []
+        original_connect = sqlite3.connect
+    
+        class TrackedConnection(sqlite3.Connection):
+            def close(self):
+                closed.append(self)
+                super().close()
+    
+        def connect(*args, **kwargs):
+            return original_connect(*args, factory=TrackedConnection, **kwargs)
+    
+        monkeypatch.setattr(sqlite3, "connect", connect)
+        path = tmp_path / "closed.sqlite"
+>       save(World(), path)
+
+tests/test_storage.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+world = <gnome_fortress.engine.World object at 0x72e46a3a43c0>
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-21/test_checkpoint_connections_ar0/closed.sqlite')
+
+    def save(world:World,path):
+        """Caller must hold the world at a complete tick until this function returns.
+    
+        All current agent content and the entire event prefix are checked, including
+        dead records. Only unchanged, previously verified database rows are reused.
+        """
+        start=time.perf_counter(); world.validate()
+        metrics={'validation_seconds':time.perf_counter()-start,'agents_written':0,'events_written':0,
+                 'agent_serialization_seconds':0.,'agent_sql_seconds':0.}
+        path=Path(path).resolve(); key=str(path)
+        cached=getattr(world,'_checkpoint_cache',{}).get(key)
+        before=signature(path)
+        with closing(sqlite3.connect(path)) as db:
+            db.execute('PRAGMA foreign_keys=ON'); db.execute('PRAGMA synchronous=FULL')
+            db.executescript(SCHEMA); db.execute(CHECKS)
+            db.execute('BEGIN IMMEDIATE')
+            metadata=dict(db.execute('SELECT key,value FROM metadata'))
+            if metadata and metadata.get('schema_version')!='1': raise ValueError('Unsupported checkpoint schema')
+            trusted=bool(cached and cached==(before,metadata.get('revision')) and 'integrity' in metadata)
+            old_checks=dict(db.execute('SELECT agent,digest FROM record_checks')) if trusted else {}
+            previous=json.loads(metadata['integrity']) if trusted else {}
+            count=previous.get('events',0)
+            # Stream through the prefix to catch edits, truncation and divergent forks.
+            t=time.perf_counter(); event_digest=hashlib.sha256(); prefix_digest=event_digest.hexdigest() if count==0 else None
+            for row in event_rows(world):
+                add_hash(event_digest,row)
+                if row[0]+1==count:prefix_digest=event_digest.hexdigest()
+            trusted=trusted and len(world.events)>=count and prefix_digest==previous.get('events_sha256')
+            trusted=trusted and set(old_checks).issubset(world.agents)
+            metrics['event_serialization_seconds']=time.perf_counter()-t
+            revision=str(int(metadata.get('revision','0'))+1)
+            try:
+                if not trusted:
+                    for table in ('ancestry','memories','relationships','record_checks','events','agents','cells','metadata'):
+                        db.execute(f'DELETE FROM {table}')
+                    old_checks={}; count=0
+                agent_digest=hashlib.sha256(); changed=[]
+                for a in world.agents.values():
+                    t=time.perf_counter(); text,parents,memories,relations,digest=record(a,metrics)
+                    metrics['agent_serialization_seconds']+=time.perf_counter()-t
+                    add_hash(agent_digest,(a.id,digest))
+                    if old_checks.get(a.id)==digest: continue
+                    t=time.perf_counter()
+                    db.execute('''INSERT INTO agents VALUES (?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+                        name=excluded.name,alive=excluded.alive,born=excluded.born,died=excluded.died,state=excluded.state''',
+                        (a.id,a.name,int(a.alive),a.born,a.died,text))
+                    db.execute('INSERT OR REPLACE INTO record_checks VALUES (?,?)',(a.id,digest))
+                    changed.append(a.id)
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                # All referenced IDs now exist. Avoid deferred FK sweeps while growing
+                # the identity table; preserve normal immediate FK enforcement.
+                for identity in changed:
+                    a=world.agents[identity];t=time.perf_counter()
+                    for table,column in (('ancestry','child'),('memories','agent'),('relationships','source')):
+                        db.execute(f'DELETE FROM {table} WHERE {column}=?',(a.id,))
+                    db.executemany('INSERT INTO ancestry VALUES (?,?,?)',
+                        ((a.id,p,i) for i,p in enumerate(a.parents)))
+                    db.executemany('INSERT INTO memories VALUES (?,?,?,?,?,?,?,?)',
+                        ((a.id,i,m.tick,m.action,m.x,m.y,m.feature,m.reward) for i,m in enumerate(a.memories)))
+                    db.executemany('INSERT INTO relationships VALUES (?,?,?)',
+                        ((a.id,target,value) for target,value in sorted(a.relationships.items())))
+                    metrics['agent_sql_seconds']+=time.perf_counter()-t
+                metrics['agents_written']=len(changed)
+                cells=[(x,y,c.terrain,c.food) for y,row in enumerate(world.cells) for x,c in enumerate(row)]
+                cell_digest=hashlib.sha256(); add_hash(cell_digest,cells)
+                db.executemany('INSERT OR REPLACE INTO cells VALUES (?,?,?,?)',cells)
+                t=time.perf_counter()
+                # Only encode/insert new events on the second pass, not the old prefix.
+                def appended():
+                    for i in range(count,len(world.events)):
+                        e=world.events[i]
+                        yield i,e.tick,e.kind,e.actor,e.target,e.detail
+>               db.executemany('INSERT INTO events VALUES (?,?,?,?,?,?)',appended())
+E               sqlite3.ProgrammingError: Error binding parameter 6: type 'dict' is not supported
+
+gnome_fortress/storage.py:158: ProgrammingError
+=========================== short test summary info ============================
+FAILED tests/test_persistence_safety.py::test_legacy_upgrade_incremental_and_old_reader
+FAILED tests/test_persistence_safety.py::test_dead_mutations_and_divergent_prefix_are_not_lost
+FAILED tests/test_persistence_safety.py::test_corruption_rejected[cell] - sql...
+FAILED tests/test_persistence_safety.py::test_corruption_rejected[event] - sq...
+FAILED tests/test_persistence_safety.py::test_corruption_rejected[memory] - s...
+FAILED tests/test_persistence_safety.py::test_corruption_rejected[header] - s...
+FAILED tests/test_persistence_safety.py::test_corruption_rejected[integrity]
+FAILED tests/test_persistence_safety.py::test_corruption_rejected[truncated]
+FAILED tests/test_persistence_safety.py::test_external_edit_invalidates_incremental_reuse
+FAILED tests/test_persistence_safety.py::test_sigkill_mid_transaction_recovers_last_committed_tick
+FAILED tests/test_persistence_safety.py::test_header_checksum_precedes_materialization
+FAILED tests/test_storage.py::test_sqlite_queryable_and_valid - sqlite3.Progr...
+FAILED tests/test_storage.py::test_failed_save_rolls_back_previous_checkpoint
+FAILED tests/test_storage.py::test_checkpoint_connections_are_explicitly_closed
+14 failed, 7 passed in 6.26s

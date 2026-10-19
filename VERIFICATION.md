@@ -85,3 +85,19 @@ video driver. A rendered frame at seed 1, tick 180 was also inspected for readab
 The live desktop window has not been manually exercised; controls and rendering
 are validated by automated Pygame event tests. The viewer displays actual model
 state and performs no independent simulation.
+
+## Phase 3 engineering verification
+
+The original results above remain the historical baseline. The Phase 3 final
+suite passed all 72 tests (52 historical tests unchanged plus 20 focused tests)
+in 199.87 seconds. The seed-2026 20,100-tick digest remains unchanged. Five
+matched benchmark states and 16 exact mature checkpoints agreed with the frozen
+Phase 2 oracle. All 72 published SQLite archives loaded with matching original
+digests and unchanged file hashes.
+
+At 100,000 ticks, headless speed increased from 24.5–28.5 to 317.7–347.7 ticks/s.
+Repeated checkpoints decreased from 21.2–21.6 to 4.5–4.8 seconds. A real-writer
+SDL dummy trial serviced 92 inputs with maximum 105 ms latency while holding
+world state unchanged. Desktop/compositor performance is unconfirmed.
+See [the Phase 3 report](research/phase3/REPORT.md) for scopes, failures,
+corruption/crash recovery, memory/CPU, first-save costs and reproducibility.

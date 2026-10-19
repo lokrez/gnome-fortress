@@ -71,7 +71,7 @@ without skipping world ticks. No world-editing interventions exist in this miles
 ## Verify
 
 ```bash
-.venv/bin/python -m pytest -q -s
+.venv/bin/python -m pytest tests research -q -s
 ```
 
 The full suite includes a 20,000-tick accelerated run plus 100 continuation ticks.
@@ -88,8 +88,8 @@ and the next research experiment. [PLAN.md](PLAN.md) records the implementation 
 
 ## Phase 1 population study
 
-The verified Phase 0 baseline is tagged `phase0-verified` (`f32c1a6`). The original
-simulation source and tests remain unchanged. See the [population study report](research/phase1/REPORT.md)
+The verified Phase 0 baseline is tagged `phase0-verified` (`f32c1a6`). The preserved Phase 0
+source and tests remain available at that tag. See the [population study report](research/phase1/REPORT.md)
 for ten 20,000-tick runs, CSV data, plots, observer verification and controlled-memory
 experiment designs. Reproduction instructions are in the
 [data dictionary](research/phase1/DATA_DICTIONARY.md).
@@ -100,3 +100,28 @@ See the [Phase 2 experiment report](research/phase2/REPORT.md) for matched memor
 ablations, five scheduler capacities and three 100,000-tick endurance worlds.
 The standard rules and 60-slot default remain unchanged.
 [Reproducibility and data](research/phase2/DATA_DICTIONARY.md).
+
+## Phase 3 background operation
+
+The default remains 60 decision slots. Existing standard 60-slot Phase 0–2
+checkpoints resume automatically. Experimental capacity or ablation archives still
+require their matching research configuration. The observer stays responsive while checkpointing, with simulation
+held at a complete tick until the writer finishes. Paused observation sleeps and
+avoids repeated redraws.
+
+```bash
+.venv/bin/python -m gnome_fortress --db fortress.sqlite --rate 15 --checkpoint-every 300
+.venv/bin/python -m gnome_fortress --paused --db fortress.sqlite
+.venv/bin/python -m gnome_fortress --headless --forever --rate 60 --stats-every 10 --db background.sqlite
+```
+
+Ctrl+C or SIGTERM commits and stops; restarting the same command resumes. Omit
+`--rate` for unpaced finite/headless science. `--stats-every 0` disables periodic
+stderr statistics; stdout retains the final population and original state digest.
+Keep one process per database. Do not run an older writer against the new integrity
+format; original archived files remain loadable. Corrupt/incomplete checkpoints
+are rejected rather than silently reseeded. Backups are still needed for storage
+device failure or corruption after a successful commit.
+
+See the [Phase 3 engineering report](research/phase3/REPORT.md) for measurements,
+exact equivalence coverage, persistence recovery tests, limitations and reproduction.

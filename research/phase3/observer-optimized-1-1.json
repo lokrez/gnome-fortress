@@ -1,0 +1,16 @@
+{
+  "variant": "optimized",
+  "mature": true,
+  "saving": true,
+  "wall_seconds": 18.840349393998622,
+  "cpu_seconds": 18.369963065,
+  "draws": 94,
+  "cpu_percent_one_core": 97.50330357913396,
+  "input_events": 92,
+  "maximum_input_latency_seconds": 0.10511284399399301,
+  "maximum_draw_gap_seconds": 0.21136836299410788,
+  "maximum_draw_seconds": 0.04523027099639876,
+  "exact_unchanged_state": true,
+  "peak_rss_mib": 959.3046875,
+  "note": "SDL dummy; actual observer loop; paused; no desktop or GPU assertion"
+}

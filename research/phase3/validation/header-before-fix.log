@@ -1,0 +1,39 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________ test_header_checksum_precedes_materialization _________________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-19/test_header_checksum_precedes_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x76c6b7f8eb10>
+
+    def test_header_checksum_precedes_materialization(tmp_path,monkeypatch):
+        p=tmp_path/'bad-header.sqlite';save(World(),p)
+        with sqlite3.connect(p) as db:
+            data=json.loads(db.execute("SELECT value FROM metadata WHERE key='world'").fetchone()[0])
+            data['width']=10**12
+            db.execute("UPDATE metadata SET value=? WHERE key='world'",(json.dumps(data),))
+        called=[]
+        def forbidden(*args,**kwargs):
+            called.append(True);raise RuntimeError('Corrupt dimensions reached materialization')
+        monkeypatch.setattr(World,'from_state',forbidden)
+>       with pytest.raises(ValueError,match='header'):load(p)
+                                                      ^^^^^^^
+
+tests/test_persistence_safety.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+gnome_fortress/storage.py:183: in load
+    w=World.from_state(data)
+      ^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ({'cursor': 0, 'height': 32, 'next_id': 61, 'rng': [3, [299655262, 790336422, 758057891, 384697671, 61628346, 1325367381, ...], None], ...},)
+kwargs = {}
+
+    def forbidden(*args,**kwargs):
+>       called.append(True);raise RuntimeError('Corrupt dimensions reached materialization')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Corrupt dimensions reached materialization
+
+tests/test_persistence_safety.py:97: RuntimeError
+=========================== short test summary info ============================
+FAILED tests/test_persistence_safety.py::test_header_checksum_precedes_materialization
+1 failed in 0.06s

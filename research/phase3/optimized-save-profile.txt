@@ -1,0 +1,41 @@
+         17359203 function calls (17359200 primitive calls) in 8.576 seconds
+
+   Ordered by: cumulative time
+   List reduced from 95 to 35 due to restriction <35>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.435    0.435    8.576    8.576 storage.py:86(save)
+  1226573    0.752    0.000    6.868    0.000 storage.py:46(add_hash)
+  1247791    0.431    0.000    5.982    0.000 storage.py:42(encode)
+  1247791    1.185    0.000    5.551    0.000 __init__.py:185(dumps)
+  1247791    0.946    0.000    4.157    0.000 encoder.py:185(encode)
+  1226883    2.767    0.000    2.767    0.000 encoder.py:207(iterencode)
+    20908    0.036    0.000    1.877    0.000 storage.py:56(record)
+    83632    0.080    0.000    1.820    0.000 storage.py:59(measured)
+    20908    0.062    0.000    0.512    0.000 storage.py:64(<lambda>)
+  2453146    0.394    0.000    0.394    0.000 {method 'update' of '_hashlib.HASH' objects}
+  2474689    0.251    0.000    0.251    0.000 {built-in method builtins.isinstance}
+  1247791    0.208    0.000    0.208    0.000 encoder.py:105(__init__)
+  1122033    0.186    0.000    0.186    0.000 storage.py:71(event_rows)
+        1    0.132    0.132    0.174    0.174 engine.py:293(validate)
+  1226574    0.150    0.000    0.150    0.000 {method 'encode' of 'str' objects}
+  1226889    0.148    0.000    0.148    0.000 {method 'join' of 'str' objects}
+    20908    0.090    0.000    0.090    0.000 storage.py:66(<lambda>)
+     1152    0.052    0.000    0.057    0.000 {method 'executemany' of 'sqlite3.Connection' objects}
+    20908    0.045    0.000    0.045    0.000 {built-in method _json.encode_basestring_ascii}
+   418169    0.042    0.000    0.042    0.000 {built-in method builtins.getattr}
+    20908    0.018    0.000    0.030    0.000 storage.py:67(<lambda>)
+     1922    0.028    0.000    0.028    0.000 {method 'execute' of 'sqlite3.Connection' objects}
+   210619    0.023    0.000    0.023    0.000 {built-in method time.perf_counter}
+   146356    0.015    0.000    0.015    0.000 engine.py:309(<genexpr>)
+   104546    0.014    0.000    0.014    0.000 {method 'get' of 'dict' objects}
+    20913    0.013    0.000    0.013    0.000 {method 'hexdigest' of '_hashlib.HASH' objects}
+    20908    0.012    0.000    0.012    0.000 storage.py:65(<lambda>)
+    62604    0.011    0.000    0.011    0.000 engine.py:311(<genexpr>)
+    21291    0.010    0.000    0.010    0.000 {built-in method builtins.sorted}
+    83653    0.009    0.000    0.009    0.000 {built-in method builtins.len}
+    20912    0.009    0.000    0.009    0.000 {built-in method _hashlib.openssl_sha256}
+        1    0.007    0.007    0.007    0.007 {method 'commit' of 'sqlite3.Connection' objects}
+    21743    0.003    0.000    0.003    0.000 storage.py:144(<genexpr>)
+        1    0.002    0.002    0.003    0.003 {built-in method builtins.sum}
+    21293    0.003    0.000    0.003    0.000 {method 'items' of 'dict' objects}

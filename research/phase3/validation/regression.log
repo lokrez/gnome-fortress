@@ -1,0 +1,10 @@
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.14.4)
+..................memory paired experiment: trained=0/100 hazard choices; erased=54/100
+.......long-run progress: tick=5000, living=367, born=1009
+long-run progress: tick=10000, living=373, born=2026
+long-run progress: tick=15000, living=387, born=3041
+long-run progress: tick=20000, living=356, born=4051
+long-run result: {"tick": 20100, "living": 359, "born": 4069, "dead": 3710, "events": {"birth": 4069, "death": 3710, "hazard": 6148, "reproduce": 4009, "sleep": 91428, "social": 26113, "wake": 91057}, "digest": "18abcc54608881c6892e1b913cd2b56d6288068afb4515f3467e94cab3c9696e", "seconds": 83.836}
+..........................................COMPLETE seed=7 living=108 deaths=0
+.
+68 passed in 209.09s (0:03:29)

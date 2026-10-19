@@ -1,0 +1,34 @@
+{
+  "first": {
+    "validation_seconds": 0.09339998100040248,
+    "agents_written": 20902,
+    "events_written": 1121724,
+    "agent_serialization_seconds": 1.5897004450016539,
+    "agent_sql_seconds": 3.7834442418898107,
+    "event_serialization_seconds": 3.0581153449966223,
+    "agent_fields_seconds": 0.5294310098106507,
+    "ancestry_seconds": 0.07533447739842813,
+    "memory_seconds": 0.7802119714178843,
+    "relationship_seconds": 0.12321962032001466,
+    "event_sql_seconds": 7.316780592998839,
+    "seconds": 16.13212107700383,
+    "incremental": false,
+    "file_bytes": 162508800
+  },
+  "profiled_repeat": {
+    "validation_seconds": 0.17495066999981645,
+    "agents_written": 383,
+    "events_written": 308,
+    "agent_serialization_seconds": 1.9187273004135932,
+    "agent_sql_seconds": 0.08130705601797672,
+    "event_serialization_seconds": 6.244991088999086,
+    "agent_fields_seconds": 0.6542616219740012,
+    "ancestry_seconds": 0.14182917837024434,
+    "memory_seconds": 0.7987798113026656,
+    "relationship_seconds": 0.1938804118326516,
+    "event_sql_seconds": 0.002576594997663051,
+    "seconds": 8.576356503996067,
+    "incremental": true,
+    "file_bytes": 162791424
+  }
+}

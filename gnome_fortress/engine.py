@@ -22,6 +22,7 @@ class World:
         self.cursor = 0
         self.slots: list[int | None] = [None] * SLOTS
         self.agents: dict[int, Agent] = {}
+        self._living_agents: dict[int, Agent] = {}
         self.events: list[Event] = []
         self.cells: list[list[Cell]] = []
         for y in range(height):
@@ -54,11 +55,12 @@ class World:
         agent = Agent(identity, f"Gnome {identity:05d}", x, y, self.tick,
                       tuple(parents), dict(traits), age=age)
         self.agents[identity] = agent
+        self._living_agents[identity] = agent
         self.event("birth", identity, parents=list(parents), founder=not parents)
         return agent
 
     def living(self):
-        return [a for a in self.agents.values() if a.alive]
+        return list(self._living_agents.values())
 
     def cell(self, x, y):
         return self.cells[y][x]
@@ -85,6 +87,7 @@ class World:
         if not a.alive:
             return
         a.alive, a.died, a.death_cause, a.action = False, self.tick, cause, "dead"
+        self._living_agents.pop(a.id, None)
         self.slots = [None if identity == a.id else identity for identity in self.slots]
         self.event("death", a.id, cause=cause, age=a.age)
 
@@ -110,7 +113,7 @@ class World:
             self.kill(a, "old_age")
 
     def schedule(self):
-        eligible = sorted(a.id for a in self.agents.values()
+        eligible = sorted(a.id for a in self._living_agents.values()
                           if a.alive and a.sleep_until <= self.tick)
         # Rotate by identity, not list position: births/deaths cannot reset fairness.
         ordered = [i for i in eligible if i > self.cursor] + [i for i in eligible if i <= self.cursor]
@@ -128,7 +131,7 @@ class World:
                     for c in row:
                         if c.terrain in ("grass", "forest"):
                             c.food = min(100, c.food + (8 if c.terrain == "forest" else 4))
-            for a in list(self.agents.values()):
+            for a in list(self._living_agents.values()):
                 if a.alive:
                     was_asleep = a.sleep_until > self.tick - 1
                     self._biology(a)
@@ -147,7 +150,7 @@ class World:
                    for nx, ny in [(x, y)] + self.neighbors(x, y))
 
     def _nearby_agents(self, a):
-        return [b for b in self.agents.values() if b.id != a.id and b.alive
+        return [b for b in self._living_agents.values() if b.id != a.id and b.alive
                 and b.sleep_until <= self.tick and abs(a.x-b.x) + abs(a.y-b.y) <= 1]
 
     def decide(self, a):
@@ -271,7 +274,12 @@ class World:
             agent = Agent(**item)
             world.agents[agent.id] = agent
         world.events = [Event(**e) for e in data["events"]]
+        world._rebuild_index()
         return world
+
+    def _rebuild_index(self):
+        """Derived insertion-ordered references; coordinates remain authoritative."""
+        self._living_agents = {i: a for i, a in self.agents.items() if a.alive}
 
     def digest(self):
         return hashlib.sha256(json.dumps(self.state(), sort_keys=True, separators=(",", ":")).encode()).hexdigest()
@@ -283,6 +291,8 @@ class World:
                     events=dict(sorted(counts.items())))
 
     def validate(self):
+        assert list(self._living_agents) == [i for i, a in self.agents.items() if a.alive]
+        assert all(self.agents[i] is a for i, a in self._living_agents.items())
         assigned = [i for i in self.slots if i is not None]
         assert len(self.slots) == SLOTS and len(assigned) == len(set(assigned))
         assert all(self.agents[i].alive and self.agents[i].sleep_until <= self.tick for i in assigned)

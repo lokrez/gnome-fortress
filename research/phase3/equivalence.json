@@ -1,0 +1,159 @@
+{
+  "reference_commit": "5efc9b1bfdd8d49a13aefd4e9256e6c1e87c024f",
+  "fingerprint_note": "Complete logical streaming SHA-256; different encoding from World.digest",
+  "script_sha256": "f22bbbd8d51009f2bf5690c0c35bbccc8ea2a69c7fd27d519700818e3bdc87db",
+  "runs": [
+    {
+      "source": "research/phase1/data/seed-01/final.sqlite",
+      "boundaries": [
+        {
+          "tick": 20000,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 20001,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 20050,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 20200,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        }
+      ],
+      "final_fingerprint": "75c2189b764d13a5665908181a2027bdf3736d19554a8bd9e4449a0cf01323ad"
+    },
+    {
+      "source": "research/phase2/data/endurance/seed-01/final.sqlite",
+      "boundaries": [
+        {
+          "tick": 100000,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 100001,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 100050,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 100200,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        }
+      ],
+      "final_fingerprint": "b3ab7e4b6a87321c76e25675912f1bec8638c25e0b0ebdd54fa68c5be1326f94"
+    },
+    {
+      "source": "research/phase2/data/endurance/seed-02/final.sqlite",
+      "boundaries": [
+        {
+          "tick": 100000,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 100001,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 100050,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 100200,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        }
+      ],
+      "final_fingerprint": "e9e4197b2702f2535d008a1ffd5725d9bf4718b13ffd7d96138e0e8207beb661"
+    },
+    {
+      "source": "research/phase2/data/endurance/seed-03/final.sqlite",
+      "boundaries": [
+        {
+          "tick": 100000,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 100001,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 100050,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        },
+        {
+          "tick": 100200,
+          "exact_agent_fields": true,
+          "exact_memories": true,
+          "exact_rng": true,
+          "exact_events": true,
+          "exact_cells_and_scheduler": true
+        }
+      ],
+      "final_fingerprint": "33b3c761e9b683be8b53a10a6427e8538a64506d7e51a5503a7a47fd9ae00994"
+    }
+  ]
+}

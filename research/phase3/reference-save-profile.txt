@@ -1,0 +1,41 @@
+         113127109 function calls (80997419 primitive calls) in 39.579 seconds
+
+   Ordered by: cumulative time
+   List reduced from 72 to 35 due to restriction <35>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.373    0.373   39.579   39.579 storage.py:37(save)
+  1165064    0.430    0.000   26.452    0.000 dataclasses.py:1475(asdict)
+33294754/1165064   15.593    0.000   25.633    0.000 dataclasses.py:1499(_asdict_inner)
+        1    0.193    0.193   17.568   17.568 engine.py:245(state)
+    62709    8.362    0.000   11.896    0.000 {method 'executemany' of 'sqlite3.Connection' objects}
+  3791798    4.588    0.000    7.401    0.000 dataclasses.py:1445(fields)
+  1121725    0.545    0.000    3.304    0.000 storage.py:68(<genexpr>)
+  1142627    0.311    0.000    3.024    0.000 __init__.py:185(dumps)
+  1142627    0.848    0.000    2.713    0.000 encoder.py:185(encode)
+ 26125394    2.385    0.000    2.385    0.000 {built-in method builtins.getattr}
+ 26125386    2.110    0.000    2.110    0.000 dataclasses.py:1460(<genexpr>)
+  1142627    1.510    0.000    1.510    0.000 encoder.py:207(iterencode)
+  6350312    0.562    0.000    0.562    0.000 {built-in method builtins.hasattr}
+  1165064    0.291    0.000    0.389    0.000 dataclasses.py:1463(_is_dataclass_instance)
+  3812706    0.362    0.000    0.362    0.000 {method 'values' of 'dict' objects}
+  2285259    0.233    0.000    0.233    0.000 {built-in method builtins.isinstance}
+  1334269    0.197    0.000    0.197    0.000 storage.py:63(<genexpr>)
+    20911    0.154    0.000    0.154    0.000 {method 'execute' of 'sqlite3.Connection' objects}
+        1    0.112    0.112    0.148    0.148 engine.py:285(validate)
+  1309843    0.138    0.000    0.138    0.000 {method 'items' of 'dict' objects}
+  1142628    0.123    0.000    0.123    0.000 {method 'join' of 'str' objects}
+        1    0.058    0.058    0.058    0.058 {method '__exit__' of 'sqlite3.Connection' objects}
+        1    0.025    0.025    0.025    0.025 {method 'executescript' of 'sqlite3.Connection' objects}
+   171956    0.024    0.000    0.024    0.000 storage.py:66(<genexpr>)
+   146314    0.013    0.000    0.013    0.000 engine.py:299(<genexpr>)
+    20902    0.012    0.000    0.012    0.000 {built-in method builtins.sorted}
+    62586    0.009    0.000    0.009    0.000 storage.py:61(<genexpr>)
+    62586    0.009    0.000    0.009    0.000 engine.py:301(<genexpr>)
+    83615    0.007    0.000    0.007    0.000 {built-in method builtins.len}
+        1    0.002    0.002    0.003    0.003 {built-in method builtins.sum}
+    20902    0.002    0.000    0.002    0.000 engine.py:63(cell)
+    20903    0.001    0.000    0.001    0.000 engine.py:290(<genexpr>)
+        1    0.000    0.000    0.000    0.000 contextlib.py:363(__exit__)
+        1    0.000    0.000    0.000    0.000 {method 'close' of 'sqlite3.Connection' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method _sqlite3.connect}

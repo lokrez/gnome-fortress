@@ -1,0 +1,11 @@
+COMPLETE young reference 299.2
+COMPLETE young optimized 315.0
+COMPLETE tick-20000-seed-1 optimized 294.2
+COMPLETE tick-20000-seed-1 reference 120.7
+COMPLETE tick-100000-seed-1 reference 26.2
+COMPLETE tick-100000-seed-1 optimized 317.7
+COMPLETE tick-100000-seed-2 optimized 347.2
+COMPLETE tick-100000-seed-2 reference 28.5
+COMPLETE tick-100000-seed-3 reference 24.5
+COMPLETE tick-100000-seed-3 optimized 347.7
+ALL FIVE MATCHED CASES EXACT
