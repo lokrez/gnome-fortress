@@ -85,3 +85,11 @@ SDL_VIDEODRIVER=dummy .venv/bin/python -m gnome_fortress --frames 5 --db smoke.s
 See [VERIFICATION.md](VERIFICATION.md) for measured results and
 [ARCHITECTURE.md](ARCHITECTURE.md) for ordering, scientific constraints, limitations,
 and the next research experiment. [PLAN.md](PLAN.md) records the implementation steps.
+
+## Phase 1 population study
+
+The verified Phase 0 baseline is tagged `phase0-verified` (`f32c1a6`). The original
+simulation source and tests remain unchanged. See the [population study report](research/phase1/REPORT.md)
+for ten 20,000-tick runs, CSV data, plots, observer verification and controlled-memory
+experiment designs. Reproduction instructions are in the
+[data dictionary](research/phase1/DATA_DICTIONARY.md).

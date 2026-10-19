@@ -1,0 +1,48 @@
+{
+  "baseline": "f32c1a612e36b046faa501273640bbabfce5159d",
+  "engine_sha256": {
+    "gnome_fortress/__init__.py": "313de453d04da78032195e3b64c7a2a835a889806328cf8c28802a6cd1aeaf4d",
+    "gnome_fortress/__main__.py": "1632f98cd60a87abe0d19178a3cb1099fb7f77eb5838bd0f9c4034f09907643e",
+    "gnome_fortress/engine.py": "6c6d02329df821bceb149237884bab17488eab0ac10a013d04a811648a867646",
+    "gnome_fortress/model.py": "e9049172b657da2dc103907029fbbfe07d30a88438bd44c4ebd0436c9a048229",
+    "gnome_fortress/storage.py": "635d256845ba85b74b0c41d598935cadd3c199d7914dcea1caf78effe6bdc96a",
+    "gnome_fortress/viewer.py": "f612518627885d865d32ebbd8f93a920af1011cab29749a529cab6b61a527dad"
+  },
+  "harness_sha256": "74164f955c3435f8cf762fab4b71df21a47a432dd8750b5ce5d82fd06c72154e",
+  "independent_uninstrumented_replay": {
+    "actual_digest": "e48e3d187362fc1616c8aee8c5ea7866a15ef59195135d19e6c720ba9c999b30",
+    "equal": true,
+    "expected_digest": "e48e3d187362fc1616c8aee8c5ea7866a15ef59195135d19e6c720ba9c999b30",
+    "seed": 1,
+    "ticks": 20000
+  },
+  "original_engine_and_tests_unchanged": true,
+  "original_tests": {
+    "failed": 0,
+    "passed": 27,
+    "seconds": 168.33,
+    "skipped": 0
+  },
+  "protocol_sha256": "bea3641c37d63db512e38961f79a2ea47fef7a6857706fcddd1fce966aa3390a",
+  "python": "3.14.4",
+  "research_tests": {
+    "failed": 0,
+    "passed": 6,
+    "seconds": 8.2
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "sqlite": "3.46.1",
+  "ticks": 20000,
+  "timing_note": "Execution timing varies; CSV values and logical state digests reproduce on this runtime/rule version."
+}

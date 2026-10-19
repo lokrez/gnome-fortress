@@ -1,0 +1,11 @@
+seed,all_tick_min,exact_peak,first_peak_tick,tail_exact_min,tail_exact_max,extinct_ticks,checkpoint_digest_matches,population_samples_match,ancestry_and_population_valid
+1,60,393,14775,353,393,0,True,True,True
+2,60,377,18767,338,377,0,True,True,True
+3,60,399,18054,359,399,0,True,True,True
+4,60,396,15969,352,396,0,True,True,True
+5,60,380,9088,339,379,0,True,True,True
+6,60,398,8770,352,394,0,True,True,True
+7,60,405,10245,363,405,0,True,True,True
+8,60,388,19446,344,388,0,True,True,True
+9,60,398,14631,352,398,0,True,True,True
+10,60,387,18581,341,387,0,True,True,True

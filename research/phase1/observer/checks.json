@@ -1,0 +1,20 @@
+{
+  "driver": "x11",
+  "checks": [
+    "Real SDL x11 window created on DISPLAY :1",
+    "OS Space pauses; one second while paused preserves state",
+    "OS period advances exactly one paused tick",
+    "OS Up/Down change speed 15 to 30 to 15",
+    "OS Tab selects next persistent identity",
+    "OS mouse click target NOT CONFIRMED; XSendEvent input injection was inconclusive",
+    "OS S requests checkpoint; saved checkpoint reloads exactly",
+    "Resume at 15 ticks/sec advances three ticks for 0.2 seconds",
+    "OS Escape closes observer loop"
+  ],
+  "limitations": [
+    "OS events sent programmatically, not physical human input",
+    "Mouse targeting could not be confirmed via XSendEvent; synthetic offscreen unit test passes",
+    "Native Wayland backend, window-manager close button, fullscreen and multi-monitor behavior not manually confirmed",
+    "Captures are SDL client surfaces, not compositor screenshots"
+  ]
+}

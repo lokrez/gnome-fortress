@@ -1,0 +1,10 @@
+ae1ae34220e8d16fff1b29f037eb5cbcd99d1e5fc03bc5d980fd65a93946b4d2  research/phase1/data/seed-01/final.sqlite
+bf1c7c2b55b3a6a074e4cc2f815d08c9907c0f79779a1dd9f08fd6a64415a878  research/phase1/data/seed-02/final.sqlite
+ab2a523008e7b4e71d15d6bb024743894f50c70e80925f1d4691214d0e60ceda  research/phase1/data/seed-03/final.sqlite
+2c75a9b2ce1b3c9c05c8f257af57df5095fe8fc08c8422774d3b30fc795b4762  research/phase1/data/seed-04/final.sqlite
+c711d23e4f5ad7ce0304c3dc8b09333304c207eccfa6fa1b8be487ea980eefe6  research/phase1/data/seed-05/final.sqlite
+5974bf968190a9ff787e114e17935fc56c39162558163b1d0b9c1a2123caaf31  research/phase1/data/seed-06/final.sqlite
+231a3d33452b86799a2789a01415fbe5056c9978e7fcd25e0329f11c842fdd80  research/phase1/data/seed-07/final.sqlite
+7591b610558579ca6cd43668b20a579e8b9611c13d534d84ae002347b6e40e1e  research/phase1/data/seed-08/final.sqlite
+d331a2d224f3fb7418f70bbbe376ff1f425ba8d6d0ef99863c55528047307b98  research/phase1/data/seed-09/final.sqlite
+ff1082334a77a956458932964ad6d56b23e8e9de0283c822424b8ce57b2eebca  research/phase1/data/seed-10/final.sqlite
