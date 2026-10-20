@@ -29,5 +29,3 @@
        20    0.000    0.000    0.000    0.000 god_viewer.py:99(sync)
       160    0.000    0.000    0.000    0.000 terrain_viewer.py:105(format_event)
      1440    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects}
-
-

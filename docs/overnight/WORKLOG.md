@@ -85,3 +85,8 @@
   state and rendered Life/Advisor pixels exact. Historical CSV normalization only.
 - Final safety/documentation commit follows. Push campaign branch, then only safe
   main fast-forward if the remote remains at accepted G4. No G8 or modes started.
+- Verification committed as `c7bef99` and campaign branch pushed. Staged diff
+  check identified whitespace in newly added pytest/pstats output (not a test or
+  scientific failure); normalize only trailing whitespace in those new logs and
+  profile output formatting. Preserve failure messages, numbers and all old data.
+  Final documentation cleanup is a new commit, not a history rewrite.

@@ -43,7 +43,7 @@ def profile(output):
             if label=='synthetic-1000-noops':
                 cpu=cProfile.Profile();cpu.enable();save_game(w,path);cpu.disable()
                 stream=io.StringIO();pstats.Stats(cpu,stream=stream).strip_dirs().sort_stats('cumulative').print_stats(25)
-                (output/'save-profile.txt').write_text(stream.getvalue())
+                (output/'save-profile.txt').write_text(stream.getvalue().rstrip()+'\n')
         v=TerrainObserver(w,paused=True);v.tab='terrain'
         try:
             before=w.digest();draw_time,_=timed(lambda:[v.draw() for _ in range(30)])
@@ -52,7 +52,7 @@ def profile(output):
                 cpu=cProfile.Profile();cpu.enable()
                 for _ in range(20):v.draw()
                 cpu.disable();stream=io.StringIO();pstats.Stats(cpu,stream=stream).strip_dirs().sort_stats('cumulative').print_stats(25)
-                (output/'draw-profile.txt').write_text(stream.getvalue())
+                (output/'draw-profile.txt').write_text(stream.getvalue().rstrip()+'\n')
         finally:pygame.quit()
         results.append(dict(label=label,tick=w.tick,living=len(w._living_agents),retained_individuals=len(w.agents),
             events=len(w.events),interventions=len(w.interventions),transitions=presentation.land.transitions_examined,

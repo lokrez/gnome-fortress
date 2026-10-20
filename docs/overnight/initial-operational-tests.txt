@@ -26,7 +26,7 @@ monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7d9c20e6d810>
         run(w,path,writer,checkpoint_ticks=1,max_frames=40,paused=True,observer_class=Inspector)
 >       assert calls==[1,1] and instances[0].retried and instances[0].paused
 E       assert ([] == [1, 1]
-E         
+E
 E         Right contains 2 more items, first extra item: 1
 E         Use -v to get more diff)
 
