@@ -1,0 +1,8 @@
+{
+  "ablation_rows": 128,
+  "matrix_rows": 27648,
+  "arithmetic_rows": 4221,
+  "pilot_replays": 12,
+  "uninstrumented_world_comparisons": 12,
+  "seconds": 43.40030606400251
+}

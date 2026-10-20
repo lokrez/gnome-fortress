@@ -1,0 +1,396 @@
+[
+  {
+    "seed": 1,
+    "condition": "multihop",
+    "proof": {
+      "root": {
+        "agent": 43,
+        "tick": 5,
+        "experience": 2,
+        "key": "move:hazard",
+        "reward": -54,
+        "previous": -17,
+        "value": -27,
+        "xy": [
+          24,
+          1
+        ],
+        "prior_social": false
+      },
+      "path": [
+        43,
+        57,
+        13,
+        60
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 43,
+          "recipient": 57,
+          "tick": 7,
+          "sender_xy": [
+            23,
+            1
+          ],
+          "recipient_xy": [
+            22,
+            1
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -27,
+          "transmitted": -14,
+          "before": 0,
+          "after": -4,
+          "intervention": null
+        },
+        {
+          "sender": 57,
+          "recipient": 13,
+          "tick": 16,
+          "sender_xy": [
+            22,
+            0
+          ],
+          "recipient_xy": [
+            22,
+            0
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -4,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        },
+        {
+          "sender": 13,
+          "recipient": 60,
+          "tick": 52,
+          "sender_xy": [
+            18,
+            6
+          ],
+          "recipient_xy": [
+            18,
+            6
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -1,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "decision": {
+      "tick": 102,
+      "agent": 60,
+      "depth": 3,
+      "firsthand_before": 0,
+      "candidates": [
+        [
+          23,
+          19,
+          12
+        ],
+        [
+          22,
+          20,
+          13
+        ],
+        [
+          -24,
+          19,
+          14
+        ],
+        [
+          -24,
+          18,
+          13
+        ]
+      ],
+      "ablated_candidates": [
+        [
+          23,
+          19,
+          12
+        ],
+        [
+          23,
+          20,
+          13
+        ],
+        [
+          -24,
+          19,
+          14
+        ],
+        [
+          -24,
+          18,
+          13
+        ]
+      ],
+      "actual": [
+        23,
+        19,
+        12
+      ],
+      "counterfactual": [
+        23,
+        20,
+        13
+      ],
+      "hazard_avoided": true,
+      "rng_before": "4e1fd09831a81bb64704024b12251d64ffad57d7e6c3986531a239287cbc025c"
+    }
+  },
+  {
+    "seed": 1,
+    "condition": "multihop",
+    "proof": {
+      "root": {
+        "agent": 43,
+        "tick": 5,
+        "experience": 2,
+        "key": "move:hazard",
+        "reward": -54,
+        "previous": -17,
+        "value": -27,
+        "xy": [
+          24,
+          1
+        ],
+        "prior_social": false
+      },
+      "path": [
+        43,
+        57,
+        13
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 43,
+          "recipient": 57,
+          "tick": 7,
+          "sender_xy": [
+            23,
+            1
+          ],
+          "recipient_xy": [
+            22,
+            1
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -27,
+          "transmitted": -14,
+          "before": 0,
+          "after": -4,
+          "intervention": null
+        },
+        {
+          "sender": 57,
+          "recipient": 13,
+          "tick": 16,
+          "sender_xy": [
+            22,
+            0
+          ],
+          "recipient_xy": [
+            22,
+            0
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -4,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "decision": {
+      "tick": 194,
+      "agent": 13,
+      "depth": 2,
+      "firsthand_before": 0,
+      "candidates": [
+        [
+          -31,
+          14,
+          14
+        ],
+        [
+          -16,
+          14,
+          16
+        ],
+        [
+          -17,
+          13,
+          15
+        ]
+      ],
+      "ablated_candidates": [
+        [
+          -31,
+          14,
+          14
+        ],
+        [
+          -16,
+          14,
+          16
+        ],
+        [
+          -16,
+          13,
+          15
+        ]
+      ],
+      "actual": [
+        -16,
+        14,
+        16
+      ],
+      "counterfactual": [
+        -16,
+        13,
+        15
+      ],
+      "hazard_avoided": true,
+      "rng_before": "62b58d1cf6fa88bc9ac91deae6ff3862645addebfce0a0ec5557fa200cd2bf7a"
+    }
+  },
+  {
+    "seed": 1,
+    "condition": "multihop",
+    "proof": {
+      "root": {
+        "agent": 68,
+        "tick": 64,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -51,
+        "previous": 0,
+        "value": -13,
+        "xy": [
+          20,
+          13
+        ],
+        "prior_social": false
+      },
+      "path": [
+        68,
+        12,
+        74
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 68,
+          "recipient": 12,
+          "tick": 88,
+          "sender_xy": [
+            22,
+            12
+          ],
+          "recipient_xy": [
+            22,
+            12
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -13,
+          "transmitted": -7,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 12,
+          "recipient": 74,
+          "tick": 166,
+          "sender_xy": [
+            28,
+            10
+          ],
+          "recipient_xy": [
+            29,
+            10
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "decision": {
+      "tick": 264,
+      "agent": 74,
+      "depth": 2,
+      "firsthand_before": 0,
+      "candidates": [
+        [
+          -36,
+          27,
+          2
+        ],
+        [
+          -8,
+          28,
+          3
+        ],
+        [
+          -9,
+          26,
+          3
+        ]
+      ],
+      "ablated_candidates": [
+        [
+          -36,
+          27,
+          2
+        ],
+        [
+          -8,
+          28,
+          3
+        ],
+        [
+          -8,
+          26,
+          3
+        ]
+      ],
+      "actual": [
+        -8,
+        28,
+        3
+      ],
+      "counterfactual": [
+        -8,
+        26,
+        3
+      ],
+      "hazard_avoided": true,
+      "rng_before": "c4c8cd981a644b41fbcd630c861ba06eea2198a6262ecb208bb1d9f1f78c026d"
+    }
+  }
+]

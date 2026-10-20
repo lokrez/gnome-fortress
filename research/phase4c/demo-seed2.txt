@@ -1,0 +1,11 @@
+Research-only synthetic source readout; real source experience is recorded separately.
+These contacts are prescribed local opportunities, not autonomous meetings.
+Seed 2; depth 2; source -64; margin 1; arithmetic floor
+Actual source experience score: -17
+individual   received=  0 choice=(10,2) hazard changed=False firsthand_before=0
+  candidates before: [(-7, 10, 2), (-8, 11, 3), (-8, 10, 4), (-8, 9, 3)] after: [(-7, 10, 2), (-8, 11, 3), (-8, 10, 4), (-8, 9, 3)]
+multihop     received= -1 choice=(10,4) grass  changed=True firsthand_before=0
+  candidates before: [(-7, 10, 2), (-8, 11, 3), (-8, 10, 4), (-8, 9, 3)] after: [(-8, 10, 2), (-8, 11, 3), (-8, 10, 4), (-8, 9, 3)]
+  receipts: [{"acquired": -8, "delivered": true, "firsthand_before": 0, "key": "move:hazard", "masked": false, "packet": -32, "recipient": 2, "recipient_xy": [11, 3], "sender": 1, "source_value": -64, "source_xy": [12, 3]}, {"acquired": -1, "delivered": true, "firsthand_before": 0, "key": "move:hazard", "masked": false, "packet": -4, "recipient": 3, "recipient_xy": [10, 3], "sender": 2, "source_value": -8, "source_xy": [11, 3]}]
+ablation     received= -1 choice=(10,2) hazard changed=False firsthand_before=0
+  candidates before: [(-7, 10, 2), (-8, 11, 3), (-8, 10, 4), (-8, 9, 3)] after: [(-7, 10, 2), (-8, 11, 3), (-8, 10, 4), (-8, 9, 3)]

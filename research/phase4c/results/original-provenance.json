@@ -1,0 +1,4866 @@
+[
+  {
+    "seed": 1,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -42,
+        "previous": 0,
+        "value": -11,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -11,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 2,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -66,
+        "previous": 0,
+        "value": -17,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -17,
+          "transmitted": -9,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 3,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -57,
+        "previous": 0,
+        "value": -15,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -15,
+          "transmitted": -8,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 4,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -42,
+        "previous": 0,
+        "value": -11,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -11,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 5,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -51,
+        "previous": 0,
+        "value": -13,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -13,
+          "transmitted": -7,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 6,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -69,
+        "previous": 0,
+        "value": -18,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -18,
+          "transmitted": -9,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 7,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -60,
+        "previous": 0,
+        "value": -15,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -15,
+          "transmitted": -8,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 8,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -78,
+        "previous": 0,
+        "value": -20,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -20,
+          "transmitted": -10,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 9,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -51,
+        "previous": 0,
+        "value": -13,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -13,
+          "transmitted": -7,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 10,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -66,
+        "previous": 0,
+        "value": -17,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -17,
+          "transmitted": -9,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 11,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -75,
+        "previous": 0,
+        "value": -19,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -19,
+          "transmitted": -10,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 12,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -69,
+        "previous": 0,
+        "value": -18,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -18,
+          "transmitted": -9,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 13,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -84,
+        "previous": 0,
+        "value": -21,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -21,
+          "transmitted": -11,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 14,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -90,
+        "previous": 0,
+        "value": -23,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -23,
+          "transmitted": -12,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 15,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -81,
+        "previous": 0,
+        "value": -21,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -21,
+          "transmitted": -11,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 16,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -72,
+        "previous": 0,
+        "value": -18,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -18,
+          "transmitted": -9,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 17,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -81,
+        "previous": 0,
+        "value": -21,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -21,
+          "transmitted": -11,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 18,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -45,
+        "previous": 0,
+        "value": -12,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -12,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 19,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -81,
+        "previous": 0,
+        "value": -21,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -21,
+          "transmitted": -11,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 20,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -48,
+        "previous": 0,
+        "value": -12,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -12,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 21,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -87,
+        "previous": 0,
+        "value": -22,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -22,
+          "transmitted": -11,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 22,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -54,
+        "previous": 0,
+        "value": -14,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -14,
+          "transmitted": -7,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 23,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -57,
+        "previous": 0,
+        "value": -15,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -15,
+          "transmitted": -8,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 24,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -78,
+        "previous": 0,
+        "value": -20,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -20,
+          "transmitted": -10,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 25,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -81,
+        "previous": 0,
+        "value": -21,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -21,
+          "transmitted": -11,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 26,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -69,
+        "previous": 0,
+        "value": -18,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -18,
+          "transmitted": -9,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 27,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -54,
+        "previous": 0,
+        "value": -14,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -14,
+          "transmitted": -7,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 28,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -48,
+        "previous": 0,
+        "value": -12,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -12,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 29,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -60,
+        "previous": 0,
+        "value": -15,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -15,
+          "transmitted": -8,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 30,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -90,
+        "previous": 0,
+        "value": -23,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -23,
+          "transmitted": -12,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 31,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -66,
+        "previous": 0,
+        "value": -17,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -17,
+          "transmitted": -9,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 32,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -72,
+        "previous": 0,
+        "value": -18,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -18,
+          "transmitted": -9,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 33,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -39,
+        "previous": 0,
+        "value": -10,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -10,
+          "transmitted": -5,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 34,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -57,
+        "previous": 0,
+        "value": -15,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -15,
+          "transmitted": -8,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 35,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -75,
+        "previous": 0,
+        "value": -19,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -19,
+          "transmitted": -10,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 36,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -45,
+        "previous": 0,
+        "value": -12,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -12,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 37,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -48,
+        "previous": 0,
+        "value": -12,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -12,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 38,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -57,
+        "previous": 0,
+        "value": -15,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -15,
+          "transmitted": -8,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 39,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -90,
+        "previous": 0,
+        "value": -23,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -23,
+          "transmitted": -12,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 40,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -48,
+        "previous": 0,
+        "value": -12,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -12,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 41,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -63,
+        "previous": 0,
+        "value": -16,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -16,
+          "transmitted": -8,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 42,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -51,
+        "previous": 0,
+        "value": -13,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -13,
+          "transmitted": -7,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 43,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -48,
+        "previous": 0,
+        "value": -12,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -12,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 44,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -78,
+        "previous": 0,
+        "value": -20,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -20,
+          "transmitted": -10,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 45,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -54,
+        "previous": 0,
+        "value": -14,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -14,
+          "transmitted": -7,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 46,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -36,
+        "previous": 0,
+        "value": -9,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -9,
+          "transmitted": -5,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 47,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -63,
+        "previous": 0,
+        "value": -16,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -16,
+          "transmitted": -8,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 48,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -51,
+        "previous": 0,
+        "value": -13,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -13,
+          "transmitted": -7,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 49,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -69,
+        "previous": 0,
+        "value": -18,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -18,
+          "transmitted": -9,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 50,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -48,
+        "previous": 0,
+        "value": -12,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -12,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 51,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -90,
+        "previous": 0,
+        "value": -23,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -23,
+          "transmitted": -12,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 52,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -63,
+        "previous": 0,
+        "value": -16,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -16,
+          "transmitted": -8,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 53,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -81,
+        "previous": 0,
+        "value": -21,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -21,
+          "transmitted": -11,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 54,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -84,
+        "previous": 0,
+        "value": -21,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -21,
+          "transmitted": -11,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 55,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -51,
+        "previous": 0,
+        "value": -13,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -13,
+          "transmitted": -7,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 56,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -39,
+        "previous": 0,
+        "value": -10,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -10,
+          "transmitted": -5,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 57,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -78,
+        "previous": 0,
+        "value": -20,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -20,
+          "transmitted": -10,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 58,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -75,
+        "previous": 0,
+        "value": -19,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -19,
+          "transmitted": -10,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 59,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -36,
+        "previous": 0,
+        "value": -9,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -9,
+          "transmitted": -5,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 60,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -36,
+        "previous": 0,
+        "value": -9,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -9,
+          "transmitted": -5,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 61,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -42,
+        "previous": 0,
+        "value": -11,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -11,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 62,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -87,
+        "previous": 0,
+        "value": -22,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -22,
+          "transmitted": -11,
+          "before": 0,
+          "after": -3,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -3,
+          "transmitted": -2,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 63,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -45,
+        "previous": 0,
+        "value": -12,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -12,
+          "transmitted": -6,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  },
+  {
+    "seed": 64,
+    "proof": {
+      "root": {
+        "agent": 1,
+        "tick": 0,
+        "experience": 1,
+        "key": "move:hazard",
+        "reward": -63,
+        "previous": 0,
+        "value": -16,
+        "xy": [
+          5,
+          3
+        ],
+        "prior_social": false
+      },
+      "path": [
+        1,
+        2,
+        3
+      ],
+      "key": "move:hazard",
+      "masked": false,
+      "receipts": [
+        {
+          "sender": 1,
+          "recipient": 2,
+          "tick": 1,
+          "sender_xy": [
+            5,
+            3
+          ],
+          "recipient_xy": [
+            4,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -16,
+          "transmitted": -8,
+          "before": 0,
+          "after": -2,
+          "intervention": null
+        },
+        {
+          "sender": 2,
+          "recipient": 3,
+          "tick": 2,
+          "sender_xy": [
+            3,
+            3
+          ],
+          "recipient_xy": [
+            2,
+            3
+          ],
+          "firsthand_before": 0,
+          "key": "move:hazard",
+          "source_value": -2,
+          "transmitted": -1,
+          "before": 0,
+          "after": -1,
+          "intervention": null
+        }
+      ]
+    },
+    "acquired": -1,
+    "origin": {
+      "firsthand_count": 0,
+      "social_count": 1,
+      "last_firsthand_tick": null,
+      "last_social_tick": 2,
+      "last_source": 2
+    }
+  }
+]

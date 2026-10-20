@@ -1,0 +1,5 @@
+condition,worlds,ticks_per_world,attempts,opportunities,messages,content_recipients,unused_no_applicable,not_personally_verified,episode_evicted,association_missing,mixed_recipients,direct_deliveries,multihop_deliveries,opaque_deliveries,clean_social_moves,applicable_moves,ranking_changed,decision_changed,hazard_avoided,mixed_excluded_moves,forwarded_recipients,forwarded_applicable,forwarded_changed,forwarded_avoided
+individual,3,300,1771,1771,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+direct,3,300,1781,1781,94,94,3,24,81,0,70,94,0,0,4270,501,12,8,8,5390,0,0,0,0
+multihop,3,300,1793,1793,109,109,3,26,96,0,83,82,27,0,4968,643,18,11,11,6491,27,178,3,3
+masked,3,300,1771,1771,106,0,0,0,0,0,0,88,18,106,0,0,0,0,0,0,0,0,0,0

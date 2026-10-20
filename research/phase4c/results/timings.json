@@ -1,0 +1,65 @@
+{
+  "pilot": [
+    {
+      "seed": 1,
+      "condition": "individual",
+      "seconds": 1.0481515130013577
+    },
+    {
+      "seed": 1,
+      "condition": "direct",
+      "seconds": 1.2185242409977945
+    },
+    {
+      "seed": 1,
+      "condition": "multihop",
+      "seconds": 1.336422884996864
+    },
+    {
+      "seed": 1,
+      "condition": "masked",
+      "seconds": 1.1689557650024653
+    },
+    {
+      "seed": 2,
+      "condition": "individual",
+      "seconds": 1.10876541199832
+    },
+    {
+      "seed": 2,
+      "condition": "direct",
+      "seconds": 1.2159784969990142
+    },
+    {
+      "seed": 2,
+      "condition": "multihop",
+      "seconds": 1.2667846240001381
+    },
+    {
+      "seed": 2,
+      "condition": "masked",
+      "seconds": 1.1572486229997594
+    },
+    {
+      "seed": 3,
+      "condition": "individual",
+      "seconds": 1.1353675360005582
+    },
+    {
+      "seed": 3,
+      "condition": "direct",
+      "seconds": 1.3230716129983193
+    },
+    {
+      "seed": 3,
+      "condition": "multihop",
+      "seconds": 1.3281384209985845
+    },
+    {
+      "seed": 3,
+      "condition": "masked",
+      "seconds": 1.1029457670010743
+    }
+  ],
+  "total_seconds": 30.175318465997407
+}

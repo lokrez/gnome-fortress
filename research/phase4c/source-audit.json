@@ -1,0 +1,49 @@
+{
+  "reference_commits": {
+    "f32c1a6": "f32c1a612e36b046faa501273640bbabfce5159d",
+    "232dd30": "232dd30ce56a4d3645efb3d1dc35cd0539deb497",
+    "5efc9b1": "5efc9b1bfdd8d49a13aefd4e9256e6c1e87c024f",
+    "2f5213c": "2f5213c23300e61330ea665bfb4789622bf38bc6",
+    "e8eac96": "e8eac96e180c35df6781ce3a84348940fd338763",
+    "2644229": "2644229a5665a2a8fb6bf60f499fe841b075a29e",
+    "be50c49": "be50c49f7f68ce77cdd57d2598d6892f41b06e48",
+    "phase0-verified": "f32c1a612e36b046faa501273640bbabfce5159d",
+    "phase1-verified": "232dd30ce56a4d3645efb3d1dc35cd0539deb497",
+    "phase2-verified": "5efc9b1bfdd8d49a13aefd4e9256e6c1e87c024f",
+    "phase3-verified": "2f5213c23300e61330ea665bfb4789622bf38bc6"
+  },
+  "unchanged_handoff_git_files": 400,
+  "historical_crlf_checkout_files": [
+    "research/phase4a/results/pilot.csv",
+    "research/phase4a/results/probes.csv",
+    "research/phase4b/results/probes.csv"
+  ],
+  "unchanged_reference_package_files": 10,
+  "python": "3.14.4",
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+  "reference_source_sha256": {
+    "gnome_fortress/__init__.py": "313de453d04da78032195e3b64c7a2a835a889806328cf8c28802a6cd1aeaf4d",
+    "gnome_fortress/__main__.py": "3e2d17fe5733cbceb1650ec44142d57bf2337dcd2edc686ee1f9824710014c07",
+    "gnome_fortress/communication.py": "207763ec1b219a492c2c6991112368295c4ab270730649e3dc3f901850053170",
+    "gnome_fortress/engine.py": "464d398ab201bfd4c1d61bdc86293c67caf74828d8fea57312e9b2b1a5e7c96f",
+    "gnome_fortress/model.py": "e9049172b657da2dc103907029fbbfe07d30a88438bd44c4ebd0436c9a048229",
+    "gnome_fortress/observatory.py": "7c66a55fe75f7ce1ef1d97d9e61a30d4d266dc807ae60c40760250211e500192",
+    "gnome_fortress/runtime.py": "942d9eaca51aac2c0fff6d6474d865ba842055d510ce80e660032ee05737ec78",
+    "gnome_fortress/storage.py": "947a628c43083211f1b94edb0700ec5df6687c7d37b2afb6d09a4c69c6e58445",
+    "gnome_fortress/telephone.py": "743a4c218badf8d233515eb792d914df3270e50f1deb9f3b3c601f943fb7d0bb",
+    "gnome_fortress/viewer.py": "81e40614dce3561066032fe8f41eb6c11d6019399c77c6624b9ad23d111e9c8b"
+  },
+  "research_source_sha256": {
+    "research/phase4c/PROTOCOL.md": "fb5de4cfd7b892cc9a321d25ad3fe23873661eb5e56b13349a3fb093995e1e3f",
+    "research/phase4c_analyze.py": "bc5c812f2a8a3c60de436fde4cf715671076b9accd79a9e68857f2d201ac550e",
+    "research/phase4c_benchmark.py": "ce64117239bf8bfb0f85bc4249854bf79b842b146916c17e162c83c798242327",
+    "research/phase4c_demo.py": "437e693b9f9615fcf3a7a60c0349b1540578631e8ff60ed6a231889b97a1ef1b",
+    "research/phase4c_evidence.py": "c9a4459d2d8ef16d0161e845482ee9a6e2aa2fc8c1be88422ffcb5b9ba8f91aa",
+    "research/phase4c_matrix.py": "9924258b5c0410f982dcfdfab9041f9f1a12b5afa7ef64cfb6bfaf27e03c346f",
+    "research/phase4c_pilot.py": "67d8758c5b9671a3517964195254102a24e45d393b65fb00c290ed4229c844f7",
+    "research/phase4c_study.py": "ff286e36314eb5efda2083ce0fe70fb886ca1ade30a1109bde005a4bb3044a4f",
+    "research/phase4c_tools.py": "3a9ef661dfd2d018560bf2d54047af6a6ecb166871bd9209aaab5caf29e31e56",
+    "research/phase4c_verify.py": "30afeb3b3aa04cb47527616e4d9d528f92a7cf454863c7342c5de66c30dc140b",
+    "tests/test_phase4c.py": "ea294e9660ed5e8ebd43429e4b9bd0d4148cb91d1aaa0e34f86a8796010734bf"
+  }
+}
