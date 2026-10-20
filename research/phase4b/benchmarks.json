@@ -1,0 +1,67 @@
+[
+  {
+    "condition": "individual",
+    "repeats": 64,
+    "ticks": 192,
+    "scheduled_decisions": 512,
+    "stepping_seconds": 0.021934103006060468,
+    "stepping_cpu_seconds": 0.02161442300000168,
+    "instrumented_ticks_per_second": 8753.492219260106,
+    "peak_python_allocation_bytes": 348458,
+    "peak_rss_kib": 24360,
+    "max_extra_serialized_state_bytes": 2020,
+    "note": "Tracemalloc enabled; step timing excludes construction/validation/serialization. Peak allocation includes construction; RSS includes imports/serialization."
+  },
+  {
+    "condition": "direct",
+    "repeats": 64,
+    "ticks": 192,
+    "scheduled_decisions": 512,
+    "stepping_seconds": 0.029630388995428802,
+    "stepping_cpu_seconds": 0.029296052999998885,
+    "instrumented_ticks_per_second": 6479.833930955837,
+    "peak_python_allocation_bytes": 352969,
+    "peak_rss_kib": 24632,
+    "max_extra_serialized_state_bytes": 3197,
+    "note": "Tracemalloc enabled; step timing excludes construction/validation/serialization. Peak allocation includes construction; RSS includes imports/serialization."
+  },
+  {
+    "condition": "multihop",
+    "repeats": 64,
+    "ticks": 192,
+    "scheduled_decisions": 512,
+    "stepping_seconds": 0.03857736801364808,
+    "stepping_cpu_seconds": 0.03826164100000039,
+    "instrumented_ticks_per_second": 4977.011389996159,
+    "peak_python_allocation_bytes": 356762,
+    "peak_rss_kib": 24728,
+    "max_extra_serialized_state_bytes": 4506,
+    "note": "Tracemalloc enabled; step timing excludes construction/validation/serialization. Peak allocation includes construction; RSS includes imports/serialization."
+  },
+  {
+    "condition": "masked",
+    "repeats": 64,
+    "ticks": 192,
+    "scheduled_decisions": 512,
+    "stepping_seconds": 0.04047085800630157,
+    "stepping_cpu_seconds": 0.03931586699999946,
+    "instrumented_ticks_per_second": 4744.154422673826,
+    "peak_python_allocation_bytes": 356490,
+    "peak_rss_kib": 24432,
+    "max_extra_serialized_state_bytes": 4292,
+    "note": "Tracemalloc enabled; step timing excludes construction/validation/serialization. Peak allocation includes construction; RSS includes imports/serialization."
+  },
+  {
+    "condition": "irrelevant",
+    "repeats": 64,
+    "ticks": 192,
+    "scheduled_decisions": 512,
+    "stepping_seconds": 0.04560759499509004,
+    "stepping_cpu_seconds": 0.04512758700000156,
+    "instrumented_ticks_per_second": 4209.8251403230115,
+    "peak_python_allocation_bytes": 357647,
+    "peak_rss_kib": 24144,
+    "max_extra_serialized_state_bytes": 4742,
+    "note": "Tracemalloc enabled; step timing excludes construction/validation/serialization. Peak allocation includes construction; RSS includes imports/serialization."
+  }
+]

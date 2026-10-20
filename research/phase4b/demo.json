@@ -1,0 +1,1084 @@
+{
+  "seed": 1,
+  "protocol": "Controlled meetings and waits in eight scheduled decisions over three ticks; 57 founders killed for setup",
+  "conditions": {
+    "individual": {
+      "measurements": {
+        "seed": 1,
+        "condition": "individual",
+        "messages": 0,
+        "meaningful_messages": 0,
+        "opportunities": 2,
+        "attempts": 2,
+        "decisions": 8,
+        "two_hop_receipts": 0,
+        "meaningful_two_hop": 0,
+        "firsthand_c_before": 0,
+        "hazard_entry": 1,
+        "c_x": 2,
+        "c_y": 2,
+        "a_value": -11,
+        "b_value": 0,
+        "c_hazard_value_before": 0,
+        "c_grass_value_before": 0,
+        "digest": "ce908d453b025956bc73ceb2553d15cc2801788c7a00436d84f590562ec4cd0d"
+      },
+      "c_evidence": {
+        "agent": 3,
+        "tick": 3,
+        "alive": true,
+        "condition": "individual",
+        "current_associations": {
+          "move:hazard": -18
+        },
+        "current_proofs": {
+          "move:hazard": {
+            "root": {
+              "agent": 3,
+              "tick": 3,
+              "experience": 1,
+              "key": "move:hazard",
+              "reward": -72,
+              "previous": 0,
+              "value": -18,
+              "xy": [
+                2,
+                2
+              ],
+              "prior_social": false
+            },
+            "path": [
+              3
+            ],
+            "key": "move:hazard",
+            "masked": false,
+            "receipts": []
+          }
+        },
+        "knowledge_before_latest_movement": {},
+        "acquisition_evidence": {},
+        "recorded_movement": {
+          "tick": 3,
+          "actor": 3,
+          "start": [
+            2,
+            3
+          ],
+          "learned": {},
+          "knowledge_before": {},
+          "firsthand_hazard_before": 0,
+          "proof_path": null,
+          "scheduled": true,
+          "destination": [
+            2,
+            2
+          ],
+          "terrain": "hazard",
+          "action": "move",
+          "health_after": 76
+        },
+        "bounded_audit_entries": 2,
+        "note": "Association strengths are not certainty probabilities; historical paths do not imply independent witnesses."
+      }
+    },
+    "direct": {
+      "measurements": {
+        "seed": 1,
+        "condition": "direct",
+        "messages": 1,
+        "meaningful_messages": 1,
+        "opportunities": 2,
+        "attempts": 2,
+        "decisions": 8,
+        "two_hop_receipts": 0,
+        "meaningful_two_hop": 0,
+        "firsthand_c_before": 0,
+        "hazard_entry": 1,
+        "c_x": 2,
+        "c_y": 2,
+        "a_value": -11,
+        "b_value": -2,
+        "c_hazard_value_before": 0,
+        "c_grass_value_before": 0,
+        "digest": "55200dc8d047b1bd3eaecd84cc66dd82c3a5b7aa4e2960f2aab38ec4358b383f"
+      },
+      "c_evidence": {
+        "agent": 3,
+        "tick": 3,
+        "alive": true,
+        "condition": "direct",
+        "current_associations": {
+          "move:hazard": -18
+        },
+        "current_proofs": {
+          "move:hazard": {
+            "root": {
+              "agent": 3,
+              "tick": 3,
+              "experience": 1,
+              "key": "move:hazard",
+              "reward": -72,
+              "previous": 0,
+              "value": -18,
+              "xy": [
+                2,
+                2
+              ],
+              "prior_social": false
+            },
+            "path": [
+              3
+            ],
+            "key": "move:hazard",
+            "masked": false,
+            "receipts": []
+          }
+        },
+        "knowledge_before_latest_movement": {},
+        "acquisition_evidence": {},
+        "recorded_movement": {
+          "tick": 3,
+          "actor": 3,
+          "start": [
+            2,
+            3
+          ],
+          "learned": {},
+          "knowledge_before": {},
+          "firsthand_hazard_before": 0,
+          "proof_path": null,
+          "scheduled": true,
+          "destination": [
+            2,
+            2
+          ],
+          "terrain": "hazard",
+          "action": "move",
+          "health_after": 76
+        },
+        "bounded_audit_entries": 2,
+        "note": "Association strengths are not certainty probabilities; historical paths do not imply independent witnesses."
+      }
+    },
+    "multihop": {
+      "measurements": {
+        "seed": 1,
+        "condition": "multihop",
+        "messages": 2,
+        "meaningful_messages": 2,
+        "opportunities": 2,
+        "attempts": 2,
+        "decisions": 8,
+        "two_hop_receipts": 1,
+        "meaningful_two_hop": 1,
+        "firsthand_c_before": 0,
+        "hazard_entry": 0,
+        "c_x": 3,
+        "c_y": 3,
+        "a_value": -11,
+        "b_value": -2,
+        "c_hazard_value_before": -1,
+        "c_grass_value_before": 0,
+        "digest": "dcf5cc9aad154a72ddb7b933540d893de81d407e6c894a570639212481767952"
+      },
+      "c_evidence": {
+        "agent": 3,
+        "tick": 3,
+        "alive": true,
+        "condition": "multihop",
+        "current_associations": {
+          "move:hazard": -1,
+          "move:grass": 0
+        },
+        "current_proofs": {
+          "move:hazard": {
+            "root": {
+              "agent": 1,
+              "tick": 0,
+              "experience": 1,
+              "key": "move:hazard",
+              "reward": -42,
+              "previous": 0,
+              "value": -11,
+              "xy": [
+                5,
+                3
+              ],
+              "prior_social": false
+            },
+            "path": [
+              1,
+              2,
+              3
+            ],
+            "key": "move:hazard",
+            "masked": false,
+            "receipts": [
+              {
+                "sender": 1,
+                "recipient": 2,
+                "tick": 1,
+                "sender_xy": [
+                  5,
+                  3
+                ],
+                "recipient_xy": [
+                  4,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": -11,
+                "transmitted": -6,
+                "before": 0,
+                "after": -2,
+                "intervention": null
+              },
+              {
+                "sender": 2,
+                "recipient": 3,
+                "tick": 2,
+                "sender_xy": [
+                  3,
+                  3
+                ],
+                "recipient_xy": [
+                  2,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": -2,
+                "transmitted": -1,
+                "before": 0,
+                "after": -1,
+                "intervention": null
+              }
+            ]
+          }
+        },
+        "knowledge_before_latest_movement": {
+          "move:hazard": {
+            "root": {
+              "agent": 1,
+              "tick": 0,
+              "experience": 1,
+              "key": "move:hazard",
+              "reward": -42,
+              "previous": 0,
+              "value": -11,
+              "xy": [
+                5,
+                3
+              ],
+              "prior_social": false
+            },
+            "path": [
+              1,
+              2,
+              3
+            ],
+            "key": "move:hazard",
+            "masked": false,
+            "receipts": [
+              {
+                "sender": 1,
+                "recipient": 2,
+                "tick": 1,
+                "sender_xy": [
+                  5,
+                  3
+                ],
+                "recipient_xy": [
+                  4,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": -11,
+                "transmitted": -6,
+                "before": 0,
+                "after": -2,
+                "intervention": null
+              },
+              {
+                "sender": 2,
+                "recipient": 3,
+                "tick": 2,
+                "sender_xy": [
+                  3,
+                  3
+                ],
+                "recipient_xy": [
+                  2,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": -2,
+                "transmitted": -1,
+                "before": 0,
+                "after": -1,
+                "intervention": null
+              }
+            ]
+          }
+        },
+        "acquisition_evidence": {
+          "move:hazard": {
+            "root_source": 1,
+            "received_from": 2,
+            "source_path": [
+              1,
+              2,
+              3
+            ],
+            "forwarded": true,
+            "firsthand_at_acquisition": 0,
+            "masked": false,
+            "receipts": [
+              {
+                "sender": 1,
+                "recipient": 2,
+                "tick": 1,
+                "sender_xy": [
+                  5,
+                  3
+                ],
+                "recipient_xy": [
+                  4,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": -11,
+                "transmitted": -6,
+                "before": 0,
+                "after": -2,
+                "intervention": null
+              },
+              {
+                "sender": 2,
+                "recipient": 3,
+                "tick": 2,
+                "sender_xy": [
+                  3,
+                  3
+                ],
+                "recipient_xy": [
+                  2,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": -2,
+                "transmitted": -1,
+                "before": 0,
+                "after": -1,
+                "intervention": null
+              }
+            ]
+          }
+        },
+        "recorded_movement": {
+          "tick": 3,
+          "actor": 3,
+          "start": [
+            2,
+            3
+          ],
+          "learned": {
+            "move:hazard": -1
+          },
+          "knowledge_before": {
+            "move:hazard": {
+              "root": {
+                "agent": 1,
+                "tick": 0,
+                "experience": 1,
+                "key": "move:hazard",
+                "reward": -42,
+                "previous": 0,
+                "value": -11,
+                "xy": [
+                  5,
+                  3
+                ],
+                "prior_social": false
+              },
+              "path": [
+                1,
+                2,
+                3
+              ],
+              "key": "move:hazard",
+              "masked": false,
+              "receipts": [
+                {
+                  "sender": 1,
+                  "recipient": 2,
+                  "tick": 1,
+                  "sender_xy": [
+                    5,
+                    3
+                  ],
+                  "recipient_xy": [
+                    4,
+                    3
+                  ],
+                  "firsthand_before": 0,
+                  "key": "move:hazard",
+                  "source_value": -11,
+                  "transmitted": -6,
+                  "before": 0,
+                  "after": -2,
+                  "intervention": null
+                },
+                {
+                  "sender": 2,
+                  "recipient": 3,
+                  "tick": 2,
+                  "sender_xy": [
+                    3,
+                    3
+                  ],
+                  "recipient_xy": [
+                    2,
+                    3
+                  ],
+                  "firsthand_before": 0,
+                  "key": "move:hazard",
+                  "source_value": -2,
+                  "transmitted": -1,
+                  "before": 0,
+                  "after": -1,
+                  "intervention": null
+                }
+              ]
+            }
+          },
+          "firsthand_hazard_before": 0,
+          "proof_path": [
+            1,
+            2,
+            3
+          ],
+          "scheduled": true,
+          "destination": [
+            3,
+            3
+          ],
+          "terrain": "grass",
+          "action": "move",
+          "health_after": 100
+        },
+        "bounded_audit_entries": 2,
+        "note": "Association strengths are not certainty probabilities; historical paths do not imply independent witnesses."
+      }
+    },
+    "masked": {
+      "measurements": {
+        "seed": 1,
+        "condition": "masked",
+        "messages": 2,
+        "meaningful_messages": 0,
+        "opportunities": 2,
+        "attempts": 2,
+        "decisions": 8,
+        "two_hop_receipts": 1,
+        "meaningful_two_hop": 0,
+        "firsthand_c_before": 0,
+        "hazard_entry": 1,
+        "c_x": 2,
+        "c_y": 2,
+        "a_value": -11,
+        "b_value": 0,
+        "c_hazard_value_before": 0,
+        "c_grass_value_before": 0,
+        "digest": "991de2e62a85fa5bf42a92bee76f5b95f885dd1c6fb39e63696124c1d6c2da42"
+      },
+      "c_evidence": {
+        "agent": 3,
+        "tick": 3,
+        "alive": true,
+        "condition": "masked",
+        "current_associations": {
+          "move:hazard": -18
+        },
+        "current_proofs": {
+          "move:hazard": {
+            "root": {
+              "agent": 3,
+              "tick": 3,
+              "experience": 1,
+              "key": "move:hazard",
+              "reward": -72,
+              "previous": 0,
+              "value": -18,
+              "xy": [
+                2,
+                2
+              ],
+              "prior_social": false
+            },
+            "path": [
+              3
+            ],
+            "key": "move:hazard",
+            "masked": false,
+            "receipts": []
+          }
+        },
+        "knowledge_before_latest_movement": {
+          "move:hazard": {
+            "root": {
+              "agent": 1,
+              "tick": 0,
+              "experience": 1,
+              "key": "move:hazard",
+              "reward": -42,
+              "previous": 0,
+              "value": -11,
+              "xy": [
+                5,
+                3
+              ],
+              "prior_social": false
+            },
+            "path": [
+              1,
+              2,
+              3
+            ],
+            "key": "move:hazard",
+            "masked": true,
+            "receipts": [
+              {
+                "sender": 1,
+                "recipient": 2,
+                "tick": 1,
+                "sender_xy": [
+                  5,
+                  3
+                ],
+                "recipient_xy": [
+                  4,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": null,
+                "transmitted": null,
+                "before": null,
+                "after": null,
+                "intervention": null
+              },
+              {
+                "sender": 2,
+                "recipient": 3,
+                "tick": 2,
+                "sender_xy": [
+                  3,
+                  3
+                ],
+                "recipient_xy": [
+                  2,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": null,
+                "transmitted": null,
+                "before": null,
+                "after": null,
+                "intervention": null
+              }
+            ]
+          }
+        },
+        "acquisition_evidence": {
+          "move:hazard": {
+            "root_source": 1,
+            "received_from": 2,
+            "source_path": [
+              1,
+              2,
+              3
+            ],
+            "forwarded": true,
+            "firsthand_at_acquisition": 0,
+            "masked": true,
+            "receipts": [
+              {
+                "sender": 1,
+                "recipient": 2,
+                "tick": 1,
+                "sender_xy": [
+                  5,
+                  3
+                ],
+                "recipient_xy": [
+                  4,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": null,
+                "transmitted": null,
+                "before": null,
+                "after": null,
+                "intervention": null
+              },
+              {
+                "sender": 2,
+                "recipient": 3,
+                "tick": 2,
+                "sender_xy": [
+                  3,
+                  3
+                ],
+                "recipient_xy": [
+                  2,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": null,
+                "transmitted": null,
+                "before": null,
+                "after": null,
+                "intervention": null
+              }
+            ]
+          }
+        },
+        "recorded_movement": {
+          "tick": 3,
+          "actor": 3,
+          "start": [
+            2,
+            3
+          ],
+          "learned": {},
+          "knowledge_before": {
+            "move:hazard": {
+              "root": {
+                "agent": 1,
+                "tick": 0,
+                "experience": 1,
+                "key": "move:hazard",
+                "reward": -42,
+                "previous": 0,
+                "value": -11,
+                "xy": [
+                  5,
+                  3
+                ],
+                "prior_social": false
+              },
+              "path": [
+                1,
+                2,
+                3
+              ],
+              "key": "move:hazard",
+              "masked": true,
+              "receipts": [
+                {
+                  "sender": 1,
+                  "recipient": 2,
+                  "tick": 1,
+                  "sender_xy": [
+                    5,
+                    3
+                  ],
+                  "recipient_xy": [
+                    4,
+                    3
+                  ],
+                  "firsthand_before": 0,
+                  "key": "move:hazard",
+                  "source_value": null,
+                  "transmitted": null,
+                  "before": null,
+                  "after": null,
+                  "intervention": null
+                },
+                {
+                  "sender": 2,
+                  "recipient": 3,
+                  "tick": 2,
+                  "sender_xy": [
+                    3,
+                    3
+                  ],
+                  "recipient_xy": [
+                    2,
+                    3
+                  ],
+                  "firsthand_before": 0,
+                  "key": "move:hazard",
+                  "source_value": null,
+                  "transmitted": null,
+                  "before": null,
+                  "after": null,
+                  "intervention": null
+                }
+              ]
+            }
+          },
+          "firsthand_hazard_before": 0,
+          "proof_path": [
+            1,
+            2,
+            3
+          ],
+          "scheduled": true,
+          "destination": [
+            2,
+            2
+          ],
+          "terrain": "hazard",
+          "action": "move",
+          "health_after": 76
+        },
+        "bounded_audit_entries": 2,
+        "note": "Association strengths are not certainty probabilities; historical paths do not imply independent witnesses."
+      }
+    },
+    "irrelevant": {
+      "measurements": {
+        "seed": 1,
+        "condition": "irrelevant",
+        "messages": 2,
+        "meaningful_messages": 2,
+        "opportunities": 2,
+        "attempts": 2,
+        "decisions": 8,
+        "two_hop_receipts": 1,
+        "meaningful_two_hop": 0,
+        "firsthand_c_before": 0,
+        "hazard_entry": 1,
+        "c_x": 2,
+        "c_y": 2,
+        "a_value": -11,
+        "b_value": -2,
+        "c_hazard_value_before": 0,
+        "c_grass_value_before": -1,
+        "digest": "9d260464ac0a9cfd01933227d9138509a077947c69daa957a7b6d879f2ff82fd"
+      },
+      "c_evidence": {
+        "agent": 3,
+        "tick": 3,
+        "alive": true,
+        "condition": "irrelevant",
+        "current_associations": {
+          "move:grass": -1,
+          "move:hazard": -18
+        },
+        "current_proofs": {
+          "move:grass": {
+            "root": {
+              "agent": 1,
+              "tick": 0,
+              "experience": 1,
+              "key": "move:hazard",
+              "reward": -42,
+              "previous": 0,
+              "value": -11,
+              "xy": [
+                5,
+                3
+              ],
+              "prior_social": false
+            },
+            "path": [
+              1,
+              2,
+              3
+            ],
+            "key": "move:grass",
+            "masked": false,
+            "receipts": [
+              {
+                "sender": 1,
+                "recipient": 2,
+                "tick": 1,
+                "sender_xy": [
+                  5,
+                  3
+                ],
+                "recipient_xy": [
+                  4,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": -11,
+                "transmitted": -6,
+                "before": 0,
+                "after": -2,
+                "intervention": null
+              },
+              {
+                "sender": 2,
+                "recipient": 3,
+                "tick": 2,
+                "sender_xy": [
+                  3,
+                  3
+                ],
+                "recipient_xy": [
+                  2,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:grass",
+                "source_value": -2,
+                "transmitted": -1,
+                "before": 0,
+                "after": -1,
+                "intervention": "irrelevant-key"
+              }
+            ]
+          },
+          "move:hazard": {
+            "root": {
+              "agent": 3,
+              "tick": 3,
+              "experience": 1,
+              "key": "move:hazard",
+              "reward": -72,
+              "previous": 0,
+              "value": -18,
+              "xy": [
+                2,
+                2
+              ],
+              "prior_social": false
+            },
+            "path": [
+              3
+            ],
+            "key": "move:hazard",
+            "masked": false,
+            "receipts": []
+          }
+        },
+        "knowledge_before_latest_movement": {
+          "move:grass": {
+            "root": {
+              "agent": 1,
+              "tick": 0,
+              "experience": 1,
+              "key": "move:hazard",
+              "reward": -42,
+              "previous": 0,
+              "value": -11,
+              "xy": [
+                5,
+                3
+              ],
+              "prior_social": false
+            },
+            "path": [
+              1,
+              2,
+              3
+            ],
+            "key": "move:grass",
+            "masked": false,
+            "receipts": [
+              {
+                "sender": 1,
+                "recipient": 2,
+                "tick": 1,
+                "sender_xy": [
+                  5,
+                  3
+                ],
+                "recipient_xy": [
+                  4,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": -11,
+                "transmitted": -6,
+                "before": 0,
+                "after": -2,
+                "intervention": null
+              },
+              {
+                "sender": 2,
+                "recipient": 3,
+                "tick": 2,
+                "sender_xy": [
+                  3,
+                  3
+                ],
+                "recipient_xy": [
+                  2,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:grass",
+                "source_value": -2,
+                "transmitted": -1,
+                "before": 0,
+                "after": -1,
+                "intervention": "irrelevant-key"
+              }
+            ]
+          }
+        },
+        "acquisition_evidence": {
+          "move:grass": {
+            "root_source": 1,
+            "received_from": 2,
+            "source_path": [
+              1,
+              2,
+              3
+            ],
+            "forwarded": true,
+            "firsthand_at_acquisition": 0,
+            "masked": false,
+            "receipts": [
+              {
+                "sender": 1,
+                "recipient": 2,
+                "tick": 1,
+                "sender_xy": [
+                  5,
+                  3
+                ],
+                "recipient_xy": [
+                  4,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:hazard",
+                "source_value": -11,
+                "transmitted": -6,
+                "before": 0,
+                "after": -2,
+                "intervention": null
+              },
+              {
+                "sender": 2,
+                "recipient": 3,
+                "tick": 2,
+                "sender_xy": [
+                  3,
+                  3
+                ],
+                "recipient_xy": [
+                  2,
+                  3
+                ],
+                "firsthand_before": 0,
+                "key": "move:grass",
+                "source_value": -2,
+                "transmitted": -1,
+                "before": 0,
+                "after": -1,
+                "intervention": "irrelevant-key"
+              }
+            ]
+          }
+        },
+        "recorded_movement": {
+          "tick": 3,
+          "actor": 3,
+          "start": [
+            2,
+            3
+          ],
+          "learned": {
+            "move:grass": -1
+          },
+          "knowledge_before": {
+            "move:grass": {
+              "root": {
+                "agent": 1,
+                "tick": 0,
+                "experience": 1,
+                "key": "move:hazard",
+                "reward": -42,
+                "previous": 0,
+                "value": -11,
+                "xy": [
+                  5,
+                  3
+                ],
+                "prior_social": false
+              },
+              "path": [
+                1,
+                2,
+                3
+              ],
+              "key": "move:grass",
+              "masked": false,
+              "receipts": [
+                {
+                  "sender": 1,
+                  "recipient": 2,
+                  "tick": 1,
+                  "sender_xy": [
+                    5,
+                    3
+                  ],
+                  "recipient_xy": [
+                    4,
+                    3
+                  ],
+                  "firsthand_before": 0,
+                  "key": "move:hazard",
+                  "source_value": -11,
+                  "transmitted": -6,
+                  "before": 0,
+                  "after": -2,
+                  "intervention": null
+                },
+                {
+                  "sender": 2,
+                  "recipient": 3,
+                  "tick": 2,
+                  "sender_xy": [
+                    3,
+                    3
+                  ],
+                  "recipient_xy": [
+                    2,
+                    3
+                  ],
+                  "firsthand_before": 0,
+                  "key": "move:grass",
+                  "source_value": -2,
+                  "transmitted": -1,
+                  "before": 0,
+                  "after": -1,
+                  "intervention": "irrelevant-key"
+                }
+              ]
+            }
+          },
+          "firsthand_hazard_before": 0,
+          "proof_path": null,
+          "scheduled": true,
+          "destination": [
+            2,
+            2
+          ],
+          "terrain": "hazard",
+          "action": "move",
+          "health_after": 76
+        },
+        "bounded_audit_entries": 2,
+        "note": "Association strengths are not certainty probabilities; historical paths do not imply independent witnesses."
+      }
+    }
+  }
+}

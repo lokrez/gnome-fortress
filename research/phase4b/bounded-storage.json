@@ -1,0 +1,18 @@
+{
+  "warmup_attempts": 500,
+  "additional_attempts": 10000,
+  "contact_distance": 1,
+  "rejection_counts": {
+    "duplicate_root": 10500
+  },
+  "python_current_after_warmup": 38080,
+  "python_current_after_stress": 38112,
+  "retained_growth_bytes": 32,
+  "peak_traced_bytes": 44608,
+  "audit_entries": 128,
+  "message_count": 2,
+  "c_value": -1,
+  "proof_receipts": 2,
+  "core_events_unchanged": true,
+  "proof_unchanged": true
+}

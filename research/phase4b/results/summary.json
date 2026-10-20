@@ -1,0 +1,86 @@
+{
+  "seeds": 64,
+  "ticks": 3,
+  "totals": {
+    "individual": {
+      "messages": 0,
+      "meaningful_messages": 0,
+      "opportunities": 128,
+      "attempts": 128,
+      "decisions": 512,
+      "two_hop_receipts": 0,
+      "meaningful_two_hop": 0,
+      "firsthand_c_before": 0,
+      "hazard_entry": 20
+    },
+    "direct": {
+      "messages": 64,
+      "meaningful_messages": 64,
+      "opportunities": 128,
+      "attempts": 128,
+      "decisions": 512,
+      "two_hop_receipts": 0,
+      "meaningful_two_hop": 0,
+      "firsthand_c_before": 0,
+      "hazard_entry": 20
+    },
+    "multihop": {
+      "messages": 128,
+      "meaningful_messages": 128,
+      "opportunities": 128,
+      "attempts": 128,
+      "decisions": 512,
+      "two_hop_receipts": 64,
+      "meaningful_two_hop": 64,
+      "firsthand_c_before": 0,
+      "hazard_entry": 0
+    },
+    "masked": {
+      "messages": 128,
+      "meaningful_messages": 0,
+      "opportunities": 128,
+      "attempts": 128,
+      "decisions": 512,
+      "two_hop_receipts": 64,
+      "meaningful_two_hop": 0,
+      "firsthand_c_before": 0,
+      "hazard_entry": 20
+    },
+    "irrelevant": {
+      "messages": 128,
+      "meaningful_messages": 128,
+      "opportunities": 128,
+      "attempts": 128,
+      "decisions": 512,
+      "two_hop_receipts": 64,
+      "meaningful_two_hop": 0,
+      "firsthand_c_before": 0,
+      "hazard_entry": 64
+    }
+  },
+  "changed_movement_seeds": [
+    1,
+    11,
+    12,
+    13,
+    25,
+    27,
+    29,
+    30,
+    32,
+    33,
+    35,
+    36,
+    38,
+    40,
+    42,
+    44,
+    50,
+    52,
+    54,
+    55
+  ],
+  "rng_identical_before_c_choice": true,
+  "individual_masked_core_exact": true,
+  "c_control_state_and_rng_exact": true
+}

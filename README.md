@@ -188,3 +188,35 @@ commands, published CSV/results, limits, persistence format and evidence are in
 movement before firsthand hazard exposure in controlled probes. **A survival
 benefit or emergent culture has not been established.** No endurance campaign
 was run for this milestone.
+
+## Phase 4B: the telephone experiment
+
+Run the controlled three-gnome demonstration (no files written by default):
+
+```bash
+.venv/bin/python -m research.phase4b_demo --seed 1
+```
+
+A physically encounters a hazard; prescribed local meetings allow A to inform B,
+then B to inform C. C's scored movement uses the original engine. Individual,
+direct-only, multihop, masked and irrelevant-content controls are printed together.
+This is an experimental harness, not naturally emerging dialogue.
+
+Save a new multihop checkpoint and inspect C read-only:
+
+```bash
+.venv/bin/python -m research.phase4b_demo --checkpoint run-results/telephone.sqlite
+.venv/bin/python -m research.phase4b_inspect run-results/telephone.sqlite --agent 3
+```
+
+Create `run-results` first if it does not exist. The demo refuses an existing
+output path. The companion inspector shows A/B/C source IDs, physical grounding,
+receipt locations/ticks, firsthand status at acquisition, association inputs and
+C's recorded movement. It also works with the locally generated experiment file
+`research/phase4b/results/demo-multihop.sqlite`. The existing Observatory and all
+Phase 3/4A application files remain unchanged.
+
+[Phase 4B findings, control table, bounds and reproduction](research/phase4b/REPORT.md).
+The engineered chain changed hazard entry to safe movement in 20 of 64 matched
+seeds. The warning only breaks a one-point scoring tie in this fixture; neither
+natural multihop prevalence nor population survival benefit has been established.

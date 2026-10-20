@@ -1,0 +1,28 @@
+{
+  "phase4a_reference": "e8eac96e180c35df6781ce3a84348940fd338763",
+  "phase3_reference": "2f5213c23300e61330ea665bfb4789622bf38bc6",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "sqlite": "3.46.1",
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+  "unchanged_reference_files": {
+    "gnome_fortress/__init__.py": true,
+    "gnome_fortress/__main__.py": true,
+    "gnome_fortress/communication.py": true,
+    "gnome_fortress/engine.py": true,
+    "gnome_fortress/model.py": true,
+    "gnome_fortress/observatory.py": true,
+    "gnome_fortress/runtime.py": true,
+    "gnome_fortress/storage.py": true,
+    "gnome_fortress/viewer.py": true
+  },
+  "historical_tracked_research_unchanged": true,
+  "source_sha256": {
+    "gnome_fortress/telephone.py": "743a4c218badf8d233515eb792d914df3270e50f1deb9f3b3c601f943fb7d0bb",
+    "research/phase4b_experiment.py": "4e2e12a42c9e21281066d8a8b09040b794efd8d0193b3e4c77408bc516aedb15",
+    "research/phase4b_demo.py": "89e6dd8bbe3ef48e86c6f42bd52a45143059cb28130d2a9aa186e21c17546a53",
+    "research/phase4b_inspect.py": "8f3da002d11fb428b323151be07d310e0b80f9ce595b383f150d667c4b38ead3",
+    "research/phase4b_benchmark.py": "e70aa7cda77975ac220d57f6ec374eb7a9f261d97fa829b31585fc89bc6f50ce",
+    "research/phase4b_verify.py": "b09ea16c919dfbfb1f9fe837dcf6fac69f09a4e061715bfe09068981ab4a1db7",
+    "tests/test_telephone.py": "f8d3615948538045d95b5ace9f2e161af8943d0308a263735e68dfe1f518fa92"
+  }
+}
