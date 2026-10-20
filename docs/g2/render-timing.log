@@ -1,0 +1,33 @@
+{
+  "tick": 120,
+  "living": 76,
+  "timings": [
+    {
+      "version": "G1",
+      "frames": 60,
+      "window": [
+        1254,
+        680
+      ],
+      "driver": "x11",
+      "median_ms": 6.9666889976360835,
+      "mean_ms": 7.932414416427492,
+      "max_ms": 55.49292400246486,
+      "world_unchanged": true
+    },
+    {
+      "version": "G2",
+      "frames": 60,
+      "window": [
+        1334,
+        820
+      ],
+      "driver": "x11",
+      "median_ms": 7.147866999730468,
+      "mean_ms": 7.622979049604813,
+      "max_ms": 14.083490998018533,
+      "world_unchanged": true
+    }
+  ],
+  "note": "Sequential uncapped rendering, different window sizes; single sample, not a capacity benchmark."
+}

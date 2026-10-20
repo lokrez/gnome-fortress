@@ -1,0 +1,69 @@
+{
+  "reference": "597b0eb9bfcbee438c1959c6a73b1b3591511358",
+  "unchanged_authoritative_modules": 7,
+  "checks": [
+    {
+      "scenario": "queued",
+      "exact": true,
+      "g1_reader_accepts_g2_save": true,
+      "final_tick": 99,
+      "digest": "eeea0527a879ec974610a15ade6637f9cea24e09480bfcd9f81be384a2104cf3"
+    },
+    {
+      "scenario": "active",
+      "exact": true,
+      "g1_reader_accepts_g2_save": true,
+      "final_tick": 113,
+      "digest": "06f04ed13fca244d6fc2146cfdee3656656663e2a035ad613c0626cec39221cb"
+    },
+    {
+      "scenario": "expired",
+      "exact": true,
+      "g1_reader_accepts_g2_save": true,
+      "final_tick": 144,
+      "digest": "77adf1ee0d0a42cbbecb9e1183b384a9e4820bc8bb5e0fc79d15928eb0ab4fca"
+    },
+    {
+      "scenario": "extinct",
+      "exact": true,
+      "g1_reader_accepts_g2_save": true,
+      "final_tick": 9,
+      "digest": "989f0b77cdd7782d3871b4e316b93b87f4b8e7e9904b4755f828938b99fb3697"
+    },
+    {
+      "scenario": "matched_interventions",
+      "seed": 1,
+      "exact": true,
+      "digest": "d378e4e7f6d8ea8963b1a1015bce8eec0c93febea2a1ce865f7f48250e2d5124"
+    },
+    {
+      "scenario": "matched_interventions",
+      "seed": 42,
+      "exact": true,
+      "digest": "a3ef0f7a37a737180d3db3a606113525ffbfad880fb4ded177862031591df7ca"
+    },
+    {
+      "scenario": "G1_recorded_observation",
+      "exact": true,
+      "digest": "37f087a96c03acf4c816285627feff381755a59e396bd3ed86afa48ca1fe9332"
+    },
+    {
+      "scenario": "G1_recorded_rain",
+      "exact": true,
+      "digest": "775fd96c60f1a44f6d461d673a9b74472c3637eb3a97364462cf128f9678705f"
+    },
+    {
+      "scenario": "G1_recorded_drought",
+      "exact": true,
+      "digest": "56ae5ecfeb2266a1af5c94f4aaecbb5f829ca164d4f254f9534b8a57ceba04a0"
+    },
+    {
+      "scenario": "existing_G1_smoke_readonly",
+      "exact": true,
+      "digest": "ed3278d6b37237386ad4c4eee65fecd94bc4509cf3c58b0f143cdde5610d56b6",
+      "file_sha256": "87bdaa0a602bece53134f22e28f1593cbe5d62cd752e90cc73eef50de3c47d53"
+    }
+  ],
+  "format": "gnome-fortress-game-g1-v1",
+  "new_format_or_modes": false
+}

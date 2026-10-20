@@ -221,7 +221,7 @@ The engineered chain changed hazard entry to safe movement in 20 of 64 matched
 seeds. The warning only breaks a one-point scoring tie in this fixture; neither
 natural multihop prevalence nor population survival benefit has been established.
 
-## Playable God prototype — G1
+## Playable God prototype — G2: The Living World
 
 ```bash
 cd ~/gnome-fortress && .venv/bin/python -m gnome_fortress.god_demo
@@ -231,5 +231,11 @@ Choose **Rain (R)** or **Drought (D)** and click the map. **O** returns to obser
 **Space** pauses, **+/-** changes speed, **S** saves, and **Esc** saves and exits.
 The separate gameplay save resumes on the next launch. This is not Ironman.
 
-[Controls, actual screenshots, resource rules, verification and limitations](docs/g1/README.md).
+[G2 controls, actual screenshots, compatibility and verification](docs/g2/README.md).
+Use F1/F2 for individual/intervention details and Page Up/Page Down or the mouse
+wheel to browse real recorded events. Existing G1 saves resume without conversion.
+
+[Future Game Mode Design Contract](docs/game-modes/CONTRACT.md) is documentation
+only; Ironman and release-mode selection are not implemented.
+[G1 baseline report and resource rules](docs/g1/README.md) remain preserved.
 The default research simulation remains available through its original launcher.

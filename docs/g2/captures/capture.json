@@ -1,0 +1,732 @@
+{
+  "driver": "x11",
+  "window": [
+    1334,
+    820
+  ],
+  "input": "scripted actual key/click handlers; no human usability session",
+  "screens": [
+    {
+      "name": "founders",
+      "tick": 0,
+      "tab": "gnome",
+      "selected": {
+        "id": 1,
+        "name": "Gnome 00001",
+        "status": "awake",
+        "death_cause": null,
+        "age": 184,
+        "health": 100,
+        "hunger": 10,
+        "thirst": 10,
+        "fatigue": 0,
+        "action": "born",
+        "parents": [],
+        "children": 0,
+        "location": [
+          9,
+          9
+        ],
+        "traits": {
+          "curiosity": 78,
+          "caution": 40,
+          "sociability": 34,
+          "fertility": 40,
+          "stamina": 36,
+          "vision": 73
+        },
+        "movement": {},
+        "memories": []
+      },
+      "status": {
+        "tick": 0,
+        "living": 60,
+        "born": 60,
+        "deaths": 0,
+        "net_population_change": 0,
+        "food_stock": 57320,
+        "active": 0
+      },
+      "powers": [],
+      "feed": [
+        {
+          "sequence": 59,
+          "tick": 0,
+          "text": "Gnome 00060 born (founder)"
+        },
+        {
+          "sequence": 58,
+          "tick": 0,
+          "text": "Gnome 00059 born (founder)"
+        },
+        {
+          "sequence": 57,
+          "tick": 0,
+          "text": "Gnome 00058 born (founder)"
+        },
+        {
+          "sequence": 56,
+          "tick": 0,
+          "text": "Gnome 00057 born (founder)"
+        },
+        {
+          "sequence": 55,
+          "tick": 0,
+          "text": "Gnome 00056 born (founder)"
+        }
+      ],
+      "digest": "2e41473531c9f8bc3a31a82d45260119be829376a079b431dec613473333a47f"
+    },
+    {
+      "name": "powers-active",
+      "tick": 120,
+      "tab": "powers",
+      "selected": {
+        "id": 1,
+        "name": "Gnome 00001",
+        "status": "awake",
+        "death_cause": null,
+        "age": 304,
+        "health": 71,
+        "hunger": 19,
+        "thirst": 18,
+        "fatigue": 44,
+        "action": "move",
+        "parents": [],
+        "children": 0,
+        "location": [
+          12,
+          20
+        ],
+        "traits": {
+          "curiosity": 78,
+          "caution": 40,
+          "sociability": 34,
+          "fertility": 40,
+          "stamina": 36,
+          "vision": 73
+        },
+        "movement": {
+          "move:forest": 0,
+          "move:grass": 0,
+          "move:hazard": -30
+        },
+        "memories": [
+          [
+            117,
+            "move",
+            "grass",
+            0
+          ],
+          [
+            118,
+            "move",
+            "grass",
+            0
+          ],
+          [
+            119,
+            "move",
+            "forest",
+            0
+          ]
+        ]
+      },
+      "status": {
+        "tick": 120,
+        "living": 76,
+        "born": 77,
+        "deaths": 1,
+        "net_population_change": 16,
+        "food_stock": 98383,
+        "active": 3
+      },
+      "powers": [
+        {
+          "id": 1,
+          "kind": "rain",
+          "status": "active",
+          "overlap": "partially overridden",
+          "location": [
+            20,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 100,
+          "totals": {
+            "pulses": 10,
+            "credited_cells": 170,
+            "overridden_cells": 540,
+            "regenerated": 1012,
+            "normal_regeneration": 529,
+            "delta": 483
+          }
+        },
+        {
+          "id": 2,
+          "kind": "rain",
+          "status": "active",
+          "overlap": "overridden",
+          "location": [
+            20,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 100,
+          "totals": {
+            "pulses": 10,
+            "credited_cells": 0,
+            "overridden_cells": 710,
+            "regenerated": 0,
+            "normal_regeneration": 0,
+            "delta": 0
+          }
+        },
+        {
+          "id": 3,
+          "kind": "drought",
+          "status": "active",
+          "overlap": "",
+          "location": [
+            22,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 100,
+          "totals": {
+            "pulses": 10,
+            "credited_cells": 680,
+            "overridden_cells": 0,
+            "regenerated": 0,
+            "normal_regeneration": 3009,
+            "delta": -3009
+          }
+        }
+      ],
+      "feed": [
+        {
+          "sequence": 579,
+          "tick": 115,
+          "text": "Gnome 00034 hazard injury: 15 health lost"
+        },
+        {
+          "sequence": 574,
+          "tick": 112,
+          "text": "Gnome 00035 hazard injury: 13 health lost"
+        },
+        {
+          "sequence": 573,
+          "tick": 112,
+          "text": "Gnome 00001 hazard injury: 22 health lost"
+        },
+        {
+          "sequence": 569,
+          "tick": 111,
+          "text": "Gnome 00073 hazard injury: 20 health lost"
+        },
+        {
+          "sequence": 567,
+          "tick": 110,
+          "text": "Gnome 00045 hazard injury: 14 health lost"
+        }
+      ],
+      "digest": "abefe0e16fb884afe4f498063a2c9335d6acbf3500a617a613e2a66e09774a2b"
+    },
+    {
+      "name": "individual",
+      "tick": 120,
+      "tab": "gnome",
+      "selected": {
+        "id": 72,
+        "name": "Gnome 00072",
+        "status": "sleeping",
+        "death_cause": null,
+        "age": 69,
+        "health": 100,
+        "hunger": 18,
+        "thirst": 26,
+        "fatigue": 41,
+        "action": "sleep",
+        "parents": [
+          5,
+          30
+        ],
+        "children": 0,
+        "location": [
+          27,
+          20
+        ],
+        "traits": {
+          "curiosity": 78,
+          "caution": 47,
+          "sociability": 55,
+          "fertility": 38,
+          "stamina": 53,
+          "vision": 29
+        },
+        "movement": {
+          "move:forest": 0,
+          "move:grass": 0
+        },
+        "memories": [
+          [
+            112,
+            "move",
+            "grass",
+            0
+          ],
+          [
+            113,
+            "move",
+            "forest",
+            0
+          ],
+          [
+            114,
+            "move",
+            "grass",
+            0
+          ]
+        ]
+      },
+      "status": {
+        "tick": 120,
+        "living": 76,
+        "born": 77,
+        "deaths": 1,
+        "net_population_change": 16,
+        "food_stock": 98383,
+        "active": 3
+      },
+      "powers": [
+        {
+          "id": 1,
+          "kind": "rain",
+          "status": "active",
+          "overlap": "partially overridden",
+          "location": [
+            20,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 100,
+          "totals": {
+            "pulses": 10,
+            "credited_cells": 170,
+            "overridden_cells": 540,
+            "regenerated": 1012,
+            "normal_regeneration": 529,
+            "delta": 483
+          }
+        },
+        {
+          "id": 2,
+          "kind": "rain",
+          "status": "active",
+          "overlap": "overridden",
+          "location": [
+            20,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 100,
+          "totals": {
+            "pulses": 10,
+            "credited_cells": 0,
+            "overridden_cells": 710,
+            "regenerated": 0,
+            "normal_regeneration": 0,
+            "delta": 0
+          }
+        },
+        {
+          "id": 3,
+          "kind": "drought",
+          "status": "active",
+          "overlap": "",
+          "location": [
+            22,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 100,
+          "totals": {
+            "pulses": 10,
+            "credited_cells": 680,
+            "overridden_cells": 0,
+            "regenerated": 0,
+            "normal_regeneration": 3009,
+            "delta": -3009
+          }
+        }
+      ],
+      "feed": [
+        {
+          "sequence": 579,
+          "tick": 115,
+          "text": "Gnome 00034 hazard injury: 15 health lost"
+        },
+        {
+          "sequence": 574,
+          "tick": 112,
+          "text": "Gnome 00035 hazard injury: 13 health lost"
+        },
+        {
+          "sequence": 573,
+          "tick": 112,
+          "text": "Gnome 00001 hazard injury: 22 health lost"
+        },
+        {
+          "sequence": 569,
+          "tick": 111,
+          "text": "Gnome 00073 hazard injury: 20 health lost"
+        },
+        {
+          "sequence": 567,
+          "tick": 110,
+          "text": "Gnome 00045 hazard injury: 14 health lost"
+        }
+      ],
+      "digest": "abefe0e16fb884afe4f498063a2c9335d6acbf3500a617a613e2a66e09774a2b"
+    },
+    {
+      "name": "events-browsed",
+      "tick": 120,
+      "tab": "gnome",
+      "selected": {
+        "id": 72,
+        "name": "Gnome 00072",
+        "status": "sleeping",
+        "death_cause": null,
+        "age": 69,
+        "health": 100,
+        "hunger": 18,
+        "thirst": 26,
+        "fatigue": 41,
+        "action": "sleep",
+        "parents": [
+          5,
+          30
+        ],
+        "children": 0,
+        "location": [
+          27,
+          20
+        ],
+        "traits": {
+          "curiosity": 78,
+          "caution": 47,
+          "sociability": 55,
+          "fertility": 38,
+          "stamina": 53,
+          "vision": 29
+        },
+        "movement": {
+          "move:forest": 0,
+          "move:grass": 0
+        },
+        "memories": [
+          [
+            112,
+            "move",
+            "grass",
+            0
+          ],
+          [
+            113,
+            "move",
+            "forest",
+            0
+          ],
+          [
+            114,
+            "move",
+            "grass",
+            0
+          ]
+        ]
+      },
+      "status": {
+        "tick": 120,
+        "living": 76,
+        "born": 77,
+        "deaths": 1,
+        "net_population_change": 16,
+        "food_stock": 98383,
+        "active": 3
+      },
+      "powers": [
+        {
+          "id": 1,
+          "kind": "rain",
+          "status": "active",
+          "overlap": "partially overridden",
+          "location": [
+            20,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 100,
+          "totals": {
+            "pulses": 10,
+            "credited_cells": 170,
+            "overridden_cells": 540,
+            "regenerated": 1012,
+            "normal_regeneration": 529,
+            "delta": 483
+          }
+        },
+        {
+          "id": 2,
+          "kind": "rain",
+          "status": "active",
+          "overlap": "overridden",
+          "location": [
+            20,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 100,
+          "totals": {
+            "pulses": 10,
+            "credited_cells": 0,
+            "overridden_cells": 710,
+            "regenerated": 0,
+            "normal_regeneration": 0,
+            "delta": 0
+          }
+        },
+        {
+          "id": 3,
+          "kind": "drought",
+          "status": "active",
+          "overlap": "",
+          "location": [
+            22,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 100,
+          "totals": {
+            "pulses": 10,
+            "credited_cells": 680,
+            "overridden_cells": 0,
+            "regenerated": 0,
+            "normal_regeneration": 3009,
+            "delta": -3009
+          }
+        }
+      ],
+      "feed": [
+        {
+          "sequence": 562,
+          "tick": 109,
+          "text": "Gnome 00008 hazard injury: 24 health lost"
+        },
+        {
+          "sequence": 553,
+          "tick": 107,
+          "text": "Gnome 00030 hazard injury: 12 health lost"
+        },
+        {
+          "sequence": 550,
+          "tick": 106,
+          "text": "Gnome 00047 hazard injury: 15 health lost"
+        },
+        {
+          "sequence": 546,
+          "tick": 106,
+          "text": "Gnome 00077 born; parents 34, 60"
+        },
+        {
+          "sequence": 544,
+          "tick": 105,
+          "text": "Gnome 00076 born; parents 8, 45"
+        }
+      ],
+      "digest": "abefe0e16fb884afe4f498063a2c9335d6acbf3500a617a613e2a66e09774a2b"
+    },
+    {
+      "name": "powers-expired",
+      "tick": 221,
+      "tab": "powers",
+      "selected": {
+        "id": 72,
+        "name": "Gnome 00072",
+        "status": "awake",
+        "death_cause": null,
+        "age": 170,
+        "health": 74,
+        "hunger": 28,
+        "thirst": 0,
+        "fatigue": 17,
+        "action": "drink",
+        "parents": [
+          5,
+          30
+        ],
+        "children": 0,
+        "location": [
+          30,
+          22
+        ],
+        "traits": {
+          "curiosity": 78,
+          "caution": 47,
+          "sociability": 55,
+          "fertility": 38,
+          "stamina": 53,
+          "vision": 29
+        },
+        "movement": {
+          "move:forest": 0,
+          "move:grass": 0,
+          "move:hazard": -21
+        },
+        "memories": [
+          [
+            219,
+            "move",
+            "grass",
+            0
+          ],
+          [
+            220,
+            "move",
+            "forest",
+            0
+          ],
+          [
+            221,
+            "drink",
+            "water",
+            60
+          ]
+        ]
+      },
+      "status": {
+        "tick": 221,
+        "living": 80,
+        "born": 81,
+        "deaths": 1,
+        "net_population_change": 20,
+        "food_stock": 108939,
+        "active": 0
+      },
+      "powers": [
+        {
+          "id": 1,
+          "kind": "rain",
+          "status": "expired",
+          "overlap": "",
+          "location": [
+            20,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 0,
+          "totals": {
+            "pulses": 20,
+            "credited_cells": 340,
+            "overridden_cells": 1080,
+            "regenerated": 1179,
+            "normal_regeneration": 618,
+            "delta": 561
+          }
+        },
+        {
+          "id": 2,
+          "kind": "rain",
+          "status": "expired",
+          "overlap": "",
+          "location": [
+            20,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 0,
+          "totals": {
+            "pulses": 20,
+            "credited_cells": 0,
+            "overridden_cells": 1420,
+            "regenerated": 0,
+            "normal_regeneration": 0,
+            "delta": 0
+          }
+        },
+        {
+          "id": 3,
+          "kind": "drought",
+          "status": "expired",
+          "overlap": "",
+          "location": [
+            22,
+            16
+          ],
+          "radius": 5,
+          "activation": 21,
+          "expires": 221,
+          "future_active_ticks": 0,
+          "totals": {
+            "pulses": 20,
+            "credited_cells": 1360,
+            "overridden_cells": 0,
+            "regenerated": 0,
+            "normal_regeneration": 6039,
+            "delta": -6039
+          }
+        }
+      ],
+      "feed": [
+        {
+          "sequence": 1103,
+          "tick": 221,
+          "text": "#3 drought expired"
+        },
+        {
+          "sequence": 1102,
+          "tick": 221,
+          "text": "#2 rain expired"
+        },
+        {
+          "sequence": 1101,
+          "tick": 221,
+          "text": "#1 rain expired"
+        },
+        {
+          "sequence": 1087,
+          "tick": 219,
+          "text": "Gnome 00081 hazard injury: 29 health lost"
+        },
+        {
+          "sequence": 1051,
+          "tick": 215,
+          "text": "Gnome 00013 hazard injury: 24 health lost"
+        }
+      ],
+      "digest": "eb78cb04c6ee8a596c4dd07abcbb06bc1eea39a14242123a818775f02d653af7"
+    }
+  ]
+}
