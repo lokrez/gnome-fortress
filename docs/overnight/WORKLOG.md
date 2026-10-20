@@ -20,3 +20,8 @@
   active effect continuation, checksum/version rejection, SQL interruption,
   research protection and exclusive new-file publication verified.
   Foundation commit follows; no legacy source changes.
+- Foundation committed as `5dae3be`.
+- Gate 2 PASS: Rupture, complete-tick ID ordering, row-major food/terrain ledger
+  and terrain-chain validation; 15 focused tests in 3.43s. Bounded seeded demo
+  through tick 110 exactly matches midpoint save/reload continuation. No direct
+  health changes or RNG draws in isolated activation. No core/legacy files altered.

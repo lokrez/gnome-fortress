@@ -3,11 +3,13 @@ import copy
 from dataclasses import asdict, dataclass, field
 
 from .engine import World
-from .game import GameWorld, Intervention
+from .game import GameWorld, Intervention, POWERS, DEFAULT_RADIUS, DEFAULT_DURATION
+from .model import Event
 
 FORMAT='gnome-fortress-terrain-g5-v1'
 RECORD_VERSION=1
 TERRAINS={'grass','forest','hazard','rock','water'}
+TERRAIN_POWERS={'rupture':dict(source=('grass','forest'),result='hazard',radius=2)}
 
 
 @dataclass
@@ -24,10 +26,56 @@ class TerrainWorld(GameWorld):
         self.initial_terrain=[[c.terrain for c in row] for row in self.cells]
         self.origin=dict(kind='fresh',tick=0)
 
-    def request(self,*args,**kwargs):
-        p=super().request(*args,**kwargs)
-        p=TerrainIntervention(**asdict(p));self.interventions[-1]=p
+    def request(self,kind,x,y,radius=None,duration=None):
+        if kind in POWERS:
+            p=super().request(kind,x,y,DEFAULT_RADIUS if radius is None else radius,
+                              DEFAULT_DURATION if duration is None else duration)
+            p=TerrainIntervention(**asdict(p));self.interventions[-1]=p
+            return p
+        if kind not in TERRAIN_POWERS:raise ValueError('Unknown terrain power')
+        if self.extinct:raise ValueError('This world is extinct')
+        radius=TERRAIN_POWERS[kind]['radius'] if radius is None else radius
+        if any(type(v) is not int for v in (x,y,radius)) or not (0<=x<self.width and 0<=y<self.height and 0<=radius<=max(self.width,self.height)):
+            raise ValueError('Invalid terrain target/radius')
+        if duration not in (None,0):raise ValueError('Terrain powers are one-shot, not timed')
+        p=TerrainIntervention(len(self.interventions)+1,kind,self.tick,self.tick+1,x,y,radius,
+            0,self.tick+1,dict(record_version=RECORD_VERSION))
+        self.interventions.append(p)
+        self.event('divine_request',intervention=p.id,power=kind,x=x,y=y,radius=radius,
+            activation_tick=p.activation_tick,duration=0,expires_tick=p.expires_tick)
         return p
+
+    def footprint(self,p):
+        return [(x,y) for y in range(max(0,p.y-p.radius),min(self.height,p.y+p.radius+1))
+                for x in range(max(0,p.x-p.radius),min(self.width,p.x+p.radius+1)) if p.contains(x,y)]
+
+    def _apply_terrain(self,p,boundary):
+        rule=TERRAIN_POWERS[p.kind]
+        for x,y in self.footprint(p):
+            c=self.cell(x,y)
+            if c.terrain not in rule['source']:continue
+            p.changes.append(dict(x=x,y=y,before_terrain=c.terrain,before_food=c.food,
+                                  after_terrain=rule['result'],after_food=0))
+            p.food_removed+=c.food;c.terrain=rule['result'];c.food=0
+        p.changed_cells=len(p.changes);p.status='completed';p.completed_tick=boundary
+        self.events.append(Event(boundary,'divine_terrain',None,None,
+            dict(intervention=p.id,changed_cells=p.changed_cells,food_removed=p.food_removed)))
+
+    def step(self,count=1):
+        if type(count) is not int or count<0:raise ValueError('Tick count must be nonnegative integer')
+        for _ in range(count):
+            if self.extinct:break
+            boundary=self.tick+1
+            for p in self.interventions:
+                if p.status=='queued' and p.activation_tick==boundary:
+                    if p.kind in TERRAIN_POWERS:self._apply_terrain(p,boundary)
+                    else:
+                        p.status='active'
+                        self.events.append(Event(boundary,'divine_active',None,None,dict(intervention=p.id)))
+                elif p.status=='active' and p.expires_tick==boundary:
+                    p.status='expired';p.expired_tick=boundary
+                    self.events.append(Event(boundary,'divine_expired',None,None,dict(intervention=p.id)))
+            World.step(self)
 
     def state(self):
         data=World.state(self)
@@ -61,11 +109,17 @@ class TerrainWorld(GameWorld):
         return cls.from_state(data)
 
     def validate(self):
-        GameWorld.validate(self)
+        # The inherited validator uses assertions; refuse optimized execution rather
+        # than silently omitting integrity checks under python -O.
+        if not __debug__:raise ValueError('Terrain validation requires non-optimized Python')
+        World.validate(self)
+        assert type(self.tick) is int and self.tick>=0
+        assert self.extinct==(self.extinct_tick is not None)
+        if self.extinct_tick is not None:assert self.extinct_tick==self.tick
         assert len(self.cells)==self.height and all(len(row)==self.width for row in self.cells)
         assert len(self.initial_terrain)==self.height and all(len(row)==self.width for row in self.initial_terrain)
-        assert all(c.terrain in TERRAINS for row in self.cells for c in row)
-        assert [[c.terrain for c in row] for row in self.cells]==self.initial_terrain
+        assert all(c.terrain in TERRAINS and type(c.food) is int and 0<=c.food<=100 for row in self.cells for c in row)
+        assert all(t in TERRAINS for row in self.initial_terrain for t in row)
         assert type(self.origin['tick']) is int and 0<=self.origin['tick']<=self.tick
         if self.origin['kind']=='fresh':assert self.origin==dict(kind='fresh',tick=0)
         else:
@@ -73,5 +127,77 @@ class TerrainWorld(GameWorld):
             assert set(self.origin)=={'kind','tick','format','digest'}
             assert self.origin['kind']=='legacy-import' and self.origin['format']==LEGACY_FORMAT
             assert len(self.origin['digest'])==64 and all(c in '0123456789abcdef' for c in self.origin['digest'])
+        assert [p.id for p in self.interventions]==list(range(1,len(self.interventions)+1))
+        assert [p.requested_tick for p in self.interventions]==sorted(p.requested_tick for p in self.interventions)
+        histories={p.id:[] for p in self.interventions}
+        assert all(type(e.tick) is int and 0<=e.tick<=self.tick for e in self.events)
+        assert all(a.tick<=b.tick for a,b in zip(self.events,self.events[1:]))
+        for e in self.events:
+            if e.kind.startswith('divine_'):
+                assert e.detail.get('intervention') in histories
+                histories[e.detail['intervention']].append(e)
+        terrain=copy.deepcopy(self.initial_terrain)
+        terrain_execution=[]
         for p in self.interventions:
-            assert not getattr(p,'changes',[]) and getattr(p,'completed_tick',None) is None
+            assert p.kind in POWERS or p.kind in TERRAIN_POWERS
+            assert all(type(v) is int for v in (p.id,p.requested_tick,p.activation_tick,p.x,p.y,p.radius,p.duration,p.expires_tick))
+            assert 0<=p.requested_tick<=self.tick and p.activation_tick==p.requested_tick+1
+            assert 0<=p.x<self.width and 0<=p.y<self.height and 0<=p.radius<=max(self.width,self.height)
+            history=histories[p.id]
+            request=[e for e in history if e.kind=='divine_request']
+            assert len(request)==1 and request[0].tick==p.requested_tick
+            assert request[0].detail==dict(intervention=p.id,power=p.kind,x=p.x,y=p.y,radius=p.radius,
+                activation_tick=p.activation_tick,duration=p.duration,expires_tick=p.expires_tick)
+            if p.kind in POWERS:
+                assert p.parameters==POWERS[p.kind] and 1<=p.duration<=10000
+                assert p.expires_tick==p.activation_tick+p.duration
+                status='queued' if self.tick<p.activation_tick else 'active' if self.tick<p.expires_tick else 'expired'
+                assert p.status==status and p.expired_tick==(p.expires_tick if status=='expired' else None)
+                assert not p.changes and p.changed_cells==p.food_removed==0 and p.completed_tick is None
+                assert all(e.kind in ('divine_request','divine_active','divine_expired','divine_regeneration') for e in history)
+                assert [e.tick for e in history if e.kind=='divine_active']==([p.activation_tick] if self.tick>=p.activation_tick else [])
+                assert [e.tick for e in history if e.kind=='divine_expired']==([p.expires_tick] if status=='expired' else [])
+                totals=dict.fromkeys(('pulses','credited_cells','overridden_cells','regenerated','normal_regeneration','delta'),0)
+                assert set(p.totals)==set(totals) and all(type(v) is int for v in p.totals.values())
+                assert all(v>=0 for k,v in p.totals.items() if k!='delta')
+                for e in history:
+                    if e.kind in ('divine_active','divine_expired'):assert e.detail==dict(intervention=p.id)
+                    if e.kind!='divine_regeneration':continue
+                    assert e.tick%10==0 and p.activation_tick<=e.tick<p.expires_tick and e.tick<=self.tick
+                    assert set(e.detail)==({'intervention'} | (set(totals)-{'pulses'}))
+                    totals['pulses']+=1
+                    for key in totals:
+                        if key!='pulses':totals[key]+=e.detail[key]
+                assert totals==p.totals and p.totals['delta']==p.totals['regenerated']-p.totals['normal_regeneration']
+            else:
+                assert p.parameters==dict(record_version=RECORD_VERSION) and p.duration==0
+                assert p.expires_tick==p.activation_tick and p.expired_tick is None
+                assert p.requested_tick>=self.origin['tick']
+                completed=self.tick>=p.activation_tick
+                assert p.status==('completed' if completed else 'queued')
+                assert p.completed_tick==(p.activation_tick if completed else None)
+                assert all(type(v) is int and v>=0 for v in (p.changed_cells,p.food_removed))
+                assert p.totals==dict(pulses=0,credited_cells=0,overridden_cells=0,regenerated=0,normal_regeneration=0,delta=0)
+                assert all(e.kind in ('divine_request','divine_terrain') for e in history)
+                applied=[e for e in history if e.kind=='divine_terrain']
+                assert len(applied)==int(completed)
+                if not completed:
+                    assert not p.changes and p.changed_cells==p.food_removed==0
+                    continue
+                assert applied[0].tick==p.activation_tick
+                assert applied[0].detail==dict(intervention=p.id,changed_cells=p.changed_cells,food_removed=p.food_removed)
+                terrain_execution.append(p.id)
+                rule=TERRAIN_POWERS[p.kind]
+                eligible=[(x,y) for x,y in self.footprint(p) if terrain[y][x] in rule['source']]
+                assert [(c['x'],c['y']) for c in p.changes]==eligible
+                assert p.changed_cells==len(p.changes) and p.food_removed==sum(c['before_food'] for c in p.changes)
+                for c in p.changes:
+                    assert set(c)=={'x','y','before_terrain','before_food','after_terrain','after_food'}
+                    x,y=c['x'],c['y']
+                    assert type(x) is int and type(y) is int
+                    assert c['before_terrain']==terrain[y][x] and c['after_terrain']==rule['result']
+                    assert type(c['before_food']) is int and 0<=c['before_food']<=100 and c['after_food']==0
+                    if c['before_terrain'] not in ('grass','forest'):assert c['before_food']==0
+                    terrain[y][x]=c['after_terrain']
+        assert [e.detail['intervention'] for e in self.events if e.kind=='divine_terrain']==terrain_execution
+        assert [[c.terrain for c in row] for row in self.cells]==terrain

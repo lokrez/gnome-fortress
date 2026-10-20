@@ -1,0 +1,133 @@
+{
+  "seed": 1,
+  "requested_tick": 9,
+  "activation_tick": 10,
+  "target": [
+    2,
+    2
+  ],
+  "radius": 2,
+  "before": {
+    "tick": 9,
+    "living": 64,
+    "born": 64,
+    "dead": 0,
+    "events": {
+      "birth": 64,
+      "hazard": 7,
+      "reproduce": 4,
+      "social": 26
+    }
+  },
+  "after": {
+    "tick": 110,
+    "living": 75,
+    "born": 76,
+    "dead": 1,
+    "events": {
+      "birth": 76,
+      "death": 1,
+      "divine_request": 1,
+      "divine_terrain": 1,
+      "hazard": 72,
+      "reproduce": 16,
+      "sleep": 70,
+      "social": 226,
+      "wake": 69
+    }
+  },
+  "changes": [
+    {
+      "x": 1,
+      "y": 1,
+      "before_terrain": "grass",
+      "before_food": 100,
+      "after_terrain": "hazard",
+      "after_food": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "before_terrain": "grass",
+      "before_food": 100,
+      "after_terrain": "hazard",
+      "after_food": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "before_terrain": "grass",
+      "before_food": 100,
+      "after_terrain": "hazard",
+      "after_food": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "before_terrain": "grass",
+      "before_food": 58,
+      "after_terrain": "hazard",
+      "after_food": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "before_terrain": "grass",
+      "before_food": 100,
+      "after_terrain": "hazard",
+      "after_food": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "before_terrain": "grass",
+      "before_food": 100,
+      "after_terrain": "hazard",
+      "after_food": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "before_terrain": "grass",
+      "before_food": 100,
+      "after_terrain": "hazard",
+      "after_food": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "before_terrain": "grass",
+      "before_food": 100,
+      "after_terrain": "hazard",
+      "after_food": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "before_terrain": "grass",
+      "before_food": 100,
+      "after_terrain": "hazard",
+      "after_food": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "before_terrain": "grass",
+      "before_food": 100,
+      "after_terrain": "hazard",
+      "after_food": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "before_terrain": "grass",
+      "before_food": 100,
+      "after_terrain": "hazard",
+      "after_food": 0
+    }
+  ],
+  "food_removed": 1058,
+  "continuation_exact": true,
+  "digest": "21f682f7a60a74bdf90a9f888a21c90fe87bc350c70c5eef2cd401ba29ed7666",
+  "limitations": "Observed outcomes, not individual causal attribution"
+}
