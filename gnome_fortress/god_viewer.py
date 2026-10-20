@@ -6,6 +6,7 @@ import pygame
 
 from .game import DEFAULT_DURATION, DEFAULT_RADIUS
 from .game_presentation import WorldPresentation, agent_view, event_text
+from .life_presentation import LifeHistory, life_summary, life_event_text
 from .runtime import CheckpointWorker
 from .viewer import Observer
 
@@ -43,10 +44,16 @@ class GodObserver(Observer):
         self.event_offset=0;self.power_offset=0;self.tab='gnome'
         self.event_rect=pygame.Rect(0,world.height*self.tile+8,self.map_width,height-world.height*self.tile-8)
         self.event_rows=[]
+        self.watch_id=None;self.life=LifeHistory(world);self.life_pane='events'
+        self.life_start=0;self.life_tail=True;self.family_start=0;self.family_hits=[]
+        self.watch_button=pygame.Rect(self.map_width+12,286,180,28)
+        self.life_tabs={name:pygame.Rect(self.map_width+12+i*223,466,216,26)
+                        for i,name in enumerate(('events','family'))}
+        self.latest_button=pygame.Rect(self.map_width+355,500,100,22)
         self.buttons={name:pygame.Rect(self.map_width+12+i*149,124,142,32)
                       for i,name in enumerate(('observe','rain','drought'))}
-        self.tabs={name:pygame.Rect(self.map_width+12+i*223,250,216,28)
-                   for i,name in enumerate(('gnome','powers'))}
+        self.tabs={name:pygame.Rect(self.map_width+12+i*149,250,142,28)
+                   for i,name in enumerate(('gnome','powers','life'))}
 
     @property
     def event_capacity(self):return max(1,(self.event_rect.height-48)//36)
@@ -54,11 +61,42 @@ class GodObserver(Observer):
     @property
     def power_capacity(self):return max(1,(self.screen.get_height()-330)//108)
 
+    @property
+    def life_capacity(self):return max(1,(self.screen.get_height()-568)//36)
+
+    @property
+    def family_capacity(self):return max(1,(self.screen.get_height()-650)//26)
+
+    def select_individual(self,identity):
+        if identity not in self.world.agents:return False
+        if identity!=self.selected:
+            self.selected=identity;self.watch_id=None
+            self.life_start=0;self.life_tail=True;self.family_start=0
+        return True
+
+    def toggle_watch(self):
+        if self.selected not in self.world.agents:return
+        self.watch_id=None if self.watch_id==self.selected else self.selected
+        self.tab='life'
+
+    def browse_life(self,amount):
+        self.life.select(self.selected);self.life.update()
+        if self.life_pane=='family':
+            self.family_start=max(0,min(self.family_start+amount,max(0,len(self.life.children)-self.family_capacity)))
+        else:
+            end=max(0,len(self.life.positions)-self.life_capacity)
+            start=end if self.life_tail else self.life_start
+            self.life_start=max(0,min(start+amount,end));self.life_tail=self.life_start==end
+
     def sync(self):
         added=self.presentation.refresh()
         if self.event_offset:self.event_offset+=added
         self.event_offset=min(self.event_offset,max(0,len(self.presentation.events.positions)-self.event_capacity))
         self.power_offset=min(self.power_offset,max(0,len(self.world.interventions)-self.power_capacity))
+        if self.tab=='life' or self.watch_id is not None:
+            self.life.select(self.selected);self.life.update()
+            self.life_start=min(self.life_start,max(0,len(self.life.positions)-self.life_capacity))
+            self.family_start=min(self.family_start,max(0,len(self.life.children)-self.family_capacity))
 
     def map_target(self,pos):
         x,y=pos
@@ -76,14 +114,23 @@ class GodObserver(Observer):
             elif event.type==pygame.MOUSEWHEEL:
                 pos=getattr(event,'pos',self.pointer)
                 if self.event_rect.collidepoint(pos):self.browse_events(event.y*3)
+                elif pos[0]>=self.map_width and pos[1]>=500 and self.tab=='life':
+                    self.browse_life(-event.y*3)
                 elif pos[0]>=self.map_width and pos[1]>=280 and self.tab=='powers':
                     self.power_offset=max(0,min(self.power_offset+event.y,
                         max(0,len(self.world.interventions)-self.power_capacity)))
             elif event.type==pygame.KEYDOWN and event.key in (pygame.K_PAGEUP,pygame.K_PAGEDOWN,pygame.K_END):
                 if event.key==pygame.K_END:self.event_offset=0
                 else:self.browse_events(self.event_capacity*(1 if event.key==pygame.K_PAGEUP else -1))
-            elif event.type==pygame.KEYDOWN and event.key in (pygame.K_F1,pygame.K_F2):
-                self.tab='gnome' if event.key==pygame.K_F1 else 'powers'
+            elif event.type==pygame.KEYDOWN and event.key in (pygame.K_F1,pygame.K_F2,pygame.K_F3):
+                self.tab={pygame.K_F1:'gnome',pygame.K_F2:'powers',pygame.K_F3:'life'}[event.key]
+            elif event.type==pygame.KEYDOWN and event.key==pygame.K_w:
+                self.toggle_watch()
+            elif event.type==pygame.KEYDOWN and event.key in (pygame.K_LEFTBRACKET,pygame.K_RIGHTBRACKET) and self.tab=='life':
+                capacity=self.family_capacity if self.life_pane=='family' else self.life_capacity
+                self.browse_life(capacity*(-1 if event.key==pygame.K_LEFTBRACKET else 1))
+            elif event.type==pygame.KEYDOWN and event.key==pygame.K_l and self.tab=='life':
+                self.life_tail=True
             elif event.type==pygame.KEYDOWN and event.key in (pygame.K_r,pygame.K_d,pygame.K_o):
                 self.mode={pygame.K_r:'rain',pygame.K_d:'drought',pygame.K_o:None}[event.key]
             elif event.type==pygame.MOUSEBUTTONDOWN:
@@ -94,9 +141,16 @@ class GodObserver(Observer):
                     tab=next((name for name,r in self.tabs.items() if r.collidepoint(event.pos)),None)
                     if button:self.mode=None if button=='observe' else button
                     elif tab:self.tab=tab
+                    elif self.tab=='life' and self.watch_button.collidepoint(event.pos):self.toggle_watch()
+                    elif self.tab=='life' and any(r.collidepoint(event.pos) for r in self.life_tabs.values()):
+                        self.life_pane=next(name for name,r in self.life_tabs.items() if r.collidepoint(event.pos))
+                    elif self.tab=='life' and self.life_pane=='events' and self.latest_button.collidepoint(event.pos):self.life_tail=True
+                    elif self.tab=='life' and self.life_pane=='family' and any(r.collidepoint(event.pos) for r,_ in self.family_hits):
+                        identity=next(i for r,i in self.family_hits if r.collidepoint(event.pos))
+                        self.select_individual(identity)
                     elif self.event_rect.collidepoint(event.pos):
                         identity=next((identity for r,identity in self.event_rows if r.collidepoint(event.pos)),None)
-                        if identity in self.world.agents:self.selected=identity;self.tab='gnome'
+                        if self.select_individual(identity):self.tab='gnome'
                     elif self.hover and self.mode:
                         if self.saving:self.notice='Saving: wait for completion before casting.'
                         elif self.world.extinct:self.notice='This world has ended.'
@@ -104,10 +158,13 @@ class GodObserver(Observer):
                             p=self.world.request(self.mode,*self.hover)
                             self.last_request=p.id;self.notice='';self.tab='powers';self.power_offset=0
                     elif self.hover:
-                        super().handle([event]);self.tab='gnome'
+                        previous=self.selected;super().handle([event]);identity=self.selected;self.selected=previous
+                        self.select_individual(identity);self.tab='gnome'
             else:
-                super().handle([event])
-                if event.type==pygame.KEYDOWN and event.key==pygame.K_TAB:self.tab='gnome'
+                previous=self.selected;old_tab=self.tab;super().handle([event])
+                if event.type==pygame.KEYDOWN and event.key==pygame.K_TAB:
+                    identity=self.selected;self.selected=previous;self.select_individual(identity)
+                    self.tab='life' if old_tab=='life' else 'gnome'
 
     def advance(self,seconds):
         if self.world.extinct:
@@ -151,7 +208,7 @@ class GodObserver(Observer):
             cx=a.x*self.tile+self.tile//2;cy=a.y*self.tile+self.tile//2
             pygame.draw.rect(self.screen,(12,19,24),(cx-8,cy-9,17,18),3)
             pygame.draw.rect(self.screen,GOLD,(cx-8,cy-9,17,18),1)
-            text=f'#{a.id}'
+            text=('WATCH ' if self.watch_id==a.id else '')+f'#{a.id}'+(' FINAL' if not a.alive else '')
             image=self.small.render(text,True,GOLD)
             x=max(0,min(self.map_width-image.get_width()-6,cx+9));y=max(0,cy-22)
             pygame.draw.rect(self.screen,(19,27,32),(x,y,image.get_width()+6,17))
@@ -179,7 +236,7 @@ class GodObserver(Observer):
         lines=[(a['name']+' | '+status,GOLD),
             (f"Age {a['age']} | recorded action: {a['action']}",INK),
             (f"Health {a['health']} | hunger {a['hunger']} | thirst {a['thirst']}",INK),
-            (f"Fatigue {a['fatigue']} | location {a['location']}",INK),
+            (f"Fatigue {a['fatigue']} | {'final stored' if a['status']=='deceased' else 'current'} {a['location']}",INK),
             (f"Parents: {', '.join(map(str,a['parents'])) or 'none (founder)'} | children {a['children']}",INK),
             ('Inherited traits (actual values):',MUTED)]
         traits=list(a['traits'].items())
@@ -193,6 +250,57 @@ class GodObserver(Observer):
             lines.extend((f'  t{tick}: {action} {feature} {reward:+d}',INK) for tick,action,feature,reward in a['memories'])
         else:lines.append(('  none recorded',INK))
         for i,(line,color) in enumerate(lines):self.label(line,x,y+i*18,color)
+
+    def draw_life(self,x):
+        a=life_summary(self.world,self.selected)
+        self.family_hits=[]
+        pygame.draw.rect(self.screen,(57,86,96),self.watch_button,border_radius=4)
+        self.label('Stop watching [W]' if self.watch_id==self.selected else 'Watch gnome [W]',x+9,293,GOLD)
+        self.label(f'Watching #{self.watch_id}' if self.watch_id is not None else 'Inspection only',x+195,293,MUTED)
+        if not a:
+            self.label('Individual record unavailable',x,332);return
+        self.label(f"{a['name']} | {a['status']}",x,330,GOLD)
+        death=f" | died t{a['died']}: {a['death_cause']}" if a['status']=='deceased' else ''
+        self.label(f"Born t{a['born']} | recorded age {a['age']}"+death,x,349)
+        self.label(f"{a['location_kind'].title()} location {a['location']} | action {a['action']}",x,368)
+        self.label(f"{'Final' if a['status']=='deceased' else 'Current'} HP {a['health']} | hunger {a['hunger']} | thirst {a['thirst']} | fatigue {a['fatigue']}",x,387)
+        movement=', '.join(f'{key[5:]}={value:+d}' for key,value in a['movement'].items()) or 'none recorded'
+        self.label('Movement associations: '+movement,x,406)
+        relations=', '.join(f'#{i}={v:+d}' for i,v in a['relationships']) or 'none recorded'
+        self.label('Outgoing relationship values: '+relations,x,425)
+        self.label(f"Child counter {a['children']} | linked records {len(self.life.children)} | parents {a['parents'] or 'none'}",x,444,MUTED)
+        for name,rect in self.life_tabs.items():
+            pygame.draw.rect(self.screen,(46,63,72) if self.life_pane==name else (28,39,46),rect,border_radius=4)
+            self.label('Objective timeline' if name=='events' else 'Direct family',rect.x+10,rect.y+5)
+        if self.life_pane=='events':
+            total=len(self.life.positions)
+            start=max(0,total-self.life_capacity) if self.life_tail else self.life_start
+            self.label(f'Timeline: {total} events | chronological',x,505,MUTED)
+            pygame.draw.rect(self.screen,(40,55,64),self.latest_button,border_radius=3)
+            self.label('Latest [L]',self.latest_button.x+8,504)
+            for j,(_,event) in enumerate(self.life.page(start,self.life_capacity)):
+                y=531+j*36;self.label(f't{event.tick}',x,y,GOLD)
+                for i,line in enumerate(wrap(self.small,life_event_text(event,self.selected),370)[:2]):
+                    self.label(line,x+65,y+i*15)
+            if not total:self.label('No eligible objective events recorded.',x,534)
+            self.label('Wheel here / [ ] pages | L latest | oldest first',x,self.screen.get_height()-18,MUTED)
+        else:
+            family=self.life.family(self.family_start,self.family_capacity)
+            self.label('Parents — recorded birth / death status',x,505,MUTED)
+            for j,member in enumerate(family['parents']):self.family_row(member,x,530+j*25)
+            if not family['parents']:self.label('None recorded (founder)',x,532)
+            total=family['total_children'];end=min(total,self.family_start+self.family_capacity)
+            self.label(f"Direct children: {self.family_start+1 if total else 0}..{end} of {total}",x,584,MUTED)
+            for j,member in enumerate(family['children']):self.family_row(member,x,608+j*26)
+            if not total:self.label('No linked child records.',x,608)
+            self.label('Click an ID to select | wheel / [ ] children pages',x,self.screen.get_height()-18,MUTED)
+
+    def family_row(self,member,x,y):
+        ended=f" died t{member['died']}" if member['died'] is not None else ''
+        born=f"born t{member['born']}" if member['born'] is not None else 'birth unavailable'
+        text=f"#{member['id']} | {member['status']} | {born}"+ended
+        self.label(text,x+6,y,POWER_COLORS['rain'])
+        self.family_hits.append((pygame.Rect(x,y-2,440,24),member['id']))
 
     def draw_powers(self,x,y):
         cards=self.presentation.powers
@@ -241,12 +349,13 @@ class GodObserver(Observer):
         self.label(self.notice_text(),x,226,GOLD)
         for name,rect in self.tabs.items():
             pygame.draw.rect(self.screen,(46,63,72) if self.tab==name else (28,39,46),rect,border_radius=4)
-            self.label('Gnome [F1]' if name=='gnome' else 'Interventions [F2]',rect.x+12,rect.y+6)
+            self.label({'gnome':'Gnome [F1]','powers':'Powers [F2]','life':'Life [F3]'}[name],rect.x+12,rect.y+6)
         if self.tab=='gnome':
             self.draw_individual(x,292)
             if self.screen.get_height()>=680:
                 self.label('Hat: awake | blue z: sleeping | gold frame: selected',x,self.screen.get_height()-35,MUTED)
-        else:self.draw_powers(x,292)
+        elif self.tab=='powers':self.draw_powers(x,292)
+        else:self.draw_life(x)
         clip=self.screen.get_clip()
         self.screen.set_clip(self.event_rect)
         self.draw_event_feed()
@@ -266,7 +375,7 @@ class GodObserver(Observer):
 def run(world,path,save_callback,checkpoint_ticks=300,max_frames=None,stop_requested=lambda:False,
         rate=None,paused=False,capture=None):
     observer=GodObserver(world,rate,paused);clock=pygame.time.Clock()
-    worker=CheckpointWorker(save_callback);last_save=world.tick;frames=0;dirty=True
+    worker=CheckpointWorker(save_callback);last_save=world.tick;frames=0;dirty=True;auto_save_failed=False
     try:
         while observer.running and not stop_requested() and (max_frames is None or frames<max_frames):
             seconds=clock.tick(15 if observer.paused or worker.pending or world.extinct else 60)/1000
@@ -276,14 +385,14 @@ def run(world,path,save_callback,checkpoint_ticks=300,max_frames=None,stop_reque
             if worker.pending and worker.future.done():
                 try:
                     metrics=worker.poll();observer.notice=f"Saved tick {metrics['tick']}"
-                    last_save=world.tick
+                    last_save=world.tick;auto_save_failed=False
                 except Exception as error:
                     observer.notice=f'Save failed: {type(error).__name__}; see terminal'
                     print(f'Gameplay save failed: {error}',flush=True)
-                    observer.paused=True
+                    observer.paused=True;auto_save_failed=True
                 observer.saving=False;seconds=0;dirty=True
             observer.advance(seconds)
-            if not worker.pending and (observer.save_requested or world.tick-last_save>=checkpoint_ticks):
+            if not worker.pending and (observer.save_requested or (not auto_save_failed and world.tick-last_save>=checkpoint_ticks)):
                 worker.start(world,path);observer.saving=True;observer.save_requested=False;dirty=True
             if dirty or events or (not observer.paused and not observer.saving):
                 observer.draw();dirty=False

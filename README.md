@@ -221,7 +221,7 @@ The engineered chain changed hazard entry to safe movement in 20 of 64 matched
 seeds. The warning only breaks a one-point scoring tie in this fixture; neither
 natural multihop prevalence nor population survival benefit has been established.
 
-## Playable God prototype — G2: The Living World
+## Playable God prototype — G3: The Witness
 
 ```bash
 cd ~/gnome-fortress && .venv/bin/python -m gnome_fortress.god_demo
@@ -231,7 +231,10 @@ Choose **Rain (R)** or **Drought (D)** and click the map. **O** returns to obser
 **Space** pauses, **+/-** changes speed, **S** saves, and **Esc** saves and exits.
 The separate gameplay save resumes on the next launch. This is not Ironman.
 
-[G2 controls, actual screenshots, compatibility and verification](docs/g2/README.md).
+[G3 Life/Watch controls, actual screenshots and verification](docs/g3/README.md).
+Use F3 for Life, W to watch, and Direct family to navigate parents and children.
+The Life timeline presents recorded events, without fictional narration.
+[G2 presentation report](docs/g2/README.md) remains preserved.
 Use F1/F2 for individual/intervention details and Page Up/Page Down or the mouse
 wheel to browse real recorded events. Existing G1 saves resume without conversion.
 

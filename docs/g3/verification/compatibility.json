@@ -1,0 +1,44 @@
+{
+  "reference": "307e511335c6102e72e45d836dd8f07550271027",
+  "checks": [
+    {
+      "producer": "597b0eb9bfcbee438c1959c6a73b1b3591511358",
+      "active_save_exact": true,
+      "old_reader_accepts_save": true,
+      "continuation_digest": "2b20ceb7142e698c05ec7a62e11fb714d94f5412242ac9694ab2920d5ef7c816"
+    },
+    {
+      "producer": "307e511335c6102e72e45d836dd8f07550271027",
+      "active_save_exact": true,
+      "old_reader_accepts_save": true,
+      "continuation_digest": "2b20ceb7142e698c05ec7a62e11fb714d94f5412242ac9694ab2920d5ef7c816"
+    },
+    {
+      "fixture": "G2 retained G1-writer fixture",
+      "exact": true
+    },
+    {
+      "recorded_G1_outcome": "observation",
+      "exact": true,
+      "digest": "37f087a96c03acf4c816285627feff381755a59e396bd3ed86afa48ca1fe9332"
+    },
+    {
+      "recorded_G1_outcome": "rain",
+      "exact": true,
+      "digest": "775fd96c60f1a44f6d461d673a9b74472c3637eb3a97364462cf128f9678705f"
+    },
+    {
+      "recorded_G1_outcome": "drought",
+      "exact": true,
+      "digest": "56ae5ecfeb2266a1af5c94f4aaecbb5f829ca164d4f254f9534b8a57ceba04a0"
+    }
+  ],
+  "unchanged_authoritative_modules": 9,
+  "save_format": "gnome-fortress-game-g1-v1",
+  "retry_fixture": {
+    "frames": 8,
+    "G2_attempts": 8,
+    "G3_attempts": 1
+  },
+  "scope": "bounded verification; synthetic disk failure, no endurance campaign"
+}

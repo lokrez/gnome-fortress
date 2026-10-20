@@ -1,0 +1,45 @@
+{
+  "accepted_G2": "307e511335c6102e72e45d836dd8f07550271027",
+  "preserved_historical_git_files": 497,
+  "preserved_research_files": 414,
+  "existing_CRLF_checkouts": [
+    "research/phase4a/results/pilot.csv",
+    "research/phase4a/results/probes.csv",
+    "research/phase4b/results/probes.csv"
+  ],
+  "intentional_existing_changes": [
+    "README.md",
+    "gnome_fortress/god_viewer.py"
+  ],
+  "old_tags_unchanged": true,
+  "g1_verified": {
+    "type": "annotated tag",
+    "target": "597b0eb9bfcbee438c1959c6a73b1b3591511358",
+    "object": "63c706134a928c7d0c4357ddd6f1e2ac26ee12e4"
+  },
+  "game_mode_contract_sha256": "abd5c263226a92385965162e88608a32c2925f50e4e8837a51cbcb990f02e07f",
+  "authoritative_modules_unchanged": [
+    "engine.py",
+    "model.py",
+    "game.py",
+    "game_storage.py",
+    "storage.py",
+    "runtime.py",
+    "god_demo.py",
+    "viewer.py",
+    "game_presentation.py"
+  ],
+  "source_sha256": {
+    "gnome_fortress/god_viewer.py": "39e265bb83ea2a51399751248efd18c70a79cc72b70aa647ca4a9e4b5c495ceb",
+    "gnome_fortress/life_presentation.py": "c62468f3fc1d06ae120880d6d9f2d67dcb434b986f5fca17388f6b95ffbdde4c",
+    "research/g3_capture.py": "051b22ba1d6b124df8dacf0d2f7c7bbbb051c5c35df17f3ba43e2154d2af284a",
+    "research/g3_verify.py": "3380bf27b571806dd9bd0a740f4893ba6a5b999eb60fa6576062ba703ba2e216",
+    "research/g3_watch_smoke.py": "1f72d8945644acfffa43374f0eea3da10f13def77ed61b92ad13c008a5fc981f",
+    "tests/test_life_presentation.py": "544d64ffeaa7d8c316deab41178c478b7589cc60ceb2b28360168df4756a9fc1"
+  },
+  "evidence": {
+    "full_fast_tests": "183 passed",
+    "compatibility": "verification/compatibility.json",
+    "UI_replay": "verification/smoke-replay.json"
+  }
+}

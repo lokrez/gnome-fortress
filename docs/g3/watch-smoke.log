@@ -1,0 +1,149 @@
+{
+  "wall_seconds": 181.23260874699918,
+  "driver": "actual SDL display; see capture metadata",
+  "frames": 11041,
+  "summary": {
+    "tick": 2649,
+    "living": 360,
+    "born": 529,
+    "dead": 169,
+    "events": {
+      "birth": 529,
+      "death": 169,
+      "divine_active": 2,
+      "divine_expired": 2,
+      "divine_regeneration": 40,
+      "divine_request": 2,
+      "hazard": 830,
+      "reproduce": 469,
+      "sleep": 8188,
+      "social": 4703,
+      "wake": 8122
+    }
+  },
+  "selected": 1,
+  "watch_id": 1,
+  "individual": {
+    "id": 1,
+    "name": "Gnome 00001",
+    "status": "deceased",
+    "death_cause": "old_age",
+    "age": 2232,
+    "health": 100,
+    "hunger": 36,
+    "thirst": 10,
+    "fatigue": 37,
+    "action": "dead",
+    "parents": [],
+    "children": 4,
+    "location": [
+      25,
+      17
+    ],
+    "traits": {
+      "curiosity": 78,
+      "caution": 40,
+      "sociability": 34,
+      "fertility": 40,
+      "stamina": 36,
+      "vision": 73
+    },
+    "movement": {
+      "move:forest": 0,
+      "move:grass": 0,
+      "move:hazard": -52
+    },
+    "memories": [
+      [
+        2033,
+        "move",
+        "grass",
+        0
+      ],
+      [
+        2038,
+        "move",
+        "grass",
+        0
+      ],
+      [
+        2043,
+        "drink",
+        "water",
+        60
+      ]
+    ],
+    "born": 0,
+    "died": 2048,
+    "location_kind": "final stored",
+    "relationships": [
+      [
+        12,
+        12
+      ],
+      [
+        41,
+        11
+      ],
+      [
+        195,
+        11
+      ]
+    ]
+  },
+  "scroll_anchor_verified": true,
+  "save_reload_exact": true,
+  "interventions": [
+    {
+      "id": 1,
+      "kind": "rain",
+      "requested_tick": 20,
+      "activation_tick": 21,
+      "x": 20,
+      "y": 16,
+      "radius": 5,
+      "duration": 200,
+      "expires_tick": 221,
+      "parameters": {
+        "grass_bonus": 4,
+        "forest_bonus": 8
+      },
+      "status": "expired",
+      "expired_tick": 221,
+      "totals": {
+        "pulses": 20,
+        "credited_cells": 880,
+        "overridden_cells": 540,
+        "regenerated": 4083,
+        "normal_regeneration": 2121,
+        "delta": 1962
+      }
+    },
+    {
+      "id": 2,
+      "kind": "drought",
+      "requested_tick": 120,
+      "activation_tick": 121,
+      "x": 22,
+      "y": 16,
+      "radius": 5,
+      "duration": 200,
+      "expires_tick": 321,
+      "parameters": {
+        "suppress_regeneration": true
+      },
+      "status": "expired",
+      "expired_tick": 321,
+      "totals": {
+        "pulses": 20,
+        "credited_cells": 1360,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 2212,
+        "delta": -2212
+      }
+    }
+  ],
+  "digest": "4a936c0964905eb5dce4de5d8712abf739f97d9e615f93ca7ae8c77cfd1557b4",
+  "input": "scripted documented controls; no human usability claim; no forced biological events"
+}

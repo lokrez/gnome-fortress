@@ -1,0 +1,8 @@
+{
+  "seed": 1,
+  "replayed_ticks": 2649,
+  "exact_recorded_UI_digest": "4a936c0964905eb5dce4de5d8712abf739f97d9e615f93ca7ae8c77cfd1557b4",
+  "active_input_sequence_exact": true,
+  "save_reload_continuation_ticks": 20,
+  "continuation_exact": true
+}

@@ -1,0 +1,417 @@
+{
+  "driver": "x11",
+  "window": [
+    1334,
+    820
+  ],
+  "input": "scripted actual controls; natural seed-1 biology; no forced births, deaths, relationships or life events",
+  "screens": [
+    {
+      "name": "quiet-founder",
+      "tick": 0,
+      "selected": 53,
+      "watch_id": 53,
+      "individual": {
+        "id": 53,
+        "name": "Gnome 00053",
+        "status": "awake",
+        "death_cause": null,
+        "age": 153,
+        "health": 100,
+        "hunger": 10,
+        "thirst": 10,
+        "fatigue": 0,
+        "action": "born",
+        "parents": [],
+        "children": 0,
+        "location": [
+          10,
+          28
+        ],
+        "traits": {
+          "curiosity": 30,
+          "caution": 29,
+          "sociability": 27,
+          "fertility": 48,
+          "stamina": 57,
+          "vision": 53
+        },
+        "movement": {},
+        "memories": [],
+        "born": 0,
+        "died": null,
+        "location_kind": "current",
+        "relationships": []
+      },
+      "family": {
+        "parents": [],
+        "children": [],
+        "total_children": 0
+      },
+      "timeline": [
+        {
+          "sequence": 52,
+          "tick": 0,
+          "text": "Own birth recorded"
+        }
+      ],
+      "digest": "2e41473531c9f8bc3a31a82d45260119be829376a079b431dec613473333a47f"
+    },
+    {
+      "name": "watched-founder",
+      "tick": 120,
+      "selected": 53,
+      "watch_id": 53,
+      "individual": {
+        "id": 53,
+        "name": "Gnome 00053",
+        "status": "deceased",
+        "death_cause": "hazard",
+        "age": 207,
+        "health": -9,
+        "hunger": 9,
+        "thirst": 28,
+        "fatigue": 54,
+        "action": "dead",
+        "parents": [],
+        "children": 0,
+        "location": [
+          9,
+          30
+        ],
+        "traits": {
+          "curiosity": 30,
+          "caution": 29,
+          "sociability": 27,
+          "fertility": 48,
+          "stamina": 57,
+          "vision": 53
+        },
+        "movement": {
+          "move:forest": 0,
+          "move:grass": 0,
+          "move:hazard": -51
+        },
+        "memories": [
+          [
+            52,
+            "move",
+            "hazard",
+            -39
+          ],
+          [
+            53,
+            "move",
+            "grass",
+            0
+          ],
+          [
+            54,
+            "move",
+            "hazard",
+            -63
+          ]
+        ],
+        "born": 0,
+        "died": 54,
+        "location_kind": "final stored",
+        "relationships": [
+          [
+            23,
+            3
+          ]
+        ]
+      },
+      "family": {
+        "parents": [],
+        "children": [],
+        "total_children": 0
+      },
+      "timeline": [
+        {
+          "sequence": 96,
+          "tick": 9,
+          "text": "Social encounter #53 -> #23 (initiator)"
+        },
+        {
+          "sequence": 155,
+          "tick": 26,
+          "text": "Hazard injury: 23 health lost"
+        },
+        {
+          "sequence": 231,
+          "tick": 47,
+          "text": "Hazard injury: 27 health lost"
+        },
+        {
+          "sequence": 240,
+          "tick": 49,
+          "text": "Hazard injury: 30 health lost"
+        },
+        {
+          "sequence": 277,
+          "tick": 52,
+          "text": "Hazard injury: 13 health lost"
+        },
+        {
+          "sequence": 283,
+          "tick": 54,
+          "text": "Hazard injury: 21 health lost"
+        },
+        {
+          "sequence": 284,
+          "tick": 54,
+          "text": "Death: hazard"
+        }
+      ],
+      "digest": "ebd6aa1abfb5b8ad26f2dc95f55b47179a3ea7df43676a2df0017887a36d5536"
+    },
+    {
+      "name": "family",
+      "tick": 120,
+      "selected": 3,
+      "watch_id": null,
+      "individual": {
+        "id": 3,
+        "name": "Gnome 00003",
+        "status": "awake",
+        "death_cause": null,
+        "age": 295,
+        "health": 100,
+        "hunger": 19,
+        "thirst": 24,
+        "fatigue": 59,
+        "action": "move",
+        "parents": [],
+        "children": 1,
+        "location": [
+          4,
+          11
+        ],
+        "traits": {
+          "curiosity": 23,
+          "caution": 27,
+          "sociability": 47,
+          "fertility": 47,
+          "stamina": 79,
+          "vision": 59
+        },
+        "movement": {
+          "move:forest": 0,
+          "move:grass": 0
+        },
+        "memories": [
+          [
+            117,
+            "move",
+            "grass",
+            0
+          ],
+          [
+            118,
+            "move",
+            "grass",
+            0
+          ],
+          [
+            119,
+            "move",
+            "grass",
+            0
+          ]
+        ],
+        "born": 0,
+        "died": null,
+        "location_kind": "current",
+        "relationships": [
+          [
+            56,
+            12
+          ],
+          [
+            64,
+            12
+          ]
+        ]
+      },
+      "family": {
+        "parents": [],
+        "children": [
+          {
+            "id": 64,
+            "relation": "child",
+            "status": "awake",
+            "born": 9,
+            "died": null
+          }
+        ],
+        "total_children": 1
+      },
+      "timeline": [
+        {
+          "sequence": 2,
+          "tick": 0,
+          "text": "Own birth recorded"
+        },
+        {
+          "sequence": 90,
+          "tick": 8,
+          "text": "Social encounter #3 -> #56 (initiator)"
+        },
+        {
+          "sequence": 97,
+          "tick": 9,
+          "text": "Child #64 born (parent)"
+        },
+        {
+          "sequence": 98,
+          "tick": 9,
+          "text": "Reproduction: #3 + #56, child #64 (parent (actor))"
+        },
+        {
+          "sequence": 107,
+          "tick": 13,
+          "text": "Social encounter #3 -> #64 (initiator)"
+        },
+        {
+          "sequence": 119,
+          "tick": 16,
+          "text": "Social encounter #3 -> #64 (initiator)"
+        },
+        {
+          "sequence": 123,
+          "tick": 17,
+          "text": "Social encounter #3 -> #64 (initiator)"
+        }
+      ],
+      "digest": "ebd6aa1abfb5b8ad26f2dc95f55b47179a3ea7df43676a2df0017887a36d5536"
+    },
+    {
+      "name": "descendant",
+      "tick": 120,
+      "selected": 64,
+      "watch_id": 64,
+      "individual": {
+        "id": 64,
+        "name": "Gnome 00064",
+        "status": "awake",
+        "death_cause": null,
+        "age": 111,
+        "health": 40,
+        "hunger": 2,
+        "thirst": 6,
+        "fatigue": 35,
+        "action": "move",
+        "parents": [
+          3,
+          56
+        ],
+        "children": 0,
+        "location": [
+          6,
+          16
+        ],
+        "traits": {
+          "curiosity": 38,
+          "caution": 37,
+          "sociability": 48,
+          "fertility": 53,
+          "stamina": 52,
+          "vision": 76
+        },
+        "movement": {
+          "move:forest": 0,
+          "move:grass": 0,
+          "move:hazard": -45
+        },
+        "memories": [
+          [
+            118,
+            "eat",
+            "grass",
+            45
+          ],
+          [
+            119,
+            "move",
+            "grass",
+            0
+          ],
+          [
+            120,
+            "move",
+            "grass",
+            0
+          ]
+        ],
+        "born": 9,
+        "died": null,
+        "location_kind": "current",
+        "relationships": [
+          [
+            3,
+            6
+          ]
+        ]
+      },
+      "family": {
+        "parents": [
+          {
+            "id": 3,
+            "relation": "parent",
+            "status": "awake",
+            "born": 0,
+            "died": null
+          },
+          {
+            "id": 56,
+            "relation": "parent",
+            "status": "awake",
+            "born": 0,
+            "died": null
+          }
+        ],
+        "children": [],
+        "total_children": 0
+      },
+      "timeline": [
+        {
+          "sequence": 98,
+          "tick": 9,
+          "text": "Reproduction: #3 + #56, child #64 (child)"
+        },
+        {
+          "sequence": 107,
+          "tick": 13,
+          "text": "Social encounter #3 -> #64 (recipient)"
+        },
+        {
+          "sequence": 119,
+          "tick": 16,
+          "text": "Social encounter #3 -> #64 (recipient)"
+        },
+        {
+          "sequence": 123,
+          "tick": 17,
+          "text": "Social encounter #3 -> #64 (recipient)"
+        },
+        {
+          "sequence": 168,
+          "tick": 31,
+          "text": "Hazard injury: 28 health lost"
+        },
+        {
+          "sequence": 176,
+          "tick": 33,
+          "text": "Hazard injury: 24 health lost"
+        },
+        {
+          "sequence": 475,
+          "tick": 89,
+          "text": "Hazard injury: 26 health lost"
+        }
+      ],
+      "digest": "ebd6aa1abfb5b8ad26f2dc95f55b47179a3ea7df43676a2df0017887a36d5536"
+    }
+  ]
+}
