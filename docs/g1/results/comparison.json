@@ -1,0 +1,139 @@
+{
+  "seed": 1,
+  "ticks": 300,
+  "request_tick": 20,
+  "activation_tick": 21,
+  "expires_tick": 171,
+  "center": [
+    24,
+    16
+  ],
+  "radius": 8,
+  "duration": 150,
+  "final": {
+    "observation": {
+      "condition": "observation",
+      "tick": 300,
+      "living": 88,
+      "born": 89,
+      "deaths": 1,
+      "food": 114676,
+      "hunger_total": 1224,
+      "eats": 273,
+      "regenerated": 0,
+      "delta_from_local_normal": 0,
+      "digest": "37f087a96c03acf4c816285627feff381755a59e396bd3ed86afa48ca1fe9332"
+    },
+    "rain": {
+      "condition": "rain",
+      "tick": 300,
+      "living": 95,
+      "born": 95,
+      "deaths": 0,
+      "food": 113572,
+      "hunger_total": 1448,
+      "eats": 309,
+      "regenerated": 10309,
+      "delta_from_local_normal": 4948,
+      "digest": "775fd96c60f1a44f6d461d673a9b74472c3637eb3a97364462cf128f9678705f"
+    },
+    "drought": {
+      "condition": "drought",
+      "tick": 300,
+      "living": 89,
+      "born": 91,
+      "deaths": 2,
+      "food": 111374,
+      "hunger_total": 1285,
+      "eats": 286,
+      "regenerated": 0,
+      "delta_from_local_normal": -10851,
+      "digest": "56ae5ecfeb2266a1af5c94f4aaecbb5f829ca164d4f254f9534b8a57ceba04a0"
+    }
+  },
+  "interventions": {
+    "observation": [],
+    "rain": [
+      {
+        "id": 1,
+        "kind": "rain",
+        "requested_tick": 20,
+        "activation_tick": 21,
+        "x": 24,
+        "y": 16,
+        "radius": 8,
+        "duration": 150,
+        "expires_tick": 171,
+        "parameters": {
+          "grass_bonus": 4,
+          "forest_bonus": 8
+        },
+        "status": "expired",
+        "expired_tick": 171,
+        "totals": {
+          "pulses": 15,
+          "credited_cells": 2430,
+          "overridden_cells": 0,
+          "regenerated": 10309,
+          "normal_regeneration": 5361,
+          "delta": 4948
+        }
+      }
+    ],
+    "drought": [
+      {
+        "id": 1,
+        "kind": "drought",
+        "requested_tick": 20,
+        "activation_tick": 21,
+        "x": 24,
+        "y": 16,
+        "radius": 8,
+        "duration": 150,
+        "expires_tick": 171,
+        "parameters": {
+          "suppress_regeneration": true
+        },
+        "status": "expired",
+        "expired_tick": 171,
+        "totals": {
+          "pulses": 15,
+          "credited_cells": 2430,
+          "overridden_cells": 0,
+          "regenerated": 0,
+          "normal_regeneration": 10851,
+          "delta": -10851
+        }
+      }
+    ]
+  },
+  "deaths": {
+    "observation": [
+      {
+        "tick": 54,
+        "agent": 53,
+        "cause": "hazard",
+        "age": 207
+      }
+    ],
+    "rain": [],
+    "drought": [
+      {
+        "tick": 57,
+        "agent": 72,
+        "cause": "hazard",
+        "age": 11
+      },
+      {
+        "tick": 163,
+        "agent": 44,
+        "cause": "hazard",
+        "age": 435
+      }
+    ]
+  },
+  "pre_intervention_exact": true,
+  "deterministic_replays": 3,
+  "active_reload_continuations": 3,
+  "seconds": 8.945537268999033
+}

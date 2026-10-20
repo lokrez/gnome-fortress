@@ -1,0 +1,1 @@
+{"born": 66, "checkpoint": "/home/zerkol/gnome-fortress/run-results/god/g1-smoke.g1.sqlite", "dead": 0, "digest": "ed3278d6b37237386ad4c4eee65fecd94bc4509cf3c58b0f143cdde5610d56b6", "events": {"birth": 66, "hazard": 8, "reproduce": 6, "social": 32}, "extinct": false, "interventions": 0, "living": 66, "tick": 14}

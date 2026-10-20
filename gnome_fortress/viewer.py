@@ -80,7 +80,7 @@ class Observer:
                 if time.perf_counter() >= deadline:
                     break  # Keep backlog, but service controls between complete ticks.
 
-    def draw(self):
+    def draw(self, present=True):
         w, tile = self.world, self.tile
         self.screen.fill((19, 24, 29))
         for y, row in enumerate(w.cells):
@@ -128,7 +128,8 @@ class Observer:
         lines += [f"t{e.tick} {e.kind}: {e.actor}" for e in w.events[-3:]]
         for i, line in enumerate(lines):
             self.screen.blit(self.small.render(line, True, (216, 224, 224)), (self.map_width+12, 14+i*17))
-        pygame.display.flip()
+        if present:
+            pygame.display.flip()
 
 
 def run(world, checkpoint, save_callback, checkpoint_ticks=300, max_frames=None,

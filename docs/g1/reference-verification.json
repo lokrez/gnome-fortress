@@ -1,0 +1,54 @@
+{
+  "reference": "52374aa37b3f6bf5abf83b884c628f1bce5fb822",
+  "source_sha256": "464d398ab201bfd4c1d61bdc86293c67caf74828d8fea57312e9b2b1a5e7c96f",
+  "checks": [
+    {
+      "seed": 1,
+      "tick": 0,
+      "digest": "8a4044edf53777f2eacdc95eec4dd69b15cf2c66b4f27f1da8328be9c5ea523c",
+      "exact": true
+    },
+    {
+      "seed": 1,
+      "tick": 20,
+      "digest": "b984eb1f67ff5c3899de6663c33895682b70238e54ce0c62c1ebec86cbad86ad",
+      "exact": true
+    },
+    {
+      "seed": 1,
+      "tick": 100,
+      "digest": "b29f8f2c677cc085b355bf44c4c6b1b34a1ff862d7f44e7a871bcf914afb83f3",
+      "exact": true
+    },
+    {
+      "seed": 1,
+      "tick": 300,
+      "digest": "e0cafa79a687486a5e7d61e2854f4ec552ec681ea4eeffcf1d30ca141e53f395",
+      "exact": true
+    },
+    {
+      "seed": 42,
+      "tick": 0,
+      "digest": "634c60de926986caf0f83061e347457a0a39fedad25ace5547098287d99562a9",
+      "exact": true
+    },
+    {
+      "seed": 42,
+      "tick": 20,
+      "digest": "752586771548c67db2bf24a6004db91562d8200216f7f08f04afe2dd3decd561",
+      "exact": true
+    },
+    {
+      "seed": 42,
+      "tick": 100,
+      "digest": "8eee81690eeba850c2d8ce83514dc4f104defca12e80d5b2b356cafabe13e4cc",
+      "exact": true
+    },
+    {
+      "seed": 42,
+      "tick": 300,
+      "digest": "f5d68948131c58a2effa4c2ca95d39414bd7377a9a31cf500d39323302c83352",
+      "exact": true
+    }
+  ]
+}

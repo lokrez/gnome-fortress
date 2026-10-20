@@ -1,0 +1,76 @@
+{
+  "driver": "x11",
+  "display": [
+    1254,
+    680
+  ],
+  "tick": 30,
+  "summary": {
+    "tick": 30,
+    "living": 67,
+    "born": 67,
+    "dead": 0,
+    "events": {
+      "birth": 67,
+      "divine_active": 2,
+      "divine_regeneration": 2,
+      "divine_request": 2,
+      "hazard": 23,
+      "reproduce": 7,
+      "social": 65
+    }
+  },
+  "interventions": [
+    {
+      "id": 1,
+      "kind": "rain",
+      "requested_tick": 20,
+      "activation_tick": 21,
+      "x": 20,
+      "y": 16,
+      "radius": 5,
+      "duration": 200,
+      "expires_tick": 221,
+      "parameters": {
+        "grass_bonus": 4,
+        "forest_bonus": 8
+      },
+      "status": "active",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 1,
+        "credited_cells": 64,
+        "overridden_cells": 7,
+        "regenerated": 536,
+        "normal_regeneration": 276,
+        "delta": 260
+      }
+    },
+    {
+      "id": 2,
+      "kind": "drought",
+      "requested_tick": 20,
+      "activation_tick": 21,
+      "x": 28,
+      "y": 16,
+      "radius": 5,
+      "duration": 200,
+      "expires_tick": 221,
+      "parameters": {
+        "suppress_regeneration": true
+      },
+      "status": "active",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 1,
+        "credited_cells": 65,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 266,
+        "delta": -266
+      }
+    }
+  ],
+  "input": "scripted documented Pygame key and click events; not human manual QA",
+  "digest": "ed4a5c4c3711bfd5833e65399f5e1d8c028021366551d09b153eeee4bc9d8844"
+}

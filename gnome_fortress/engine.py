@@ -127,10 +127,7 @@ class World:
         for _ in range(count):
             self.tick += 1
             if self.tick % 10 == 0:
-                for row in self.cells:
-                    for c in row:
-                        if c.terrain in ("grass", "forest"):
-                            c.food = min(100, c.food + (8 if c.terrain == "forest" else 4))
+                self._regenerate_food()
             for a in list(self._living_agents.values()):
                 if a.alive:
                     was_asleep = a.sleep_until > self.tick - 1
@@ -144,6 +141,13 @@ class World:
             # Sleep immediately relinquishes its slot; births enter next tick.
             self.slots = [i if i is not None and self.agents[i].alive and
                           self.agents[i].sleep_until <= self.tick else None for i in self.slots]
+
+    def _regenerate_food(self):
+        """Default resource pulse; opt-in worlds may override environmental effects."""
+        for row in self.cells:
+            for c in row:
+                if c.terrain in ("grass", "forest"):
+                    c.food = min(100, c.food + (8 if c.terrain == "forest" else 4))
 
     def _drinkable(self, x, y):
         return any(self.cell(nx, ny).terrain == "water"

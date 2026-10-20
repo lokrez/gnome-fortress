@@ -220,3 +220,16 @@ Phase 3/4A application files remain unchanged.
 The engineered chain changed hazard entry to safe movement in 20 of 64 matched
 seeds. The warning only breaks a one-point scoring tie in this fixture; neither
 natural multihop prevalence nor population survival benefit has been established.
+
+## Playable God prototype — G1
+
+```bash
+cd ~/gnome-fortress && .venv/bin/python -m gnome_fortress.god_demo
+```
+
+Choose **Rain (R)** or **Drought (D)** and click the map. **O** returns to observation,
+**Space** pauses, **+/-** changes speed, **S** saves, and **Esc** saves and exits.
+The separate gameplay save resumes on the next launch. This is not Ironman.
+
+[Controls, actual screenshots, resource rules, verification and limitations](docs/g1/README.md).
+The default research simulation remains available through its original launcher.
