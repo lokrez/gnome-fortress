@@ -1,0 +1,30 @@
+{
+  "baseline": "2f5213c23300e61330ea665bfb4789622bf38bc6",
+  "observatory_baseline": "8a5971f86c6156f4f02962d082c3c99f063b1166",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+  "sqlite": "3.46.1",
+  "unchanged_reference_files": {
+    "gnome_fortress/__init__.py": true,
+    "gnome_fortress/__main__.py": true,
+    "gnome_fortress/engine.py": true,
+    "gnome_fortress/model.py": true,
+    "gnome_fortress/runtime.py": true,
+    "gnome_fortress/storage.py": true,
+    "gnome_fortress/viewer.py": true
+  },
+  "source_sha256": {
+    "gnome_fortress/communication.py": "207763ec1b219a492c2c6991112368295c4ab270730649e3dc3f901850053170",
+    "gnome_fortress/observatory.py": "7c66a55fe75f7ce1ef1d97d9e61a30d4d266dc807ae60c40760250211e500192",
+    "research/phase4a_experiment.py": "9af8d280a827d70325aa0cf5e001a35e8bee827cd4f38a44512d2b870fcf86a8",
+    "research/phase4a_demo.py": "5c80bb24e02b803ddacb297e50b6ba6e66c47f63eb1c724b366e32cabe088c7e",
+    "research/phase4a_verify.py": "1f2ddca9705b1f4cd3a83e0cca922816fe53ce7f3b8915635b6d86f4b6e49590",
+    "research/phase4a_capture.py": "87f074c436ef83154b3cfe1ce3f2962ce6b0d4e3740e01158d1e7ffb2f835a98"
+  },
+  "tags": {
+    "phase0-verified": "f32c1a612e36b046faa501273640bbabfce5159d",
+    "phase1-verified": "232dd30ce56a4d3645efb3d1dc35cd0539deb497",
+    "phase2-verified": "5efc9b1bfdd8d49a13aefd4e9256e6c1e87c024f",
+    "phase3-verified": "2f5213c23300e61330ea665bfb4789622bf38bc6"
+  }
+}

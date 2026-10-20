@@ -1,0 +1,19 @@
+{
+  "exit_code": 0,
+  "selected_id": 87,
+  "parents": [
+    50,
+    41
+  ],
+  "tick": 500,
+  "origin": {
+    "firsthand_count": 0,
+    "last_firsthand_tick": null,
+    "last_social_tick": 489,
+    "last_source": 63,
+    "social_count": 9
+  },
+  "source_unchanged": true,
+  "source_sha256": "3560698849475cff78759f56705be4dd86f7dcfeff54471d1626d0abb4e1f45b",
+  "capture_bytes": 12242
+}

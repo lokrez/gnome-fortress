@@ -1,0 +1,140 @@
+Gnome 00066 | ID 66 | ALIVE
+Parents: (18, 22) | born tick 14
+Children count: 0
+Age: 486 ticks (includes age at entry)
+Death tick: None | cause: none recorded
+Location: (45, 22) | health: 72
+Hunger: 22 | thirst: 18 | fatigue: 27
+Sleep until: 474 | cooldown: 0
+Latest action: move
+Biological values are current state.
+
+INHERITED TRAITS (0-100; founders sampled 20-80)
+curiosity: 44
+caution: 26
+sociability: 62
+fertility: 73
+stamina: 46
+vision: 49
+
+VALUE SUMMARY (programmed tendencies, not diagnoses)
+Novelty weight curiosity=44;
+hazard aversion caution=26.
+Other traits govern social/reproduction propensity,
+age limit and sensory radius; no inferred biography.
+
+SCHEDULER (founders are not slots)
+Assigned slot indexes (0-based): [42]
+Eligible: True | cursor: 84
+Assignments are retained snapshots, not decision counts.
+
+LEARNED ASSOCIATIONS (-100..100)
+drink:water: 57
+eat:forest: 41
+eat:grass: 33
+move:forest: 0
+move:grass: 0
+move:hazard: -39
+socialize:peer: 2
+Only move:* associations influence movement scoring.
+
+COMMUNICATION EXPERIMENT: social
+Association strengths are not probabilities of truth.
+KNOWLEDGE ORIGINS (firsthand versus socially acquired)
+drink:water: {"firsthand_count": 29, "last_firsthand_tick": 491, "last_social_tick": null, "last_source": null, "social_count": 0}
+eat:forest: {"firsthand_count": 10, "last_firsthand_tick": 448, "last_social_tick": null, "last_source": null, "social_count": 0}
+eat:grass: {"firsthand_count": 5, "last_firsthand_tick": 478, "last_social_tick": null, "last_source": null, "social_count": 0}
+move:forest: {"firsthand_count": 138, "last_firsthand_tick": 500, "last_social_tick": null, "last_source": null, "social_count": 0}
+move:grass: {"firsthand_count": 141, "last_firsthand_tick": 499, "last_social_tick": null, "last_source": null, "social_count": 0}
+move:hazard: {"firsthand_count": 2, "last_firsthand_tick": 497, "last_social_tick": 104, "last_source": 18, "social_count": 1}
+socialize:peer: {"firsthand_count": 10, "last_firsthand_tick": 486, "last_social_tick": null, "last_source": null, "social_count": 0}
+hear episodes are received messages, not physical experiences.
+
+EPISODIC MEMORY (latest 64 retained)
+{"action": "move", "feature": "forest", "reward": 0, "tick": 500, "x": 45, "y": 22}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 499, "x": 45, "y": 23}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 498, "x": 45, "y": 24}
+{"action": "move", "feature": "hazard", "reward": -87, "tick": 497, "x": 46, "y": 24}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 495, "x": 46, "y": 25}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 494, "x": 47, "y": 25}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 492, "x": 47, "y": 24}
+{"action": "drink", "feature": "water", "reward": 60, "tick": 491, "x": 47, "y": 23}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 489, "x": 47, "y": 23}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 487, "x": 47, "y": 22}
+{"action": "socialize", "feature": "peer", "reward": 5, "tick": 486, "x": 47, "y": 23}
+{"action": "socialize", "feature": "peer", "reward": 5, "tick": 484, "x": 47, "y": 23}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 483, "x": 47, "y": 23}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 481, "x": 47, "y": 22}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 479, "x": 47, "y": 21}
+{"action": "eat", "feature": "grass", "reward": 45, "tick": 478, "x": 46, "y": 21}
+{"action": "drink", "feature": "water", "reward": 60, "tick": 476, "x": 46, "y": 21}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 475, "x": 46, "y": 21}
+{"action": "socialize", "feature": "peer", "reward": 5, "tick": 461, "x": 45, "y": 21}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 459, "x": 45, "y": 21}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 458, "x": 46, "y": 21}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 456, "x": 45, "y": 21}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 455, "x": 46, "y": 21}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 453, "x": 46, "y": 20}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 451, "x": 47, "y": 20}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 450, "x": 47, "y": 21}
+{"action": "eat", "feature": "forest", "reward": 45, "tick": 448, "x": 47, "y": 22}
+{"action": "drink", "feature": "water", "reward": 60, "tick": 447, "x": 47, "y": 22}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 445, "x": 47, "y": 22}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 444, "x": 47, "y": 23}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 443, "x": 47, "y": 22}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 441, "x": 47, "y": 23}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 440, "x": 47, "y": 22}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 439, "x": 47, "y": 23}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 438, "x": 47, "y": 22}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 437, "x": 47, "y": 21}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 436, "x": 47, "y": 20}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 435, "x": 47, "y": 19}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 434, "x": 46, "y": 19}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 432, "x": 46, "y": 20}
+{"action": "drink", "feature": "water", "reward": 60, "tick": 431, "x": 46, "y": 21}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 429, "x": 46, "y": 21}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 428, "x": 45, "y": 21}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 426, "x": 46, "y": 21}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 425, "x": 46, "y": 20}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 424, "x": 46, "y": 21}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 423, "x": 47, "y": 21}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 422, "x": 46, "y": 21}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 420, "x": 46, "y": 20}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 419, "x": 45, "y": 20}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 418, "x": 45, "y": 21}
+{"action": "eat", "feature": "forest", "reward": 45, "tick": 416, "x": 45, "y": 22}
+{"action": "drink", "feature": "water", "reward": 60, "tick": 415, "x": 45, "y": 22}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 413, "x": 45, "y": 22}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 411, "x": 45, "y": 23}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 410, "x": 45, "y": 24}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 408, "x": 45, "y": 23}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 406, "x": 45, "y": 22}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 405, "x": 44, "y": 22}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 403, "x": 44, "y": 23}
+{"action": "move", "feature": "forest", "reward": 0, "tick": 402, "x": 43, "y": 23}
+{"action": "move", "feature": "grass", "reward": 0, "tick": 400, "x": 43, "y": 22}
+{"action": "drink", "feature": "water", "reward": 60, "tick": 399, "x": 42, "y": 22}
+{"action": "eat", "feature": "forest", "reward": 45, "tick": 385, "x": 42, "y": 22}
+
+DIRECTIONAL RELATIONSHIPS (outgoing, 0-100)
+ID 15: 20
+ID 18: 19
+ID 19: 21
+ID 22: 2
+
+Visited locations: 69
+
+RECENT SIGNIFICANT EVENTS (actor/target match; latest 12)
+497 hazard actor=66 target=None {"damage": 29, "x": 46, "y": 24}
+486 social actor=66 target=15 {"reward": 5}
+484 social actor=66 target=15 {"reward": 5}
+474 wake actor=66 target=None {}
+462 sleep actor=66 target=None {"until": 474}
+461 social actor=66 target=15 {"reward": 5}
+399 wake actor=66 target=None {}
+387 sleep actor=66 target=None {"until": 399}
+343 social actor=19 target=66 {"reward": 3}
+321 wake actor=66 target=None {}
+309 sleep actor=66 target=None {"until": 321}
+307 social actor=66 target=18 {"reward": 5}
+Complete decision history: unavailable. No invented persona fields.

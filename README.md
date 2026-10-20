@@ -152,3 +152,39 @@ redraw and process quit; exit waits for an in-progress worker to finish.
 
 The terminal observer uses Python's standard Ubuntu curses support, with no new
 package dependencies. [Observatory verification and limitations](research/observatory/REPORT.md).
+
+## Phase 4A: opt-in first-conversation experiment
+
+The standard simulator remains unchanged. A separate experiment adds a single
+experience-grounded hazard association to existing local social interactions.
+Run the fast two-gnome demonstration and its controls:
+
+```bash
+.venv/bin/python -m research.phase4a_demo
+```
+
+Start a new experimental world in the observatory:
+
+```bash
+.venv/bin/python -m gnome_fortress.observatory --communication social --seed 1
+```
+
+The condition can be `individual` (communication off), `social` (attenuated
+association transfer), or `sham` (masked-message interaction control). No flag
+means the unchanged standard World. Space resumes; `l` switches to living
+descendants and `f` returns to the 60 founders. PgUp/PgDn scroll provenance,
+received `hear` episodes and actual communication events. Experimental worlds are
+still unsaved in the observatory.
+
+To inspect the completed pilot, initially frozen and read-only:
+
+```bash
+.venv/bin/python -m gnome_fortress.observatory --communication social --checkpoint research/phase4a/results/pilot-01-social.sqlite
+```
+
+Pilot SQLite files are local generated artifacts, excluded from Git. Reproduction
+commands, published CSV/results, limits, persistence format and evidence are in
+[the Phase 4A report](research/phase4a/REPORT.md). Received information changed
+movement before firsthand hazard exposure in controlled probes. **A survival
+benefit or emergent culture has not been established.** No endurance campaign
+was run for this milestone.

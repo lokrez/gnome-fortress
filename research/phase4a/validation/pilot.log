@@ -1,0 +1,27 @@
+{
+  "probe_seeds": 64,
+  "probe_ticks": 1,
+  "pilot_seeds": 8,
+  "pilot_ticks": 500,
+  "example_seed": 1,
+  "changed_movement_seeds": [
+    1,
+    2,
+    4,
+    13,
+    19,
+    38,
+    40,
+    43,
+    49,
+    58
+  ],
+  "sham_behavior_exact": true,
+  "hazards_by_condition": {
+    "individual": 29,
+    "social": 19,
+    "sham": 29
+  },
+  "contact_seeds": 18,
+  "socially_informed_without_firsthand": 18
+}

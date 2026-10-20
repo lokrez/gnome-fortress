@@ -1,0 +1,184 @@
+{
+  "seed": 1,
+  "intervention": "58 founders killed for setup; two active gnomes in controlled arena; sender physically encounters hazard at tick 0; one scheduled tick follows",
+  "conditions": {
+    "individual": {
+      "outcome": {
+        "seed": 1,
+        "condition": "individual",
+        "messages": 0,
+        "opportunities": 1,
+        "source_value": -11,
+        "recipient_x": 4,
+        "recipient_y": 3,
+        "recipient_hazard": 1,
+        "recipient_heard": 0,
+        "recipient_firsthand": 1,
+        "recipient_value": -12,
+        "digest": "37f83131075d0d0b12b9f0e9593c6297c4cfa3172e6bf10b90fcecd0bbd63221"
+      },
+      "source_firsthand_episode": {
+        "tick": 0,
+        "action": "move",
+        "x": 4,
+        "y": 3,
+        "feature": "hazard",
+        "reward": -42
+      },
+      "recipient_episodes": [
+        {
+          "tick": 1,
+          "action": "move",
+          "x": 4,
+          "y": 3,
+          "feature": "hazard",
+          "reward": -45
+        }
+      ],
+      "recipient_origin": {
+        "firsthand_count": 1,
+        "social_count": 0,
+        "last_firsthand_tick": 1,
+        "last_social_tick": null,
+        "last_source": null
+      },
+      "message_events": []
+    },
+    "social": {
+      "outcome": {
+        "seed": 1,
+        "condition": "social",
+        "messages": 1,
+        "opportunities": 1,
+        "source_value": -11,
+        "recipient_x": 3,
+        "recipient_y": 2,
+        "recipient_hazard": 0,
+        "recipient_heard": 1,
+        "recipient_firsthand": 0,
+        "recipient_value": -2,
+        "digest": "8ef4f786087d5868cbb282cddc7fa7928748b7eee7532bf9d4886267d7c58857"
+      },
+      "source_firsthand_episode": {
+        "tick": 0,
+        "action": "move",
+        "x": 4,
+        "y": 3,
+        "feature": "hazard",
+        "reward": -42
+      },
+      "recipient_episodes": [
+        {
+          "tick": 1,
+          "action": "hear",
+          "x": 3,
+          "y": 3,
+          "feature": "hazard",
+          "reward": -6
+        },
+        {
+          "tick": 1,
+          "action": "move",
+          "x": 3,
+          "y": 2,
+          "feature": "grass",
+          "reward": 0
+        }
+      ],
+      "recipient_origin": {
+        "firsthand_count": 0,
+        "social_count": 1,
+        "last_firsthand_tick": null,
+        "last_social_tick": 1,
+        "last_source": 1
+      },
+      "message_events": [
+        {
+          "tick": 1,
+          "kind": "communication",
+          "actor": 1,
+          "target": 2,
+          "detail": {
+            "condition": "social",
+            "meaningful": true,
+            "key": "move:hazard",
+            "source_value": -11,
+            "transmitted": -6,
+            "previous": 0,
+            "updated": -2,
+            "source_firsthand_count": 1,
+            "source_last_firsthand_tick": 0
+          }
+        }
+      ]
+    },
+    "sham": {
+      "outcome": {
+        "seed": 1,
+        "condition": "sham",
+        "messages": 1,
+        "opportunities": 1,
+        "source_value": -11,
+        "recipient_x": 4,
+        "recipient_y": 3,
+        "recipient_hazard": 1,
+        "recipient_heard": 0,
+        "recipient_firsthand": 1,
+        "recipient_value": -12,
+        "digest": "6e1227f2f5189638382430e04c85c1f6f0e1b1453de70f393ac03dd1219218d7"
+      },
+      "source_firsthand_episode": {
+        "tick": 0,
+        "action": "move",
+        "x": 4,
+        "y": 3,
+        "feature": "hazard",
+        "reward": -42
+      },
+      "recipient_episodes": [
+        {
+          "tick": 1,
+          "action": "hear",
+          "x": 3,
+          "y": 3,
+          "feature": "masked",
+          "reward": 0
+        },
+        {
+          "tick": 1,
+          "action": "move",
+          "x": 4,
+          "y": 3,
+          "feature": "hazard",
+          "reward": -45
+        }
+      ],
+      "recipient_origin": {
+        "firsthand_count": 1,
+        "social_count": 0,
+        "last_firsthand_tick": 1,
+        "last_social_tick": null,
+        "last_source": null
+      },
+      "message_events": [
+        {
+          "tick": 1,
+          "kind": "communication",
+          "actor": 1,
+          "target": 2,
+          "detail": {
+            "condition": "sham",
+            "meaningful": false,
+            "key": null,
+            "source_value": null,
+            "transmitted": null,
+            "previous": null,
+            "updated": null,
+            "source_firsthand_count": 1,
+            "source_last_firsthand_tick": 0
+          }
+        }
+      ]
+    }
+  }
+}

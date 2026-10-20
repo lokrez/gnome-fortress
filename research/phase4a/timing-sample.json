@@ -1,0 +1,42 @@
+{
+  "timing": [
+    {
+      "condition": "reference",
+      "ticks": 200,
+      "seconds": 0.6057101920014247,
+      "tps": 330.1909108366622
+    },
+    {
+      "condition": "individual",
+      "ticks": 200,
+      "seconds": 0.6292294730010326,
+      "tps": 317.84906553427095
+    },
+    {
+      "condition": "social",
+      "ticks": 200,
+      "seconds": 0.6386561630024516,
+      "tps": 313.15755109879404
+    },
+    {
+      "condition": "sham",
+      "ticks": 200,
+      "seconds": 0.6243394619996252,
+      "tps": 320.33855325986116
+    }
+  ],
+  "estimated_pilot_seconds": 37.84450196006219,
+  "contact_seeds": 18,
+  "changed_movement_seeds": [
+    1,
+    2,
+    4,
+    13,
+    19,
+    38,
+    40,
+    43,
+    49,
+    58
+  ]
+}

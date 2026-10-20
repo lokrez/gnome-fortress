@@ -1,0 +1,35 @@
+FOUNDERS' OBSERVATORY | tick 500 | PAUSED
+Living 107 | births 48 (excludes founders) | deaths 1
+60 slots | rate 10 ticks/s | refresh 5 Hz |
+48 living descendants A=alive S=sleep D=dead | rows 1-10/10
+ 61:A    62:A    63:A    64:A    65:A      | move:forest: 0
+ 66:A    67:A    68:A    69:A    70:A      | move:grass: 0
+ 71:A    72:S    73:A    74:A    75:A      | move:hazard: -18
+ 76:A    77:A    78:A    79:S    80:A      | socialize:peer: 1
+ 81:A    82:A    83:A    84:A    85:S      | Only move:* associations influence movement scoring.
+ 86:S   >87:A    88:A    89:A    90:A      |
+ 91:A    92:A    93:A    94:A    95:S      | COMMUNICATION EXPERIMENT: social
+ 96:S    97:S    98:S    99:S    100:A     | Association strengths are not probabilities of truth.
+ 101:A   102:A   103:S   104:A   105:A     | KNOWLEDGE ORIGINS (firsthand versus socially acquired)
+ 106:A   107:A   108:A                     | drink:water: {"firsthand_count": 11, "last_firsthand_tick": 486, "last_social_tick": null,
+                                           | "last_source": null, "social_count": 0}
+                                           | eat:forest: {"firsthand_count": 2, "last_firsthand_tick": 480, "last_social_tick": null,
+                                           | "last_source": null, "social_count": 0}
+                                           | eat:grass: {"firsthand_count": 4, "last_firsthand_tick": 449, "last_social_tick": null,
+                                           | "last_source": null, "social_count": 0}
+                                           | move:forest: {"firsthand_count": 29, "last_firsthand_tick": 499, "last_social_tick": null,
+                                           | "last_source": null, "social_count": 0}
+                                           | move:grass: {"firsthand_count": 67, "last_firsthand_tick": 489, "last_social_tick": null,
+                                           | "last_source": null, "social_count": 0}
+                                           | move:hazard: {"firsthand_count": 0, "last_firsthand_tick": null, "last_social_tick": 489,
+                                           | "last_source": 63, "social_count": 9}
+                                           | socialize:peer: {"firsthand_count": 5, "last_firsthand_tick": 496, "last_social_tick": null,
+                                           | "last_source": null, "social_count": 0}
+                                           | hear episodes are received messages, not physical experiences.
+                                           |
+                                           | EPISODIC MEMORY (latest 64 retained)
+                                           | {"action": "move", "feature": "forest", "reward": 0, "tick": 499, "x": 31, "y": 21}
+                                           | {"action": "move", "feature": "forest", "reward": 0, "tick": 498, "x": 32, "y": 21}
+                                           | {"action": "move", "feature": "forest", "reward": 0, "tick": 497, "x": 31, "y": 21}
+                                           | {"action": "socialize", "feature": "peer", "reward": 4, "tick": 496, "x": 32, "y": 21}
+f founders / l living descendants | Arrows/Tab select | PgUp/Dn | Space pause | . step | +/- | [/] | q

@@ -1,0 +1,137 @@
+[
+  {
+    "path": "demo-individual.sqlite",
+    "bytes": 94208,
+    "sha256": "6c972dd5facf7a876bb65d70ba1cf85f11796af36f1da05032a7f51c3d3df795"
+  },
+  {
+    "path": "demo-sham.sqlite",
+    "bytes": 94208,
+    "sha256": "db70be7de9d038789cef876669b4ddd8261c8d517a83d7ea15659c12ad844c1e"
+  },
+  {
+    "path": "demo-social.sqlite",
+    "bytes": 94208,
+    "sha256": "ba6fbdee9fead1d9066dbd6506ade7b98d3f1d40f2c2fbdc7be09b3e587d6faa"
+  },
+  {
+    "path": "pilot-01-individual.sqlite",
+    "bytes": 987136,
+    "sha256": "72e80c8ccba514700501b22a36f281403399d71f4ea9174e45b7e071c232dc02"
+  },
+  {
+    "path": "pilot-01-sham.sqlite",
+    "bytes": 1011712,
+    "sha256": "57cff838b59efedcc5a15ff6f10301a45e16896c5a3a5c2ef9cb3b0527c9b6aa"
+  },
+  {
+    "path": "pilot-01-social.sqlite",
+    "bytes": 995328,
+    "sha256": "3560698849475cff78759f56705be4dd86f7dcfeff54471d1626d0abb4e1f45b"
+  },
+  {
+    "path": "pilot-02-individual.sqlite",
+    "bytes": 999424,
+    "sha256": "13abef3addae721095fabcfae583dfc614a90651533b00b3b732ed79142bd53f"
+  },
+  {
+    "path": "pilot-02-sham.sqlite",
+    "bytes": 1036288,
+    "sha256": "a2cbc54a6ec95cfbc612e25ab60ee68a65b81d03849d28f696a28b5a1add8f50"
+  },
+  {
+    "path": "pilot-02-social.sqlite",
+    "bytes": 1056768,
+    "sha256": "b7ed3a70dbb9fbd545aa7f4ac2715cbaf7dcea4b01867e1c1a6e626ac6465212"
+  },
+  {
+    "path": "pilot-03-individual.sqlite",
+    "bytes": 991232,
+    "sha256": "2ddceacb129395c2d593f6706e7f02cdfa378b6b22f68894e6bcf05ee45fccc6"
+  },
+  {
+    "path": "pilot-03-sham.sqlite",
+    "bytes": 1032192,
+    "sha256": "19c18294eb92efdb4b346e24060a561454c236f64af5bd06200ad298fb79dbef"
+  },
+  {
+    "path": "pilot-03-social.sqlite",
+    "bytes": 1048576,
+    "sha256": "806cc3f6ad1c6b73d7b947b346a193bda7c8dd1412dd63227cce453d28ea7a58"
+  },
+  {
+    "path": "pilot-04-individual.sqlite",
+    "bytes": 995328,
+    "sha256": "2107a0f7ba70300dc0b5e2048162c8d62cfba653dc1edc470a9e04680daac79f"
+  },
+  {
+    "path": "pilot-04-sham.sqlite",
+    "bytes": 1028096,
+    "sha256": "01b2490f1c15c0232b262f8adc13c8c53c657c27439af345255a861e529681b9"
+  },
+  {
+    "path": "pilot-04-social.sqlite",
+    "bytes": 1056768,
+    "sha256": "2c3da04e9a42cfb448a1d7d88a73fd0ba6f14634762a0da2334874fdb88836e4"
+  },
+  {
+    "path": "pilot-05-individual.sqlite",
+    "bytes": 1032192,
+    "sha256": "ec9142442e5efc75ce8fc30ad88b74b702be3939ec94e14c6ce923a6827229bc"
+  },
+  {
+    "path": "pilot-05-sham.sqlite",
+    "bytes": 1069056,
+    "sha256": "0efefb470437ddc82dbedf79bc9f1eeb5439ec52f316302b3918d75a8d8a839d"
+  },
+  {
+    "path": "pilot-05-social.sqlite",
+    "bytes": 1077248,
+    "sha256": "13cf389179b0b5f469741740c59f55307369c9b060b88f19c34f0c17348626eb"
+  },
+  {
+    "path": "pilot-06-individual.sqlite",
+    "bytes": 1007616,
+    "sha256": "91924082bfdebd25f20d893692f5a585c1809e7cb57fc49ebef1818d7d10d1bb"
+  },
+  {
+    "path": "pilot-06-sham.sqlite",
+    "bytes": 1048576,
+    "sha256": "978b8a2c6c0fab8cbaee12bb812f77d752a4bdb02557137b450e28c264c1885b"
+  },
+  {
+    "path": "pilot-06-social.sqlite",
+    "bytes": 1064960,
+    "sha256": "e2be3ac36be78c83bb904055c82f3f2223c0a28d2603f24a2500c887c6b2f173"
+  },
+  {
+    "path": "pilot-07-individual.sqlite",
+    "bytes": 966656,
+    "sha256": "82bade5f7956ed6f90846c54986e0c817319ab401738c2c367e42e4ec043b72d"
+  },
+  {
+    "path": "pilot-07-sham.sqlite",
+    "bytes": 999424,
+    "sha256": "c5d26e3c3b3ca61abf25624155f4719a76ee1f5162fa7d3eb75df59e8f7a0bd8"
+  },
+  {
+    "path": "pilot-07-social.sqlite",
+    "bytes": 1003520,
+    "sha256": "ea0c67b5c93853bab9511dfd2eccf571135a97859c16df65463b57753bde7b11"
+  },
+  {
+    "path": "pilot-08-individual.sqlite",
+    "bytes": 958464,
+    "sha256": "d244a31b8e202fbf342b144303fb50bef050532cab7226d9de670bac0d1d087a"
+  },
+  {
+    "path": "pilot-08-sham.sqlite",
+    "bytes": 991232,
+    "sha256": "41b1992428908cc280cb25312c602121386df3ebca9b82dbbe3729d898fc0275"
+  },
+  {
+    "path": "pilot-08-social.sqlite",
+    "bytes": 1019904,
+    "sha256": "231dbfc466ad1deb95695dbb44c9604c2deebae86723dddddbc0068afba0c1eb"
+  }
+]
