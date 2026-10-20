@@ -1,0 +1,100 @@
+{
+  "baseline": "40eeac5cb8893f02d32e456b4a778badf3cc998f",
+  "driver": "x11",
+  "window": [
+    1334,
+    820
+  ],
+  "input": "scripted actual Pygame key/mouse event queue; natural seed-1 biology; no human usability session",
+  "seconds": 1.920680907998758,
+  "compatibility": [
+    {
+      "reference": "597b0eb9bfcbee438c1959c6a73b1b3591511358",
+      "readonly_source": true,
+      "roundtrip": true,
+      "continuation_ticks": 90,
+      "exact": true
+    },
+    {
+      "reference": "307e511335c6102e72e45d836dd8f07550271027",
+      "readonly_source": true,
+      "roundtrip": true,
+      "continuation_ticks": 90,
+      "exact": true
+    },
+    {
+      "reference": "40eeac5cb8893f02d32e456b4a778badf3cc998f",
+      "readonly_source": true,
+      "roundtrip": true,
+      "continuation_ticks": 90,
+      "exact": true
+    }
+  ],
+  "unchanged_modules": [
+    "gnome_fortress/engine.py",
+    "gnome_fortress/model.py",
+    "gnome_fortress/game.py",
+    "gnome_fortress/game_storage.py",
+    "gnome_fortress/storage.py",
+    "gnome_fortress/runtime.py",
+    "gnome_fortress/god_demo.py",
+    "gnome_fortress/viewer.py",
+    "gnome_fortress/game_presentation.py",
+    "gnome_fortress/life_presentation.py"
+  ],
+  "screens": [
+    {
+      "name": "advisor-main",
+      "tick": 0,
+      "text": "How may I assist you, sir?",
+      "page": "main",
+      "selected": 53,
+      "watch": 53,
+      "digest": "2e41473531c9f8bc3a31a82d45260119be829376a079b431dec613473333a47f"
+    },
+    {
+      "name": "advisor-world",
+      "tick": 0,
+      "text": "There are 60 living gnomes, sir. We began with 60 founders.",
+      "page": "world",
+      "selected": 53,
+      "watch": 53,
+      "digest": "2e41473531c9f8bc3a31a82d45260119be829376a079b431dec613473333a47f"
+    },
+    {
+      "name": "advisor-gnome",
+      "tick": 120,
+      "text": "Gnome 00053 died: hazard, at tick 54. Recorded age 207, sir.",
+      "page": "gnome",
+      "selected": 53,
+      "watch": 53,
+      "digest": "ebd6aa1abfb5b8ad26f2dc95f55b47179a3ea7df43676a2df0017887a36d5536"
+    },
+    {
+      "name": "advisor-powers",
+      "tick": 120,
+      "text": "#2 drought: active, at (22, 16), radius 5. Activates 21; expires 221; 100 active ticks ahead. Regenerated 0; ordinary regeneration on the same pre-pulse stocks 3009; delta -3009. Recorded overridden producing-cell pulses: 0. This does not establish a cause of death or a survival benefit, sir.",
+      "page": "powers",
+      "selected": 53,
+      "watch": 53,
+      "digest": "ebd6aa1abfb5b8ad26f2dc95f55b47179a3ea7df43676a2df0017887a36d5536"
+    },
+    {
+      "name": "advisor-complaint",
+      "tick": 120,
+      "text": "We have not implemented mountain lions, sir.",
+      "page": "complaints",
+      "selected": 53,
+      "watch": 53,
+      "digest": "ebd6aa1abfb5b8ad26f2dc95f55b47179a3ea7df43676a2df0017887a36d5536"
+    }
+  ],
+  "preserved_historical_files": 523,
+  "tags": [
+    "63c706134a928c7d0c4357ddd6f1e2ac26ee12e4 refs/tags/g1-verified",
+    "f32c1a612e36b046faa501273640bbabfce5159d refs/tags/phase0-verified",
+    "232dd30ce56a4d3645efb3d1dc35cd0539deb497 refs/tags/phase1-verified",
+    "5efc9b1bfdd8d49a13aefd4e9256e6c1e87c024f refs/tags/phase2-verified",
+    "2f5213c23300e61330ea665bfb4789622bf38bc6 refs/tags/phase3-verified"
+  ]
+}

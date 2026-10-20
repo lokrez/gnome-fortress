@@ -4,6 +4,7 @@ import os
 os.environ.setdefault('PYGAME_HIDE_SUPPORT_PROMPT','1')
 import pygame
 
+from .advisor import Advisor
 from .game import DEFAULT_DURATION, DEFAULT_RADIUS
 from .game_presentation import WorldPresentation, agent_view, event_text
 from .life_presentation import LifeHistory, life_summary, life_event_text
@@ -36,6 +37,8 @@ class GodObserver(Observer):
         self.map_width=world.width*self.tile
         self.screen=pygame.display.set_mode((self.map_width+panel_width,height))
         pygame.display.set_caption('Gnome Fortress | The Living World')
+        self.advisor=Advisor();self.advisor_hits=[]
+        self.advisor_button=pygame.Rect(self.map_width-145,8,137,28)
         self.mode=None;self.hover=None;self.pointer=(0,0)
         self.notice='R / D to target. O to observe. Powers act next tick.'
         self.last_request=world.interventions[-1].id if world.interventions else None
@@ -109,6 +112,7 @@ class GodObserver(Observer):
     def handle(self,events):
         self.sync()
         for event in events:
+            if self.advisor_input(event):continue
             if event.type==pygame.MOUSEMOTION:
                 self.pointer=event.pos;self.hover=self.map_target(event.pos)
             elif event.type==pygame.MOUSEWHEEL:
@@ -165,6 +169,51 @@ class GodObserver(Observer):
                 if event.type==pygame.KEYDOWN and event.key==pygame.K_TAB:
                     identity=self.selected;self.selected=previous;self.select_individual(identity)
                     self.tab='life' if old_tab=='life' else 'gnome'
+
+    def advisor_choice(self,choice):
+        destination=self.advisor.choose(choice,self.world,self.selected,self.presentation)
+        if destination:
+            self.advisor.open=False
+            if destination in ('life','family'):
+                self.tab='life';self.life_pane='family' if destination=='family' else 'events'
+            elif destination=='powers':self.tab='powers';self.power_offset=0
+            else:
+                self.tab='gnome'
+                if destination=='events':self.event_offset=0
+
+    def advisor_input(self,event):
+        if event.type==pygame.KEYDOWN and event.key==pygame.K_a:
+            if self.advisor.open:self.advisor.open=False
+            else:self.advisor.start()
+            return True
+        if event.type==pygame.MOUSEBUTTONDOWN and event.button==1 and self.advisor_button.collidepoint(event.pos):
+            if self.advisor.open:self.advisor.open=False
+            else:self.advisor.start()
+            return True
+        if not self.advisor.open:return False
+        if event.type==pygame.KEYDOWN and pygame.K_0<=event.key<=pygame.K_9:
+            self.advisor_choice(str(event.key-pygame.K_0));return True
+        if event.type==pygame.MOUSEBUTTONDOWN and event.button==1 and event.pos[0]>=self.map_width and event.pos[1]>=250:
+            choice=next((c for rect,c in self.advisor_hits if rect.collidepoint(event.pos)),None)
+            if choice is not None:self.advisor_choice(choice)
+            return True
+        if event.type==pygame.MOUSEWHEEL and getattr(event,'pos',self.pointer)[0]>=self.map_width:return True
+        return False
+
+    def draw_advisor(self,x):
+        pygame.draw.rect(self.screen,(19,27,33),(self.map_width,250,470,self.screen.get_height()-250))
+        self.label('ADVISOR | '+self.advisor.page.title(),x,260,GOLD,self.font)
+        self.label('Facts sampled when a choice is selected.',x,285,MUTED)
+        y=312
+        for line in wrap(self.small,self.advisor.text,438):
+            self.label(line,x,y);y+=18
+        y=max(345,y+14);self.advisor_hits=[]
+        for choice,text in self.advisor.choices():
+            rect=pygame.Rect(x,y,442,29)
+            pygame.draw.rect(self.screen,(40,55,64),rect,border_radius=4)
+            self.label(choice+'. '+text,x+8,y+7)
+            self.advisor_hits.append((rect,choice));y+=35
+        self.label('A closes | Esc still saves and exits',x,self.screen.get_height()-18,MUTED)
 
     def advance(self,seconds):
         if self.world.extinct:
@@ -370,6 +419,9 @@ class GodObserver(Observer):
                    f'Divine interventions used: {len(w.interventions)}','Final population: 0',
                    'This run has ended. Esc saves and exits.']
             for i,line in enumerate(lines):self.label(line,rect.x+20,rect.y+20+i*29,INK,self.font)
+        pygame.draw.rect(self.screen,(57,86,96),self.advisor_button,border_radius=4)
+        self.label('Advisor [A]',self.advisor_button.x+18,self.advisor_button.y+6,GOLD)
+        if self.advisor.open:self.draw_advisor(x)
         pygame.display.flip()
 
 def run(world,path,save_callback,checkpoint_ticks=300,max_frames=None,stop_requested=lambda:False,
