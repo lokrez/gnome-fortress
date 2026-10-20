@@ -1,0 +1,41 @@
+.FF..........................................................            [100%]
+=================================== FAILURES ===================================
+__________ test_all_controls_previews_history_and_advisor_navigation ___________
+
+    def test_all_controls_previews_history_and_advisor_navigation():
+        w=TerrainWorld();v=TerrainObserver(w,paused=True);v.watch_id=1
+        try:
+            before=w.state();v.draw();assert w.state()==before
+            for k,name,r in [(pygame.K_e,'rupture',2),(pygame.K_f,'rewild',2),(pygame.K_p,'wellspring',0)]:
+                v.handle([key(k),pygame.event.Event(pygame.MOUSEMOTION,pos=(2*v.tile+1,2*v.tile+1))])
+                assert v.mode==name and v.preview_radius()==r
+                cells=v.preview_cells()
+                assert all((x-2)**2+(y-2)**2<=r*r for x,y,eligible in cells)
+                assert all(eligible==(w.cell(x,y).terrain in {'rupture':('grass','forest'),'rewild':('hazard',),'wellspring':('rock',)}[name]) for x,y,eligible in cells)
+                v.draw()
+>           v.handle([key(pygame.K_e),click((2*v.tile+1,2*v.tile+1))]);assert w.interventions[-1].status=='queued'
+                                                                              ^^^^^^^^^^^^^^^^^^^
+E           IndexError: list index out of range
+
+tests/test_terrain_presentation.py:47: IndexError
+__________ test_saving_cast_guard_and_responsive_readonly_inspection ___________
+
+    def test_saving_cast_guard_and_responsive_readonly_inspection():
+        import threading
+        w=TerrainWorld();v=TerrainObserver(w,paused=True);ready=threading.Event();release=threading.Event()
+        worker=CheckpointWorker(lambda world,path:(ready.set(),release.wait(5),dict(tick=world.tick))[2])
+        try:
+            worker.start(w,None);assert ready.wait(2);v.saving=worker.pending;before=w.state()
+            for k in (pygame.K_e,pygame.K_f,pygame.K_p,pygame.K_r,pygame.K_d):
+                v.handle([key(k),click((2*v.tile+1,2*v.tile+1))]);v.advance(1)
+            v.handle([key(pygame.K_t),click((2*v.tile+1,2*v.tile+1)),key(pygame.K_a),key(pygame.K_5)]);v.draw()
+            assert w.state()==before and not w.interventions and v.advisor.open
+>           assert 'Saving' in v.notice
+E           AssertionError: assert 'Saving' in 'New format prototype | T land history | A advisor'
+E            +  where 'New format prototype | T land history | A advisor' = <gnome_fortress.terrain_viewer.TerrainObserver object at 0x7cbe3b9cb390>.notice
+
+tests/test_terrain_presentation.py:73: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_terrain_presentation.py::test_all_controls_previews_history_and_advisor_navigation
+FAILED tests/test_terrain_presentation.py::test_saving_cast_guard_and_responsive_readonly_inspection
+2 failed, 59 passed in 16.74s

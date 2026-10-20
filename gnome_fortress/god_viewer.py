@@ -27,6 +27,11 @@ def wrap(font,text,width):
 
 
 class GodObserver(Observer):
+    presentation_class=WorldPresentation
+    advisor_class=Advisor
+    colors=POWER_COLORS
+    tab_labels={'gnome':'Gnome [F1]','powers':'Powers [F2]','life':'Life [F3]'}
+
     def __init__(self,world,rate=None,paused=False):
         super().__init__(world,rate,paused)
         desktop=pygame.display.get_desktop_sizes()[0]
@@ -37,13 +42,13 @@ class GodObserver(Observer):
         self.map_width=world.width*self.tile
         self.screen=pygame.display.set_mode((self.map_width+panel_width,height))
         pygame.display.set_caption('Gnome Fortress | The Living World')
-        self.advisor=Advisor();self.advisor_hits=[]
+        self.advisor=self.advisor_class();self.advisor_hits=[]
         self.advisor_button=pygame.Rect(self.map_width-145,8,137,28)
         self.mode=None;self.hover=None;self.pointer=(0,0)
         self.notice='R / D to target. O to observe. Powers act next tick.'
         self.last_request=world.interventions[-1].id if world.interventions else None
         if self.last_request:self.notice=''
-        self.presentation=WorldPresentation(world)
+        self.presentation=self.presentation_class(world)
         self.event_offset=0;self.power_offset=0;self.tab='gnome'
         self.event_rect=pygame.Rect(0,world.height*self.tile+8,self.map_width,height-world.height*self.tile-8)
         self.event_rows=[]
@@ -112,7 +117,7 @@ class GodObserver(Observer):
     def handle(self,events):
         self.sync()
         for event in events:
-            if self.advisor_input(event):continue
+            if self.advisor_input(event) or self.extra_input(event):continue
             if event.type==pygame.MOUSEMOTION:
                 self.pointer=event.pos;self.hover=self.map_target(event.pos)
             elif event.type==pygame.MOUSEWHEEL:
@@ -172,14 +177,16 @@ class GodObserver(Observer):
 
     def advisor_choice(self,choice):
         destination=self.advisor.choose(choice,self.world,self.selected,self.presentation)
-        if destination:
-            self.advisor.open=False
-            if destination in ('life','family'):
-                self.tab='life';self.life_pane='family' if destination=='family' else 'events'
-            elif destination=='powers':self.tab='powers';self.power_offset=0
-            else:
-                self.tab='gnome'
-                if destination=='events':self.event_offset=0
+        if destination:self.navigate(destination)
+
+    def navigate(self,destination):
+        self.advisor.open=False
+        if destination in ('life','family'):
+            self.tab='life';self.life_pane='family' if destination=='family' else 'events'
+        elif destination=='powers':self.tab='powers';self.power_offset=0
+        else:
+            self.tab='gnome'
+            if destination=='events':self.event_offset=0
 
     def advisor_input(self,event):
         if event.type==pygame.KEYDOWN and event.key==pygame.K_a:
@@ -223,7 +230,7 @@ class GodObserver(Observer):
         if self.world.extinct:self.paused=True;self.accumulator=0
 
     def region(self,kind,x,y,radius,preview=False):
-        color=POWER_COLORS[kind]
+        color=self.colors[kind]
         layer=pygame.Surface((self.map_width,self.world.height*self.tile),pygame.SRCALPHA)
         for cy in range(max(0,y-radius),min(self.world.height,y+radius+1)):
             for cx in range(max(0,x-radius),min(self.world.width,x+radius+1)):
@@ -272,8 +279,8 @@ class GodObserver(Observer):
         self.event_rows=[]
         for j,(sequence,event) in enumerate(self.presentation.events.page(self.event_offset,self.event_capacity)):
             y=rect.y+33+j*36
-            self.label(f't{event.tick}',12,y,POWER_COLORS['rain'] if event.kind.startswith('divine_') else GOLD)
-            lines=wrap(self.small,event_text(event,self.world),self.map_width-90)
+            self.label(f't{event.tick}',12,y,self.colors['rain'] if event.kind.startswith('divine_') else GOLD)
+            lines=wrap(self.small,self.format_event(event),self.map_width-90)
             for i,line in enumerate(lines[:2]):self.label(line,80,y+i*15)
             self.event_rows.append((pygame.Rect(0,y,self.map_width,34),event.actor))
         if self.event_offset:self.label(f'Browsing older events (+{self.event_offset} from latest)',12,self.screen.get_height()-16,MUTED)
@@ -348,7 +355,7 @@ class GodObserver(Observer):
         ended=f" died t{member['died']}" if member['died'] is not None else ''
         born=f"born t{member['born']}" if member['born'] is not None else 'birth unavailable'
         text=f"#{member['id']} | {member['status']} | {born}"+ended
-        self.label(text,x+6,y,POWER_COLORS['rain'])
+        self.label(text,x+6,y,self.colors['rain'])
         self.family_hits.append((pygame.Rect(x,y-2,440,24),member['id']))
 
     def draw_powers(self,x,y):
@@ -360,7 +367,7 @@ class GodObserver(Observer):
             top=y+j*108
             pygame.draw.rect(self.screen,(29,39,46),(x-3,top-4,446,100),border_radius=5)
             status=p['status']+(f" / {p['overlap']}" if p['overlap'] else '')
-            self.label(f"#{p['id']} {p['kind'].title()} | {status}",x+5,top,POWER_COLORS[p['kind']])
+            self.label(f"#{p['id']} {p['kind'].title()} | {status}",x+5,top,self.colors[p['kind']])
             self.label(f"{p['location']}  radius {p['radius']} | {p['future_active_ticks']} active ticks ahead",x+5,top+19)
             self.label(f"Active window {p['activation']}..{p['expires']-1}; expires {p['expires']}",x+5,top+37,MUTED)
             t=p['totals']
@@ -369,25 +376,15 @@ class GodObserver(Observer):
         self.label('Delta: regeneration vs ordinary pulses on same stocks.',x,self.screen.get_height()-35,MUTED)
         self.label(f'{len(cards)} records | wheel here: older/newer powers',x,self.screen.get_height()-18,MUTED)
 
-    def draw(self):
-        self.sync()
-        super().draw(present=False)
-        w=self.world;s=self.presentation.status;x=self.map_width+12
-        layer=pygame.Surface((self.map_width,w.height*self.tile),pygame.SRCALPHA)
-        for (cx,cy),kind in self.presentation.region_cells.items():
-            color=POWER_COLORS[kind];rect=(cx*self.tile,cy*self.tile,self.tile-1,self.tile-1)
-            pygame.draw.rect(layer,(*color,55),rect)
-            pygame.draw.rect(layer,(*color,110),rect,1)
-        self.screen.blit(layer,(0,0))
-        if self.mode and self.hover and not w.extinct:self.region(self.mode,*self.hover,DEFAULT_RADIUS,preview=True)
-        self.markers()
-        pygame.draw.rect(self.screen,(19,27,33),(self.map_width,0,470,self.screen.get_height()))
-        self.label('GNOME FORTRESS | THE LIVING WORLD',x,12,GOLD,self.font)
-        state='SAVING' if self.saving else 'EXTINCT' if w.extinct else 'PAUSED' if self.paused else 'RUNNING'
-        self.label(f"Tick {s['tick']} | seed {w.seed} | {state} | target {self.speeds[self.speed_index]} t/s",x,36)
-        self.label(f"Living {s['living']} | net {s['net_population_change']:+d} since 60 founders",x,56)
-        self.label(f"Born total {s['born']} (includes founders) | deaths {s['deaths']}",x,76)
-        self.label(f"Food on map {s['food_stock']:,} units | active powers {s['active']}",x,96)
+    def extra_input(self,event):return False
+
+    def preview_radius(self):return DEFAULT_RADIUS
+
+    def format_event(self,event):return event_text(event,self.world)
+
+    def draw_map_overlay(self):pass
+
+    def draw_controls(self,x):
         for name,rect in self.buttons.items():
             selected=(name=='observe' and self.mode is None) or self.mode==name
             pygame.draw.rect(self.screen,(57,86,96) if selected else (33,45,53),rect,border_radius=5)
@@ -396,15 +393,38 @@ class GodObserver(Observer):
         self.label('R/D select | click cast | O/right-click observe',x,185,MUTED)
         self.label('Space pause | +/- speed | . step | S save | Esc exit',x,204,MUTED)
         self.label(self.notice_text(),x,226,GOLD)
+    def draw_inspection(self,x):
         for name,rect in self.tabs.items():
             pygame.draw.rect(self.screen,(46,63,72) if self.tab==name else (28,39,46),rect,border_radius=4)
-            self.label({'gnome':'Gnome [F1]','powers':'Powers [F2]','life':'Life [F3]'}[name],rect.x+12,rect.y+6)
+            self.label(self.tab_labels[name],rect.x+12,rect.y+6)
         if self.tab=='gnome':
             self.draw_individual(x,292)
             if self.screen.get_height()>=680:
                 self.label('Hat: awake | blue z: sleeping | gold frame: selected',x,self.screen.get_height()-35,MUTED)
         elif self.tab=='powers':self.draw_powers(x,292)
         else:self.draw_life(x)
+    def draw(self):
+        self.sync()
+        super().draw(present=False)
+        w=self.world;s=self.presentation.status;x=self.map_width+12
+        layer=pygame.Surface((self.map_width,w.height*self.tile),pygame.SRCALPHA)
+        for (cx,cy),kind in self.presentation.region_cells.items():
+            color=self.colors[kind];rect=(cx*self.tile,cy*self.tile,self.tile-1,self.tile-1)
+            pygame.draw.rect(layer,(*color,55),rect)
+            pygame.draw.rect(layer,(*color,110),rect,1)
+        self.screen.blit(layer,(0,0))
+        if self.mode and self.hover and not w.extinct:self.region(self.mode,*self.hover,self.preview_radius(),preview=True)
+        self.draw_map_overlay()
+        self.markers()
+        pygame.draw.rect(self.screen,(19,27,33),(self.map_width,0,470,self.screen.get_height()))
+        self.label('GNOME FORTRESS | THE LIVING WORLD',x,12,GOLD,self.font)
+        state='SAVING' if self.saving else 'EXTINCT' if w.extinct else 'PAUSED' if self.paused else 'RUNNING'
+        self.label(f"Tick {s['tick']} | seed {w.seed} | {state} | target {self.speeds[self.speed_index]} t/s",x,36)
+        self.label(f"Living {s['living']} | net {s['net_population_change']:+d} since 60 founders",x,56)
+        self.label(f"Born total {s['born']} (includes founders) | deaths {s['deaths']}",x,76)
+        self.label(f"Food on map {s['food_stock']:,} units | active powers {s['active']}",x,96)
+        self.draw_controls(x)
+        self.draw_inspection(x)
         clip=self.screen.get_clip()
         self.screen.set_clip(self.event_rect)
         self.draw_event_feed()
@@ -425,8 +445,8 @@ class GodObserver(Observer):
         pygame.display.flip()
 
 def run(world,path,save_callback,checkpoint_ticks=300,max_frames=None,stop_requested=lambda:False,
-        rate=None,paused=False,capture=None):
-    observer=GodObserver(world,rate,paused);clock=pygame.time.Clock()
+        rate=None,paused=False,capture=None,observer_class=None):
+    observer=(observer_class or GodObserver)(world,rate,paused);clock=pygame.time.Clock()
     worker=CheckpointWorker(save_callback);last_save=world.tick;frames=0;dirty=True;auto_save_failed=False
     try:
         while observer.running and not stop_requested() and (max_frames is None or frames<max_frames):

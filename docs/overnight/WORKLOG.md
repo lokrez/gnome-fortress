@@ -31,3 +31,15 @@
   health/displacement/resurrection, pending/completed save replay and no RNG draws
   under isolated activation. Non-rock Wellspring is explicitly zero-change.
   Seed-1 bounded demo preserved all earlier deaths and exact continuation.
+- G6 committed as `7927e5c`.
+- First G7 integration run: 59 passed, 2 failed. New map-top Land button
+  intercepted real map targeting on small terminals, including the save-guard
+  test's click. Documented before repair; move Land into the inspection tab row
+  and Advisor into the event-header margin in the terrain viewer. Do not relax
+  target/save assertions. Legacy hook regression separately passed 34 tests.
+- G7 corrected targeted run PASS: 61 tests in 16.70s; all original map-targeting
+  and save guards retained. Actual X11 capture: seven screens, 120 running frames,
+  final tick 68, Watch preserved, save/reload exact. No artificial biological events.
+  Inspected tile-history/Advisor images. Footprint-off legend explicitly says marks
+  are hidden. Predeclared 3-seed × 5-condition, 3,000-tick matched protocol before
+  any campaign outcomes; benchmark first, bounded full replay/midpoint saves next.

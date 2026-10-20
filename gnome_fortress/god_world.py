@@ -50,7 +50,7 @@ def main():
                 world.step()
                 if world.tick%args.checkpoint_every==0:save_game(world,path)
         else:
-            from .god_viewer import run
+            from .terrain_viewer import run
             run(world,path,save_game,args.checkpoint_every,args.frames,lambda:stopped,
                 args.rate,args.paused,args.capture)
     finally:

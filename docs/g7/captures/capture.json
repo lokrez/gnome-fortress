@@ -1,0 +1,476 @@
+{
+  "driver": "x11",
+  "window": [
+    1334,
+    820
+  ],
+  "input": "Scripted actual queued mouse/keyboard input; no human usability session; no injected biological outcomes",
+  "spring_selection": "First initial row-major rock adjacent to traversable terrain",
+  "spring": [
+    45,
+    1
+  ],
+  "screenshots": [
+    {
+      "name": "01-before",
+      "tick": 0,
+      "summary": {
+        "tick": 0,
+        "living": 60,
+        "born": 60,
+        "dead": 0,
+        "events": {
+          "birth": 60
+        }
+      },
+      "digest": "688bb5f795c84947f2b38358da20fba1ada0ca8072986b83ab4bf0e56c8b929a",
+      "selected": 1,
+      "watch": 1,
+      "tile": [
+        9,
+        9
+      ],
+      "tab": "life",
+      "advisor": null
+    },
+    {
+      "name": "02-rupture",
+      "tick": 10,
+      "summary": {
+        "tick": 10,
+        "living": 64,
+        "born": 64,
+        "dead": 0,
+        "events": {
+          "birth": 64,
+          "divine_request": 1,
+          "divine_terrain": 1,
+          "hazard": 7,
+          "reproduce": 4,
+          "social": 26
+        }
+      },
+      "digest": "600e788e0f94bde29beef32e55695e457bc28fd66443970047b7d5ac90a9ed93",
+      "selected": 1,
+      "watch": 1,
+      "tile": [
+        9,
+        9
+      ],
+      "tab": "powers",
+      "advisor": null
+    },
+    {
+      "name": "03-rewild",
+      "tick": 30,
+      "summary": {
+        "tick": 30,
+        "living": 67,
+        "born": 67,
+        "dead": 0,
+        "events": {
+          "birth": 67,
+          "divine_request": 2,
+          "divine_terrain": 2,
+          "hazard": 23,
+          "reproduce": 7,
+          "social": 65
+        }
+      },
+      "digest": "553e249f188c4aaa74c0652b955e81b55604815e17180d7759daa29e5824c7dc",
+      "selected": 1,
+      "watch": 1,
+      "tile": [
+        9,
+        9
+      ],
+      "tab": "powers",
+      "advisor": null
+    },
+    {
+      "name": "04-wellspring",
+      "tick": 40,
+      "summary": {
+        "tick": 40,
+        "living": 71,
+        "born": 71,
+        "dead": 0,
+        "events": {
+          "birth": 71,
+          "divine_request": 3,
+          "divine_terrain": 3,
+          "hazard": 28,
+          "reproduce": 11,
+          "social": 87
+        }
+      },
+      "digest": "0232ece846729a13a0e67baabe373495ea66012a05fd408aaf20924ad80d4489",
+      "selected": 1,
+      "watch": 1,
+      "tile": [
+        45,
+        1
+      ],
+      "tab": "terrain",
+      "advisor": null
+    },
+    {
+      "name": "05-tile-history",
+      "tick": 40,
+      "summary": {
+        "tick": 40,
+        "living": 71,
+        "born": 71,
+        "dead": 0,
+        "events": {
+          "birth": 71,
+          "divine_request": 3,
+          "divine_terrain": 3,
+          "hazard": 28,
+          "reproduce": 11,
+          "social": 87
+        }
+      },
+      "digest": "0232ece846729a13a0e67baabe373495ea66012a05fd408aaf20924ad80d4489",
+      "selected": 1,
+      "watch": 1,
+      "tile": [
+        2,
+        2
+      ],
+      "tab": "terrain",
+      "advisor": null
+    },
+    {
+      "name": "06-advisor-land",
+      "tick": 40,
+      "summary": {
+        "tick": 40,
+        "living": 71,
+        "born": 71,
+        "dead": 0,
+        "events": {
+          "birth": 71,
+          "divine_request": 3,
+          "divine_terrain": 3,
+          "hazard": 28,
+          "reproduce": 11,
+          "social": 87
+        }
+      },
+      "digest": "0232ece846729a13a0e67baabe373495ea66012a05fd408aaf20924ad80d4489",
+      "selected": 1,
+      "watch": 1,
+      "tile": [
+        2,
+        2
+      ],
+      "tab": "terrain",
+      "advisor": "Rupture: 1 requests, 11 actual hazard conversions. Rewild: 11 forest conversions. Wellspring: 1 water conversions. 23 historical transitions across 12 distinct tiles. 12 tiles currently differ in terrain from the format-epoch map, sir. Restoring ground does not rewrite history."
+    },
+    {
+      "name": "07-advisor-latest",
+      "tick": 40,
+      "summary": {
+        "tick": 40,
+        "living": 71,
+        "born": 71,
+        "dead": 0,
+        "events": {
+          "birth": 71,
+          "divine_request": 3,
+          "divine_terrain": 3,
+          "hazard": 28,
+          "reproduce": 11,
+          "social": 87
+        }
+      },
+      "digest": "0232ece846729a13a0e67baabe373495ea66012a05fd408aaf20924ad80d4489",
+      "selected": 1,
+      "watch": 1,
+      "tile": [
+        2,
+        2
+      ],
+      "tab": "terrain",
+      "advisor": "#3 wellspring completed at tick 40: 1 changed cells, 0 food removed, at (45,1), radius 0. No individual survival counterfactual is established, sir."
+    }
+  ],
+  "interventions": [
+    {
+      "id": 1,
+      "kind": "rupture",
+      "requested_tick": 9,
+      "activation_tick": 10,
+      "x": 2,
+      "y": 2,
+      "radius": 2,
+      "duration": 0,
+      "expires_tick": 10,
+      "parameters": {
+        "record_version": 1
+      },
+      "status": "completed",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 0,
+        "credited_cells": 0,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 0,
+        "delta": 0
+      },
+      "changes": [
+        {
+          "x": 1,
+          "y": 1,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 2,
+          "y": 1,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 0,
+          "y": 2,
+          "before_terrain": "grass",
+          "before_food": 58,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 4,
+          "y": 2,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 2,
+          "y": 4,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        }
+      ],
+      "changed_cells": 11,
+      "food_removed": 1058,
+      "completed_tick": 10
+    },
+    {
+      "id": 2,
+      "kind": "rewild",
+      "requested_tick": 29,
+      "activation_tick": 30,
+      "x": 2,
+      "y": 2,
+      "radius": 2,
+      "duration": 0,
+      "expires_tick": 30,
+      "parameters": {
+        "record_version": 1
+      },
+      "status": "completed",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 0,
+        "credited_cells": 0,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 0,
+        "delta": 0
+      },
+      "changes": [
+        {
+          "x": 1,
+          "y": 1,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 2,
+          "y": 1,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 0,
+          "y": 2,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 4,
+          "y": 2,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 2,
+          "y": 4,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        }
+      ],
+      "changed_cells": 11,
+      "food_removed": 0,
+      "completed_tick": 30
+    },
+    {
+      "id": 3,
+      "kind": "wellspring",
+      "requested_tick": 39,
+      "activation_tick": 40,
+      "x": 45,
+      "y": 1,
+      "radius": 0,
+      "duration": 0,
+      "expires_tick": 40,
+      "parameters": {
+        "record_version": 1
+      },
+      "status": "completed",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 0,
+        "credited_cells": 0,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 0,
+        "delta": 0
+      },
+      "changes": [
+        {
+          "x": 45,
+          "y": 1,
+          "before_terrain": "rock",
+          "before_food": 0,
+          "after_terrain": "water",
+          "after_food": 0
+        }
+      ],
+      "changed_cells": 1,
+      "food_removed": 0,
+      "completed_tick": 40
+    }
+  ],
+  "running_frames": 120,
+  "final_tick": 68,
+  "final_digest": "9adbb27a505c98ccbe9ebfd7774878e8943ce9444a2759a1707630e919c14905",
+  "save_reload_exact": true
+}
