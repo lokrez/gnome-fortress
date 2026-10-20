@@ -25,3 +25,9 @@
   and terrain-chain validation; 15 focused tests in 3.43s. Bounded seeded demo
   through tick 110 exactly matches midpoint save/reload continuation. No direct
   health changes or RNG draws in isolated activation. No core/legacy files altered.
+- G5 committed as `87627ec`.
+- Gate 3 PASS: 21 targeted tests in 3.94s. Rewild and single-rock Wellspring
+  obey existing regeneration/drinking, ordered transition records, zero direct
+  health/displacement/resurrection, pending/completed save replay and no RNG draws
+  under isolated activation. Non-rock Wellspring is explicitly zero-change.
+  Seed-1 bounded demo preserved all earlier deaths and exact continuation.

@@ -9,7 +9,9 @@ from .model import Event
 FORMAT='gnome-fortress-terrain-g5-v1'
 RECORD_VERSION=1
 TERRAINS={'grass','forest','hazard','rock','water'}
-TERRAIN_POWERS={'rupture':dict(source=('grass','forest'),result='hazard',radius=2)}
+TERRAIN_POWERS={'rupture':dict(source=('grass','forest'),result='hazard',radius=2),
+                'rewild':dict(source=('hazard',),result='forest',radius=2),
+                'wellspring':dict(source=('rock',),result='water',radius=0)}
 
 
 @dataclass
@@ -37,6 +39,7 @@ class TerrainWorld(GameWorld):
         radius=TERRAIN_POWERS[kind]['radius'] if radius is None else radius
         if any(type(v) is not int for v in (x,y,radius)) or not (0<=x<self.width and 0<=y<self.height and 0<=radius<=max(self.width,self.height)):
             raise ValueError('Invalid terrain target/radius')
+        if kind=='wellspring' and radius!=0:raise ValueError('Wellspring affects a single rock tile')
         if duration not in (None,0):raise ValueError('Terrain powers are one-shot, not timed')
         p=TerrainIntervention(len(self.interventions)+1,kind,self.tick,self.tick+1,x,y,radius,
             0,self.tick+1,dict(record_version=RECORD_VERSION))
@@ -171,6 +174,7 @@ class TerrainWorld(GameWorld):
                 assert totals==p.totals and p.totals['delta']==p.totals['regenerated']-p.totals['normal_regeneration']
             else:
                 assert p.parameters==dict(record_version=RECORD_VERSION) and p.duration==0
+                if p.kind=='wellspring':assert p.radius==0
                 assert p.expires_tick==p.activation_tick and p.expired_tick is None
                 assert p.requested_tick>=self.origin['tick']
                 completed=self.tick>=p.activation_tick
