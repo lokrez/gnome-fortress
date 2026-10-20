@@ -1,0 +1,839 @@
+[
+  {
+    "before_first_request_exact": true,
+    "born_total": 607,
+    "condition": "A",
+    "deaths": 239,
+    "deaths_by_cause": {
+      "dehydration": 12,
+      "hazard": 7,
+      "old_age": 105,
+      "starvation": 115
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5500928,
+      "seconds": 0.278052491004928,
+      "tick": 3000
+    },
+    "food_stock": 71319,
+    "hazard_entries": 1001,
+    "independent_replay_exact": true,
+    "living": 368,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 547,
+    "peak_rss_mib": 173.703125,
+    "primary_seconds": 10.468550706995302,
+    "primary_ticks_per_second": 286.57261964593994,
+    "replay_seconds": 10.54880583799968,
+    "rng_digest": "e16da0034a8c8dcf9682dd0e8287e2fbcaf5a793bf40456cd5e6be5c4472e2f7",
+    "seed": 1,
+    "state_digest": "9075179cb566e8fd845b1bd726562f782d6b8bb3c69edf8b3fd76696a729fa71",
+    "terrain": {
+      "forest": 384,
+      "grass": 859,
+      "hazard": 72,
+      "rock": 85,
+      "water": 136
+    },
+    "terrain_summary": {
+      "conversions": {},
+      "currently_altered": 0,
+      "ever_transformed": 0,
+      "latest": null,
+      "requests": {},
+      "transitions": 0
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 33.776986602,
+    "transformed_hazard_entries": 0,
+    "untouched_reference_exact": true
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 599,
+    "condition": "B",
+    "deaths": 249,
+    "deaths_by_cause": {
+      "dehydration": 13,
+      "hazard": 6,
+      "old_age": 111,
+      "starvation": 119
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5480448,
+      "seconds": 0.24064138399990043,
+      "tick": 3000
+    },
+    "food_stock": 69691,
+    "hazard_entries": 1062,
+    "independent_replay_exact": true,
+    "living": 350,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 539,
+    "peak_rss_mib": 157.03515625,
+    "primary_seconds": 11.777412473995355,
+    "primary_ticks_per_second": 254.72488177042538,
+    "replay_seconds": 10.171403194006416,
+    "rng_digest": "4c9df96f34a31276d1ab581e868509f47721daeb3451b601b2655eec4d67466a",
+    "seed": 1,
+    "state_digest": "d427fdea757a6d2380121d540bbd41f8caa4e9a49598770e405c0d95cca51b44",
+    "terrain": {
+      "forest": 383,
+      "grass": 848,
+      "hazard": 84,
+      "rock": 85,
+      "water": 136
+    },
+    "terrain_summary": {
+      "conversions": {
+        "rupture": 12
+      },
+      "currently_altered": 12,
+      "ever_transformed": 12,
+      "latest": 1,
+      "requests": {
+        "rupture": 1
+      },
+      "transitions": 12
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 24.187101305,
+    "transformed_hazard_entries": 108,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 614,
+    "condition": "C",
+    "deaths": 250,
+    "deaths_by_cause": {
+      "dehydration": 17,
+      "hazard": 6,
+      "old_age": 106,
+      "starvation": 121
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5558272,
+      "seconds": 0.2576792660038336,
+      "tick": 3000
+    },
+    "food_stock": 71656,
+    "hazard_entries": 948,
+    "independent_replay_exact": true,
+    "living": 364,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 554,
+    "peak_rss_mib": 158.54296875,
+    "primary_seconds": 12.833134328997403,
+    "primary_ticks_per_second": 233.76985879601378,
+    "replay_seconds": 10.107447410999157,
+    "rng_digest": "c23c21b86a9ff551a1cd2db9ab0999b09f343fe87ed88d6161fb3208aa492daf",
+    "seed": 1,
+    "state_digest": "840f75d3e9e5962ab9f03b6ae447b2859e1baf9ad1ba97d07895deffec470152",
+    "terrain": {
+      "forest": 395,
+      "grass": 848,
+      "hazard": 72,
+      "rock": 85,
+      "water": 136
+    },
+    "terrain_summary": {
+      "conversions": {
+        "rewild": 12,
+        "rupture": 12
+      },
+      "currently_altered": 11,
+      "ever_transformed": 12,
+      "latest": 2,
+      "requests": {
+        "rewild": 1,
+        "rupture": 1
+      },
+      "transitions": 24
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 25.059383033000003,
+    "transformed_hazard_entries": 10,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 602,
+    "condition": "D",
+    "deaths": 256,
+    "deaths_by_cause": {
+      "dehydration": 15,
+      "hazard": 12,
+      "old_age": 102,
+      "starvation": 127
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5464064,
+      "seconds": 0.2619115490015247,
+      "tick": 3000
+    },
+    "food_stock": 71195,
+    "hazard_entries": 992,
+    "independent_replay_exact": true,
+    "living": 346,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 542,
+    "peak_rss_mib": 156.2421875,
+    "primary_seconds": 15.387120909996156,
+    "primary_ticks_per_second": 194.96824763696156,
+    "replay_seconds": 9.918855916999746,
+    "rng_digest": "7836b080bdb8edf04b8b8f0ef3adde947049bb1547c9b06275369745f5055a44",
+    "seed": 1,
+    "state_digest": "5d8b36fecb351a3ecd58dfb8631d939ae12ac05d40124630bd9e88eb2c440894",
+    "terrain": {
+      "forest": 384,
+      "grass": 859,
+      "hazard": 72,
+      "rock": 84,
+      "water": 137
+    },
+    "terrain_summary": {
+      "conversions": {
+        "wellspring": 1
+      },
+      "currently_altered": 1,
+      "ever_transformed": 1,
+      "latest": 1,
+      "requests": {
+        "wellspring": 1
+      },
+      "transitions": 1
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 27.71756877,
+    "transformed_hazard_entries": 0,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 610,
+    "condition": "E",
+    "deaths": 244,
+    "deaths_by_cause": {
+      "dehydration": 11,
+      "hazard": 8,
+      "old_age": 99,
+      "starvation": 126
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5521408,
+      "seconds": 0.2719721839966951,
+      "tick": 3000
+    },
+    "food_stock": 72336,
+    "hazard_entries": 911,
+    "independent_replay_exact": true,
+    "living": 366,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 550,
+    "peak_rss_mib": 157.5703125,
+    "primary_seconds": 10.840616103996581,
+    "primary_ticks_per_second": 276.73703885649064,
+    "replay_seconds": 10.021351540002797,
+    "rng_digest": "ae76f939761c8115866c1de7a593ceae095f2258e022c786a14fb3bc1936dbb4",
+    "seed": 1,
+    "state_digest": "3780749b0c1f3a9db631f00df9e338e41d53db3b754f3df2706946ed4a96bb95",
+    "terrain": {
+      "forest": 395,
+      "grass": 848,
+      "hazard": 72,
+      "rock": 84,
+      "water": 137
+    },
+    "terrain_summary": {
+      "conversions": {
+        "rewild": 12,
+        "rupture": 12,
+        "wellspring": 1
+      },
+      "currently_altered": 12,
+      "ever_transformed": 13,
+      "latest": 5,
+      "requests": {
+        "drought": 1,
+        "rain": 1,
+        "rewild": 1,
+        "rupture": 1,
+        "wellspring": 1
+      },
+      "transitions": 25
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 23.204985679,
+    "transformed_hazard_entries": 19,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 575,
+    "condition": "A",
+    "deaths": 231,
+    "deaths_by_cause": {
+      "dehydration": 12,
+      "hazard": 16,
+      "old_age": 107,
+      "starvation": 96
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5423104,
+      "seconds": 0.2806175310033723,
+      "tick": 3000
+    },
+    "food_stock": 70799,
+    "hazard_entries": 1131,
+    "independent_replay_exact": true,
+    "living": 344,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 515,
+    "peak_rss_mib": 171.90625,
+    "primary_seconds": 10.767620938997425,
+    "primary_ticks_per_second": 278.6130768343458,
+    "replay_seconds": 10.564739692003059,
+    "rng_digest": "043b524652f69caf1282a9639db3b0969c167b10fba91989ad4f1a0e7afab557",
+    "seed": 2,
+    "state_digest": "a112ee6bfc92caa24ebb9d9cf087e792b514d7f8e4ba4170fb0102052da570cf",
+    "terrain": {
+      "forest": 380,
+      "grass": 844,
+      "hazard": 85,
+      "rock": 85,
+      "water": 142
+    },
+    "terrain_summary": {
+      "conversions": {},
+      "currently_altered": 0,
+      "ever_transformed": 0,
+      "latest": null,
+      "requests": {},
+      "transitions": 0
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 34.324202740000004,
+    "transformed_hazard_entries": 0,
+    "untouched_reference_exact": true
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 584,
+    "condition": "B",
+    "deaths": 202,
+    "deaths_by_cause": {
+      "dehydration": 11,
+      "hazard": 6,
+      "old_age": 101,
+      "starvation": 84
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5459968,
+      "seconds": 0.2515852310025366,
+      "tick": 3000
+    },
+    "food_stock": 66937,
+    "hazard_entries": 1204,
+    "independent_replay_exact": true,
+    "living": 382,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 524,
+    "peak_rss_mib": 157.1171875,
+    "primary_seconds": 11.939245239002048,
+    "primary_ticks_per_second": 251.27216502764102,
+    "replay_seconds": 9.605174008996983,
+    "rng_digest": "4df3af8b1998b2316bd62dbf793ca600a1110ba6b68bcf4b0b52266f0acfbc14",
+    "seed": 2,
+    "state_digest": "b07224a26f9cb85181fdd25e3366a98402be8393c9e36b0b6256ed13cc906890",
+    "terrain": {
+      "forest": 378,
+      "grass": 837,
+      "hazard": 94,
+      "rock": 85,
+      "water": 142
+    },
+    "terrain_summary": {
+      "conversions": {
+        "rupture": 9
+      },
+      "currently_altered": 9,
+      "ever_transformed": 9,
+      "latest": 1,
+      "requests": {
+        "rupture": 1
+      },
+      "transitions": 9
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 23.869636145999998,
+    "transformed_hazard_entries": 34,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 618,
+    "condition": "C",
+    "deaths": 239,
+    "deaths_by_cause": {
+      "dehydration": 24,
+      "hazard": 10,
+      "old_age": 110,
+      "starvation": 95
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5623808,
+      "seconds": 0.2678622970051947,
+      "tick": 3000
+    },
+    "food_stock": 68744,
+    "hazard_entries": 1160,
+    "independent_replay_exact": true,
+    "living": 379,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 558,
+    "peak_rss_mib": 160.19921875,
+    "primary_seconds": 11.928658373995859,
+    "primary_ticks_per_second": 251.49517288045703,
+    "replay_seconds": 10.283717717997206,
+    "rng_digest": "8f813b8bb1a716976dfa8e0e566e5a44751de4fffe220318da764e81f808fd17",
+    "seed": 2,
+    "state_digest": "9396359027c4f0d8cbd881f5be18e8896bcda5a3442082267ae2c04906a43a6f",
+    "terrain": {
+      "forest": 389,
+      "grass": 837,
+      "hazard": 83,
+      "rock": 85,
+      "water": 142
+    },
+    "terrain_summary": {
+      "conversions": {
+        "rewild": 11,
+        "rupture": 9
+      },
+      "currently_altered": 9,
+      "ever_transformed": 11,
+      "latest": 2,
+      "requests": {
+        "rewild": 1,
+        "rupture": 1
+      },
+      "transitions": 20
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 24.586432499,
+    "transformed_hazard_entries": 0,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 592,
+    "condition": "D",
+    "deaths": 220,
+    "deaths_by_cause": {
+      "dehydration": 18,
+      "hazard": 13,
+      "old_age": 104,
+      "starvation": 85
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5505024,
+      "seconds": 0.25420120900525944,
+      "tick": 3000
+    },
+    "food_stock": 68133,
+    "hazard_entries": 1205,
+    "independent_replay_exact": true,
+    "living": 372,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 532,
+    "peak_rss_mib": 157.28125,
+    "primary_seconds": 15.59909187300218,
+    "primary_ticks_per_second": 192.3188878188602,
+    "replay_seconds": 10.307516613996995,
+    "rng_digest": "c41544e9c5c226775e494896913429f8df86abe3cf6052e7c664c35187429331",
+    "seed": 2,
+    "state_digest": "78a3e2f5b31266f98ae9605865c0a4c52aa963f35e63bff2eeced65d7040bd37",
+    "terrain": {
+      "forest": 380,
+      "grass": 844,
+      "hazard": 85,
+      "rock": 84,
+      "water": 143
+    },
+    "terrain_summary": {
+      "conversions": {
+        "wellspring": 1
+      },
+      "currently_altered": 1,
+      "ever_transformed": 1,
+      "latest": 1,
+      "requests": {
+        "wellspring": 1
+      },
+      "transitions": 1
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 28.142005465,
+    "transformed_hazard_entries": 0,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 603,
+    "condition": "E",
+    "deaths": 225,
+    "deaths_by_cause": {
+      "dehydration": 17,
+      "hazard": 12,
+      "old_age": 104,
+      "starvation": 92
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5591040,
+      "seconds": 0.24392412900488125,
+      "tick": 3000
+    },
+    "food_stock": 69355,
+    "hazard_entries": 1171,
+    "independent_replay_exact": true,
+    "living": 378,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 543,
+    "peak_rss_mib": 159.65625,
+    "primary_seconds": 10.661994002002757,
+    "primary_ticks_per_second": 281.37325902044944,
+    "replay_seconds": 9.648826372998883,
+    "rng_digest": "94150d7c17559e3b755984fec993231138531f193baece20f9e0ad698c720f62",
+    "seed": 2,
+    "state_digest": "ca54c8561520d6728ed3d73d841703d0d5444a2fa9dcf769cbc895f2e688f85e",
+    "terrain": {
+      "forest": 389,
+      "grass": 837,
+      "hazard": 83,
+      "rock": 84,
+      "water": 143
+    },
+    "terrain_summary": {
+      "conversions": {
+        "rewild": 11,
+        "rupture": 9,
+        "wellspring": 1
+      },
+      "currently_altered": 10,
+      "ever_transformed": 12,
+      "latest": 5,
+      "requests": {
+        "drought": 1,
+        "rain": 1,
+        "rewild": 1,
+        "rupture": 1,
+        "wellspring": 1
+      },
+      "transitions": 21
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 22.549550686,
+    "transformed_hazard_entries": 1,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 613,
+    "condition": "A",
+    "deaths": 233,
+    "deaths_by_cause": {
+      "dehydration": 16,
+      "hazard": 6,
+      "old_age": 102,
+      "starvation": 109
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5570560,
+      "seconds": 0.25837593599862885,
+      "tick": 3000
+    },
+    "food_stock": 70641,
+    "hazard_entries": 1043,
+    "independent_replay_exact": true,
+    "living": 380,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 553,
+    "peak_rss_mib": 175.83203125,
+    "primary_seconds": 9.770323304001067,
+    "primary_ticks_per_second": 307.05227520684633,
+    "replay_seconds": 10.030860052000207,
+    "rng_digest": "10cc5e4ac48fffc1493da0a1595466f8f5af23f271caea078e1686515006ed79",
+    "seed": 3,
+    "state_digest": "b84c29f81d613a8b8e9fa456fc4c53e31a30d6746693a3317b1d92f61224a756",
+    "terrain": {
+      "forest": 394,
+      "grass": 849,
+      "hazard": 73,
+      "rock": 87,
+      "water": 133
+    },
+    "terrain_summary": {
+      "conversions": {},
+      "currently_altered": 0,
+      "ever_transformed": 0,
+      "latest": null,
+      "requests": {},
+      "transitions": 0
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 32.614931924,
+    "transformed_hazard_entries": 0,
+    "untouched_reference_exact": true
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 624,
+    "condition": "B",
+    "deaths": 253,
+    "deaths_by_cause": {
+      "dehydration": 23,
+      "hazard": 10,
+      "old_age": 101,
+      "starvation": 119
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5615616,
+      "seconds": 0.2711657969994121,
+      "tick": 3000
+    },
+    "food_stock": 69364,
+    "hazard_entries": 1038,
+    "independent_replay_exact": true,
+    "living": 371,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 564,
+    "peak_rss_mib": 160.03515625,
+    "primary_seconds": 12.73853736899764,
+    "primary_ticks_per_second": 235.50584443872157,
+    "replay_seconds": 10.199467041005846,
+    "rng_digest": "8d349c6a064395a021548937a6d239610cea9001826ce3eac8b889b617d481c6",
+    "seed": 3,
+    "state_digest": "41ea2d5d43c63f5a6094c328b93528d76e695ec94ea0b0a032ee43597730a004",
+    "terrain": {
+      "forest": 389,
+      "grass": 845,
+      "hazard": 82,
+      "rock": 87,
+      "water": 133
+    },
+    "terrain_summary": {
+      "conversions": {
+        "rupture": 9
+      },
+      "currently_altered": 9,
+      "ever_transformed": 9,
+      "latest": 1,
+      "requests": {
+        "rupture": 1
+      },
+      "transitions": 9
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 25.167895301,
+    "transformed_hazard_entries": 27,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 611,
+    "condition": "C",
+    "deaths": 234,
+    "deaths_by_cause": {
+      "dehydration": 20,
+      "hazard": 8,
+      "old_age": 100,
+      "starvation": 106
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5521408,
+      "seconds": 0.2423009180056397,
+      "tick": 3000
+    },
+    "food_stock": 71442,
+    "hazard_entries": 1041,
+    "independent_replay_exact": true,
+    "living": 377,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 551,
+    "peak_rss_mib": 157.96875,
+    "primary_seconds": 13.002820686997438,
+    "primary_ticks_per_second": 230.71917026433658,
+    "replay_seconds": 10.353744735002692,
+    "rng_digest": "7b5a7a0542199a67069ead73341a90a1c4aca39275cb26aaca8f378fe8e84de7",
+    "seed": 3,
+    "state_digest": "db737d84959afd1a54cb7e4cc58d35ca3019a5ffb287ab8239bd98c645d26040",
+    "terrain": {
+      "forest": 399,
+      "grass": 845,
+      "hazard": 72,
+      "rock": 87,
+      "water": 133
+    },
+    "terrain_summary": {
+      "conversions": {
+        "rewild": 10,
+        "rupture": 9
+      },
+      "currently_altered": 5,
+      "ever_transformed": 10,
+      "latest": 2,
+      "requests": {
+        "rewild": 1,
+        "rupture": 1
+      },
+      "transitions": 19
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 25.539256918,
+    "transformed_hazard_entries": 3,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 620,
+    "condition": "D",
+    "deaths": 235,
+    "deaths_by_cause": {
+      "dehydration": 15,
+      "hazard": 8,
+      "old_age": 102,
+      "starvation": 110
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5566464,
+      "seconds": 0.24446403999900213,
+      "tick": 3000
+    },
+    "food_stock": 70109,
+    "hazard_entries": 1041,
+    "independent_replay_exact": true,
+    "living": 385,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 560,
+    "peak_rss_mib": 158.72265625,
+    "primary_seconds": 14.993326196999988,
+    "primary_ticks_per_second": 200.0890236484196,
+    "replay_seconds": 10.019671403999382,
+    "rng_digest": "64f701cf6ac1c207dde999025333d98730b35c7cf586f5c43c0f38996eadb15d",
+    "seed": 3,
+    "state_digest": "0769267d44b78ca9a8aac52395b94bcbaf7573f40484e06d8c6792980dd37fad",
+    "terrain": {
+      "forest": 394,
+      "grass": 849,
+      "hazard": 73,
+      "rock": 86,
+      "water": 134
+    },
+    "terrain_summary": {
+      "conversions": {
+        "wellspring": 1
+      },
+      "currently_altered": 1,
+      "ever_transformed": 1,
+      "latest": 1,
+      "requests": {
+        "wellspring": 1
+      },
+      "transitions": 1
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 27.273970486,
+    "transformed_hazard_entries": 0,
+    "untouched_reference_exact": null
+  },
+  {
+    "before_first_request_exact": true,
+    "born_total": 600,
+    "condition": "E",
+    "deaths": 212,
+    "deaths_by_cause": {
+      "dehydration": 16,
+      "hazard": 5,
+      "old_age": 96,
+      "starvation": 95
+    },
+    "final_save_load_plus20_exact": true,
+    "final_save_metrics": {
+      "file_bytes": 5439488,
+      "seconds": 0.24770677299966337,
+      "tick": 3000
+    },
+    "food_stock": 71892,
+    "hazard_entries": 1018,
+    "independent_replay_exact": true,
+    "living": 388,
+    "midpoint_exact": true,
+    "midpoint_tick": 250,
+    "offspring_births": 540,
+    "peak_rss_mib": 155.43359375,
+    "primary_seconds": 10.828984922998643,
+    "primary_ticks_per_second": 277.03427618858234,
+    "replay_seconds": 10.10928525300551,
+    "rng_digest": "0079cac620b1f49ea58188fcb84355f54503ca81c7fe4c2a2dbbcb314296866b",
+    "seed": 3,
+    "state_digest": "8c3d2bd12bb8e27c2966b144448ab0ef4b3b27f7af989ca8a6e59332e0bd1033",
+    "terrain": {
+      "forest": 399,
+      "grass": 845,
+      "hazard": 72,
+      "rock": 86,
+      "water": 134
+    },
+    "terrain_summary": {
+      "conversions": {
+        "rewild": 10,
+        "rupture": 9,
+        "wellspring": 1
+      },
+      "currently_altered": 6,
+      "ever_transformed": 11,
+      "latest": 5,
+      "requests": {
+        "drought": 1,
+        "rain": 1,
+        "rewild": 1,
+        "rupture": 1,
+        "wellspring": 1
+      },
+      "transitions": 20
+    },
+    "ticks": 3000,
+    "total_cpu_seconds": 23.160080273000002,
+    "transformed_hazard_entries": 2,
+    "untouched_reference_exact": null
+  }
+]

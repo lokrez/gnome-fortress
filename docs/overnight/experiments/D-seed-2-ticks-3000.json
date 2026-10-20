@@ -1,0 +1,104 @@
+{
+  "seed": 2,
+  "condition": "D",
+  "ticks": 3000,
+  "schedule": [
+    {
+      "tick": 199,
+      "kind": "wellspring",
+      "x": 1,
+      "y": 0,
+      "radius": 0,
+      "duration": null
+    }
+  ],
+  "interventions": [
+    {
+      "id": 1,
+      "kind": "wellspring",
+      "requested_tick": 199,
+      "activation_tick": 200,
+      "x": 1,
+      "y": 0,
+      "radius": 0,
+      "duration": 0,
+      "expires_tick": 200,
+      "parameters": {
+        "record_version": 1
+      },
+      "status": "completed",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 0,
+        "credited_cells": 0,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 0,
+        "delta": 0
+      },
+      "changes": [
+        {
+          "x": 1,
+          "y": 0,
+          "before_terrain": "rock",
+          "before_food": 0,
+          "after_terrain": "water",
+          "after_food": 0
+        }
+      ],
+      "changed_cells": 1,
+      "food_removed": 0,
+      "completed_tick": 200
+    }
+  ],
+  "terrain": {
+    "forest": 380,
+    "grass": 844,
+    "hazard": 85,
+    "rock": 84,
+    "water": 143
+  },
+  "food_stock": 68133,
+  "living": 372,
+  "born_total": 592,
+  "offspring_births": 532,
+  "deaths": 220,
+  "deaths_by_cause": {
+    "dehydration": 18,
+    "hazard": 13,
+    "old_age": 104,
+    "starvation": 85
+  },
+  "hazard_entries": 1205,
+  "transformed_hazard_entries": 0,
+  "terrain_summary": {
+    "requests": {
+      "wellspring": 1
+    },
+    "conversions": {
+      "wellspring": 1
+    },
+    "transitions": 1,
+    "ever_transformed": 1,
+    "currently_altered": 1,
+    "latest": 1
+  },
+  "state_digest": "78a3e2f5b31266f98ae9605865c0a4c52aa963f35e63bff2eeced65d7040bd37",
+  "rng_digest": "c41544e9c5c226775e494896913429f8df86abe3cf6052e7c664c35187429331",
+  "primary_seconds": 15.59909187300218,
+  "primary_ticks_per_second": 192.3188878188602,
+  "replay_seconds": 10.307516613996995,
+  "total_cpu_seconds": 28.142005465,
+  "peak_rss_mib": 157.28125,
+  "midpoint_tick": 250,
+  "midpoint_exact": true,
+  "before_first_request_exact": true,
+  "independent_replay_exact": true,
+  "final_save_metrics": {
+    "seconds": 0.25420120900525944,
+    "file_bytes": 5505024,
+    "tick": 3000
+  },
+  "final_save_load_plus20_exact": true,
+  "untouched_reference_exact": null
+}

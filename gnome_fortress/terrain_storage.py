@@ -61,7 +61,9 @@ def _write(world,path,existing):
 
 def create_game(world,path):
     """Publish a complete new file exclusively. No check-then-replace destination race."""
-    started=time.perf_counter();path=game_path(path);world.validate()
+    started=time.perf_counter()
+    if not isinstance(world,TerrainWorld):raise ValueError('G5 storage requires TerrainWorld')
+    path=game_path(path);world.validate()
     if path.exists():raise FileExistsError('New terrain checkpoint requires an unused destination')
     path.parent.mkdir(parents=True,exist_ok=True)
     fd,name=tempfile.mkstemp(prefix='.g5-',suffix='.tmp',dir=path.parent);os.close(fd)
@@ -75,7 +77,9 @@ def create_game(world,path):
 
 
 def save_game(world,path):
-    started=time.perf_counter();path=game_path(path);world.validate()
+    started=time.perf_counter()
+    if not isinstance(world,TerrainWorld):raise ValueError('G5 storage requires TerrainWorld')
+    path=game_path(path);world.validate()
     if not path.exists():return create_game(world,path)
     load_game(path)  # Fail closed before any attempted update.
     _write(world,path,True)

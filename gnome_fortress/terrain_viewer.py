@@ -64,13 +64,14 @@ class TerrainObserver(GodObserver):
                 self.tile_select=not self.tile_select;self.mode=None
                 self.tab='terrain' if self.tile_select else 'gnome';return True
             elif event.key==pygame.K_h:self.footprints=not self.footprints;return True
-            elif event.key in (pygame.K_r,pygame.K_d,pygame.K_o,pygame.K_F1,pygame.K_F2,pygame.K_F3):self.tile_select=False
+            elif event.key in (pygame.K_r,pygame.K_d,pygame.K_o,pygame.K_F1,pygame.K_F2,pygame.K_F3,pygame.K_w,pygame.K_TAB):self.tile_select=False
             elif self.tab=='terrain' and event.key in (pygame.K_LEFTBRACKET,pygame.K_RIGHTBRACKET,pygame.K_l):
                 if event.key==pygame.K_l:self.tile_tail=True
                 else:self.browse_tile(self.tile_capacity*(-1 if event.key==pygame.K_LEFTBRACKET else 1))
                 return True
         elif event.type==pygame.MOUSEWHEEL and self.tab=='terrain' and getattr(event,'pos',self.pointer)[0]>=self.map_width:
             self.browse_tile(-event.y*3);return True
+        elif event.type==pygame.MOUSEBUTTONDOWN and event.button==3:self.tile_select=False
         elif event.type==pygame.MOUSEBUTTONDOWN and event.button==1:
             if self.land_button.collidepoint(event.pos):
                 self.tile_select=not self.tile_select;self.mode=None;self.tab='terrain' if self.tile_select else 'gnome';return True

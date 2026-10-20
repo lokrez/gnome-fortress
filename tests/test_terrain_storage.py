@@ -78,3 +78,25 @@ def test_checksum_incomplete_and_publication_race(tmp_path,monkeypatch):
     monkeypatch.setattr(os,'link',raced)
     with pytest.raises(FileExistsError):create_game(w,target)
     assert target.read_bytes()==b'another owner' and not list(tmp_path.glob('.g5-*'))
+
+
+def test_reject_legacy_world_before_writing_any_g5_file(tmp_path):
+    path=tmp_path/'wrong.g5.sqlite'
+    for write in (create_game,save_game):
+        with pytest.raises(ValueError,match='TerrainWorld'):write(GameWorld(),path)
+        assert not path.exists()
+    save_game(TerrainWorld(),path);raw=path.read_bytes()
+    with pytest.raises(ValueError,match='TerrainWorld'):save_game(GameWorld(),path)
+    assert path.read_bytes()==raw
+
+
+@pytest.mark.parametrize('mutation',[
+    lambda d:d.update(version=True),
+    lambda d:d['game'].update(record_version=True),
+    lambda d:d['game']['interventions'][0].update(completed_tick=True),
+    lambda d:d['game']['interventions'][0]['parameters'].update(record_version=True),
+    lambda d:d['game']['interventions'][0]['changes'][0].update(after_food=False),
+])
+def test_reject_boolean_metadata_and_transitions(mutation):
+    w=TerrainWorld();w.request('rupture',2,2);w.step();data=copy.deepcopy(w.state());mutation(data)
+    with pytest.raises((ValueError,AssertionError)):TerrainWorld.from_state(data)

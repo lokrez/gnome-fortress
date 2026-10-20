@@ -221,6 +221,29 @@ The engineered chain changed hazard entry to safe movement in 20 of 64 matched
 seeds. The warning only breaks a one-point scoring tie in this fixture; neither
 natural multihop prevalence nor population survival benefit has been established.
 
+## Terrain gameplay prototype — G5–G7: God Complex
+
+```bash
+cd ~/gnome-fortress && .venv/bin/python -m gnome_fortress.god_world
+```
+
+This separate launcher creates/resumes `run-results/god-terrain/world.g5.sqlite`.
+Your legacy `.g1.sqlite` game stays separate. For a fresh run, use `--new --db`
+with an unused `.g5.sqlite` path; `--new` never replaces an existing world.
+
+**E** Rupture permanently fractures grass/forest; **F** Rewild turns hazard into
+forest; **P** Wellspring turns one rock into water. **R/D** retain Rain/Drought.
+**T** inspects a tile's real ordered history, **H** toggles divine footprints,
+and **A → 5** asks the Advisor about actual terrain changes. Gnomes react through
+existing independent needs, movement and learning. Restoration never resurrects
+individuals or erases earlier events. **O**, **W**, **F1–F3**, pause, speed, save
+and exit remain available.
+
+See the [overnight handoff](docs/overnight/HANDOFF.md), [G5 persistence/import](docs/g5/FOUNDATION.md),
+[G5 Rupture](docs/g5/REPORT.md), [G6 restoration/springs](docs/g6/REPORT.md),
+and [G7 controls/history/screenshots](docs/g7/REPORT.md). This is a terrain prototype,
+not release-mode selection or Ironman crash recovery.
+
 ## Playable God prototype — G4: The Advisor
 
 ```bash

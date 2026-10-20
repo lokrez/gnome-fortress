@@ -1,0 +1,90 @@
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.14.4)
+[
+  {
+    "label": "young",
+    "tick": 0,
+    "living": 60,
+    "retained_individuals": 60,
+    "events": 60,
+    "interventions": 0,
+    "transitions": 0,
+    "validation_seconds": 0.00048626399802742526,
+    "state_serialization_seconds": 0.002203181997174397,
+    "json_encoding_seconds": 0.0011682420008582994,
+    "payload_bytes": 94559,
+    "new_checkpoint": {
+      "seconds": 0.005413974002294708,
+      "file_bytes": 102400,
+      "tick": 0
+    },
+    "existing_checkpoint_update": {
+      "seconds": 0.032572582000284456,
+      "file_bytes": 102400,
+      "tick": 0
+    },
+    "load_seconds": 0.005413772996689659,
+    "initial_index_seconds": 8.761000208323821e-05,
+    "steady_refresh_ms": 0.0007769100193399936,
+    "draw_frame_ms": 3.324449266801821,
+    "readonly_draw_exact": true,
+    "steady_historical_rescans": 0
+  },
+  {
+    "label": "mature-combined",
+    "tick": 3000,
+    "living": 366,
+    "retained_individuals": 610,
+    "events": 27249,
+    "interventions": 5,
+    "transitions": 25,
+    "validation_seconds": 0.006852278005681001,
+    "state_serialization_seconds": 0.14422830900002737,
+    "json_encoding_seconds": 0.07936671600327827,
+    "payload_bytes": 5510315,
+    "new_checkpoint": {
+      "seconds": 0.2386032639988116,
+      "file_bytes": 5521408,
+      "tick": 3000
+    },
+    "existing_checkpoint_update": {
+      "seconds": 0.9825325179990614,
+      "file_bytes": 5521408,
+      "tick": 3000
+    },
+    "load_seconds": 0.3094363870040979,
+    "initial_index_seconds": 0.0047948479987098835,
+    "steady_refresh_ms": 0.0005388549834606238,
+    "draw_frame_ms": 4.501737333339406,
+    "readonly_draw_exact": true,
+    "steady_historical_rescans": 0
+  },
+  {
+    "label": "synthetic-1000-noops",
+    "tick": 3001,
+    "living": 366,
+    "retained_individuals": 610,
+    "events": 29259,
+    "interventions": 1005,
+    "transitions": 25,
+    "validation_seconds": 0.015200850000837818,
+    "state_serialization_seconds": 0.13738586399995256,
+    "json_encoding_seconds": 0.0876021590011078,
+    "payload_bytes": 6218839,
+    "new_checkpoint": {
+      "seconds": 0.31869885400374187,
+      "file_bytes": 6230016,
+      "tick": 3001
+    },
+    "existing_checkpoint_update": {
+      "seconds": 0.9745835490030004,
+      "file_bytes": 6230016,
+      "tick": 3001
+    },
+    "load_seconds": 0.39777536199835595,
+    "initial_index_seconds": 0.0065271749990643,
+    "steady_refresh_ms": 0.0005349049752112478,
+    "draw_frame_ms": 4.642103200118679,
+    "readonly_draw_exact": true,
+    "steady_historical_rescans": 0
+  }
+]

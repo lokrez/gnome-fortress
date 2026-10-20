@@ -1,0 +1,168 @@
+{
+  "seed": 3,
+  "condition": "B",
+  "ticks": 3000,
+  "schedule": [
+    {
+      "tick": 99,
+      "kind": "rupture",
+      "x": 24,
+      "y": 15,
+      "radius": 2,
+      "duration": null
+    }
+  ],
+  "interventions": [
+    {
+      "id": 1,
+      "kind": "rupture",
+      "requested_tick": 99,
+      "activation_tick": 100,
+      "x": 24,
+      "y": 15,
+      "radius": 2,
+      "duration": 0,
+      "expires_tick": 100,
+      "parameters": {
+        "record_version": 1
+      },
+      "status": "completed",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 0,
+        "credited_cells": 0,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 0,
+        "delta": 0
+      },
+      "changes": [
+        {
+          "x": 24,
+          "y": 13,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 23,
+          "y": 14,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 14,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 25,
+          "y": 14,
+          "before_terrain": "grass",
+          "before_food": 80,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 22,
+          "y": 15,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 15,
+          "before_terrain": "grass",
+          "before_food": 28,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 25,
+          "y": 15,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 23,
+          "y": 16,
+          "before_terrain": "grass",
+          "before_food": 54,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 17,
+          "before_terrain": "grass",
+          "before_food": 80,
+          "after_terrain": "hazard",
+          "after_food": 0
+        }
+      ],
+      "changed_cells": 9,
+      "food_removed": 742,
+      "completed_tick": 100
+    }
+  ],
+  "terrain": {
+    "forest": 389,
+    "grass": 845,
+    "hazard": 82,
+    "rock": 87,
+    "water": 133
+  },
+  "food_stock": 69364,
+  "living": 371,
+  "born_total": 624,
+  "offspring_births": 564,
+  "deaths": 253,
+  "deaths_by_cause": {
+    "dehydration": 23,
+    "hazard": 10,
+    "old_age": 101,
+    "starvation": 119
+  },
+  "hazard_entries": 1038,
+  "transformed_hazard_entries": 27,
+  "terrain_summary": {
+    "requests": {
+      "rupture": 1
+    },
+    "conversions": {
+      "rupture": 9
+    },
+    "transitions": 9,
+    "ever_transformed": 9,
+    "currently_altered": 9,
+    "latest": 1
+  },
+  "state_digest": "41ea2d5d43c63f5a6094c328b93528d76e695ec94ea0b0a032ee43597730a004",
+  "rng_digest": "8d349c6a064395a021548937a6d239610cea9001826ce3eac8b889b617d481c6",
+  "primary_seconds": 12.73853736899764,
+  "primary_ticks_per_second": 235.50584443872157,
+  "replay_seconds": 10.199467041005846,
+  "total_cpu_seconds": 25.167895301,
+  "peak_rss_mib": 160.03515625,
+  "midpoint_tick": 250,
+  "midpoint_exact": true,
+  "before_first_request_exact": true,
+  "independent_replay_exact": true,
+  "final_save_metrics": {
+    "seconds": 0.2711657969994121,
+    "file_bytes": 5615616,
+    "tick": 3000
+  },
+  "final_save_load_plus20_exact": true,
+  "untouched_reference_exact": null
+}

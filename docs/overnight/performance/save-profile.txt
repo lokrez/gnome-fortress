@@ -1,0 +1,33 @@
+         6603133 function calls (3643856 primitive calls) in 2.319 seconds
+
+   Ordered by: cumulative time
+   List reduced from 152 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.008    0.008    2.334    2.334 terrain_storage.py:79(save_game)
+        2    0.019    0.009    1.634    0.817 terrain_storage.py:25(_read)
+        2    0.023    0.011    1.459    0.730 terrain_game.py:90(from_state)
+        1    0.019    0.019    1.419    1.419 terrain_storage.py:46(_write)
+2121928/8    0.470    0.000    1.197    0.150 copy.py:110(deepcopy)
+  6012/20    0.047    0.000    1.197    0.060 copy.py:172(_deepcopy_list)
+ 204532/2    0.443    0.000    1.192    0.596 copy.py:198(_deepcopy_dict)
+        1    0.001    0.001    0.854    0.854 terrain_storage.py:39(load_game)
+        1    0.000    0.000    0.513    0.513 terrain_game.py:83(state)
+    32410    0.012    0.000    0.507    0.000 dataclasses.py:1475(asdict)
+        1    0.006    0.006    0.491    0.491 engine.py:252(state)
+656730/32410    0.302    0.000    0.484    0.000 dataclasses.py:1499(_asdict_inner)
+        2    0.139    0.070    0.152    0.076 engine.py:260(from_state)
+        3    0.062    0.021    0.143    0.048 terrain_game.py:115(validate)
+        2    0.000    0.000    0.136    0.068 __init__.py:304(loads)
+        2    0.000    0.000    0.136    0.068 decoder.py:340(decode)
+        2    0.136    0.068    0.136    0.068 decoder.py:351(raw_decode)
+    68529    0.081    0.000    0.133    0.000 dataclasses.py:1445(fields)
+   210544    0.070    0.000    0.111    0.000 copy.py:212(_keep_alive)
+        1    0.000    0.000    0.091    0.091 __init__.py:185(dumps)
+        1    0.000    0.000    0.091    0.091 encoder.py:185(encode)
+        1    0.091    0.091    0.091    0.091 encoder.py:207(iterencode)
+   631640    0.058    0.000    0.058    0.000 {built-in method builtins.id}
+   427276    0.056    0.000    0.056    0.000 {method 'get' of 'dict' objects}
+   465741    0.042    0.000    0.042    0.000 {built-in method builtins.getattr}
+
+

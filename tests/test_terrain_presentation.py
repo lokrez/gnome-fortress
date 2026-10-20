@@ -124,3 +124,15 @@ def test_empty_land_dialogue_and_small_window_buttons():
         assert w.state()==before
         v.advisor.start();v.draw();assert len(v.advisor_hits)==6 and all(r.bottom<582 for r,_ in v.advisor_hits)
     finally:pygame.quit()
+
+
+def test_watch_tab_and_right_click_leave_land_targeting_without_mutation():
+    w=TerrainWorld();v=TerrainObserver(w,paused=True);before=w.state()
+    try:
+        v.handle([key(pygame.K_t),key(pygame.K_w)])
+        assert v.tab=='life' and v.watch_id==1 and not v.tile_select
+        v.handle([key(pygame.K_t),key(pygame.K_TAB)])
+        assert v.tab=='gnome' and v.selected==2 and not v.tile_select
+        v.handle([key(pygame.K_t),pygame.event.Event(pygame.MOUSEBUTTONDOWN,button=3,pos=(50,50))])
+        assert not v.tile_select and v.mode is None and w.state()==before
+    finally:pygame.quit()

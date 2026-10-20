@@ -393,6 +393,7 @@ class GodObserver(Observer):
         self.label('R/D select | click cast | O/right-click observe',x,185,MUTED)
         self.label('Space pause | +/- speed | . step | S save | Esc exit',x,204,MUTED)
         self.label(self.notice_text(),x,226,GOLD)
+
     def draw_inspection(self,x):
         for name,rect in self.tabs.items():
             pygame.draw.rect(self.screen,(46,63,72) if self.tab==name else (28,39,46),rect,border_radius=4)
@@ -403,6 +404,7 @@ class GodObserver(Observer):
                 self.label('Hat: awake | blue z: sleeping | gold frame: selected',x,self.screen.get_height()-35,MUTED)
         elif self.tab=='powers':self.draw_powers(x,292)
         else:self.draw_life(x)
+
     def draw(self):
         self.sync()
         super().draw(present=False)

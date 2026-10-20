@@ -1,0 +1,36 @@
+...F                                                                     [100%]
+=================================== FAILURES ===================================
+______ test_failed_terrain_autosave_stays_suppressed_until_explicit_retry ______
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-40/test_failed_terrain_autosave_s0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7d9c20e6d810>
+
+    def test_failed_terrain_autosave_stays_suppressed_until_explicit_retry(tmp_path,monkeypatch):
+        calls=[];instances=[]
+        class FastClock:
+            def tick(self,hz):time.sleep(.01);return 0
+        class Inspector(TerrainObserver):
+            def __init__(self,*args,**kwargs):super().__init__(*args,**kwargs);self.retried=False;instances.append(self)
+            def handle(self,events):
+                super().handle(events)
+                if 'Save failed' in self.notice and not self.retried:
+                    assert len(calls)==1;self.retried=True
+                    super().handle([pygame.event.Event(pygame.KEYDOWN,key=pygame.K_s)])
+                elif 'Saved tick' in self.notice:self.running=False
+        def writer(world,path):
+            calls.append(world.tick)
+            if len(calls)==1:raise OSError('controlled test failure')
+            return save_game(world,path)
+        monkeypatch.setattr(pygame.time,'Clock',FastClock)
+        w=TerrainWorld();w.step();before=w.state();path=tmp_path/'retry.g5.sqlite'
+        run(w,path,writer,checkpoint_ticks=1,max_frames=40,paused=True,observer_class=Inspector)
+>       assert calls==[1,1] and instances[0].retried and instances[0].paused
+E       assert ([] == [1, 1]
+E         
+E         Right contains 2 more items, first extra item: 1
+E         Use -v to get more diff)
+
+tests/test_terrain_operations.py:79: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_terrain_operations.py::test_failed_terrain_autosave_stays_suppressed_until_explicit_retry
+1 failed, 3 passed in 2.74s

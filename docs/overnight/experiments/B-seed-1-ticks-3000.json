@@ -1,0 +1,192 @@
+{
+  "seed": 1,
+  "condition": "B",
+  "ticks": 3000,
+  "schedule": [
+    {
+      "tick": 99,
+      "kind": "rupture",
+      "x": 24,
+      "y": 16,
+      "radius": 2,
+      "duration": null
+    }
+  ],
+  "interventions": [
+    {
+      "id": 1,
+      "kind": "rupture",
+      "requested_tick": 99,
+      "activation_tick": 100,
+      "x": 24,
+      "y": 16,
+      "radius": 2,
+      "duration": 0,
+      "expires_tick": 100,
+      "parameters": {
+        "record_version": 1
+      },
+      "status": "completed",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 0,
+        "credited_cells": 0,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 0,
+        "delta": 0
+      },
+      "changes": [
+        {
+          "x": 24,
+          "y": 14,
+          "before_terrain": "grass",
+          "before_food": 90,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 23,
+          "y": 15,
+          "before_terrain": "grass",
+          "before_food": 28,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 15,
+          "before_terrain": "grass",
+          "before_food": 77,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 25,
+          "y": 15,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 22,
+          "y": 16,
+          "before_terrain": "grass",
+          "before_food": 28,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 16,
+          "before_terrain": "grass",
+          "before_food": 16,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 25,
+          "y": 16,
+          "before_terrain": "grass",
+          "before_food": 36,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 26,
+          "y": 16,
+          "before_terrain": "grass",
+          "before_food": 63,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 23,
+          "y": 17,
+          "before_terrain": "grass",
+          "before_food": 82,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 17,
+          "before_terrain": "grass",
+          "before_food": 16,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 25,
+          "y": 17,
+          "before_terrain": "grass",
+          "before_food": 66,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 18,
+          "before_terrain": "grass",
+          "before_food": 78,
+          "after_terrain": "hazard",
+          "after_food": 0
+        }
+      ],
+      "changed_cells": 12,
+      "food_removed": 680,
+      "completed_tick": 100
+    }
+  ],
+  "terrain": {
+    "forest": 383,
+    "grass": 848,
+    "hazard": 84,
+    "rock": 85,
+    "water": 136
+  },
+  "food_stock": 69691,
+  "living": 350,
+  "born_total": 599,
+  "offspring_births": 539,
+  "deaths": 249,
+  "deaths_by_cause": {
+    "dehydration": 13,
+    "hazard": 6,
+    "old_age": 111,
+    "starvation": 119
+  },
+  "hazard_entries": 1062,
+  "transformed_hazard_entries": 108,
+  "terrain_summary": {
+    "requests": {
+      "rupture": 1
+    },
+    "conversions": {
+      "rupture": 12
+    },
+    "transitions": 12,
+    "ever_transformed": 12,
+    "currently_altered": 12,
+    "latest": 1
+  },
+  "state_digest": "d427fdea757a6d2380121d540bbd41f8caa4e9a49598770e405c0d95cca51b44",
+  "rng_digest": "4c9df96f34a31276d1ab581e868509f47721daeb3451b601b2655eec4d67466a",
+  "primary_seconds": 11.777412473995355,
+  "primary_ticks_per_second": 254.72488177042538,
+  "replay_seconds": 10.171403194006416,
+  "total_cpu_seconds": 24.187101305,
+  "peak_rss_mib": 157.03515625,
+  "midpoint_tick": 250,
+  "midpoint_exact": true,
+  "before_first_request_exact": true,
+  "independent_replay_exact": true,
+  "final_save_metrics": {
+    "seconds": 0.24064138399990043,
+    "file_bytes": 5480448,
+    "tick": 3000
+  },
+  "final_save_load_plus20_exact": true,
+  "untouched_reference_exact": null
+}

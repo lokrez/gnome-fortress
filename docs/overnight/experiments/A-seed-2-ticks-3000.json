@@ -1,0 +1,53 @@
+{
+  "seed": 2,
+  "condition": "A",
+  "ticks": 3000,
+  "schedule": [],
+  "interventions": [],
+  "terrain": {
+    "forest": 380,
+    "grass": 844,
+    "hazard": 85,
+    "rock": 85,
+    "water": 142
+  },
+  "food_stock": 70799,
+  "living": 344,
+  "born_total": 575,
+  "offspring_births": 515,
+  "deaths": 231,
+  "deaths_by_cause": {
+    "dehydration": 12,
+    "hazard": 16,
+    "old_age": 107,
+    "starvation": 96
+  },
+  "hazard_entries": 1131,
+  "transformed_hazard_entries": 0,
+  "terrain_summary": {
+    "requests": {},
+    "conversions": {},
+    "transitions": 0,
+    "ever_transformed": 0,
+    "currently_altered": 0,
+    "latest": null
+  },
+  "state_digest": "a112ee6bfc92caa24ebb9d9cf087e792b514d7f8e4ba4170fb0102052da570cf",
+  "rng_digest": "043b524652f69caf1282a9639db3b0969c167b10fba91989ad4f1a0e7afab557",
+  "primary_seconds": 10.767620938997425,
+  "primary_ticks_per_second": 278.6130768343458,
+  "replay_seconds": 10.564739692003059,
+  "total_cpu_seconds": 34.324202740000004,
+  "peak_rss_mib": 171.90625,
+  "midpoint_tick": 250,
+  "midpoint_exact": true,
+  "before_first_request_exact": true,
+  "independent_replay_exact": true,
+  "final_save_metrics": {
+    "seconds": 0.2806175310033723,
+    "file_bytes": 5423104,
+    "tick": 3000
+  },
+  "final_save_load_plus20_exact": true,
+  "untouched_reference_exact": true
+}

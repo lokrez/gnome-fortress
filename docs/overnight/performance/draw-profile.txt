@@ -1,0 +1,33 @@
+         141121 function calls in 0.121 seconds
+
+   Ordered by: cumulative time
+   List reduced from 60 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       20    0.001    0.000    0.121    0.006 god_viewer.py:408(draw)
+       20    0.027    0.001    0.075    0.004 viewer.py:83(draw)
+    59380    0.034    0.000    0.034    0.000 {built-in method pygame.draw.rect}
+     2860    0.020    0.000    0.020    0.000 {method 'render' of 'pygame.font.Font' objects}
+     2120    0.001    0.000    0.018    0.000 god_viewer.py:250(label)
+       20    0.005    0.000    0.017    0.001 god_viewer.py:253(markers)
+       20    0.001    0.000    0.012    0.001 god_viewer.py:273(draw_event_feed)
+     2880    0.006    0.000    0.006    0.000 {method 'blit' of 'pygame.surface.Surface' objects}
+      160    0.001    0.000    0.005    0.000 god_viewer.py:20(wrap)
+       20    0.000    0.000    0.004    0.000 terrain_viewer.py:134(draw_inspection)
+     1280    0.004    0.000    0.004    0.000 {method 'size' of 'pygame.font.Font' objects}
+     7340    0.004    0.000    0.004    0.000 {built-in method pygame.draw.circle}
+       60    0.002    0.000    0.004    0.000 {built-in method builtins.sorted}
+     6100    0.003    0.000    0.003    0.000 {built-in method pygame.draw.polygon}
+       20    0.000    0.000    0.003    0.000 terrain_viewer.py:123(draw_controls)
+    28380    0.003    0.000    0.003    0.000 {built-in method builtins.max}
+     4880    0.002    0.000    0.002    0.000 {built-in method pygame.draw.line}
+       20    0.002    0.000    0.002    0.000 {method 'fill' of 'pygame.surface.Surface' objects}
+       40    0.001    0.000    0.001    0.000 {built-in method builtins.sum}
+    12200    0.001    0.000    0.001    0.000 viewer.py:94(<lambda>)
+     7340    0.001    0.000    0.001    0.000 viewer.py:105(<genexpr>)
+       20    0.000    0.000    0.000    0.000 terrain_viewer.py:114(draw_map_overlay)
+       20    0.000    0.000    0.000    0.000 god_viewer.py:99(sync)
+      160    0.000    0.000    0.000    0.000 terrain_viewer.py:105(format_event)
+     1440    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects}
+
+

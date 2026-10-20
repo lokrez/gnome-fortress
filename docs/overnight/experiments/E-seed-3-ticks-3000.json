@@ -1,0 +1,409 @@
+{
+  "seed": 3,
+  "condition": "E",
+  "ticks": 3000,
+  "schedule": [
+    {
+      "tick": 49,
+      "kind": "rain",
+      "x": 24,
+      "y": 15,
+      "radius": 5,
+      "duration": 300
+    },
+    {
+      "tick": 99,
+      "kind": "rupture",
+      "x": 24,
+      "y": 15,
+      "radius": 2,
+      "duration": null
+    },
+    {
+      "tick": 249,
+      "kind": "drought",
+      "x": 24,
+      "y": 15,
+      "radius": 3,
+      "duration": 200
+    },
+    {
+      "tick": 399,
+      "kind": "rewild",
+      "x": 24,
+      "y": 15,
+      "radius": 2,
+      "duration": null
+    },
+    {
+      "tick": 499,
+      "kind": "wellspring",
+      "x": 15,
+      "y": 1,
+      "radius": 0,
+      "duration": null
+    }
+  ],
+  "interventions": [
+    {
+      "id": 1,
+      "kind": "rain",
+      "requested_tick": 49,
+      "activation_tick": 50,
+      "x": 24,
+      "y": 15,
+      "radius": 5,
+      "duration": 300,
+      "expires_tick": 350,
+      "parameters": {
+        "grass_bonus": 4,
+        "forest_bonus": 8
+      },
+      "status": "expired",
+      "expired_tick": 350,
+      "totals": {
+        "pulses": 30,
+        "credited_cells": 1605,
+        "overridden_cells": 120,
+        "regenerated": 3407,
+        "normal_regeneration": 1781,
+        "delta": 1626
+      },
+      "changes": [],
+      "changed_cells": 0,
+      "food_removed": 0,
+      "completed_tick": null
+    },
+    {
+      "id": 2,
+      "kind": "rupture",
+      "requested_tick": 99,
+      "activation_tick": 100,
+      "x": 24,
+      "y": 15,
+      "radius": 2,
+      "duration": 0,
+      "expires_tick": 100,
+      "parameters": {
+        "record_version": 1
+      },
+      "status": "completed",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 0,
+        "credited_cells": 0,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 0,
+        "delta": 0
+      },
+      "changes": [
+        {
+          "x": 24,
+          "y": 13,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 23,
+          "y": 14,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 14,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 25,
+          "y": 14,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 22,
+          "y": 15,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 15,
+          "before_terrain": "grass",
+          "before_food": 48,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 25,
+          "y": 15,
+          "before_terrain": "forest",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 23,
+          "y": 16,
+          "before_terrain": "grass",
+          "before_food": 74,
+          "after_terrain": "hazard",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 17,
+          "before_terrain": "grass",
+          "before_food": 100,
+          "after_terrain": "hazard",
+          "after_food": 0
+        }
+      ],
+      "changed_cells": 9,
+      "food_removed": 822,
+      "completed_tick": 100
+    },
+    {
+      "id": 3,
+      "kind": "drought",
+      "requested_tick": 249,
+      "activation_tick": 250,
+      "x": 24,
+      "y": 15,
+      "radius": 3,
+      "duration": 200,
+      "expires_tick": 450,
+      "parameters": {
+        "suppress_regeneration": true
+      },
+      "status": "expired",
+      "expired_tick": 450,
+      "totals": {
+        "pulses": 20,
+        "credited_cells": 290,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 660,
+        "delta": -660
+      },
+      "changes": [],
+      "changed_cells": 0,
+      "food_removed": 0,
+      "completed_tick": null
+    },
+    {
+      "id": 4,
+      "kind": "rewild",
+      "requested_tick": 399,
+      "activation_tick": 400,
+      "x": 24,
+      "y": 15,
+      "radius": 2,
+      "duration": 0,
+      "expires_tick": 400,
+      "parameters": {
+        "record_version": 1
+      },
+      "status": "completed",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 0,
+        "credited_cells": 0,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 0,
+        "delta": 0
+      },
+      "changes": [
+        {
+          "x": 24,
+          "y": 13,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 23,
+          "y": 14,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 14,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 25,
+          "y": 14,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 22,
+          "y": 15,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 15,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 25,
+          "y": 15,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 23,
+          "y": 16,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 16,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        },
+        {
+          "x": 24,
+          "y": 17,
+          "before_terrain": "hazard",
+          "before_food": 0,
+          "after_terrain": "forest",
+          "after_food": 0
+        }
+      ],
+      "changed_cells": 10,
+      "food_removed": 0,
+      "completed_tick": 400
+    },
+    {
+      "id": 5,
+      "kind": "wellspring",
+      "requested_tick": 499,
+      "activation_tick": 500,
+      "x": 15,
+      "y": 1,
+      "radius": 0,
+      "duration": 0,
+      "expires_tick": 500,
+      "parameters": {
+        "record_version": 1
+      },
+      "status": "completed",
+      "expired_tick": null,
+      "totals": {
+        "pulses": 0,
+        "credited_cells": 0,
+        "overridden_cells": 0,
+        "regenerated": 0,
+        "normal_regeneration": 0,
+        "delta": 0
+      },
+      "changes": [
+        {
+          "x": 15,
+          "y": 1,
+          "before_terrain": "rock",
+          "before_food": 0,
+          "after_terrain": "water",
+          "after_food": 0
+        }
+      ],
+      "changed_cells": 1,
+      "food_removed": 0,
+      "completed_tick": 500
+    }
+  ],
+  "terrain": {
+    "forest": 399,
+    "grass": 845,
+    "hazard": 72,
+    "rock": 86,
+    "water": 134
+  },
+  "food_stock": 71892,
+  "living": 388,
+  "born_total": 600,
+  "offspring_births": 540,
+  "deaths": 212,
+  "deaths_by_cause": {
+    "dehydration": 16,
+    "hazard": 5,
+    "old_age": 96,
+    "starvation": 95
+  },
+  "hazard_entries": 1018,
+  "transformed_hazard_entries": 2,
+  "terrain_summary": {
+    "requests": {
+      "rain": 1,
+      "rupture": 1,
+      "drought": 1,
+      "rewild": 1,
+      "wellspring": 1
+    },
+    "conversions": {
+      "rupture": 9,
+      "rewild": 10,
+      "wellspring": 1
+    },
+    "transitions": 20,
+    "ever_transformed": 11,
+    "currently_altered": 6,
+    "latest": 5
+  },
+  "state_digest": "8c3d2bd12bb8e27c2966b144448ab0ef4b3b27f7af989ca8a6e59332e0bd1033",
+  "rng_digest": "0079cac620b1f49ea58188fcb84355f54503ca81c7fe4c2a2dbbcb314296866b",
+  "primary_seconds": 10.828984922998643,
+  "primary_ticks_per_second": 277.03427618858234,
+  "replay_seconds": 10.10928525300551,
+  "total_cpu_seconds": 23.160080273000002,
+  "peak_rss_mib": 155.43359375,
+  "midpoint_tick": 250,
+  "midpoint_exact": true,
+  "before_first_request_exact": true,
+  "independent_replay_exact": true,
+  "final_save_metrics": {
+    "seconds": 0.24770677299966337,
+    "file_bytes": 5439488,
+    "tick": 3000
+  },
+  "final_save_load_plus20_exact": true,
+  "untouched_reference_exact": null
+}

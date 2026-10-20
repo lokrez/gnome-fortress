@@ -43,3 +43,45 @@
   Inspected tile-history/Advisor images. Footprint-off legend explicitly says marks
   are hidden. Predeclared 3-seed × 5-condition, 3,000-tick matched protocol before
   any campaign outcomes; benchmark first, bounded full replay/midpoint saves next.
+- Extra operational verification initially had 3 passes / 1 failure: the new
+  autosave-retry test started its world at tick 1, which also initialized the
+  loop's last-save tick to 1, so no overdue save was triggered. This is a fixture
+  setup error, not evidence of a production retry defect. Repair the fixture by
+  requesting a single legitimate step after loop initialization; retain the exact
+  two-attempt and final-state assertions. CLI import/corruption, real interrupted
+  SQLite process and terrain SIGTERM checks already passed.
+- Integrity review reproduced a new G5 API defect before correction: passing a
+  legacy GameWorld directly to create_game wrote a G5 envelope with a legacy
+  payload, reported success, then failed G5 reload. CLI uses the correct class,
+  but the storage API must reject this misuse before writing. Add an explicit
+  TerrainWorld type guard and preserve both unused/existing destination bytes.
+  Also make new-format integer/record metadata reject bool impostors consistently;
+  legacy validators and formats are untouched. Rerun focused and final regressions.
+- UI review confirmed another new terrain-view consistency gap before correction:
+  T then W opened Life but left tile-targeting enabled; a subsequent map click
+  would still inspect land. Clear terrain targeting on Watch/Tab (as already done
+  for F1–F3), and on right-click observe. Add a focused state/RNG-preserving test.
+  This changes only ephemeral input state, not simulation or terrain rules.
+- G7 feature commit: `275c254`. The full initial fast suite passed 220 tests.
+- Matched campaign PASS: 15 conditions, seeds 1–3, 3,000 ticks each, fixed
+  protocol with 250-tick save/load, independent full replay and 20-tick final
+  continuation. All untouched worlds exactly match preserved Phase 3 reference.
+  No targets were tuned; CSV death-cause columns were flattened from recorded
+  JSON without changing outcomes. Three-seed outcomes are mixed, not survival proof.
+- Optional combined seed-1 operational run PASS through 10,000 ticks: 375 living,
+  2,063 total, 1,688 recorded deaths, exact replay and save/load continuation.
+  Primary 33.84s; replay 32.78s; peak worker RSS 494.3 MiB including verification.
+- Profiled before optimizing: map/text rendering dominates frame cost; old-state
+  reconstruction and dataclass/JSON encoding dominate checkpoint updates. No
+  blocking regression justified optimization. Synthetic 1,000 no-ops explicitly
+  labeled; no natural biological claims made from that fixture.
+- Final verification PASS: 232 fast tests in 170.17s after integrity/UI fixes;
+  22 focused UI/storage/operational tests in 6.73s. Real interrupted SQLite
+  process, pending checkpoint input lock, failed-save retry, clean SIGTERM and
+  extinct pending-action reload all tested. compileall/diff checks passed.
+- Final audit: 538 baseline files preserved (418 research); eleven authoritative/
+  legacy modules unchanged, five historical tags exact, four legacy writer/import
+  checks with 90-tick continuation, retained fixture continuation, default G4
+  state and rendered Life/Advisor pixels exact. Historical CSV normalization only.
+- Final safety/documentation commit follows. Push campaign branch, then only safe
+  main fast-forward if the remote remains at accepted G4. No G8 or modes started.

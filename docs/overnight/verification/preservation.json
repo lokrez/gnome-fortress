@@ -1,0 +1,102 @@
+{
+  "accepted_baseline": "0508849cea815f325e87973a06e810ad2e8c41ec",
+  "legacy": [
+    {
+      "reference": "597b0eb9bfcbee438c1959c6a73b1b3591511358",
+      "source_bytes_unchanged": true,
+      "original_reader": true,
+      "import_exact": true,
+      "continuation_ticks": 90,
+      "continuation_exact": true
+    },
+    {
+      "reference": "307e511335c6102e72e45d836dd8f07550271027",
+      "source_bytes_unchanged": true,
+      "original_reader": true,
+      "import_exact": true,
+      "continuation_ticks": 90,
+      "continuation_exact": true
+    },
+    {
+      "reference": "40eeac5cb8893f02d32e456b4a778badf3cc998f",
+      "source_bytes_unchanged": true,
+      "original_reader": true,
+      "import_exact": true,
+      "continuation_ticks": 90,
+      "continuation_exact": true
+    },
+    {
+      "reference": "0508849cea815f325e87973a06e810ad2e8c41ec",
+      "source_bytes_unchanged": true,
+      "original_reader": true,
+      "import_exact": true,
+      "continuation_ticks": 90,
+      "continuation_exact": true
+    }
+  ],
+  "archived_g1_fixture_import_continuation_exact": true,
+  "default_viewer_exact": {
+    "state": "578b6d1479b0400a9f74fff678ca49f8bf5e1ca5f05a1faf9ef90e149282d219",
+    "selected": 1,
+    "watch": 1,
+    "pixels": "88ecac714683b5e67a94bb5310ebf3e548e8365ff4756186b1ce3f0a3acc2949",
+    "dialogue_pixels": "dd4f826c3c9da06c8f2915aaf1d433e5ce1c97a2a459a2555078bf8fe311a969"
+  },
+  "preserved_files": 538,
+  "preserved_research_files": 418,
+  "allowed_existing_changes": [
+    "README.md",
+    "gnome_fortress/god_viewer.py"
+  ],
+  "existing_csv_normalization": [
+    "research/phase4a/results/pilot.csv",
+    "research/phase4a/results/probes.csv",
+    "research/phase4b/results/probes.csv"
+  ],
+  "tags_exact": true,
+  "tags": [
+    "63c706134a928c7d0c4357ddd6f1e2ac26ee12e4 refs/tags/g1-verified",
+    "f32c1a612e36b046faa501273640bbabfce5159d refs/tags/phase0-verified",
+    "232dd30ce56a4d3645efb3d1dc35cd0539deb497 refs/tags/phase1-verified",
+    "5efc9b1bfdd8d49a13aefd4e9256e6c1e87c024f refs/tags/phase2-verified",
+    "2f5213c23300e61330ea665bfb4789622bf38bc6 refs/tags/phase3-verified"
+  ],
+  "authoritative_and_legacy_modules_unchanged": [
+    "gnome_fortress/engine.py",
+    "gnome_fortress/model.py",
+    "gnome_fortress/game.py",
+    "gnome_fortress/game_storage.py",
+    "gnome_fortress/storage.py",
+    "gnome_fortress/runtime.py",
+    "gnome_fortress/god_demo.py",
+    "gnome_fortress/viewer.py",
+    "gnome_fortress/game_presentation.py",
+    "gnome_fortress/life_presentation.py",
+    "gnome_fortress/advisor.py"
+  ],
+  "source_sha256": {
+    "gnome_fortress/__init__.py": "313de453d04da78032195e3b64c7a2a835a889806328cf8c28802a6cd1aeaf4d",
+    "gnome_fortress/__main__.py": "3e2d17fe5733cbceb1650ec44142d57bf2337dcd2edc686ee1f9824710014c07",
+    "gnome_fortress/advisor.py": "0be9ce3599b0d4cfb4f6b38f62dfe9c28849bc29e7258efe00d94d2ff59881fc",
+    "gnome_fortress/communication.py": "207763ec1b219a492c2c6991112368295c4ab270730649e3dc3f901850053170",
+    "gnome_fortress/engine.py": "c29b29f5106e3ff2a905db5ce9209bcec56ffb94987643f3f4bcd5bc1ea0aec9",
+    "gnome_fortress/game.py": "b294005ed40fa31e18b2e7e52836fe295fd8e15c7efe4963a3fbab80535754ec",
+    "gnome_fortress/game_presentation.py": "11efcd7f8a3eacf021a13343a10fd27f07baff2ac594f914959adcd878e143ea",
+    "gnome_fortress/game_storage.py": "92128fc55eaca7e76e6faa5b7805dcb0c3cf0d655eacb6b4571366a31c1d9aac",
+    "gnome_fortress/god_demo.py": "81e5a1f61fb4e76d3e712321aa0061097f707b16ea21d8aef189ff2510ca41e2",
+    "gnome_fortress/god_viewer.py": "145809d1c825064e93021031ca285afa34b4535485ada170db77238958a2c6ab",
+    "gnome_fortress/god_world.py": "ec05aa23f14ed0536659313471281242bf76381a98f406bb96b90e4f8bfa75b2",
+    "gnome_fortress/life_presentation.py": "c62468f3fc1d06ae120880d6d9f2d67dcb434b986f5fca17388f6b95ffbdde4c",
+    "gnome_fortress/model.py": "e9049172b657da2dc103907029fbbfe07d30a88438bd44c4ebd0436c9a048229",
+    "gnome_fortress/observatory.py": "7c66a55fe75f7ce1ef1d97d9e61a30d4d266dc807ae60c40760250211e500192",
+    "gnome_fortress/runtime.py": "942d9eaca51aac2c0fff6d6474d865ba842055d510ce80e660032ee05737ec78",
+    "gnome_fortress/storage.py": "947a628c43083211f1b94edb0700ec5df6687c7d37b2afb6d09a4c69c6e58445",
+    "gnome_fortress/telephone.py": "743a4c218badf8d233515eb792d914df3270e50f1deb9f3b3c601f943fb7d0bb",
+    "gnome_fortress/terrain_advisor.py": "7bb909553a8c6df622d20d15b3ad15bb9da9873a760a8ebb81b5c75cbafd326b",
+    "gnome_fortress/terrain_game.py": "c1c7847b05d9c3879851287c9ae546f4ec1326981c15ae315f015eb6536bdcbf",
+    "gnome_fortress/terrain_presentation.py": "d10a3eb2f770240b346bef15ccf927dc70ec70fa615c5bf63dc944176bbab2fc",
+    "gnome_fortress/terrain_storage.py": "5a90e3149ab31260442b96d78c42bfcc4246d2fa98a42dfebe57ff0d97e822f2",
+    "gnome_fortress/terrain_viewer.py": "d1a2fa816208d5a602da42b611c0b2a08808d81340f4e34f77d792289d0c8085",
+    "gnome_fortress/viewer.py": "da7397129c11636bfb99821e51b1ba6539b9ca984c3f799f7b0b3a35ec08bf53"
+  }
+}

@@ -2,7 +2,7 @@
 import copy
 from dataclasses import asdict, dataclass, field
 
-from .engine import World
+from .engine import World, TRAITS
 from .game import GameWorld, Intervention, POWERS, DEFAULT_RADIUS, DEFAULT_DURATION
 from .model import Event
 
@@ -40,7 +40,7 @@ class TerrainWorld(GameWorld):
         if any(type(v) is not int for v in (x,y,radius)) or not (0<=x<self.width and 0<=y<self.height and 0<=radius<=max(self.width,self.height)):
             raise ValueError('Invalid terrain target/radius')
         if kind=='wellspring' and radius!=0:raise ValueError('Wellspring affects a single rock tile')
-        if duration not in (None,0):raise ValueError('Terrain powers are one-shot, not timed')
+        if duration is not None and (type(duration) is not int or duration!=0):raise ValueError('Terrain powers are one-shot, not timed')
         p=TerrainIntervention(len(self.interventions)+1,kind,self.tick,self.tick+1,x,y,radius,
             0,self.tick+1,dict(record_version=RECORD_VERSION))
         self.interventions.append(p)
@@ -89,8 +89,9 @@ class TerrainWorld(GameWorld):
 
     @classmethod
     def from_state(cls,data):
+        if type(data.get('version')) is not int or data['version']!=1:raise ValueError('Unsupported simulation version')
         game=data.get('game',{})
-        if game.get('format')!=FORMAT or game.get('record_version')!=RECORD_VERSION:
+        if game.get('format')!=FORMAT or type(game.get('record_version')) is not int or game.get('record_version')!=RECORD_VERSION:
             raise ValueError('Unsupported terrain gameplay format/record version')
         if set(game)!={'format','record_version','interventions','extinct_tick','initial_terrain','origin'}:
             raise ValueError('Incomplete/unknown terrain gameplay fields')
@@ -115,7 +116,9 @@ class TerrainWorld(GameWorld):
         # The inherited validator uses assertions; refuse optimized execution rather
         # than silently omitting integrity checks under python -O.
         if not __debug__:raise ValueError('Terrain validation requires non-optimized Python')
+        assert all(type(v) is int for v in (self.seed,self.width,self.height)) and self.width>=8 and self.height>=8
         World.validate(self)
+        assert all(set(a.traits)==set(TRAITS) and all(type(v) is int for v in a.traits.values()) for a in self.agents.values())
         assert type(self.tick) is int and self.tick>=0
         assert self.extinct==(self.extinct_tick is not None)
         if self.extinct_tick is not None:assert self.extinct_tick==self.tick
@@ -137,7 +140,7 @@ class TerrainWorld(GameWorld):
         assert all(a.tick<=b.tick for a,b in zip(self.events,self.events[1:]))
         for e in self.events:
             if e.kind.startswith('divine_'):
-                assert e.detail.get('intervention') in histories
+                assert type(e.detail.get('intervention')) is int and e.detail['intervention'] in histories
                 histories[e.detail['intervention']].append(e)
         terrain=copy.deepcopy(self.initial_terrain)
         terrain_execution=[]
@@ -146,9 +149,12 @@ class TerrainWorld(GameWorld):
             assert all(type(v) is int for v in (p.id,p.requested_tick,p.activation_tick,p.x,p.y,p.radius,p.duration,p.expires_tick))
             assert 0<=p.requested_tick<=self.tick and p.activation_tick==p.requested_tick+1
             assert 0<=p.x<self.width and 0<=p.y<self.height and 0<=p.radius<=max(self.width,self.height)
+            assert p.completed_tick is None or type(p.completed_tick) is int
+            assert p.expired_tick is None or type(p.expired_tick) is int
             history=histories[p.id]
             request=[e for e in history if e.kind=='divine_request']
             assert len(request)==1 and request[0].tick==p.requested_tick
+            assert all(type(request[0].detail[k]) is int for k in ('intervention','x','y','radius','activation_tick','duration','expires_tick'))
             assert request[0].detail==dict(intervention=p.id,power=p.kind,x=p.x,y=p.y,radius=p.radius,
                 activation_tick=p.activation_tick,duration=p.duration,expires_tick=p.expires_tick)
             if p.kind in POWERS:
@@ -173,7 +179,7 @@ class TerrainWorld(GameWorld):
                         if key!='pulses':totals[key]+=e.detail[key]
                 assert totals==p.totals and p.totals['delta']==p.totals['regenerated']-p.totals['normal_regeneration']
             else:
-                assert p.parameters==dict(record_version=RECORD_VERSION) and p.duration==0
+                assert p.parameters==dict(record_version=RECORD_VERSION) and type(p.parameters['record_version']) is int and p.duration==0
                 if p.kind=='wellspring':assert p.radius==0
                 assert p.expires_tick==p.activation_tick and p.expired_tick is None
                 assert p.requested_tick>=self.origin['tick']
@@ -181,6 +187,7 @@ class TerrainWorld(GameWorld):
                 assert p.status==('completed' if completed else 'queued')
                 assert p.completed_tick==(p.activation_tick if completed else None)
                 assert all(type(v) is int and v>=0 for v in (p.changed_cells,p.food_removed))
+                assert all(type(v) is int for v in p.totals.values())
                 assert p.totals==dict(pulses=0,credited_cells=0,overridden_cells=0,regenerated=0,normal_regeneration=0,delta=0)
                 assert all(e.kind in ('divine_request','divine_terrain') for e in history)
                 applied=[e for e in history if e.kind=='divine_terrain']
@@ -200,7 +207,7 @@ class TerrainWorld(GameWorld):
                     x,y=c['x'],c['y']
                     assert type(x) is int and type(y) is int
                     assert c['before_terrain']==terrain[y][x] and c['after_terrain']==rule['result']
-                    assert type(c['before_food']) is int and 0<=c['before_food']<=100 and c['after_food']==0
+                    assert type(c['before_food']) is int and 0<=c['before_food']<=100 and type(c['after_food']) is int and c['after_food']==0
                     if c['before_terrain'] not in ('grass','forest'):assert c['before_food']==0
                     terrain[y][x]=c['after_terrain']
         assert [e.detail['intervention'] for e in self.events if e.kind=='divine_terrain']==terrain_execution
