@@ -1,0 +1,31 @@
+{
+  "seed": 1,
+  "fixture_ticks": 3000,
+  "before": {
+    "worker": "CheckpointWorker",
+    "saved_tick": 3000,
+    "live_tick": 3000,
+    "live_ticks_during_save": 0,
+    "capture_or_start_seconds": 0.0002751740103121847,
+    "total_save_wall_seconds": 0.9901285030064173,
+    "writer_seconds": 0.980009381994023,
+    "service_iterations": 36,
+    "max_service_gap_seconds": 0.10879063200263772,
+    "snapshot_exact": true,
+    "live_continuation_exact": true
+  },
+  "after": {
+    "worker": "TerrainCheckpointWorker",
+    "saved_tick": 3000,
+    "live_tick": 3015,
+    "live_ticks_during_save": 15,
+    "capture_or_start_seconds": 0.07107171700045001,
+    "total_save_wall_seconds": 1.076238690991886,
+    "writer_seconds": 0.8507376890047453,
+    "service_iterations": 54,
+    "max_service_gap_seconds": 0.07107479700061958,
+    "snapshot_exact": true,
+    "live_continuation_exact": true
+  },
+  "caveat": "Single engineering measurement, generated fixture, no claim about laptop FPS or zero capture latency"
+}

@@ -6,6 +6,7 @@ from .god_viewer import GodObserver, POWER_COLORS, INK, MUTED, GOLD, run as run_
 from .terrain_game import TERRAIN_POWERS
 from .terrain_presentation import TerrainPresentation, terrain_event_text
 from .terrain_advisor import TerrainAdvisor
+from .terrain_checkpoint import TerrainCheckpointWorker
 
 COLORS={**POWER_COLORS,'rupture':(239,109,90),'rewild':(111,210,140),'wellspring':(96,211,233)}
 
@@ -173,4 +174,4 @@ class TerrainObserver(GodObserver):
         self.label('Wheel: older/newer | Space pause | +/- speed | S save | Esc exit',x,self.screen.get_height()-18,MUTED)
 
 
-def run(*args,**kwargs):return run_base(*args,**kwargs,observer_class=TerrainObserver)
+def run(*args,**kwargs):return run_base(*args,**kwargs,observer_class=TerrainObserver,worker_class=TerrainCheckpointWorker)

@@ -1,0 +1,1 @@
+{"start_tick": 3, "final_tick": 86, "signal": "SIGTERM", "checkpoint_interval": 1, "reference_exact": true, "clean_exit": true}

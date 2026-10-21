@@ -421,6 +421,7 @@ class GodObserver(Observer):
         pygame.draw.rect(self.screen,(19,27,33),(self.map_width,0,470,self.screen.get_height()))
         self.label('GNOME FORTRESS | THE LIVING WORLD',x,12,GOLD,self.font)
         state='SAVING' if self.saving else 'EXTINCT' if w.extinct else 'PAUSED' if self.paused else 'RUNNING'
+        if getattr(self,'checkpoint_pending',False) and not self.saving:state+=' / SAVING'
         self.label(f"Tick {s['tick']} | seed {w.seed} | {state} | target {self.speeds[self.speed_index]} t/s",x,36)
         self.label(f"Living {s['living']} | net {s['net_population_change']:+d} since 60 founders",x,56)
         self.label(f"Born total {s['born']} (includes founders) | deaths {s['deaths']}",x,76)
@@ -447,27 +448,30 @@ class GodObserver(Observer):
         pygame.display.flip()
 
 def run(world,path,save_callback,checkpoint_ticks=300,max_frames=None,stop_requested=lambda:False,
-        rate=None,paused=False,capture=None,observer_class=None):
+        rate=None,paused=False,capture=None,observer_class=None,worker_class=None):
     observer=(observer_class or GodObserver)(world,rate,paused);clock=pygame.time.Clock()
-    worker=CheckpointWorker(save_callback);last_save=world.tick;frames=0;dirty=True;auto_save_failed=False
+    worker=(worker_class or CheckpointWorker)(save_callback);last_save=world.tick;frames=0;dirty=True;auto_save_failed=False
+    locks_world=getattr(worker,'locks_world',True)
     try:
         while observer.running and not stop_requested() and (max_frames is None or frames<max_frames):
-            seconds=clock.tick(15 if observer.paused or worker.pending or world.extinct else 60)/1000
-            observer.saving=worker.pending
+            seconds=clock.tick(15 if observer.paused or (worker.pending and locks_world) or world.extinct else 60)/1000
+            observer.saving=worker.pending and locks_world
+            observer.checkpoint_pending=worker.pending
             events=pygame.event.get();observer.handle(events)
             if not observer.running:break
             if worker.pending and worker.future.done():
                 try:
                     metrics=worker.poll();observer.notice=f"Saved tick {metrics['tick']}"
-                    last_save=world.tick;auto_save_failed=False
+                    last_save=metrics['tick'];auto_save_failed=False
                 except Exception as error:
                     observer.notice=f'Save failed: {type(error).__name__}; see terminal'
                     print(f'Gameplay save failed: {error}',flush=True)
                     observer.paused=True;auto_save_failed=True
-                observer.saving=False;seconds=0;dirty=True
+                observer.saving=False;observer.checkpoint_pending=False;dirty=True
+                if locks_world:seconds=0
             observer.advance(seconds)
             if not worker.pending and (observer.save_requested or (not auto_save_failed and world.tick-last_save>=checkpoint_ticks)):
-                worker.start(world,path);observer.saving=True;observer.save_requested=False;dirty=True
+                worker.start(world,path);observer.saving=locks_world;observer.checkpoint_pending=True;observer.save_requested=False;dirty=True
             if dirty or events or (not observer.paused and not observer.saving):
                 observer.draw();dirty=False
             frames+=1
