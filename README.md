@@ -33,6 +33,10 @@ biological traits. All existing controls are unchanged.
 [art-pass results](docs/g8a1/RESULTS.md) · [performance](docs/g8a1/PERFORMANCE.md).
 No simulation rules, cosmetics in saves, game modes or AI services were added.
 
+Persistence update: [G8A.2 — The Endless Chronicle](docs/g8a2/RESULTS.md)
+reuses prepared history for warmed autosaves while keeping complete compatible saves.
+Immediate cold saves and initial history preparation can still pause; see the measured limits.
+
 ## Run the research observer
 
 Python 3.11 or newer is required. This checkout already has an isolated `.venv` with

@@ -1,0 +1,85 @@
+{
+  "rows": [
+    {
+      "tick": 3000,
+      "events": 27162,
+      "retained": 607,
+      "cold_ms": [
+        36.93560999818146
+      ],
+      "warm_ms": [
+        10.30440600879956,
+        9.009848989080638,
+        9.132331993896514,
+        8.622474008006975,
+        9.107239995501004,
+        9.02353999845218,
+        9.026448999065906
+      ],
+      "preparation_seconds": 0.22421982999367174,
+      "preparation_calls": 51,
+      "preparation_median_ms": 4.103143990505487,
+      "preparation_max_ms": 12.400494000758044,
+      "snapshot_bytes": 2742485,
+      "hot_bytes": 883398,
+      "background_envelope_encode_seconds": 0.0002920440019806847,
+      "cached_bytes": 1853396,
+      "rss_kib": 119600,
+      "exact": true
+    },
+    {
+      "tick": 10000,
+      "events": 107609,
+      "retained": 2017,
+      "cold_ms": [
+        190.99982001353055
+      ],
+      "warm_ms": [
+        12.467754990211688,
+        13.056702999165282,
+        12.779690005118027,
+        12.539746006950736,
+        11.975957997492515,
+        10.67727200279478,
+        10.666250993381254
+      ],
+      "preparation_seconds": 1.1154385740082944,
+      "preparation_calls": 255,
+      "preparation_median_ms": 4.43742900097277,
+      "preparation_max_ms": 5.721566005377099,
+      "snapshot_bytes": 9914005,
+      "hot_bytes": 879388,
+      "background_envelope_encode_seconds": 0.0017833640013122931,
+      "cached_bytes": 9004582,
+      "rss_kib": 374176,
+      "exact": true
+    },
+    {
+      "tick": 26000,
+      "events": 290808,
+      "retained": 5340,
+      "cold_ms": [
+        500.66187100310344
+      ],
+      "warm_ms": [
+        17.20022900553886,
+        15.981381002347916,
+        16.162993997568265,
+        17.3440299986396,
+        17.090345994802192,
+        17.21402800467331,
+        17.097336007282138
+      ],
+      "preparation_seconds": 3.275934500998119,
+      "preparation_calls": 699,
+      "preparation_median_ms": 4.471649008337408,
+      "preparation_max_ms": 108.26266399817541,
+      "snapshot_bytes": 26438695,
+      "hot_bytes": 876010,
+      "background_envelope_encode_seconds": 0.019719291012734175,
+      "cached_bytes": 25475453,
+      "rss_kib": 1001836,
+      "exact": true
+    }
+  ]
+}

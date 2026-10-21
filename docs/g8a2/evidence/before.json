@@ -1,0 +1,149 @@
+{
+  "seed": 1,
+  "rows": [
+    {
+      "tick": 3000,
+      "living": 368,
+      "retained": 607,
+      "events": 27162,
+      "generation_seconds": 9.775356170997838,
+      "samples_ms": [
+        {
+          "rng_and_scheduler": 0.023379994672723114,
+          "terrain": 0.17857199418358505,
+          "agent_headers": 0.290814001346007,
+          "episodes": 10.888187011005357,
+          "events": 4.225766999297775,
+          "interventions": 0.0013300013961270452,
+          "pickle": 32.25889499299228,
+          "total": 48.020507994806394
+        },
+        {
+          "rng_and_scheduler": 0.009881012374535203,
+          "terrain": 0.10364099580328912,
+          "agent_headers": 0.16159200458787382,
+          "episodes": 4.584851994877681,
+          "events": 1.465599998482503,
+          "interventions": 0.0008300121407955885,
+          "pickle": 30.533830999047495,
+          "total": 36.92532800778281
+        },
+        {
+          "rng_and_scheduler": 0.009411000064574182,
+          "terrain": 0.09739100642036647,
+          "agent_headers": 0.13686199963558465,
+          "episodes": 4.7942039964254946,
+          "events": 1.4693499979330227,
+          "interventions": 0.0005100009730085731,
+          "pickle": 29.141992999939248,
+          "total": 35.74301200569607
+        }
+      ],
+      "snapshot_bytes": 2892160,
+      "transfer_seconds": 0.0028389789949869737,
+      "decode": {
+        "seconds": 0.08444437899743207,
+        "tick": 3000,
+        "rss_kib": 64724
+      },
+      "rss_kib": 60852,
+      "fixture": "/tmp/gnome-g8a2-generated-fixtures/3000.pickle"
+    },
+    {
+      "tick": 10000,
+      "living": 373,
+      "retained": 2017,
+      "events": 107609,
+      "generation_seconds": 23.55718225199962,
+      "samples_ms": [
+        {
+          "rng_and_scheduler": 0.015009994967840612,
+          "terrain": 0.10223100252915174,
+          "agent_headers": 1.0506440012250096,
+          "episodes": 22.012175992131233,
+          "events": 40.44798501126934,
+          "interventions": 0.0025699991965666413,
+          "pickle": 153.90693600056693,
+          "total": 218.03554099460598
+        },
+        {
+          "rng_and_scheduler": 0.011790005373768508,
+          "terrain": 0.0996309972833842,
+          "agent_headers": 0.5623579927487299,
+          "episodes": 16.97180900373496,
+          "events": 5.85395899543073,
+          "interventions": 0.003649998689070344,
+          "pickle": 148.2786609994946,
+          "total": 172.25517399492674
+        },
+        {
+          "rng_and_scheduler": 0.011940006515942514,
+          "terrain": 0.10943099914584309,
+          "agent_headers": 0.6920500018168241,
+          "episodes": 17.855180994956754,
+          "events": 6.002950991387479,
+          "interventions": 0.0020999868866056204,
+          "pickle": 136.77136600017548,
+          "total": 161.96676599793136
+        }
+      ],
+      "snapshot_bytes": 10262433,
+      "transfer_seconds": 0.010344909998821095,
+      "decode": {
+        "seconds": 0.2869273010001052,
+        "tick": 10000,
+        "rss_kib": 166224
+      },
+      "rss_kib": 159476,
+      "fixture": "/tmp/gnome-g8a2-generated-fixtures/10000.pickle"
+    },
+    {
+      "tick": 26000,
+      "living": 386,
+      "retained": 5340,
+      "events": 290808,
+      "generation_seconds": 52.79028698799084,
+      "samples_ms": [
+        {
+          "rng_and_scheduler": 0.016610007151030004,
+          "terrain": 0.10204099817201495,
+          "agent_headers": 2.753526991000399,
+          "episodes": 145.5377270031022,
+          "events": 124.69513498945162,
+          "interventions": 0.0023699976736679673,
+          "pickle": 392.53106599790044,
+          "total": 666.8910129956203
+        },
+        {
+          "rng_and_scheduler": 0.018430000636726618,
+          "terrain": 0.10355199628975242,
+          "agent_headers": 1.9389160006539896,
+          "episodes": 44.42320000089239,
+          "events": 15.982236000127159,
+          "interventions": 0.0015999976312741637,
+          "pickle": 411.3095990032889,
+          "total": 474.97492900583893
+        },
+        {
+          "rng_and_scheduler": 0.012410004273988307,
+          "terrain": 0.10497101175133139,
+          "agent_headers": 2.1329190058168024,
+          "episodes": 45.14857000322081,
+          "events": 16.80158700037282,
+          "interventions": 0.0012899981811642647,
+          "pickle": 409.2051900079241,
+          "total": 474.7590869956184
+        }
+      ],
+      "snapshot_bytes": 27206601,
+      "transfer_seconds": 0.032147064004675485,
+      "decode": {
+        "seconds": 0.7391542999976082,
+        "tick": 26000,
+        "rss_kib": 408488
+      },
+      "rss_kib": 359912,
+      "fixture": "/tmp/gnome-g8a2-generated-fixtures/26000.pickle"
+    }
+  ]
+}

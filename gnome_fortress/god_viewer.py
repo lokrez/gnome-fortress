@@ -471,6 +471,7 @@ def run(world,path,save_callback,checkpoint_ticks=300,max_frames=None,stop_reque
                 observer.saving=False;observer.checkpoint_pending=False;dirty=True
                 if locks_world:seconds=0
             observer.advance(seconds)
+            if hasattr(worker,'prepare'):worker.prepare(world)
             if not worker.pending and (observer.save_requested or (not auto_save_failed and world.tick-last_save>=checkpoint_ticks)):
                 worker.start(world,path);observer.saving=locks_world;observer.checkpoint_pending=True;observer.save_requested=False;dirty=True
                 observer.notice=f'Saving tick {world.tick} (last saved {last_save})'

@@ -1,0 +1,22 @@
+[
+  {
+    "seed": 1,
+    "tick": 0,
+    "accepted_capture_bytes_identical": true
+  },
+  {
+    "seed": 1,
+    "tick": 500,
+    "accepted_capture_bytes_identical": true
+  },
+  {
+    "seed": 2,
+    "tick": 0,
+    "accepted_capture_bytes_identical": true
+  },
+  {
+    "seed": 2,
+    "tick": 500,
+    "accepted_capture_bytes_identical": true
+  }
+]
