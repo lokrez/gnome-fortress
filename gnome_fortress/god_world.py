@@ -5,6 +5,7 @@ from pathlib import Path
 import signal
 import sqlite3
 
+from .game_session import game_session,SaveInUse
 from .terrain_game import TerrainWorld as GameWorld
 from .terrain_storage import game_path,load_game,save_game,create_game,import_legacy
 
@@ -27,6 +28,17 @@ def main():
     args=p.parse_args()
     if not 0<args.rate<float('inf') or args.checkpoint_every<1 or args.ticks<0 or (args.frames is not None and args.frames<1):
         p.error('Rate/interval/frames must be positive, ticks nonnegative')
+    try:
+        path=game_path(args.db)
+        with game_session(path):
+            _launch(args,p,path)
+    except SaveInUse as error:
+        p.error(f'Cannot open gameplay session: {error}')
+    except (OSError,ValueError) as error:
+        p.error(f'Gameplay session failed: {error}')
+
+
+def _launch(args,p,path):
     try:
         path=game_path(args.db)
         if args.new and path.exists():p.error('--new needs an unused save path; preserved runs are not replaced')

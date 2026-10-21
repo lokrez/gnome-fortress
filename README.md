@@ -231,6 +231,11 @@ This separate launcher creates/resumes `run-results/god-terrain/world.g5.sqlite`
 Terrain autosaves now write detached snapshots in a separate process so the world
 continues during saving; a short capture hitch can remain. See the
 [G7 autosave stabilization notes](docs/g7/STABILIZATION.md).
+Only one terrain launcher may use a save at a time, including suspended copies.
+Use **Esc** to save and exit, then wait for the terminal prompt before relaunching.
+Do not use Ctrl+Z to exit: it suspends the game and can retain database locks.
+After a save error, an explicit **S** retries; successful saving leaves the game
+paused until **Space** resumes it.
 Your legacy `.g1.sqlite` game stays separate. For a fresh run, use `--new --db`
 with an unused `.g5.sqlite` path; `--new` never replaces an existing world.
 

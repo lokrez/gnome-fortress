@@ -89,3 +89,35 @@ research reference, terrain replay, legacy saves, corrupted/interrupted database
 Life/Watch, input locks for the original shared-world worker, and extinction tests
 remain green. No research/engine/storage rule changes. G7's historical verified
 tag is preserved; this correction is a separate stabilization commit.
+
+## Follow-up: competing suspended launchers
+
+During human playtesting, multiple Ctrl+Z-suspended terrain launchers were found
+using the same save. Suspended processes retained SQLite read locks, preventing
+the newer writer from committing. With explicit owner authorization to keep the
+newest run, the older suspended copies were stopped. A consistent SQLite backup
+was made first in the local run-results recovery directory; it is not committed.
+The newest world subsequently committed at tick 20,917, and a host-level check
+found no remaining open database handle. This confirms a successful checkpoint,
+not completion of the full human usability playtest. No save/journal was deleted.
+
+The terrain launcher now holds an Ubuntu advisory session lock before loading,
+importing, creating, running or saving its world. A second updated launcher fails
+clearly before touching the checkpoint, even if the first is suspended. The lock
+is released by the OS on exit/kill; stale PID text does not prevent recovery.
+The lock inode is retained to avoid races between launchers. Background snapshot
+writers do not reacquire the launcher's lock. Different paths remain independent.
+This does not retroactively protect already running old code, nor exclude external
+SQLite tools or direct storage API callers. It is not Ironman enforcement.
+
+New tests cover launch refusal without database modification, suspended ownership,
+process-death recovery, clean shutdown and reopening. No simulation, save format,
+research archive, or historical verification tag changes.
+
+Executed follow-up verification: **14 passed in 4.55s** (session, terrain operation,
+and isolated-checkpoint tests); **215 passed in 100.57s** with
+`.venv/bin/python -m pytest -q --ignore=tests/test_long_run.py`.
+The 20,000-tick long-run test was deliberately excluded for this launcher-only
+change. Raw results: [focused](stabilization/session-targeted-tests.txt),
+[fast suite](stabilization/session-fast-tests.txt). These are the counts from this
+invocation, not an inferred count from the earlier stabilization run.
