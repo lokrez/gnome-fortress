@@ -1,0 +1,5 @@
+/home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:58: RuntimeWarning: Requested window was forcibly resized by the OS.
+	Requested window size: (3840, 2160)
+	New window size: (3840, 2060)
+  self.screen=pygame.display.set_mode(size,pygame.RESIZABLE)
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.14.4)

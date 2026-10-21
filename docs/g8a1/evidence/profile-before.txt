@@ -1,0 +1,32 @@
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.14.4)
+         564932 function calls in 0.716 seconds
+
+   Ordered by: cumulative time
+   List reduced from 74 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.716    0.716 <stdin>:5(<lambda>)
+       30    0.002    0.000    0.716    0.024 /home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:590(draw)
+       30    0.086    0.003    0.639    0.021 /home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:377(draw_world)
+    44850    0.381    0.000    0.381    0.000 {method 'blit' of 'pygame.surface.Surface' objects}
+     1680    0.047    0.000    0.047    0.000 {built-in method pygame.draw.rect}
+   105000    0.038    0.000    0.047    0.000 /home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:386(<genexpr>)
+    21000    0.017    0.000    0.042    0.000 /home/zerkol/gnome-fortress/gnome_fortress/pixel_art.py:210(terrain_decoration)
+    21900    0.014    0.000    0.040    0.000 /home/zerkol/gnome-fortress/gnome_fortress/camera.py:56(tile_rect)
+       30    0.037    0.001    0.037    0.001 {method 'fill' of 'pygame.surface.Surface' objects}
+    21900    0.010    0.000    0.026    0.000 /home/zerkol/gnome-fortress/gnome_fortress/camera.py:53(world_to_screen)
+    21000    0.013    0.000    0.025    0.000 {built-in method builtins.sum}
+    21960    0.010    0.000    0.016    0.000 /home/zerkol/gnome-fortress/gnome_fortress/camera.py:20(offset)
+    70140    0.012    0.000    0.012    0.000 /home/zerkol/gnome-fortress/gnome_fortress/pixel_art.py:211(<genexpr>)
+   103350    0.011    0.000    0.011    0.000 /home/zerkol/gnome-fortress/gnome_fortress/engine.py:65(cell)
+      630    0.003    0.000    0.011    0.000 /home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:177(button)
+       30    0.001    0.000    0.011    0.000 /home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:454(draw_card)
+    63180    0.009    0.000    0.009    0.000 {method 'get' of 'dict' objects}
+       30    0.001    0.000    0.008    0.000 /home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:574(draw_feed)
+       30    0.003    0.000    0.008    0.000 /home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:327(sprite_layout)
+     1860    0.007    0.000    0.007    0.000 {method 'size' of 'pygame.font.Font' objects}
+      150    0.000    0.000    0.006    0.000 /home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:116(paragraph)
+      210    0.001    0.000    0.006    0.000 /home/zerkol/gnome-fortress/gnome_fortress/god_viewer.py:20(wrap)
+    47970    0.006    0.000    0.006    0.000 {built-in method builtins.round}
+      750    0.001    0.000    0.005    0.000 /home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:112(label)
+       60    0.000    0.000    0.001    0.000 /home/zerkol/gnome-fortress/gnome_fortress/living_viewer.py:120(sync)

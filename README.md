@@ -9,7 +9,7 @@ This is an experiment in observable agent behavior. Its needs, reproduction rule
 interaction rewards and learning update are explicitly programmed. It does not model
 civilizations or claim that complex social organization has emerged.
 
-## Play — First Contact (G8A)
+## Play — The Living Folklore (G8A.1)
 
 ```bash
 cd ~/gnome-fortress && .venv/bin/python -m gnome_fortress.god_world
@@ -24,6 +24,13 @@ Ctrl+Z. This resumes the same `.g5.sqlite` world under unchanged Saveguard prote
 
 [Controls](docs/g8a/CONTROLS.md) · [results and actual captures](docs/g8a/RESULTS.md) ·
 [rendering measurements and limits](docs/g8a/PERFORMANCE.md).
+The Living Folklore art pass adds eight crooked-hat silhouettes, moss/peat terrain,
+record-derived terrain traces, power/record glyphs and a parchment field journal.
+Appearance is generated from identity and stays stable across saves; it adds no
+biological traits. All existing controls are unchanged.
+
+[Art bible](docs/g8a1/ART_BIBLE.md) · [actual asset sheet](docs/g8a1/art-sheet.png) ·
+[art-pass results](docs/g8a1/RESULTS.md) · [performance](docs/g8a1/PERFORMANCE.md).
 No simulation rules, cosmetics in saves, game modes or AI services were added.
 
 ## Run the research observer

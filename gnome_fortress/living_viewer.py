@@ -6,15 +6,17 @@ import time
 import pygame
 
 from .camera import Camera
-from .pixel_art import appearance,gnome_sprite,terrain_tile
+from .pixel_art import (appearance,gnome_sprite,terrain_tile,illustrated_tile,
+                        death_portrait,icon,journal_panel,INK,MUTED,GOLD,TEAL,PARCHMENT,PAPER,LEATHER)
 from .terrain_viewer import TerrainObserver
 from .terrain_game import TERRAIN_POWERS
 from .game import DEFAULT_DURATION
-from .god_viewer import INK,MUTED,GOLD,wrap
+from .god_viewer import wrap
 from .viewer import Observer
 from .life_presentation import life_summary,life_event_text
 
-BG=(20,29,35);PANEL=(28,41,47);LINE=(58,79,80);TEAL=(112,209,183)
+BG=PARCHMENT;PANEL=PAPER;LINE=(153,123,88)
+POWER_INK={'rain':(49,91,112),'drought':(141,84,31),'rupture':(144,59,43),'rewild':(53,95,49),'wellspring':(39,93,99)}
 ACTIONS={'born':'Born','eat':'Eating','drink':'Drinking','sleep':'Sleeping',
          'reproduce':'Reproduction','socialize':'Socializing','wait':'Waiting','move':'Moving','dead':'Dead'}
 NEEDS=(('health','Health',100,False),('hunger','Hunger',150,True),
@@ -39,6 +41,14 @@ def happening(event,world):
     return event.kind+': recorded event.'
 
 
+def event_glyph(event,world):
+    if not event.kind.startswith('divine_'):return event.kind
+    identity=event.detail.get('intervention')
+    if type(identity) is int and 0<identity<=len(world.interventions):
+        return world.interventions[identity-1].kind
+    return event.detail.get('power','divine')
+
+
 class LivingObserver(TerrainObserver):
     """UI state is disposable. The inherited Saveguard runner remains authoritative."""
     def __init__(self,world,rate=None,paused=False,window_size=None):
@@ -46,7 +56,8 @@ class LivingObserver(TerrainObserver):
         desktop=pygame.display.get_desktop_sizes()[0]
         size=window_size or (min(1600,max(960,desktop[0]-80)),min(960,max(640,desktop[1]-100)))
         self.screen=pygame.display.set_mode(size,pygame.RESIZABLE)
-        pygame.display.set_caption('Gnome Fortress | First Contact')
+        size=self.screen.get_size() # Window managers may constrain the requested dimensions.
+        pygame.display.set_caption('Gnome Fortress | The Living Folklore')
         self.font=pygame.font.Font(None,25);self.small=pygame.font.Font(None,21)
         self.inspector_open=size[0]>=1000;self.feed_mode=1;self.food_overlay=False
         self.follow_id=None;self.dragging=False;self.advisor_scroll=0;self.last_pick=None;self.population_key=None;self.occupants={};self.queued_key=None;self.queued_powers=()
@@ -69,7 +80,7 @@ class LivingObserver(TerrainObserver):
                  ('rewild','Rewild F'),('wellspring','Spring P'),('advisor','Advisor A'),
                  ('pause','Pause / play'),('save','Save S'),('inspector','Inspect I'),('food','Food B')]
         for name,label in options:
-            w=max(86,self.small.size(label)[0]+22)
+            w=max(86,self.small.size(label)[0]+(44 if name in self.colors else 22))
             if x+w>width-12:x=12;y+=37
             self.toolbar[name]=(pygame.Rect(x,y,w,31),label);x+=w+6
         self.content_top=y+43
@@ -172,11 +183,14 @@ class LivingObserver(TerrainObserver):
         else:self.notice='Observation • click a gnome or a tile; repeat a crowd click to cycle occupants.'
 
     def button(self,rect,label,action,active=False):
-        pygame.draw.rect(self.screen,(52,87,84) if active else (42,58,65),rect,border_radius=5)
-        pygame.draw.rect(self.screen,TEAL if active else LINE,rect,1,border_radius=5)
-        while self.small.size(label)[0]>rect.w-12 and len(label)>3:label=label[:-4]+'...'
-        image=text_image(self.text_size,label,GOLD if active else INK)
-        self.screen.blit(image,(rect.centerx-image.get_width()//2,rect.centery-image.get_height()//2))
+        pygame.draw.rect(self.screen,LEATHER if active else (202,180,142),rect,border_radius=2)
+        pygame.draw.rect(self.screen,GOLD if active else LINE,rect,2 if active else 1,border_radius=2)
+        power=action if action in self.colors else None
+        reserve=23 if power else 0
+        while self.small.size(label)[0]>rect.w-12-reserve and len(label)>3:label=label[:-4]+'...'
+        if power:self.screen.blit(icon(power,18),(rect.x+5,rect.centery-9))
+        image=text_image(self.text_size,label,PAPER if active else INK)
+        self.screen.blit(image,(rect.centerx+reserve//2-image.get_width()//2,rect.centery-image.get_height()//2))
         hit=rect.clip(self.screen.get_clip())
         if hit.w and hit.h:self.ui_hits.append((hit,action))
 
@@ -212,7 +226,7 @@ class LivingObserver(TerrainObserver):
         for e in events:
             if e.type in (pygame.VIDEORESIZE,):
                 size=(max(800,e.w),max(600,e.h));self.screen=pygame.display.set_mode(size,pygame.RESIZABLE)
-                self.layout(size);continue
+                self.layout(self.screen.get_size());continue
             if e.type==pygame.QUIT:self.running=False;continue
             if e.type==pygame.MOUSEMOTION:
                 if self.dragging and hasattr(e,'rel'):
@@ -374,7 +388,13 @@ class LivingObserver(TerrainObserver):
         for y in range(y0,y1):
             for x in range(x0,x1):
                 c=self.world.cell(x,y);rect=self.camera.tile_rect(x,y)
-                self.screen.blit(terrain_tile(c.terrain,(x*13+y*7)%4,t),rect)
+                history=self.presentation.land.by_tile.get((x,y))
+                mark=self.world.interventions[history[-1][0]-1].kind if self.footprints and history else None
+                neighbors=tuple(self.world.cell(nx,ny).terrain if 0<=nx<self.world.width and 0<=ny<self.world.height else None
+                                for nx,ny in ((x,y-1),(x+1,y),(x,y+1),(x-1,y)))
+                edges=sum(1<<edge for edge,other in enumerate(neighbors) if other is not None and other!=c.terrain)
+                variant=((x*73856093)^(y*19349663)^(x*y*83492791))%8
+                self.screen.blit(illustrated_tile(c.terrain,variant,edges,mark,t),rect)
                 if self.food_overlay and c.terrain in ('grass','forest'):
                     pygame.draw.rect(self.screen,(29,45,34),(rect.x+1,rect.bottom-4,t-2,3))
                     pygame.draw.rect(self.screen,(212,232,128),(rect.x+1,rect.bottom-4,round((t-2)*c.food/100),3))
@@ -393,10 +413,10 @@ class LivingObserver(TerrainObserver):
         for identity,image,mask,rect in self.hits:
             self.screen.blit(image,rect)
             a=self.world.agents[identity]
-            if a.sleep_until>self.world.tick and t>=20:self.label('z',rect.right-2,rect.y-6,(211,232,252))
+            if a.sleep_until>self.world.tick and t>=20:self.label('z',rect.right-2,rect.y-6,(230,222,184))
         for rect,count in counts:
             if t>=16:
-                number=text_image(18,str(count),(255,249,214));bg=number.get_rect(topright=(rect.right,rect.bottom))
+                number=text_image(18,str(count),INK);bg=number.get_rect(topright=(rect.right,rect.bottom))
                 pygame.draw.rect(self.screen,BG,bg);self.screen.blit(number,bg)
         a=self.world.agents.get(self.selected)
         if a:
@@ -444,8 +464,8 @@ class LivingObserver(TerrainObserver):
         r=self.body;x,y=r.topleft;a=self.world.agents.get(self.selected)
         if a is None:self.paragraph('Individual record unavailable. Select a living gnome or a recorded event.',x,y,r.w);return
         status='Deceased' if not a.alive else 'Sleeping' if a.sleep_until>self.world.tick else 'Awake'
-        image,_=gnome_sprite(appearance(a.id),a.alive and a.sleep_until>self.world.tick,60,0)
-        self.screen.blit(image,(x,y));self.label(a.name,x+60,y,GOLD,self.font);self.label(status,x+60,y+27)
+        image=(gnome_sprite(appearance(a.id),a.sleep_until>self.world.tick,76,0)[0] if a.alive else death_portrait(76))
+        self.screen.blit(image,(x,y));self.label(a.name,x+70,y,GOLD,self.font);self.label(status,x+70,y+27)
         self.button(pygame.Rect(x+60,y+51,85,26),'Center','center')
         self.button(pygame.Rect(x+152,y+51,r.w-152,26),('Unfollow' if self.follow_id==a.id else 'Follow C') if a.alive else 'Life F3','follow' if a.alive else 'tab:life',self.follow_id==a.id)
         y+=92
@@ -453,8 +473,8 @@ class LivingObserver(TerrainObserver):
         self.label(ACTIONS.get(a.action,a.action),x,y,TEAL,self.font);y+=30
         for key,label,maximum,high_bad in NEEDS:
             value=getattr(a,key);self.label(f'{label} {value}'+(f' / {maximum}' if key=='health' else f'  (0–{maximum})'),x,y)
-            bar=pygame.Rect(x,y+20,r.w,7);pygame.draw.rect(self.screen,(15,23,27),bar,border_radius=2)
-            amount=max(0,min(1,value/maximum));color=(224,151,99) if (high_bad and value>100) or (not high_bad and value<30) else TEAL
+            bar=pygame.Rect(x,y+20,r.w,7);pygame.draw.rect(self.screen,(163,142,109),bar,border_radius=2)
+            amount=max(0,min(1,value/maximum));color=(155,71,46) if (high_bad and value>100) or (not high_bad and value<30) else TEAL
             pygame.draw.rect(self.screen,color,(bar.x,bar.y,round(bar.w*amount),bar.h),border_radius=2);y+=36
         y=self.paragraph(f'Age {a.age} ticks • born tick {a.born}',x,y+3,r.w)
         y=self.paragraph(f'{"Current" if a.alive else "Final stored"} location ({a.x}, {a.y})',x,y+3,r.w)
@@ -500,7 +520,7 @@ class LivingObserver(TerrainObserver):
 
     def family_item(self,m,x,y):
         rect=pygame.Rect(x,y,self.body.w,44)
-        pygame.draw.rect(self.screen,(42,58,65),rect,border_radius=4)
+        pygame.draw.rect(self.screen,(201,183,147),rect,border_radius=2)
         self.label(f"#{m['id']:05d} • {m['status']}",x+7,y+4,TEAL)
         born=f"Born tick {m['born']}" if m['born'] is not None else 'Birth unavailable'
         end=f" • died {m['died']}" if m['died'] is not None else ''
@@ -515,8 +535,8 @@ class LivingObserver(TerrainObserver):
         self.label(f'{len(history)} recorded divine transitions',x,y,TEAL);y+=28
         start=max(0,len(history)-self.tile_capacity) if self.tile_tail else self.tile_start
         for p,change in self.presentation.land.page(xy,start,self.tile_capacity):
-            self.label(f'Tick {p.completed_tick} • #{p.id} {p.kind.title()}',x,y,self.colors[p.kind])
-            self.label(f"{change['before_terrain']} → {change['after_terrain']}",x,y+20);y+=58
+            self.label(f'Tick {p.completed_tick} • #{p.id} {p.kind.title()}',x,y,POWER_INK[p.kind])
+            self.label(f"{change['before_terrain']} to {change['after_terrain']}",x,y+20);y+=58
         if not history:self.paragraph('No divine terrain transition recorded here. Natural terrain has no footprint badge.',x,y,self.body.w,MUTED)
 
     def draw_ledger(self):
@@ -524,7 +544,7 @@ class LivingObserver(TerrainObserver):
         self.label('DIVINE RECORDS • scroll for older',x,y,GOLD);y+=28
         cards=list(reversed(self.presentation.powers[max(0,end-self.power_capacity):end]))
         for p in cards:
-            self.label(f"#{p['id']} {p['kind'].title()} • {p['status']}",x,y,self.colors[p['kind']]);y+=24
+            self.label(f"#{p['id']} {p['kind'].title()} • {p['status']}",x,y,POWER_INK[p['kind']]);y+=24
             self.label(f"{p['location']} • radius {p['radius']} • starts {p['activation']}",x,y);y+=23
             if p['terrain']:
                 self.label(f"Actual changes {p['changed_cells']} • food removed {p['food_removed']}",x,y);y+=23
@@ -562,21 +582,23 @@ class LivingObserver(TerrainObserver):
 
     def draw_feed(self):
         if not self.feed_mode:self.feed_hits=[];return
-        r=self.event_rect;pygame.draw.rect(self.screen,PANEL,r,border_radius=6)
+        r=self.event_rect;self.screen.blit(journal_panel(r.w,r.h),r)
         self.label('WORLD HAPPENINGS',r.x+10,r.y+7,GOLD)
         self.button(self.feed_button,'Compact' if self.feed_mode==2 else 'History','feed')
         self.feed_hits=[];self.screen.set_clip(r)
         for j,(_,event) in enumerate(self.presentation.events.page(self.event_offset,self.event_capacity)):
-            y=r.y+35+j*36;color=self.colors.get(event.detail.get('power'),TEAL) if event.kind.startswith('divine_') else GOLD if event.kind=='death' else MUTED
-            self.label(f't{event.tick}',r.x+10,y,color)
-            line=happening(event,self.world);lines=wrap(self.small,line,r.w-100)
-            for k,text in enumerate(lines[:2]):self.label(text,r.x+80,y+k*16,INK)
+            y=r.y+35+j*36;glyph=event_glyph(event,self.world)
+            color=POWER_INK.get(glyph,TEAL) if event.kind.startswith('divine_') else GOLD if event.kind=='death' else MUTED
+            self.screen.blit(icon(glyph,16),(r.x+9,y))
+            self.label(f't{event.tick}',r.x+30,y,color)
+            line=happening(event,self.world);lines=wrap(self.small,line,r.w-125)
+            for k,text in enumerate(lines[:2]):self.label(text,r.x+105,y+k*16,INK)
             self.feed_hits.append((pygame.Rect(r.x,y,r.w,35),event))
         self.screen.set_clip(None)
 
     def draw(self):
         self.sync();self.hover=self.map_target(self.pointer);self.ui_hits=[]
-        self.screen.fill(BG);s=self.presentation.status;w=self.screen.get_width();h=self.screen.get_height()
+        self.screen.fill(BG);pygame.draw.line(self.screen,LINE,(8,57),(self.screen.get_width()-8,57));s=self.presentation.status;w=self.screen.get_width();h=self.screen.get_height()
         self.label('GNOME FORTRESS',14,12,GOLD,self.font)
         state='EXTINCT' if self.world.extinct else 'PAUSED' if self.paused else 'RUNNING'
         if self.saving or getattr(self,'checkpoint_pending',False):state+=' • SAVING'
@@ -596,7 +618,7 @@ class LivingObserver(TerrainObserver):
             self.button(rect,label,name,active)
         self.draw_world();self.draw_feed()
         if self.inspector_open:
-            pygame.draw.rect(self.screen,PANEL,self.panel_rect,border_radius=6)
+            self.screen.blit(journal_panel(self.panel_rect.w,self.panel_rect.h),self.panel_rect)
             for name,(rect,label) in self.tabs.items():self.button(rect,label,'tab:'+name,self.tab==name and not self.advisor.open)
             self.screen.set_clip(self.body)
             if self.advisor.open:self.draw_advisor_new()

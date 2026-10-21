@@ -1,0 +1,134 @@
+{
+  "baseline": "2636861062eb8762c55335943379613ed457a5b1",
+  "tracked_existing_changes": [
+    "README.md",
+    "gnome_fortress/living_viewer.py",
+    "gnome_fortress/pixel_art.py"
+  ],
+  "protected_sources": [
+    {
+      "path": "gnome_fortress/engine.py",
+      "sha256": "c29b29f5106e3ff2a905db5ce9209bcec56ffb94987643f3f4bcd5bc1ea0aec9",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/model.py",
+      "sha256": "e9049172b657da2dc103907029fbbfe07d30a88438bd44c4ebd0436c9a048229",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/camera.py",
+      "sha256": "d4e4e96a2e160be32ae43e04fb6cc25c819c44aafd003acaa822ef75630bc5d4",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/game.py",
+      "sha256": "b294005ed40fa31e18b2e7e52836fe295fd8e15c7efe4963a3fbab80535754ec",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/game_storage.py",
+      "sha256": "f10215ef0938f17f5aac2bc3abd137df6d2830f428f39bc90f0a74b8882b4015",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/terrain_game.py",
+      "sha256": "c1c7847b05d9c3879851287c9ae546f4ec1326981c15ae315f015eb6536bdcbf",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/terrain_storage.py",
+      "sha256": "e198f60c466a90a78b54b7e8b5e0f18f88bffc800e0add55e865fe76c0a06dd9",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/terrain_checkpoint.py",
+      "sha256": "5e0e9bdde830bcbf55c3f62dda531dcf29d967a0f213338d177ab1f5fa1bca7e",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/game_session.py",
+      "sha256": "7513fd826c8bf72f987f8b8d182f0cda563c050ce524c92943a968b58c786c3f",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/checkpoint_recovery.py",
+      "sha256": "17bc3b61b4b4909ae73732d7327afbf71160aa9b7e7f73b4967de074e1b8db54",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/god_viewer.py",
+      "sha256": "09143bcdc73ea5a01077a42553000fe8028d548a876a792421afb5425e63cfc8",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/terrain_viewer.py",
+      "sha256": "8957eeb0f97b4aa03f25d64cff35f8f138b0b7e1f826b223db85e12022f49993",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/viewer.py",
+      "sha256": "da7397129c11636bfb99821e51b1ba6539b9ca984c3f799f7b0b3a35ec08bf53",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/runtime.py",
+      "sha256": "942d9eaca51aac2c0fff6d6474d865ba842055d510ce80e660032ee05737ec78",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/god_world.py",
+      "sha256": "c0fb712ec6401e6bb764c8e3eae8821d91b58ad38c8116ed0e80ebc0f8a64432",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/god_demo.py",
+      "sha256": "b70266108657f811af081116f1acf2634f38ae3ee470bcc610903c3efbdb6705",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/game_presentation.py",
+      "sha256": "11efcd7f8a3eacf021a13343a10fd27f07baff2ac594f914959adcd878e143ea",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/terrain_presentation.py",
+      "sha256": "d10a3eb2f770240b346bef15ccf927dc70ec70fa615c5bf63dc944176bbab2fc",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/life_presentation.py",
+      "sha256": "c62468f3fc1d06ae120880d6d9f2d67dcb434b986f5fca17388f6b95ffbdde4c",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/advisor.py",
+      "sha256": "0be9ce3599b0d4cfb4f6b38f62dfe9c28849bc29e7258efe00d94d2ff59881fc",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/terrain_advisor.py",
+      "sha256": "7bb909553a8c6df622d20d15b3ad15bb9da9873a760a8ebb81b5c75cbafd326b",
+      "identical": true
+    },
+    {
+      "path": "gnome_fortress/storage.py",
+      "sha256": "947a628c43083211f1b94edb0700ec5df6687c7d37b2afb6d09a4c69c6e58445",
+      "identical": true
+    }
+  ],
+  "game_mode_contract_unchanged": true,
+  "previous_evidence_unchanged": true,
+  "existing_tests_unchanged": true,
+  "tags": [
+    "63c706134a928c7d0c4357ddd6f1e2ac26ee12e4 refs/tags/g1-verified",
+    "8efe13713e34d18d8bca95b6b3b154935bf256a6 refs/tags/g7-verified",
+    "f32c1a612e36b046faa501273640bbabfce5159d refs/tags/phase0-verified",
+    "232dd30ce56a4d3645efb3d1dc35cd0539deb497 refs/tags/phase1-verified",
+    "5efc9b1bfdd8d49a13aefd4e9256e6c1e87c024f refs/tags/phase2-verified",
+    "2f5213c23300e61330ea665bfb4789622bf38bc6 refs/tags/phase3-verified"
+  ],
+  "player_checkpoint": "Not opened by development commands; fresh in-memory worlds and temporary paths only",
+  "format_changes": false,
+  "new_dependencies": false
+}

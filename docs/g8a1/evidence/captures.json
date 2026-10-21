@@ -1,0 +1,252 @@
+{
+  "seed": 1,
+  "driver": "x11",
+  "human_playtest": false,
+  "captures": [
+    {
+      "name": "01-new-world",
+      "tick": 0,
+      "population": 60,
+      "selected": 1,
+      "camera_tile": 20,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "02-natural-gnomes",
+      "tick": 300,
+      "population": 88,
+      "selected": 1,
+      "camera_tile": 96,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "03-close-gnome",
+      "tick": 300,
+      "population": 88,
+      "selected": 26,
+      "camera_tile": 96,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "04-field-journal-card",
+      "tick": 300,
+      "population": 88,
+      "selected": 26,
+      "camera_tile": 96,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "05-camera-follow",
+      "tick": 320,
+      "population": 89,
+      "selected": 26,
+      "camera_tile": 96,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "06-advisor",
+      "tick": 320,
+      "population": 89,
+      "selected": 26,
+      "camera_tile": 96,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "07-world-happenings",
+      "tick": 320,
+      "population": 89,
+      "selected": 26,
+      "camera_tile": 12,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "08-divine-targeting",
+      "tick": 320,
+      "population": 89,
+      "selected": 26,
+      "camera_tile": 64,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "First interior forest tile (3-tile margin) for a visible footprint; ordinary targeting"
+    },
+    {
+      "name": "09-ruptured-land",
+      "tick": 321,
+      "population": 89,
+      "selected": 26,
+      "camera_tile": 64,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "Recorded Rupture; no direct biological intervention"
+    },
+    {
+      "name": "10-rewilded-land-history",
+      "tick": 322,
+      "population": 89,
+      "selected": 26,
+      "camera_tile": 64,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "Recorded Rewild after Rupture; prior transitions retained"
+    },
+    {
+      "name": "11-five-terrain-types",
+      "tick": 322,
+      "population": 89,
+      "selected": 26,
+      "camera_tile": 14,
+      "window": [
+        1280,
+        720
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "12-800x600",
+      "tick": 322,
+      "population": 89,
+      "selected": 1,
+      "camera_tile": 16,
+      "window": [
+        800,
+        600
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "13-1920x1080",
+      "tick": 322,
+      "population": 89,
+      "selected": 1,
+      "camera_tile": 40,
+      "window": [
+        1920,
+        1080
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "14-4k-viewport",
+      "tick": 322,
+      "population": 89,
+      "selected": 1,
+      "camera_tile": 80,
+      "window": [
+        3840,
+        2160
+      ],
+      "note": "Natural simulation; no biological events injected"
+    },
+    {
+      "name": "15-background-save",
+      "tick": 334,
+      "population": 91,
+      "selected": 1,
+      "camera_tile": 32,
+      "window": [
+        1600,
+        960
+      ],
+      "note": "Real detached writer; world stepped during save"
+    }
+  ],
+  "naturally_busiest_tile": [
+    33,
+    9
+  ],
+  "natural_occupants": 1,
+  "environmental_target": [
+    10,
+    3
+  ],
+  "final_digest": "27dd1af85dfed40a38897a870d914ae3061161c527273544b3d0752c7f9b1293",
+  "save_frames": [
+    {
+      "tick": 322,
+      "pending": true
+    },
+    {
+      "tick": 324,
+      "pending": true
+    },
+    {
+      "tick": 325,
+      "pending": true
+    },
+    {
+      "tick": 326,
+      "pending": true
+    },
+    {
+      "tick": 327,
+      "pending": true
+    },
+    {
+      "tick": 328,
+      "pending": true
+    },
+    {
+      "tick": 329,
+      "pending": true
+    },
+    {
+      "tick": 330,
+      "pending": true
+    },
+    {
+      "tick": 331,
+      "pending": true
+    },
+    {
+      "tick": 332,
+      "pending": true
+    },
+    {
+      "tick": 333,
+      "pending": true
+    },
+    {
+      "tick": 334,
+      "pending": true
+    },
+    {
+      "tick": 334,
+      "pending": true
+    }
+  ],
+  "save_load_equal": true
+}

@@ -1,0 +1,882 @@
+{
+  "baseline": "2636861062eb8762c55335943379613ed457a5b1",
+  "driver": "dummy",
+  "results": [
+    {
+      "tick": 0,
+      "window": [
+        800,
+        600
+      ],
+      "living": 60,
+      "retained": 60,
+      "events": 60,
+      "generation_seconds": 2.4400069378316402e-06,
+      "baseline_startup_seconds": 0.031217501003993675,
+      "baseline_draw": {
+        "samples": 30,
+        "median_ms": 1.8743480031844229,
+        "p95_ms": 2.5694409996503964,
+        "max_ms": 3.029607003554702
+      },
+      "folklore_startup_seconds": 0.03761865799606312,
+      "folklore_draw": {
+        "samples": 30,
+        "median_ms": 4.130405497562606,
+        "p95_ms": 4.775527995661832,
+        "max_ms": 4.849518998526037
+      },
+      "sprite_layout": {
+        "samples": 30,
+        "median_ms": 0.07407599332509562,
+        "p95_ms": 0.08085100853350013,
+        "max_ms": 0.09810199844650924
+      },
+      "zoom_and_draw": {
+        "samples": 30,
+        "median_ms": 5.01556099334266,
+        "p95_ms": 5.4988569900160655,
+        "max_ms": 7.288359003723599
+      },
+      "follow_and_draw": {
+        "samples": 30,
+        "median_ms": 4.624656001396943,
+        "p95_ms": 4.772468004375696,
+        "max_ms": 7.225698005640879
+      },
+      "event_index_sync": {
+        "samples": 30,
+        "median_ms": 0.0043199979700148106,
+        "p95_ms": 0.004989997250959277,
+        "max_ms": 0.008789997082203627
+      },
+      "cache": {
+        "gnome_native": {
+          "hits": 21,
+          "misses": 24,
+          "maxsize": 256,
+          "currsize": 24
+        },
+        "gnome_sprite": {
+          "hits": 4085,
+          "misses": 45,
+          "maxsize": 512,
+          "currsize": 45
+        },
+        "terrain_native": {
+          "hits": 39,
+          "misses": 40,
+          "maxsize": 128,
+          "currsize": 40
+        },
+        "terrain_tile": {
+          "hits": 403,
+          "misses": 79,
+          "maxsize": 512,
+          "currsize": 79
+        },
+        "illustrated_tile": {
+          "hits": 82078,
+          "misses": 482,
+          "maxsize": 1024,
+          "currsize": 482
+        },
+        "_terrain_decoration": {
+          "hits": 381,
+          "misses": 101,
+          "maxsize": 1024,
+          "currsize": 101
+        },
+        "icon": {
+          "hits": 631,
+          "misses": 6,
+          "maxsize": 128,
+          "currsize": 6
+        },
+        "journal_panel": {
+          "hits": 90,
+          "misses": 1,
+          "maxsize": 64,
+          "currsize": 1
+        }
+      },
+      "peak_rss_kib": 44232
+    },
+    {
+      "tick": 0,
+      "window": [
+        1280,
+        720
+      ],
+      "living": 60,
+      "retained": 60,
+      "events": 60,
+      "generation_seconds": 2.4400069378316402e-06,
+      "baseline_startup_seconds": 0.03659218599204905,
+      "baseline_draw": {
+        "samples": 30,
+        "median_ms": 6.162619996757712,
+        "p95_ms": 6.680521997623146,
+        "max_ms": 6.858193999505602
+      },
+      "folklore_startup_seconds": 0.040719226002693176,
+      "folklore_draw": {
+        "samples": 30,
+        "median_ms": 8.466188002785202,
+        "p95_ms": 9.290663001593202,
+        "max_ms": 10.398147001978941
+      },
+      "sprite_layout": {
+        "samples": 30,
+        "median_ms": 0.12026100012008101,
+        "p95_ms": 0.13240199768915772,
+        "max_ms": 0.15175199951045215
+      },
+      "zoom_and_draw": {
+        "samples": 30,
+        "median_ms": 7.534486998338252,
+        "p95_ms": 9.303382990765385,
+        "max_ms": 9.919800999341533
+      },
+      "follow_and_draw": {
+        "samples": 30,
+        "median_ms": 9.187976495013572,
+        "p95_ms": 9.684847987955436,
+        "max_ms": 12.811626002076082
+      },
+      "event_index_sync": {
+        "samples": 30,
+        "median_ms": 0.002910004695877433,
+        "p95_ms": 0.004899993655271828,
+        "max_ms": 0.012339995009824634
+      },
+      "cache": {
+        "gnome_native": {
+          "hits": 46,
+          "misses": 24,
+          "maxsize": 256,
+          "currsize": 24
+        },
+        "gnome_sprite": {
+          "hits": 9477,
+          "misses": 70,
+          "maxsize": 512,
+          "currsize": 70
+        },
+        "terrain_native": {
+          "hits": 78,
+          "misses": 40,
+          "maxsize": 128,
+          "currsize": 40
+        },
+        "terrain_tile": {
+          "hits": 1102,
+          "misses": 118,
+          "maxsize": 512,
+          "currsize": 118
+        },
+        "illustrated_tile": {
+          "hits": 175275,
+          "misses": 765,
+          "maxsize": 1024,
+          "currsize": 765
+        },
+        "_terrain_decoration": {
+          "hits": 611,
+          "misses": 154,
+          "maxsize": 1024,
+          "currsize": 154
+        },
+        "icon": {
+          "hits": 1268,
+          "misses": 6,
+          "maxsize": 128,
+          "currsize": 6
+        },
+        "journal_panel": {
+          "hits": 270,
+          "misses": 3,
+          "maxsize": 64,
+          "currsize": 3
+        }
+      },
+      "peak_rss_kib": 50184
+    },
+    {
+      "tick": 0,
+      "window": [
+        1920,
+        1080
+      ],
+      "living": 60,
+      "retained": 60,
+      "events": 60,
+      "generation_seconds": 2.4400069378316402e-06,
+      "baseline_startup_seconds": 0.01802299899281934,
+      "baseline_draw": {
+        "samples": 30,
+        "median_ms": 10.347981507948134,
+        "p95_ms": 11.067735002143309,
+        "max_ms": 11.539230996277183
+      },
+      "folklore_startup_seconds": 0.025653342992882244,
+      "folklore_draw": {
+        "samples": 30,
+        "median_ms": 12.358660009340383,
+        "p95_ms": 12.895997002488002,
+        "max_ms": 13.43614399957005
+      },
+      "sprite_layout": {
+        "samples": 30,
+        "median_ms": 0.06256600318010896,
+        "p95_ms": 0.07649000326637179,
+        "max_ms": 0.08166099723894149
+      },
+      "zoom_and_draw": {
+        "samples": 30,
+        "median_ms": 9.40221000200836,
+        "p95_ms": 11.895974996150471,
+        "max_ms": 12.207377993036062
+      },
+      "follow_and_draw": {
+        "samples": 30,
+        "median_ms": 11.736693501006812,
+        "p95_ms": 12.208728003315628,
+        "max_ms": 12.315390005824156
+      },
+      "event_index_sync": {
+        "samples": 30,
+        "median_ms": 0.0028600043151527643,
+        "p95_ms": 0.0033899996196851134,
+        "max_ms": 0.007809998351149261
+      },
+      "cache": {
+        "gnome_native": {
+          "hits": 84,
+          "misses": 24,
+          "maxsize": 256,
+          "currsize": 24
+        },
+        "gnome_sprite": {
+          "hits": 12979,
+          "misses": 108,
+          "maxsize": 512,
+          "currsize": 108
+        },
+        "terrain_native": {
+          "hits": 156,
+          "misses": 40,
+          "maxsize": 128,
+          "currsize": 40
+        },
+        "terrain_tile": {
+          "hits": 1931,
+          "misses": 196,
+          "maxsize": 512,
+          "currsize": 196
+        },
+        "illustrated_tile": {
+          "hits": 245977,
+          "misses": 1217,
+          "maxsize": 1024,
+          "currsize": 1024
+        },
+        "_terrain_decoration": {
+          "hits": 965,
+          "misses": 252,
+          "maxsize": 1024,
+          "currsize": 252
+        },
+        "icon": {
+          "hits": 1905,
+          "misses": 6,
+          "maxsize": 128,
+          "currsize": 6
+        },
+        "journal_panel": {
+          "hits": 450,
+          "misses": 5,
+          "maxsize": 64,
+          "currsize": 5
+        }
+      },
+      "peak_rss_kib": 59592
+    },
+    {
+      "tick": 0,
+      "window": [
+        3840,
+        2160
+      ],
+      "living": 60,
+      "retained": 60,
+      "events": 60,
+      "generation_seconds": 2.4400069378316402e-06,
+      "baseline_startup_seconds": 0.0626966940035345,
+      "baseline_draw": {
+        "samples": 30,
+        "median_ms": 6.529274993226863,
+        "p95_ms": 6.908074006787501,
+        "max_ms": 7.289928995305672
+      },
+      "folklore_startup_seconds": 0.07673056499334052,
+      "folklore_draw": {
+        "samples": 30,
+        "median_ms": 8.626975497463718,
+        "p95_ms": 9.225782006978989,
+        "max_ms": 12.476301999413408
+      },
+      "sprite_layout": {
+        "samples": 30,
+        "median_ms": 0.06171549466671422,
+        "p95_ms": 0.08902100671548396,
+        "max_ms": 0.09620100900065154
+      },
+      "zoom_and_draw": {
+        "samples": 30,
+        "median_ms": 9.967371501261368,
+        "p95_ms": 11.326588006340899,
+        "max_ms": 18.235281997476704
+      },
+      "follow_and_draw": {
+        "samples": 30,
+        "median_ms": 9.902385500026867,
+        "p95_ms": 13.939779993961565,
+        "max_ms": 16.107575997011736
+      },
+      "event_index_sync": {
+        "samples": 30,
+        "median_ms": 0.004030000127386302,
+        "p95_ms": 0.0048900110414251685,
+        "max_ms": 0.021510000806301832
+      },
+      "cache": {
+        "gnome_native": {
+          "hits": 128,
+          "misses": 24,
+          "maxsize": 256,
+          "currsize": 24
+        },
+        "gnome_sprite": {
+          "hits": 17041,
+          "misses": 152,
+          "maxsize": 512,
+          "currsize": 152
+        },
+        "terrain_native": {
+          "hits": 236,
+          "misses": 40,
+          "maxsize": 128,
+          "currsize": 40
+        },
+        "terrain_tile": {
+          "hits": 2795,
+          "misses": 276,
+          "maxsize": 512,
+          "currsize": 276
+        },
+        "illustrated_tile": {
+          "hits": 323832,
+          "misses": 1706,
+          "maxsize": 1024,
+          "currsize": 1024
+        },
+        "_terrain_decoration": {
+          "hits": 1347,
+          "misses": 359,
+          "maxsize": 1024,
+          "currsize": 359
+        },
+        "icon": {
+          "hits": 2542,
+          "misses": 6,
+          "maxsize": 128,
+          "currsize": 6
+        },
+        "journal_panel": {
+          "hits": 630,
+          "misses": 7,
+          "maxsize": 64,
+          "currsize": 7
+        }
+      },
+      "peak_rss_kib": 112472
+    },
+    {
+      "tick": 26000,
+      "window": [
+        800,
+        600
+      ],
+      "living": 386,
+      "retained": 5340,
+      "events": 290808,
+      "generation_seconds": 86.27696083499177,
+      "baseline_startup_seconds": 0.06328807699901517,
+      "baseline_draw": {
+        "samples": 30,
+        "median_ms": 2.2855630013509654,
+        "p95_ms": 2.423760000965558,
+        "max_ms": 2.651842005434446
+      },
+      "folklore_startup_seconds": 0.06608197100285906,
+      "folklore_draw": {
+        "samples": 30,
+        "median_ms": 4.259947003447451,
+        "p95_ms": 4.433183989021927,
+        "max_ms": 4.762218988616951
+      },
+      "sprite_layout": {
+        "samples": 30,
+        "median_ms": 0.414399997680448,
+        "p95_ms": 0.444366000010632,
+        "max_ms": 0.7085880060913041
+      },
+      "zoom_and_draw": {
+        "samples": 30,
+        "median_ms": 4.950611000822391,
+        "p95_ms": 5.415816995082423,
+        "max_ms": 7.514843004173599
+      },
+      "follow_and_draw": {
+        "samples": 30,
+        "median_ms": 4.660097503801808,
+        "p95_ms": 5.058201990323141,
+        "max_ms": 7.150648001697846
+      },
+      "event_index_sync": {
+        "samples": 30,
+        "median_ms": 0.0028899958124384284,
+        "p95_ms": 0.003549997927621007,
+        "max_ms": 0.007819995516911149
+      },
+      "cache": {
+        "gnome_native": {
+          "hits": 138,
+          "misses": 36,
+          "maxsize": 256,
+          "currsize": 36
+        },
+        "gnome_sprite": {
+          "hits": 39089,
+          "misses": 174,
+          "maxsize": 512,
+          "currsize": 174
+        },
+        "terrain_native": {
+          "hits": 236,
+          "misses": 40,
+          "maxsize": 128,
+          "currsize": 40
+        },
+        "terrain_tile": {
+          "hits": 3246,
+          "misses": 276,
+          "maxsize": 512,
+          "currsize": 276
+        },
+        "illustrated_tile": {
+          "hits": 407381,
+          "misses": 2157,
+          "maxsize": 1024,
+          "currsize": 1024
+        },
+        "_terrain_decoration": {
+          "hits": 1798,
+          "misses": 359,
+          "maxsize": 1024,
+          "currsize": 359
+        },
+        "icon": {
+          "hits": 3177,
+          "misses": 8,
+          "maxsize": 128,
+          "currsize": 8
+        },
+        "journal_panel": {
+          "hits": 721,
+          "misses": 7,
+          "maxsize": 64,
+          "currsize": 7
+        }
+      },
+      "peak_rss_kib": 536132
+    },
+    {
+      "tick": 26000,
+      "window": [
+        1280,
+        720
+      ],
+      "living": 386,
+      "retained": 5340,
+      "events": 290808,
+      "generation_seconds": 86.27696083499177,
+      "baseline_startup_seconds": 0.06942738199722953,
+      "baseline_draw": {
+        "samples": 30,
+        "median_ms": 6.828343495726585,
+        "p95_ms": 7.12474700412713,
+        "max_ms": 7.290360008482821
+      },
+      "folklore_startup_seconds": 0.07200785299937706,
+      "folklore_draw": {
+        "samples": 30,
+        "median_ms": 9.1383075050544,
+        "p95_ms": 9.405215998413041,
+        "max_ms": 9.506176997092552
+      },
+      "sprite_layout": {
+        "samples": 30,
+        "median_ms": 0.6226574987522326,
+        "p95_ms": 0.6509480008389801,
+        "max_ms": 1.3503070076694712
+      },
+      "zoom_and_draw": {
+        "samples": 30,
+        "median_ms": 7.261778999236412,
+        "p95_ms": 9.136421998846345,
+        "max_ms": 9.163233000435866
+      },
+      "follow_and_draw": {
+        "samples": 30,
+        "median_ms": 9.174057995551266,
+        "p95_ms": 9.281904000090435,
+        "max_ms": 10.205334998317994
+      },
+      "event_index_sync": {
+        "samples": 30,
+        "median_ms": 0.0029850052669644356,
+        "p95_ms": 0.004759989678859711,
+        "max_ms": 0.015290002920664847
+      },
+      "cache": {
+        "gnome_native": {
+          "hits": 155,
+          "misses": 41,
+          "maxsize": 256,
+          "currsize": 41
+        },
+        "gnome_sprite": {
+          "hits": 71580,
+          "misses": 196,
+          "maxsize": 512,
+          "currsize": 196
+        },
+        "terrain_native": {
+          "hits": 236,
+          "misses": 40,
+          "maxsize": 128,
+          "currsize": 40
+        },
+        "terrain_tile": {
+          "hits": 3961,
+          "misses": 276,
+          "maxsize": 512,
+          "currsize": 276
+        },
+        "illustrated_tile": {
+          "hits": 501951,
+          "misses": 2417,
+          "maxsize": 1024,
+          "currsize": 1024
+        },
+        "_terrain_decoration": {
+          "hits": 2058,
+          "misses": 359,
+          "maxsize": 1024,
+          "currsize": 359
+        },
+        "icon": {
+          "hits": 3814,
+          "misses": 8,
+          "maxsize": 128,
+          "currsize": 8
+        },
+        "journal_panel": {
+          "hits": 903,
+          "misses": 7,
+          "maxsize": 64,
+          "currsize": 7
+        }
+      },
+      "peak_rss_kib": 536340
+    },
+    {
+      "tick": 26000,
+      "window": [
+        1920,
+        1080
+      ],
+      "living": 386,
+      "retained": 5340,
+      "events": 290808,
+      "generation_seconds": 86.27696083499177,
+      "baseline_startup_seconds": 0.07025116299337242,
+      "baseline_draw": {
+        "samples": 30,
+        "median_ms": 10.956499492749572,
+        "p95_ms": 11.878575998707674,
+        "max_ms": 12.028887998894788
+      },
+      "folklore_startup_seconds": 0.07191430300008506,
+      "folklore_draw": {
+        "samples": 30,
+        "median_ms": 13.57645149983,
+        "p95_ms": 14.372335994266905,
+        "max_ms": 15.138065995415673
+      },
+      "sprite_layout": {
+        "samples": 30,
+        "median_ms": 0.42706549720605835,
+        "p95_ms": 0.4931760049657896,
+        "max_ms": 0.6268879951676354
+      },
+      "zoom_and_draw": {
+        "samples": 30,
+        "median_ms": 9.20129850419471,
+        "p95_ms": 14.108762989053503,
+        "max_ms": 15.105435988516547
+      },
+      "follow_and_draw": {
+        "samples": 30,
+        "median_ms": 6.849769502878189,
+        "p95_ms": 7.5662029994418845,
+        "max_ms": 7.7537960023619235
+      },
+      "event_index_sync": {
+        "samples": 30,
+        "median_ms": 0.0036899946280755103,
+        "p95_ms": 0.004489993443712592,
+        "max_ms": 0.011650001397356391
+      },
+      "cache": {
+        "gnome_native": {
+          "hits": 192,
+          "misses": 43,
+          "maxsize": 256,
+          "currsize": 43
+        },
+        "gnome_sprite": {
+          "hits": 94850,
+          "misses": 235,
+          "maxsize": 512,
+          "currsize": 235
+        },
+        "terrain_native": {
+          "hits": 236,
+          "misses": 40,
+          "maxsize": 128,
+          "currsize": 40
+        },
+        "terrain_tile": {
+          "hits": 4892,
+          "misses": 276,
+          "maxsize": 512,
+          "currsize": 276
+        },
+        "illustrated_tile": {
+          "hits": 572629,
+          "misses": 2893,
+          "maxsize": 1024,
+          "currsize": 1024
+        },
+        "_terrain_decoration": {
+          "hits": 2532,
+          "misses": 361,
+          "maxsize": 1024,
+          "currsize": 361
+        },
+        "icon": {
+          "hits": 4451,
+          "misses": 8,
+          "maxsize": 128,
+          "currsize": 8
+        },
+        "journal_panel": {
+          "hits": 1085,
+          "misses": 7,
+          "maxsize": 64,
+          "currsize": 7
+        }
+      },
+      "peak_rss_kib": 536340
+    },
+    {
+      "tick": 26000,
+      "window": [
+        3840,
+        2160
+      ],
+      "living": 386,
+      "retained": 5340,
+      "events": 290808,
+      "generation_seconds": 86.27696083499177,
+      "baseline_startup_seconds": 0.08437500700529199,
+      "baseline_draw": {
+        "samples": 30,
+        "median_ms": 9.548872498271521,
+        "p95_ms": 10.451039008330554,
+        "max_ms": 11.802054999861866
+      },
+      "folklore_startup_seconds": 0.08858668900211342,
+      "folklore_draw": {
+        "samples": 30,
+        "median_ms": 11.257863501668908,
+        "p95_ms": 12.027697986923158,
+        "max_ms": 13.636977004352957
+      },
+      "sprite_layout": {
+        "samples": 30,
+        "median_ms": 0.37023450568085536,
+        "p95_ms": 0.46609599667135626,
+        "max_ms": 0.5038359959144145
+      },
+      "zoom_and_draw": {
+        "samples": 30,
+        "median_ms": 11.702433999744244,
+        "p95_ms": 13.813290002872236,
+        "max_ms": 17.18924099986907
+      },
+      "follow_and_draw": {
+        "samples": 30,
+        "median_ms": 13.555025994719472,
+        "p95_ms": 14.268825005274266,
+        "max_ms": 14.332976003061049
+      },
+      "event_index_sync": {
+        "samples": 30,
+        "median_ms": 0.003025001205969602,
+        "p95_ms": 0.0038900034269317985,
+        "max_ms": 0.013320008292794228
+      },
+      "cache": {
+        "gnome_native": {
+          "hits": 227,
+          "misses": 43,
+          "maxsize": 256,
+          "currsize": 43
+        },
+        "gnome_sprite": {
+          "hits": 119313,
+          "misses": 270,
+          "maxsize": 512,
+          "currsize": 270
+        },
+        "terrain_native": {
+          "hits": 236,
+          "misses": 40,
+          "maxsize": 128,
+          "currsize": 40
+        },
+        "terrain_tile": {
+          "hits": 5867,
+          "misses": 276,
+          "maxsize": 512,
+          "currsize": 276
+        },
+        "illustrated_tile": {
+          "hits": 651713,
+          "misses": 3413,
+          "maxsize": 1024,
+          "currsize": 1024
+        },
+        "_terrain_decoration": {
+          "hits": 3052,
+          "misses": 361,
+          "maxsize": 1024,
+          "currsize": 361
+        },
+        "icon": {
+          "hits": 5088,
+          "misses": 8,
+          "maxsize": 128,
+          "currsize": 8
+        },
+        "journal_panel": {
+          "hits": 1267,
+          "misses": 7,
+          "maxsize": 64,
+          "currsize": 7
+        }
+      },
+      "peak_rss_kib": 536572
+    }
+  ],
+  "dense": {
+    "fixture": "60 founders placed on one tile, presentation-only fixture",
+    "draw": {
+      "samples": 30,
+      "median_ms": 1.3835270001436584,
+      "p95_ms": 1.5476889966521412,
+      "max_ms": 1.6675499937264249
+    },
+    "visible": 9
+  },
+  "large_history_capture": {
+    "samples": 3,
+    "median_ms": 466.64575500471983,
+    "p95_ms": 466.64575500471983,
+    "max_ms": 593.0088960012654
+  },
+  "cache": {
+    "gnome_native": {
+      "hits": 230,
+      "misses": 48,
+      "maxsize": 256,
+      "currsize": 48
+    },
+    "gnome_sprite": {
+      "hits": 136369,
+      "misses": 278,
+      "maxsize": 512,
+      "currsize": 278
+    },
+    "terrain_native": {
+      "hits": 236,
+      "misses": 40,
+      "maxsize": 128,
+      "currsize": 40
+    },
+    "terrain_tile": {
+      "hits": 6570,
+      "misses": 276,
+      "maxsize": 512,
+      "currsize": 276
+    },
+    "illustrated_tile": {
+      "hits": 719055,
+      "misses": 3656,
+      "maxsize": 1024,
+      "currsize": 1024
+    },
+    "_terrain_decoration": {
+      "hits": 3295,
+      "misses": 361,
+      "maxsize": 1024,
+      "currsize": 361
+    },
+    "icon": {
+      "hits": 5732,
+      "misses": 8,
+      "maxsize": 128,
+      "currsize": 8
+    },
+    "journal_panel": {
+      "hits": 1451,
+      "misses": 7,
+      "maxsize": 64,
+      "currsize": 7
+    }
+  },
+  "mature_background_save": {
+    "capture_start_ms": 505.9911179996561,
+    "frames": 60,
+    "pending_frames": 60,
+    "first_tick": 26000,
+    "final_tick": 26060,
+    "draw_and_step_median_ms": 19.7739229988656,
+    "draw_and_step_max_ms": 53.0340819968842,
+    "snapshot_continuation_equal": true
+  }
+}

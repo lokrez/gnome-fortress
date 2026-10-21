@@ -1,0 +1,2 @@
+pygame-ce 2.5.8 (SDL 2.32.10, Python 3.14.4)
+{"born": 60, "checkpoint": "/tmp/gnome-g8a1-desktop-9PWYUj/desktop.g5.sqlite", "dead": 0, "digest": "688bb5f795c84947f2b38358da20fba1ada0ca8072986b83ab4bf0e56c8b929a", "events": {"birth": 60}, "extinct": false, "interventions": 0, "living": 60, "tick": 0}
