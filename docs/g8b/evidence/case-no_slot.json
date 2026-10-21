@@ -1,0 +1,68 @@
+{
+  "seed": 1,
+  "identity": 1,
+  "traits": {
+    "curiosity": 78,
+    "caution": 40,
+    "sociability": 34,
+    "fertility": 40,
+    "stamina": 36,
+    "vision": 73
+  },
+  "record": {
+    "tick": 19,
+    "identity": 1,
+    "scheduled": false,
+    "biology_before": {
+      "x": 11,
+      "y": 6,
+      "age": 202,
+      "health": 100,
+      "hunger": 28,
+      "thirst": 16,
+      "fatigue": 18,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "biology_after": {
+      "x": 11,
+      "y": 6,
+      "age": 203,
+      "health": 100,
+      "hunger": 29,
+      "thirst": 18,
+      "fatigue": 19,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "decision": null,
+    "status": "No decision slot: eligible but not assigned.",
+    "biology_events": [],
+    "tick_end": {
+      "x": 11,
+      "y": 6,
+      "age": 203,
+      "health": 100,
+      "hunger": 29,
+      "thirst": 18,
+      "fatigue": 19,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    }
+  }
+}

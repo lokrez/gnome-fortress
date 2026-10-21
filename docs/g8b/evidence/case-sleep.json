@@ -1,0 +1,141 @@
+{
+  "seed": 1,
+  "identity": 1,
+  "traits": {
+    "curiosity": 78,
+    "caution": 40,
+    "sociability": 34,
+    "fertility": 40,
+    "stamina": 36,
+    "vision": 73
+  },
+  "record": {
+    "tick": 65,
+    "identity": 1,
+    "scheduled": true,
+    "biology_before": {
+      "x": 18,
+      "y": 10,
+      "age": 248,
+      "health": 81,
+      "hunger": 14,
+      "thirst": 18,
+      "fatigue": 64,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "biology_after": {
+      "x": 18,
+      "y": 10,
+      "age": 249,
+      "health": 82,
+      "hunger": 15,
+      "thirst": 20,
+      "fatigue": 65,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "decision": {
+      "before": {
+        "x": 18,
+        "y": 10,
+        "age": 249,
+        "health": 82,
+        "hunger": 15,
+        "thirst": 20,
+        "fatigue": 65,
+        "sleep_until": 0,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "move"
+      },
+      "after": {
+        "x": 18,
+        "y": 10,
+        "age": 249,
+        "health": 82,
+        "hunger": 15,
+        "thirst": 20,
+        "fatigue": 65,
+        "sleep_until": 77,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "sleep"
+      },
+      "action": "sleep",
+      "rule": "Sleeping rule: fatigue >= 65, hunger < 80, thirst < 75.",
+      "checks": [
+        {
+          "source": "a.thirst >= 30 and self._drinkable(a.x, a.y)",
+          "entered": false
+        },
+        {
+          "source": "a.hunger >= 30 and c.food >= 10",
+          "entered": false
+        },
+        {
+          "source": "a.fatigue >= 65 and a.hunger < 80 and a.thirst < 75",
+          "entered": true
+        }
+      ],
+      "random_attempts": [],
+      "random_attempt_count": 0,
+      "movement": null,
+      "learning": [],
+      "peers": [],
+      "events": [
+        {
+          "index": 329,
+          "tick": 65,
+          "kind": "sleep",
+          "actor": 1,
+          "target": null,
+          "detail": {
+            "until": 77
+          }
+        }
+      ],
+      "complete": true,
+      "nearby_count": 0,
+      "context": {
+        "terrain": "forest",
+        "food": 86
+      },
+      "unavailable": null
+    },
+    "status": "Decision recorded.",
+    "biology_events": [],
+    "tick_end": {
+      "x": 18,
+      "y": 10,
+      "age": 249,
+      "health": 82,
+      "hunger": 15,
+      "thirst": 20,
+      "fatigue": 65,
+      "sleep_until": 77,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "sleep"
+    }
+  }
+}

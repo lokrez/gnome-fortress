@@ -1,0 +1,221 @@
+{
+  "seed": 1,
+  "identity": 1,
+  "traits": {
+    "curiosity": 78,
+    "caution": 40,
+    "sociability": 34,
+    "fertility": 40,
+    "stamina": 36,
+    "vision": 73
+  },
+  "record": {
+    "tick": 47,
+    "identity": 1,
+    "scheduled": true,
+    "biology_before": {
+      "x": 14,
+      "y": 16,
+      "age": 230,
+      "health": 78,
+      "hunger": 26,
+      "thirst": 12,
+      "fatigue": 46,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "biology_after": {
+      "x": 14,
+      "y": 16,
+      "age": 231,
+      "health": 78,
+      "hunger": 27,
+      "thirst": 14,
+      "fatigue": 47,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "decision": {
+      "before": {
+        "x": 14,
+        "y": 16,
+        "age": 231,
+        "health": 78,
+        "hunger": 27,
+        "thirst": 14,
+        "fatigue": 47,
+        "sleep_until": 0,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "move"
+      },
+      "after": {
+        "x": 14,
+        "y": 16,
+        "age": 231,
+        "health": 78,
+        "hunger": 27,
+        "thirst": 14,
+        "fatigue": 47,
+        "sleep_until": 0,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "socialize"
+      },
+      "action": "socialize",
+      "rule": "Social rule: nearby peers, qualifying needs and a successful existing probability check.",
+      "checks": [
+        {
+          "source": "a.thirst >= 30 and self._drinkable(a.x, a.y)",
+          "entered": false
+        },
+        {
+          "source": "a.hunger >= 30 and c.food >= 10",
+          "entered": false
+        },
+        {
+          "source": "a.fatigue >= 65 and a.hunger < 80 and a.thirst < 75",
+          "entered": false
+        },
+        {
+          "source": "a.age >= 180 and a.cooldown == 0 and a.health >= 70 and a.hunger < 60 and a.thirst < 60",
+          "entered": true
+        },
+        {
+          "source": "nearby and a.hunger < 65 and a.thirst < 65 and self.rng.randrange(100) < a.traits[\"sociability\"] // 5",
+          "entered": true
+        },
+        {
+          "source": "b.age >= 180 and b.cooldown == 0 and b.health >= 70 and\n                    b.hunger < 60 and b.thirst < 60 and\n                    self.rng.randrange(1000) < (a.traits[\"fertility\"] + b.traits[\"fertility\"]) // 3",
+          "entered": false
+        }
+      ],
+      "random_attempts": [
+        {
+          "line": 209,
+          "bound": 100,
+          "sample": 0,
+          "role": "social probability",
+          "partner": null
+        },
+        {
+          "line": 210,
+          "bound": 1,
+          "sample": 0,
+          "role": "social partner selection",
+          "partner": null
+        }
+      ],
+      "random_attempt_count": 2,
+      "movement": null,
+      "learning": [
+        {
+          "key": "socialize:peer",
+          "previous": 0,
+          "current": 0,
+          "reward": 3,
+          "action": "socialize",
+          "feature": "peer",
+          "position": [
+            14,
+            16
+          ]
+        }
+      ],
+      "peers": [
+        {
+          "identity": 46,
+          "before": {
+            "x": 14,
+            "y": 16,
+            "age": 169,
+            "health": 87,
+            "hunger": 27,
+            "thirst": 12,
+            "fatigue": 47,
+            "sleep_until": 0,
+            "alive": true,
+            "died": null,
+            "death_cause": null,
+            "cooldown": 0,
+            "children": 0,
+            "action": "move"
+          },
+          "after": {
+            "x": 14,
+            "y": 16,
+            "age": 169,
+            "health": 87,
+            "hunger": 27,
+            "thirst": 12,
+            "fatigue": 47,
+            "sleep_until": 0,
+            "alive": true,
+            "died": null,
+            "death_cause": null,
+            "cooldown": 0,
+            "children": 0,
+            "action": "move"
+          },
+          "outgoing_before": 0,
+          "outgoing_after": 3,
+          "incoming_before": 0,
+          "incoming_after": 2
+        }
+      ],
+      "events": [
+        {
+          "index": 224,
+          "tick": 47,
+          "kind": "social",
+          "actor": 1,
+          "target": 46,
+          "detail": {
+            "reward": 3
+          }
+        }
+      ],
+      "complete": true,
+      "nearby_count": 1,
+      "context": {
+        "terrain": "grass",
+        "food": 20
+      },
+      "unavailable": null
+    },
+    "status": "Decision recorded.",
+    "biology_events": [],
+    "tick_end": {
+      "x": 14,
+      "y": 16,
+      "age": 231,
+      "health": 78,
+      "hunger": 27,
+      "thirst": 14,
+      "fatigue": 47,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "socialize"
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "seed": 1,
+  "identity": 1,
+  "traits": {
+    "curiosity": 78,
+    "caution": 40,
+    "sociability": 34,
+    "fertility": 40,
+    "stamina": 36,
+    "vision": 73
+  },
+  "record": {
+    "tick": 20,
+    "identity": 1,
+    "scheduled": true,
+    "biology_before": {
+      "x": 11,
+      "y": 6,
+      "age": 203,
+      "health": 100,
+      "hunger": 29,
+      "thirst": 18,
+      "fatigue": 19,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "biology_after": {
+      "x": 11,
+      "y": 6,
+      "age": 204,
+      "health": 100,
+      "hunger": 30,
+      "thirst": 20,
+      "fatigue": 20,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "decision": {
+      "before": {
+        "x": 11,
+        "y": 6,
+        "age": 204,
+        "health": 100,
+        "hunger": 30,
+        "thirst": 20,
+        "fatigue": 20,
+        "sleep_until": 0,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "move"
+      },
+      "after": {
+        "x": 11,
+        "y": 6,
+        "age": 204,
+        "health": 100,
+        "hunger": 0,
+        "thirst": 20,
+        "fatigue": 20,
+        "sleep_until": 0,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "eat"
+      },
+      "action": "eat",
+      "rule": "Eating rule: hunger >= 30 and local food >= 10.",
+      "checks": [
+        {
+          "source": "a.thirst >= 30 and self._drinkable(a.x, a.y)",
+          "entered": false
+        },
+        {
+          "source": "a.hunger >= 30 and c.food >= 10",
+          "entered": true
+        }
+      ],
+      "random_attempts": [],
+      "random_attempt_count": 0,
+      "movement": null,
+      "learning": [
+        {
+          "key": "eat:grass",
+          "previous": 0,
+          "current": 10,
+          "reward": 40,
+          "action": "eat",
+          "feature": "grass",
+          "position": [
+            11,
+            6
+          ]
+        }
+      ],
+      "peers": [],
+      "events": [],
+      "complete": true,
+      "nearby_count": 0,
+      "context": {
+        "terrain": "grass",
+        "food": 40
+      },
+      "unavailable": null
+    },
+    "status": "Decision recorded.",
+    "biology_events": [],
+    "tick_end": {
+      "x": 11,
+      "y": 6,
+      "age": 204,
+      "health": 100,
+      "hunger": 0,
+      "thirst": 20,
+      "fatigue": 20,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "eat"
+    }
+  }
+}

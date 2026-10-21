@@ -37,6 +37,25 @@ Persistence update: [G8A.2 — The Endless Chronicle](docs/g8a2/RESULTS.md)
 reuses prepared history for warmed autosaves while keeping complete compatible saves.
 Immediate cold saves and initial history preparation can still pause; see the measured limits.
 
+## Observe decisions — A Life Observed (G8B)
+
+Select a living gnome, press **F4** (the **Acts F4** journal tab), then **U** or
+**Observe U**. This starts recording future decisions for that identity.
+**Space** pauses; **.** advances one complete world tick. **[ / ]** or Older/Newer
+browse exact observed ticks; Latest returns to the live tail. Wheel over the
+journal scrolls the explanation; More detail exposes executed conditions,
+actual random checks, peer changes and objective event references. C still
+follows the selected living identity; Life and Family remain available.
+
+The journal shows real rules, movement candidate totals, outcomes and association
+updates. Sleeping/unscheduled ticks explicitly have no new decision. The buffer
+retains 128 ticks, stops after death, and is discarded when selecting a different
+identity or closing the game. Earlier decisions are not reconstructed from saves.
+O disarms divine targeting; U independently controls decision observation.
+
+[Results and limitations](docs/g8b/RESULTS.md) · [trace schema](docs/g8b/TRACE_SCHEMA.md) ·
+[natural cases](docs/g8b/CASE_STUDIES.md) · [performance](docs/g8b/PERFORMANCE.md).
+
 ## Run the research observer
 
 Python 3.11 or newer is required. This checkout already has an isolated `.venv` with

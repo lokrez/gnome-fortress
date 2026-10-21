@@ -1,0 +1,135 @@
+{
+  "seed": 42,
+  "identity": 1,
+  "traits": {
+    "curiosity": 65,
+    "caution": 31,
+    "sociability": 20,
+    "fertility": 67,
+    "stamina": 41,
+    "vision": 70
+  },
+  "record": {
+    "tick": 10,
+    "identity": 1,
+    "scheduled": true,
+    "biology_before": {
+      "x": 19,
+      "y": 14,
+      "age": 204,
+      "health": 100,
+      "hunger": 19,
+      "thirst": 28,
+      "fatigue": 9,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "biology_after": {
+      "x": 19,
+      "y": 14,
+      "age": 205,
+      "health": 100,
+      "hunger": 20,
+      "thirst": 30,
+      "fatigue": 10,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "decision": {
+      "before": {
+        "x": 19,
+        "y": 14,
+        "age": 205,
+        "health": 100,
+        "hunger": 20,
+        "thirst": 30,
+        "fatigue": 10,
+        "sleep_until": 0,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "move"
+      },
+      "after": {
+        "x": 19,
+        "y": 14,
+        "age": 205,
+        "health": 100,
+        "hunger": 20,
+        "thirst": 0,
+        "fatigue": 10,
+        "sleep_until": 0,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "drink"
+      },
+      "action": "drink",
+      "rule": "Drinking rule: thirst >= 30 and accessible water.",
+      "checks": [
+        {
+          "source": "a.thirst >= 30 and self._drinkable(a.x, a.y)",
+          "entered": true
+        }
+      ],
+      "random_attempts": [],
+      "random_attempt_count": 0,
+      "movement": null,
+      "learning": [
+        {
+          "key": "drink:water",
+          "previous": 0,
+          "current": 15,
+          "reward": 60,
+          "action": "drink",
+          "feature": "water",
+          "position": [
+            19,
+            14
+          ]
+        }
+      ],
+      "peers": [],
+      "events": [],
+      "complete": true,
+      "nearby_count": 0,
+      "context": {
+        "terrain": "grass",
+        "food": 23
+      },
+      "unavailable": null
+    },
+    "status": "Decision recorded.",
+    "biology_events": [],
+    "tick_end": {
+      "x": 19,
+      "y": 14,
+      "age": 205,
+      "health": 100,
+      "hunger": 20,
+      "thirst": 0,
+      "fatigue": 10,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "drink"
+    }
+  }
+}

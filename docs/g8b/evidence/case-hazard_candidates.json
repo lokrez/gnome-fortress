@@ -1,0 +1,419 @@
+{
+  "seed": 1,
+  "identity": 1,
+  "traits": {
+    "curiosity": 78,
+    "caution": 40,
+    "sociability": 34,
+    "fertility": 40,
+    "stamina": 36,
+    "vision": 73
+  },
+  "record": {
+    "tick": 12,
+    "identity": 1,
+    "scheduled": true,
+    "biology_before": {
+      "x": 8,
+      "y": 10,
+      "age": 195,
+      "health": 100,
+      "hunger": 21,
+      "thirst": 2,
+      "fatigue": 11,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "biology_after": {
+      "x": 8,
+      "y": 10,
+      "age": 196,
+      "health": 100,
+      "hunger": 22,
+      "thirst": 4,
+      "fatigue": 12,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "decision": {
+      "before": {
+        "x": 8,
+        "y": 10,
+        "age": 196,
+        "health": 100,
+        "hunger": 22,
+        "thirst": 4,
+        "fatigue": 12,
+        "sleep_until": 0,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "move"
+      },
+      "after": {
+        "x": 8,
+        "y": 9,
+        "age": 196,
+        "health": 100,
+        "hunger": 22,
+        "thirst": 4,
+        "fatigue": 12,
+        "sleep_until": 0,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "move"
+      },
+      "action": "move",
+      "rule": "Movement fallback: higher-priority actions were not selected.",
+      "checks": [
+        {
+          "source": "a.thirst >= 30 and self._drinkable(a.x, a.y)",
+          "entered": false
+        },
+        {
+          "source": "a.hunger >= 30 and c.food >= 10",
+          "entered": false
+        },
+        {
+          "source": "a.fatigue >= 65 and a.hunger < 80 and a.thirst < 75",
+          "entered": false
+        },
+        {
+          "source": "a.age >= 180 and a.cooldown == 0 and a.health >= 70 and a.hunger < 60 and a.thirst < 60",
+          "entered": true
+        },
+        {
+          "source": "nearby and a.hunger < 65 and a.thirst < 65 and self.rng.randrange(100) < a.traits[\"sociability\"] // 5",
+          "entered": false
+        }
+      ],
+      "random_attempts": [],
+      "random_attempt_count": 0,
+      "movement": {
+        "origin": [
+          8,
+          10
+        ],
+        "candidates": [
+          {
+            "score": 11,
+            "x": 8,
+            "y": 9,
+            "terrain": "grass",
+            "learned_contribution": 0
+          },
+          {
+            "score": 0,
+            "x": 9,
+            "y": 10,
+            "terrain": "grass",
+            "learned_contribution": 0
+          },
+          {
+            "score": -3,
+            "x": 8,
+            "y": 11,
+            "terrain": "hazard",
+            "learned_contribution": 0
+          },
+          {
+            "score": -11,
+            "x": 7,
+            "y": 10,
+            "terrain": "hazard",
+            "learned_contribution": 0
+          }
+        ],
+        "best": 11,
+        "tied": false,
+        "choice_called": true,
+        "destination": [
+          8,
+          9
+        ],
+        "observed_food": [
+          [
+            8,
+            5
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            9,
+            6
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            7
+          ],
+          [
+            9,
+            7
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            8
+          ],
+          [
+            10,
+            8
+          ],
+          [
+            11,
+            8
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            9
+          ],
+          [
+            12,
+            9
+          ],
+          [
+            4,
+            10
+          ],
+          [
+            5,
+            10
+          ],
+          [
+            6,
+            10
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            10
+          ],
+          [
+            12,
+            10
+          ],
+          [
+            13,
+            10
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            5,
+            11
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            7,
+            11
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            11
+          ],
+          [
+            6,
+            12
+          ],
+          [
+            9,
+            12
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            11,
+            12
+          ],
+          [
+            6,
+            13
+          ],
+          [
+            7,
+            13
+          ],
+          [
+            8,
+            13
+          ],
+          [
+            9,
+            13
+          ],
+          [
+            10,
+            13
+          ],
+          [
+            7,
+            14
+          ],
+          [
+            8,
+            14
+          ],
+          [
+            9,
+            14
+          ],
+          [
+            8,
+            15
+          ]
+        ],
+        "observed_water": [
+          [
+            11,
+            9
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            5,
+            12
+          ],
+          [
+            7,
+            12
+          ],
+          [
+            8,
+            12
+          ]
+        ],
+        "observed_peers": [],
+        "observed_peer_count": 0
+      },
+      "learning": [
+        {
+          "key": "move:grass",
+          "previous": 0,
+          "current": 0,
+          "reward": 0,
+          "action": "move",
+          "feature": "grass",
+          "position": [
+            8,
+            9
+          ]
+        }
+      ],
+      "peers": [],
+      "events": [],
+      "complete": true,
+      "nearby_count": 0,
+      "context": {
+        "terrain": "grass",
+        "food": 30
+      },
+      "unavailable": null
+    },
+    "status": "Decision recorded.",
+    "biology_events": [],
+    "tick_end": {
+      "x": 8,
+      "y": 9,
+      "age": 196,
+      "health": 100,
+      "hunger": 22,
+      "thirst": 4,
+      "fatigue": 12,
+      "sleep_until": 0,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    }
+  }
+}

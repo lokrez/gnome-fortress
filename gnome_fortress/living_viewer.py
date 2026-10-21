@@ -6,6 +6,8 @@ import time
 import pygame
 
 from .camera import Camera
+from .decision_observation import DecisionObservation
+from .decision_presentation import observation_lines
 from .pixel_art import (appearance,gnome_sprite,terrain_tile,illustrated_tile,
                         death_portrait,icon,journal_panel,INK,MUTED,GOLD,TEAL,PARCHMENT,PAPER,LEATHER)
 from .terrain_viewer import TerrainObserver
@@ -64,6 +66,8 @@ class LivingObserver(TerrainObserver):
         self.follow_note='';self.hits=[];self.feed_hits=[];self.ui_hits=[];self.advisor_hits=[]
         self.selected=next(iter(world._living_agents),self.selected)
         self.tab='gnome';self.detail_offset=0;self.camera=None
+        self.decisions=DecisionObservation();self.decision_tick=None;self.decision_scroll=0;self.decision_details=False
+        self.decision_text_key=None;self.decision_text=[]
         self.layout(size)
         self.camera=Camera(world.width,world.height,self.viewport,24)
         fit=self.camera.minimum;self.camera.tile=next((n for n in self.camera.levels if n>=fit*1.4),96);self.camera.clamp()
@@ -94,7 +98,7 @@ class LivingObserver(TerrainObserver):
         if self.camera:self.camera.resize(self.viewport)
         self.feed_button=pygame.Rect(self.event_rect.right-98,self.event_rect.y+4,92,25)
         self.tabs={};names=[('gnome','Overview'),('details','Details'),('life','Life'),('family','Family'),
-                            ('terrain','Land'),('powers','Powers'),('statistics','World')]
+                            ('terrain','Land'),('powers','Powers'),('statistics','World'),('decisions','Acts F4')]
         gap=5;cell=(panel_width-16-gap*3)//4
         for i,(name,label) in enumerate(names):self.tabs[name]=(pygame.Rect(self.panel_rect.x+8+(i%4)*(cell+gap),self.content_top+(i//4)*33,cell,28),label)
         self.body=pygame.Rect(self.panel_rect.x+12,self.content_top+76,panel_width-24,self.panel_rect.height-88)
@@ -148,6 +152,9 @@ class LivingObserver(TerrainObserver):
         previous=self.selected
         result=super().select_individual(identity)
         if result and previous!=identity:
+            if hasattr(self,'decisions'):
+                self.decisions.stop(self.world);self.decisions.records.clear();self.decisions.identity=None
+                self.decision_tick=None;self.decision_scroll=0
             self.follow_id=None;self.follow_note='';self.detail_offset=0
         return result
 
@@ -171,7 +178,7 @@ class LivingObserver(TerrainObserver):
                 p=self.world.interventions[latest-1];self.tile_xy=(p.x,p.y)
             self.tile_start=0;self.tile_tail=True
         elif destination=='events':self.feed_mode=2;self.event_offset=0
-        else:self.tab=destination if destination in ('powers','statistics','details') else 'gnome'
+        else:self.tab=destination if destination in ('powers','statistics','details','decisions') else 'gnome'
         self.layout(self.screen.get_size())
 
     def map_target(self,pos):return self.camera.screen_to_world(pos) if self.camera else None
@@ -207,6 +214,15 @@ class LivingObserver(TerrainObserver):
             self.inspector_open=not self.inspector_open
             if not self.inspector_open:self.advisor.open=False
             self.layout(self.screen.get_size())
+        elif name=='decision-observe':
+            self.set_mode(None);self.advisor.open=False;self.inspector_open=True;self.tab='decisions'
+            if self.decisions.enabled:self.decisions.stop(self.world)
+            elif not self.decisions.start(self.world,self.selected):self.notice=self.decisions.error or 'Select a living individual to begin decision observation.'
+            self.layout(self.screen.get_size())
+        elif name=='decision-details':self.decision_details=not self.decision_details;self.decision_scroll=0
+        elif name=='decision-latest':self.decision_tick=None;self.decision_scroll=0
+        elif name in ('decision-older','decision-newer'):
+            self.browse_decisions(-1 if name=='decision-older' else 1)
         elif name=='food':self.food_overlay=not self.food_overlay
         elif name=='feed':self.feed_mode=1 if self.feed_mode==2 else 2;self.layout(self.screen.get_size())
         elif name=='watch':self.toggle_watch()
@@ -255,14 +271,17 @@ class LivingObserver(TerrainObserver):
                 elif k==pygame.K_w:self.set_mode(None);self.toggle_watch();self.inspector_open=True;self.layout(self.screen.get_size())
                 elif k==pygame.K_t:
                     was=self.tile_select;self.set_mode(None);self.tile_select=not was;self.tab='terrain' if self.tile_select else 'gnome';self.inspector_open=True;self.layout(self.screen.get_size())
-                elif k in (pygame.K_F1,pygame.K_F2,pygame.K_F3):
-                    self.navigate({pygame.K_F1:'gnome',pygame.K_F2:'powers',pygame.K_F3:'life'}[k])
+                elif k==pygame.K_u:self.action('decision-observe')
+                elif k in (pygame.K_F1,pygame.K_F2,pygame.K_F3,pygame.K_F4):
+                    self.navigate({pygame.K_F1:'gnome',pygame.K_F2:'powers',pygame.K_F3:'life',pygame.K_F4:'decisions'}[k])
                 elif k==pygame.K_TAB:
                     ids=list(self.world.agents);index=ids.index(self.selected) if self.selected in self.world.agents else -1
                     self.select_individual(ids[(index+1)%len(ids)] if ids else None)
                 elif k==pygame.K_END:self.event_offset=0
                 elif k in (pygame.K_PAGEUP,pygame.K_PAGEDOWN):self.browse_events(self.event_capacity*(1 if k==pygame.K_PAGEUP else -1))
-                elif k in (pygame.K_LEFTBRACKET,pygame.K_RIGHTBRACKET):self.scroll_panel(-1 if k==pygame.K_LEFTBRACKET else 1)
+                elif k in (pygame.K_LEFTBRACKET,pygame.K_RIGHTBRACKET):
+                    if self.tab=='decisions':self.browse_decisions(-1 if k==pygame.K_LEFTBRACKET else 1)
+                    else:self.scroll_panel(-1 if k==pygame.K_LEFTBRACKET else 1)
                 elif k==pygame.K_l:self.life_tail=True;self.tile_tail=True
                 continue
             if e.type==pygame.MOUSEWHEEL:
@@ -312,6 +331,7 @@ class LivingObserver(TerrainObserver):
         elif self.tab=='family':
             self.life.select(self.selected);self.life.update();self.family_start=max(0,min(self.family_start+amount*self.family_capacity,max(0,len(self.life.children)-self.family_capacity)))
         elif self.tab=='life':self.browse_life(amount*self.life_capacity)
+        elif self.tab=='decisions':self.decision_scroll=max(0,self.decision_scroll+amount*3)
         elif self.tab=='details':self.detail_offset=max(0,self.detail_offset+amount*3)
 
     def open_event(self,event):
@@ -484,6 +504,51 @@ class LivingObserver(TerrainObserver):
         y=self.paragraph(f'Children: {a.children} recorded • Family tab links actual records',x,y+3,r.w)
         if y+40<r.bottom:self.paragraph('Action is the latest decision, not a continuous intention. Needs have different scales.',x,y+8,r.w,MUTED)
 
+    def browse_decisions(self,direction):
+        records=list(self.decisions.records)
+        if not records:return
+        index=next((i for i,r in enumerate(records) if r['tick']==self.decision_tick),len(records)-1)
+        self.decision_tick=records[max(0,min(len(records)-1,index+direction))]['tick']
+        self.decision_scroll=0
+
+    def current_decision_record(self):
+        records=self.decisions.records
+        if not records or self.decisions.identity!=self.selected:return None
+        if self.decision_tick is None:return records[-1]
+        record=next((r for r in records if r['tick']==self.decision_tick),None)
+        if record is None:
+            self.decision_tick=records[0]['tick'];self.decision_scroll=0
+            return records[0]
+        return record
+
+    def draw_decisions(self):
+        x,y=self.body.topleft;w=self.body.w
+        self.label(f'#{self.selected:05d} • decision observation',x,y,GOLD);y+=27
+        active=self.decisions.enabled
+        half=(w-6)//2
+        self.button(pygame.Rect(x,y,half,28),'Stop U' if active else 'Observe U','decision-observe',active)
+        self.button(pygame.Rect(x+half+6,y,w-half-6,28),'Less detail' if self.decision_details else 'More detail','decision-details',self.decision_details);y+=35
+        third=(w-10)//3
+        for i,(label,action) in enumerate((('Older','decision-older'),('Newer','decision-newer'),('Latest','decision-latest'))):
+            self.button(pygame.Rect(x+i*(third+5),y,third,26),label,action)
+        y+=32
+        for i,(label,action) in enumerate((('Center','center'),('Follow C','follow'),('Life F3','tab:life'))):
+            self.button(pygame.Rect(x+i*(third+5),y,third,26),label,action)
+        y+=34
+        r=self.current_decision_record()
+        key=(id(r),r['tick'] if r else None,self.selected,self.decision_details,w,self.text_size)
+        if key!=self.decision_text_key:
+            self.decision_text_key=key
+            lines=observation_lines(r,self.decision_details)
+            if self.decisions.error and r is None:lines.insert(0,self.decisions.error)
+            self.decision_text=[part for line in lines for part in wrap(self.small,line,w)]
+        capacity=max(1,(self.body.bottom-y-25)//21)
+        self.decision_scroll=min(self.decision_scroll,max(0,len(self.decision_text)-capacity))
+        for line in self.decision_text[self.decision_scroll:self.decision_scroll+capacity]:
+            self.label(line,x,y);y+=21
+        label=f'{len(self.decisions.records)} ticks • wheel scroll • [ ] browse'
+        self.label(label,x,self.body.bottom-21,MUTED)
+
     def draw_details(self):
         a=self.world.agents.get(self.selected);x,y=self.body.topleft
         if a is None:self.label('Individual unavailable',x,y);return
@@ -624,6 +689,7 @@ class LivingObserver(TerrainObserver):
             if self.advisor.open:self.draw_advisor_new()
             elif self.tab=='gnome':self.draw_card()
             elif self.tab=='details':self.draw_details()
+            elif self.tab=='decisions':self.draw_decisions()
             elif self.tab in ('life','family'):self.draw_personal()
             elif self.tab=='terrain':self.draw_land()
             elif self.tab=='powers':self.draw_ledger()
@@ -638,6 +704,6 @@ class LivingObserver(TerrainObserver):
             for j,line in enumerate(lines):self.label(line,rect.x+14,rect.y+16+j*28,GOLD if j==0 else INK)
         # Controls are always visible; long operational notices stay in a clipped line.
         self.screen.set_clip(pygame.Rect(10,h-27,w-20,26))
-        hint=(self.notice if self.mode else self.follow_note) or (self.notice if self.notice and (time.monotonic()<self.notice_until or getattr(self,'save_error',False) or self.notice.startswith('Saving')) else f'Wheel zoom • arrows pan • C follow • W Watch • Home fit • V happenings • B food • H footprints • Esc save & exit')
+        hint=(self.notice if self.mode else self.follow_note) or (self.notice if self.notice and (time.monotonic()<self.notice_until or getattr(self,'save_error',False) or self.notice.startswith('Saving')) else f'Wheel zoom • arrows pan • C follow • F4 decisions / U record • W Watch • Home fit • V happenings • B food • H footprints • Esc save & exit')
         self.label(hint,12,h-24,GOLD if self.mode else MUTED);self.screen.set_clip(None)
         pygame.display.flip()

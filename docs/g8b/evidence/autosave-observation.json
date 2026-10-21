@@ -1,0 +1,440 @@
+{
+  "seed": 1,
+  "tick": 26600,
+  "identity": 5340,
+  "record": {
+    "tick": 26600,
+    "identity": 5340,
+    "scheduled": true,
+    "biology_before": {
+      "x": 23,
+      "y": 9,
+      "age": 604,
+      "health": 100,
+      "hunger": 84,
+      "thirst": 30,
+      "fatigue": 80,
+      "sleep_until": 26531,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 155,
+      "children": 1,
+      "action": "eat"
+    },
+    "biology_after": {
+      "x": 23,
+      "y": 9,
+      "age": 605,
+      "health": 100,
+      "hunger": 85,
+      "thirst": 32,
+      "fatigue": 81,
+      "sleep_until": 26531,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 154,
+      "children": 1,
+      "action": "eat"
+    },
+    "decision": {
+      "before": {
+        "x": 23,
+        "y": 9,
+        "age": 605,
+        "health": 100,
+        "hunger": 85,
+        "thirst": 32,
+        "fatigue": 81,
+        "sleep_until": 26531,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 154,
+        "children": 1,
+        "action": "eat"
+      },
+      "after": {
+        "x": 22,
+        "y": 9,
+        "age": 605,
+        "health": 100,
+        "hunger": 85,
+        "thirst": 32,
+        "fatigue": 81,
+        "sleep_until": 26531,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 154,
+        "children": 1,
+        "action": "move"
+      },
+      "action": "move",
+      "rule": "Movement fallback: higher-priority actions were not selected.",
+      "checks": [
+        {
+          "source": "a.thirst >= 30 and self._drinkable(a.x, a.y)",
+          "entered": false
+        },
+        {
+          "source": "a.hunger >= 30 and c.food >= 10",
+          "entered": false
+        },
+        {
+          "source": "a.fatigue >= 65 and a.hunger < 80 and a.thirst < 75",
+          "entered": false
+        },
+        {
+          "source": "a.age >= 180 and a.cooldown == 0 and a.health >= 70 and a.hunger < 60 and a.thirst < 60",
+          "entered": false
+        },
+        {
+          "source": "nearby and a.hunger < 65 and a.thirst < 65 and self.rng.randrange(100) < a.traits[\"sociability\"] // 5",
+          "entered": false
+        }
+      ],
+      "random_attempts": [],
+      "random_attempt_count": 0,
+      "movement": {
+        "origin": [
+          23,
+          9
+        ],
+        "candidates": [
+          {
+            "score": 31,
+            "x": 23,
+            "y": 8,
+            "terrain": "grass",
+            "learned_contribution": 0
+          },
+          {
+            "score": 74,
+            "x": 24,
+            "y": 9,
+            "terrain": "grass",
+            "learned_contribution": 0
+          },
+          {
+            "score": 56,
+            "x": 23,
+            "y": 10,
+            "terrain": "forest",
+            "learned_contribution": 0
+          },
+          {
+            "score": 95,
+            "x": 22,
+            "y": 9,
+            "terrain": "grass",
+            "learned_contribution": 0
+          }
+        ],
+        "best": 95,
+        "tied": false,
+        "choice_called": true,
+        "destination": [
+          22,
+          9
+        ],
+        "observed_food": [
+          [
+            22,
+            6
+          ],
+          [
+            23,
+            6
+          ],
+          [
+            24,
+            6
+          ],
+          [
+            22,
+            7
+          ],
+          [
+            24,
+            7
+          ],
+          [
+            25,
+            7
+          ],
+          [
+            20,
+            8
+          ],
+          [
+            22,
+            8
+          ],
+          [
+            23,
+            8
+          ],
+          [
+            24,
+            8
+          ],
+          [
+            25,
+            8
+          ],
+          [
+            26,
+            8
+          ],
+          [
+            19,
+            9
+          ],
+          [
+            20,
+            9
+          ],
+          [
+            21,
+            9
+          ],
+          [
+            22,
+            9
+          ],
+          [
+            25,
+            9
+          ],
+          [
+            26,
+            9
+          ],
+          [
+            27,
+            9
+          ],
+          [
+            20,
+            10
+          ],
+          [
+            21,
+            10
+          ],
+          [
+            25,
+            10
+          ],
+          [
+            26,
+            10
+          ],
+          [
+            21,
+            11
+          ],
+          [
+            23,
+            11
+          ],
+          [
+            22,
+            12
+          ],
+          [
+            23,
+            12
+          ]
+        ],
+        "observed_water": [
+          [
+            24,
+            10
+          ],
+          [
+            22,
+            11
+          ]
+        ],
+        "observed_peers": [
+          [
+            24,
+            9
+          ],
+          [
+            23,
+            10
+          ],
+          [
+            23,
+            10
+          ]
+        ],
+        "observed_peer_count": 3
+      },
+      "learning": [
+        {
+          "key": "move:grass",
+          "previous": 0,
+          "current": 0,
+          "reward": 0,
+          "action": "move",
+          "feature": "grass",
+          "position": [
+            22,
+            9
+          ]
+        }
+      ],
+      "peers": [
+        {
+          "identity": 5022,
+          "before": {
+            "x": 24,
+            "y": 9,
+            "age": 2084,
+            "health": 100,
+            "hunger": 62,
+            "thirst": 18,
+            "fatigue": 65,
+            "sleep_until": 26539,
+            "alive": true,
+            "died": null,
+            "death_cause": null,
+            "cooldown": 0,
+            "children": 2,
+            "action": "eat"
+          },
+          "after": {
+            "x": 24,
+            "y": 9,
+            "age": 2084,
+            "health": 100,
+            "hunger": 62,
+            "thirst": 18,
+            "fatigue": 65,
+            "sleep_until": 26539,
+            "alive": true,
+            "died": null,
+            "death_cause": null,
+            "cooldown": 0,
+            "children": 2,
+            "action": "eat"
+          },
+          "outgoing_before": 0,
+          "outgoing_after": 0,
+          "incoming_before": 0,
+          "incoming_after": 0
+        },
+        {
+          "identity": 5091,
+          "before": {
+            "x": 23,
+            "y": 10,
+            "age": 1741,
+            "health": 97,
+            "hunger": 24,
+            "thirst": 102,
+            "fatigue": 18,
+            "sleep_until": 26592,
+            "alive": true,
+            "died": null,
+            "death_cause": null,
+            "cooldown": 148,
+            "children": 3,
+            "action": "move"
+          },
+          "after": {
+            "x": 23,
+            "y": 10,
+            "age": 1741,
+            "health": 97,
+            "hunger": 24,
+            "thirst": 102,
+            "fatigue": 18,
+            "sleep_until": 26592,
+            "alive": true,
+            "died": null,
+            "death_cause": null,
+            "cooldown": 148,
+            "children": 3,
+            "action": "move"
+          },
+          "outgoing_before": 0,
+          "outgoing_after": 0,
+          "incoming_before": 0,
+          "incoming_after": 0
+        },
+        {
+          "identity": 5286,
+          "before": {
+            "x": 23,
+            "y": 10,
+            "age": 788,
+            "health": 100,
+            "hunger": 33,
+            "thirst": 22,
+            "fatigue": 19,
+            "sleep_until": 26584,
+            "alive": true,
+            "died": null,
+            "death_cause": null,
+            "cooldown": 0,
+            "children": 0,
+            "action": "eat"
+          },
+          "after": {
+            "x": 23,
+            "y": 10,
+            "age": 788,
+            "health": 100,
+            "hunger": 33,
+            "thirst": 22,
+            "fatigue": 19,
+            "sleep_until": 26584,
+            "alive": true,
+            "died": null,
+            "death_cause": null,
+            "cooldown": 0,
+            "children": 0,
+            "action": "eat"
+          },
+          "outgoing_before": 0,
+          "outgoing_after": 0,
+          "incoming_before": 0,
+          "incoming_after": 0
+        }
+      ],
+      "events": [],
+      "complete": true,
+      "nearby_count": 3,
+      "context": {
+        "terrain": "grass",
+        "food": 4
+      },
+      "unavailable": null
+    },
+    "status": "Decision recorded.",
+    "biology_events": [],
+    "tick_end": {
+      "x": 22,
+      "y": 9,
+      "age": 605,
+      "health": 100,
+      "hunger": 85,
+      "thirst": 32,
+      "fatigue": 81,
+      "sleep_until": 26531,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 154,
+      "children": 1,
+      "action": "move"
+    }
+  },
+  "follow": 5340
+}

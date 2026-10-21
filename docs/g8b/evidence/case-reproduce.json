@@ -1,0 +1,224 @@
+{
+  "seed": 1,
+  "identity": 1,
+  "traits": {
+    "curiosity": 78,
+    "caution": 40,
+    "sociability": 34,
+    "fertility": 40,
+    "stamina": 36,
+    "vision": 73
+  },
+  "record": {
+    "tick": 255,
+    "identity": 1,
+    "scheduled": true,
+    "biology_before": {
+      "x": 28,
+      "y": 3,
+      "age": 438,
+      "health": 100,
+      "hunger": 21,
+      "thirst": 14,
+      "fatigue": 25,
+      "sleep_until": 230,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "biology_after": {
+      "x": 28,
+      "y": 3,
+      "age": 439,
+      "health": 100,
+      "hunger": 22,
+      "thirst": 16,
+      "fatigue": 26,
+      "sleep_until": 230,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 0,
+      "action": "move"
+    },
+    "decision": {
+      "before": {
+        "x": 28,
+        "y": 3,
+        "age": 439,
+        "health": 100,
+        "hunger": 22,
+        "thirst": 16,
+        "fatigue": 26,
+        "sleep_until": 230,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 0,
+        "children": 0,
+        "action": "move"
+      },
+      "after": {
+        "x": 28,
+        "y": 3,
+        "age": 439,
+        "health": 100,
+        "hunger": 42,
+        "thirst": 16,
+        "fatigue": 41,
+        "sleep_until": 230,
+        "alive": true,
+        "died": null,
+        "death_cause": null,
+        "cooldown": 240,
+        "children": 1,
+        "action": "reproduce"
+      },
+      "action": "reproduce",
+      "rule": "Reproduction rule: eligible parents and a successful existing probability check.",
+      "checks": [
+        {
+          "source": "a.thirst >= 30 and self._drinkable(a.x, a.y)",
+          "entered": false
+        },
+        {
+          "source": "a.hunger >= 30 and c.food >= 10",
+          "entered": false
+        },
+        {
+          "source": "a.fatigue >= 65 and a.hunger < 80 and a.thirst < 75",
+          "entered": false
+        },
+        {
+          "source": "a.age >= 180 and a.cooldown == 0 and a.health >= 70 and a.hunger < 60 and a.thirst < 60",
+          "entered": true
+        },
+        {
+          "source": "b.age >= 180 and b.cooldown == 0 and b.health >= 70 and\n                    b.hunger < 60 and b.thirst < 60 and\n                    self.rng.randrange(1000) < (a.traits[\"fertility\"] + b.traits[\"fertility\"]) // 3",
+          "entered": true
+        }
+      ],
+      "random_attempts": [
+        {
+          "line": 195,
+          "bound": 1000,
+          "sample": 7,
+          "role": "reproduction probability",
+          "partner": 34
+        }
+      ],
+      "random_attempt_count": 1,
+      "movement": null,
+      "learning": [
+        {
+          "key": "reproduce:peer",
+          "previous": 0,
+          "current": -5,
+          "reward": -20,
+          "action": "reproduce",
+          "feature": "peer",
+          "position": [
+            28,
+            3
+          ]
+        }
+      ],
+      "peers": [
+        {
+          "identity": 34,
+          "before": {
+            "x": 28,
+            "y": 3,
+            "age": 470,
+            "health": 76,
+            "hunger": 23,
+            "thirst": 16,
+            "fatigue": 26,
+            "sleep_until": 230,
+            "alive": true,
+            "died": null,
+            "death_cause": null,
+            "cooldown": 0,
+            "children": 0,
+            "action": "move"
+          },
+          "after": {
+            "x": 28,
+            "y": 3,
+            "age": 470,
+            "health": 76,
+            "hunger": 43,
+            "thirst": 16,
+            "fatigue": 41,
+            "sleep_until": 230,
+            "alive": true,
+            "died": null,
+            "death_cause": null,
+            "cooldown": 240,
+            "children": 1,
+            "action": "move"
+          },
+          "outgoing_before": 0,
+          "outgoing_after": 8,
+          "incoming_before": 0,
+          "incoming_after": 8
+        }
+      ],
+      "events": [
+        {
+          "index": 1182,
+          "tick": 255,
+          "kind": "birth",
+          "actor": 83,
+          "target": null,
+          "detail": {
+            "parents": [
+              1,
+              34
+            ],
+            "founder": false
+          }
+        },
+        {
+          "index": 1183,
+          "tick": 255,
+          "kind": "reproduce",
+          "actor": 1,
+          "target": 34,
+          "detail": {
+            "child": 83
+          }
+        }
+      ],
+      "complete": true,
+      "nearby_count": 1,
+      "context": {
+        "terrain": "grass",
+        "food": 36
+      },
+      "unavailable": null
+    },
+    "status": "Decision recorded.",
+    "biology_events": [],
+    "tick_end": {
+      "x": 28,
+      "y": 3,
+      "age": 439,
+      "health": 100,
+      "hunger": 42,
+      "thirst": 16,
+      "fatigue": 41,
+      "sleep_until": 230,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 240,
+      "children": 1,
+      "action": "reproduce"
+    }
+  }
+}

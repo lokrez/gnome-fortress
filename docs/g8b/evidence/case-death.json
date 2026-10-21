@@ -1,0 +1,80 @@
+{
+  "seed": 1,
+  "identity": 1,
+  "traits": {
+    "curiosity": 78,
+    "caution": 40,
+    "sociability": 34,
+    "fertility": 40,
+    "stamina": 36,
+    "vision": 73
+  },
+  "record": {
+    "tick": 2048,
+    "identity": 1,
+    "scheduled": false,
+    "biology_before": {
+      "x": 34,
+      "y": 8,
+      "age": 2231,
+      "health": 100,
+      "hunger": 47,
+      "thirst": 20,
+      "fatigue": 51,
+      "sleep_until": 2002,
+      "alive": true,
+      "died": null,
+      "death_cause": null,
+      "cooldown": 0,
+      "children": 5,
+      "action": "eat"
+    },
+    "biology_after": {
+      "x": 34,
+      "y": 8,
+      "age": 2232,
+      "health": 100,
+      "hunger": 48,
+      "thirst": 22,
+      "fatigue": 52,
+      "sleep_until": 2002,
+      "alive": false,
+      "died": 2048,
+      "death_cause": "old_age",
+      "cooldown": 0,
+      "children": 5,
+      "action": "dead"
+    },
+    "decision": null,
+    "status": "No decision slot: died during biology (old_age).",
+    "biology_events": [
+      {
+        "index": 16312,
+        "tick": 2048,
+        "kind": "death",
+        "actor": 1,
+        "target": null,
+        "detail": {
+          "cause": "old_age",
+          "age": 2232
+        }
+      }
+    ],
+    "tick_end": {
+      "x": 34,
+      "y": 8,
+      "age": 2232,
+      "health": 100,
+      "hunger": 48,
+      "thirst": 22,
+      "fatigue": 52,
+      "sleep_until": 2002,
+      "alive": false,
+      "died": 2048,
+      "death_cause": "old_age",
+      "cooldown": 0,
+      "children": 5,
+      "action": "dead"
+    }
+  }
+}

@@ -6,6 +6,7 @@ import json
 import random
 
 from .model import Agent, Cell, Episode, Event
+from .decision_observation import for_world
 
 SLOTS = 60
 TRAITS = ("curiosity", "caution", "sociability", "fertility", "stamina", "vision")
@@ -128,16 +129,26 @@ class World:
             self.tick += 1
             if self.tick % 10 == 0:
                 self._regenerate_food()
+            observation = for_world(self)
+            if observation is not None:
+                observation.begin(self)
             for a in list(self._living_agents.values()):
                 if a.alive:
                     was_asleep = a.sleep_until > self.tick - 1
                     self._biology(a)
                     if a.alive and was_asleep and a.sleep_until <= self.tick:
                         self.event("wake", a.id)
+            if observation is not None:
+                observation.after_biology(self)
             for identity in self.schedule():
                 a = self.agents[identity]
                 if a.alive:
-                    self.decide(a)
+                    if observation is not None and identity == observation.identity:
+                        observation.invoke(self, a, self.decide)
+                    else:
+                        self.decide(a)
+            if observation is not None:
+                observation.finish(self)
             # Sleep immediately relinquishes its slot; births enter next tick.
             self.slots = [i if i is not None and self.agents[i].alive and
                           self.agents[i].sleep_until <= self.tick else None for i in self.slots]

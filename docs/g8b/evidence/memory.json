@@ -1,0 +1,30 @@
+[
+  {
+    "start_tick": 0,
+    "records": 128,
+    "heap_bytes": 857757,
+    "world_released": true,
+    "cumulative_peak_rss_kib": 23376
+  },
+  {
+    "start_tick": 3000,
+    "records": 128,
+    "heap_bytes": 372790,
+    "world_released": true,
+    "cumulative_peak_rss_kib": 65988
+  },
+  {
+    "start_tick": 10000,
+    "records": 128,
+    "heap_bytes": 339565,
+    "world_released": true,
+    "cumulative_peak_rss_kib": 167252
+  },
+  {
+    "start_tick": 26000,
+    "records": 128,
+    "heap_bytes": 321405,
+    "world_released": true,
+    "cumulative_peak_rss_kib": 413348
+  }
+]

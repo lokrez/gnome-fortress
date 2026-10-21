@@ -1,0 +1,110 @@
+{
+  "captures": [
+    {
+      "file": "movement.png",
+      "tick": 1,
+      "identity": 1,
+      "decision_tick": 1,
+      "driver": "x11",
+      "trace": "case-movement.json"
+    },
+    {
+      "file": "drink.png",
+      "tick": 10,
+      "identity": 1,
+      "decision_tick": 10,
+      "driver": "x11",
+      "trace": "case-drink.json"
+    },
+    {
+      "file": "eat.png",
+      "tick": 20,
+      "identity": 1,
+      "decision_tick": 20,
+      "driver": "x11",
+      "trace": "case-eat.json"
+    },
+    {
+      "file": "learning.png",
+      "tick": 10,
+      "identity": 1,
+      "decision_tick": 10,
+      "driver": "x11",
+      "trace": "case-learning.json"
+    },
+    {
+      "file": "hazard_experience.png",
+      "tick": 38,
+      "identity": 1,
+      "decision_tick": 38,
+      "driver": "x11",
+      "trace": "case-hazard_experience.json"
+    },
+    {
+      "file": "socialize.png",
+      "tick": 47,
+      "identity": 1,
+      "decision_tick": 47,
+      "driver": "x11",
+      "trace": "case-socialize.json"
+    },
+    {
+      "file": "reproduce.png",
+      "tick": 255,
+      "identity": 1,
+      "decision_tick": 255,
+      "driver": "x11",
+      "trace": "case-reproduce.json"
+    },
+    {
+      "file": "no_slot.png",
+      "tick": 19,
+      "identity": 1,
+      "decision_tick": 19,
+      "driver": "x11",
+      "trace": "case-no_slot.json"
+    },
+    {
+      "file": "death.png",
+      "tick": 2048,
+      "identity": 1,
+      "decision_tick": 2048,
+      "driver": "x11",
+      "trace": "case-death.json"
+    },
+    {
+      "file": "learned_readout.png",
+      "tick": 41,
+      "identity": 1,
+      "decision_tick": 41,
+      "driver": "x11",
+      "trace": "case-learned_readout.json"
+    },
+    {
+      "file": "normal-selected.png",
+      "tick": 1,
+      "identity": 1,
+      "decision_tick": 1,
+      "driver": "x11",
+      "trace": "case-movement.json"
+    },
+    {
+      "file": "movement-details.png",
+      "tick": 1,
+      "identity": 1,
+      "decision_tick": 1,
+      "driver": "x11",
+      "trace": "case-movement.json"
+    },
+    {
+      "file": "decisions-4k.png",
+      "tick": 1,
+      "identity": 1,
+      "decision_tick": 1,
+      "driver": "x11",
+      "trace": "case-movement.json"
+    }
+  ],
+  "human_playtest": false,
+  "note": "Natural case replay through period single-step controls; no inserted events or trace records."
+}
