@@ -5,8 +5,9 @@ from pathlib import Path
 import signal
 import sqlite3
 
+from .game_session import game_session,SaveInUse
 from .game import GameWorld
-from .game_storage import game_path,load_game,save_game
+from .game_storage import game_path,recover_game,save_game
 
 DEFAULT_SAVE=Path(__file__).resolve().parents[1]/'run-results/god/world.g1.sqlite'
 
@@ -28,8 +29,16 @@ def main():
         p.error('Rate/interval/frames must be positive, ticks nonnegative')
     try:
         path=game_path(args.db)
+        with game_session(path):_launch(args,p,path)
+    except SaveInUse as error:p.error(f'Cannot open gameplay session: {error}')
+    except (OSError,ValueError) as error:p.error(f'Gameplay session failed: {error}')
+
+
+def _launch(args,p,path):
+    try:
+        path=game_path(args.db)
         if args.new and path.exists():p.error('--new needs an unused save path; preserved runs are not replaced')
-        world=load_game(path) if path.exists() else GameWorld(args.seed)
+        world=recover_game(path) if path.exists() else GameWorld(args.seed)
     except (ValueError,sqlite3.Error,KeyError,TypeError,AssertionError) as error:
         p.error(f'Cannot open gameplay checkpoint: {error}')
     stopped=False

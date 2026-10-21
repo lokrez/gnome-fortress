@@ -49,7 +49,9 @@ def _write(world,path,existing):
     with closing(sqlite3.connect(path)) as db:
         db.execute('PRAGMA synchronous=FULL');db.execute('BEGIN IMMEDIATE')
         try:
-            if existing:_read(db)
+            if existing:
+                previous=_read(db)
+                if world.tick<previous.tick:raise ValueError('Checkpoint tick cannot move backward')
             else:
                 db.execute(f'PRAGMA application_id={APPLICATION_ID}')
                 db.execute(f'PRAGMA user_version={SCHEMA_VERSION}')
@@ -92,3 +94,9 @@ def import_legacy(source,destination):
     world=TerrainWorld.from_legacy(load_legacy(source))
     create_game(world,destination)
     return world
+
+
+def recover_game(path,_owner_pid=None):
+    """Active-session reader; explicit SQLite crash rollback, no archive mutation."""
+    from .checkpoint_recovery import recover_checkpoint
+    return recover_checkpoint(game_path(path),APPLICATION_ID,1,_read,owner_pid=_owner_pid)

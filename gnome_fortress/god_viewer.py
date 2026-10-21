@@ -422,6 +422,7 @@ class GodObserver(Observer):
         self.label('GNOME FORTRESS | THE LIVING WORLD',x,12,GOLD,self.font)
         state='SAVING' if self.saving else 'EXTINCT' if w.extinct else 'PAUSED' if self.paused else 'RUNNING'
         if getattr(self,'checkpoint_pending',False) and not self.saving:state+=' / SAVING'
+        if getattr(self,'save_error',False):state+=' / UNSAVED'
         self.label(f"Tick {s['tick']} | seed {w.seed} | {state} | target {self.speeds[self.speed_index]} t/s",x,36)
         self.label(f"Living {s['living']} | net {s['net_population_change']:+d} since 60 founders",x,56)
         self.label(f"Born total {s['born']} (includes founders) | deaths {s['deaths']}",x,76)
@@ -462,16 +463,17 @@ def run(world,path,save_callback,checkpoint_ticks=300,max_frames=None,stop_reque
             if worker.pending and worker.future.done():
                 try:
                     metrics=worker.poll();observer.notice=f"Saved tick {metrics['tick']}"
-                    last_save=metrics['tick'];auto_save_failed=False
+                    last_save=metrics['tick'];auto_save_failed=False;observer.save_error=False
                 except Exception as error:
                     observer.notice=f'Save failed: {type(error).__name__}; see terminal'
                     print(f'Gameplay save failed: {error}',flush=True)
-                    observer.paused=True;auto_save_failed=True
+                    observer.paused=True;auto_save_failed=True;observer.save_error=True
                 observer.saving=False;observer.checkpoint_pending=False;dirty=True
                 if locks_world:seconds=0
             observer.advance(seconds)
             if not worker.pending and (observer.save_requested or (not auto_save_failed and world.tick-last_save>=checkpoint_ticks)):
                 worker.start(world,path);observer.saving=locks_world;observer.checkpoint_pending=True;observer.save_requested=False;dirty=True
+                observer.notice=f'Saving tick {world.tick} (last saved {last_save})'
             if dirty or events or (not observer.paused and not observer.saving):
                 observer.draw();dirty=False
             frames+=1

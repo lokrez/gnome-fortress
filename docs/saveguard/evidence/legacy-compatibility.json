@@ -1,0 +1,21 @@
+{
+  "generated_by_baseline": "df3a3674fb19104f4be1a0a87c72aabd7474ad16",
+  "results": {
+    "legacy": {
+      "initial_digest": "d0555ae385c690937f9927b88448e0efcba7e65b3d79557ac064ba8876bb6b01",
+      "continuation_digest": "da02d3cc32e1e83e14ee1adc5c8803ca5327da78164e153624464a7b78a9ed95",
+      "baseline_reader_after_current_write": true,
+      "unchanged_by_read": true,
+      "exact_continuation": true,
+      "source_sha256": "c492fa2d18ba5dc7a522367459c8e0f9906c8222d48f7b70f21884662d11eed1"
+    },
+    "terrain": {
+      "initial_digest": "7a46efd940573503b5dfa005755ebc646133b4f5c7e98864caafd3b25b38c636",
+      "continuation_digest": "b6ca0b905edf7554c65f2e2b607986f4a2bd3342610c2cf093ab5cccfbe26866",
+      "baseline_reader_after_current_write": true,
+      "unchanged_by_read": true,
+      "exact_continuation": true,
+      "source_sha256": "6b29a7d883a82ded330875914135c7de35141eb4665dc0c6c65f0b6f73f8e802"
+    }
+  }
+}

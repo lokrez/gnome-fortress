@@ -1,0 +1,139 @@
+{
+  "seed": 1,
+  "final_tick": 2401,
+  "wellspring_target": [
+    45,
+    1
+  ],
+  "input_schedule": {
+    "0": [
+      "rain(5,5,r2,d40)",
+      "rupture(5,5,r2)"
+    ],
+    "9": [
+      "drought(5,5,r2,d30)"
+    ],
+    "20": [
+      "rewild(5,5,r2)"
+    ],
+    "29": [
+      "wellspring(45, 1)"
+    ]
+  },
+  "snapshots": [
+    {
+      "snapshot_tick": 0,
+      "live_tick": 1,
+      "digest": "287b1b2e236da2e4554eb92651f56b50ebe3378f26dabea22067bf3d41cf373e",
+      "state_and_rng_exact": true,
+      "reported_tick": 0
+    },
+    {
+      "snapshot_tick": 9,
+      "live_tick": 10,
+      "digest": "49845cdf5026ed58e4df11c9cca0414020e1d30ee5923d1123aa89934b165a52",
+      "state_and_rng_exact": true,
+      "reported_tick": 9
+    },
+    {
+      "snapshot_tick": 10,
+      "live_tick": 11,
+      "digest": "db02393cd2f722b57a2e5f8e31ffd70129e9015b88a2ed64dd5970116d43d097",
+      "state_and_rng_exact": true,
+      "reported_tick": 10
+    },
+    {
+      "snapshot_tick": 19,
+      "live_tick": 20,
+      "digest": "69008297d4a0d78e4cc6ad8c1973b120d9700276732e09e11415e62d8f4ff860",
+      "state_and_rng_exact": true,
+      "reported_tick": 19
+    },
+    {
+      "snapshot_tick": 20,
+      "live_tick": 21,
+      "digest": "60151634ff54d49fe9c2edefaf2c8b2a8661fa927619d16470a5d0634809d0fc",
+      "state_and_rng_exact": true,
+      "reported_tick": 20
+    },
+    {
+      "snapshot_tick": 21,
+      "live_tick": 22,
+      "digest": "c337c59cb5bd2ac862ea63e04297c61a9d44a90763e9677bab453d75e845b465",
+      "state_and_rng_exact": true,
+      "reported_tick": 21
+    },
+    {
+      "snapshot_tick": 29,
+      "live_tick": 30,
+      "digest": "3f72c963f81d56b573e7a2acd8031582098f2ab1a05828fb0d0829b3bbcf9978",
+      "state_and_rng_exact": true,
+      "reported_tick": 29
+    },
+    {
+      "snapshot_tick": 30,
+      "live_tick": 31,
+      "digest": "22bc23085ca1bdf4ce1b66656129d3caa85f23e503527b638696c37bfb826a28",
+      "state_and_rng_exact": true,
+      "reported_tick": 30
+    },
+    {
+      "snapshot_tick": 31,
+      "live_tick": 32,
+      "digest": "4215c8d6a7795fff32e743a7a9924415ac3943a46f72d31bf02ac189beb13e0b",
+      "state_and_rng_exact": true,
+      "reported_tick": 31
+    },
+    {
+      "snapshot_tick": 60,
+      "live_tick": 61,
+      "digest": "ff71d073d58f9e79a81f3c6e5deecfbf0ef4ab0300e49f4f2453e034705af00c",
+      "state_and_rng_exact": true,
+      "reported_tick": 60
+    },
+    {
+      "snapshot_tick": 1200,
+      "live_tick": 1201,
+      "digest": "8d7126da65a1cdead1a9cc8ef80e1357c1023bf52d2953a3428d0eeba513d860",
+      "state_and_rng_exact": true,
+      "reported_tick": 1200
+    },
+    {
+      "snapshot_tick": 2400,
+      "live_tick": 2401,
+      "digest": "e83c96527b696819b3173ee14c19ef26df2deb18496fa9c28b74110130b52e8e",
+      "state_and_rng_exact": true,
+      "reported_tick": 2400
+    }
+  ],
+  "final_digests": {
+    "no_save": "488babf4f6bc44ed69176773037ebb338a552bf7995907d818e99f3eee94578a",
+    "synchronous": "488babf4f6bc44ed69176773037ebb338a552bf7995907d818e99f3eee94578a",
+    "asynchronous": "488babf4f6bc44ed69176773037ebb338a552bf7995907d818e99f3eee94578a"
+  },
+  "rng_sha256": "467b89cc1a4660c0850bb32df1976c73c625a1e62dae7ec686c8e94f975a37d6",
+  "reload_tick": 20,
+  "reload_continuation_exact": true,
+  "summary": {
+    "tick": 2401,
+    "living": 371,
+    "born": 489,
+    "dead": 118,
+    "events": {
+      "birth": 489,
+      "death": 118,
+      "divine_active": 2,
+      "divine_expired": 2,
+      "divine_regeneration": 7,
+      "divine_request": 5,
+      "divine_terrain": 3,
+      "hazard": 770,
+      "reproduce": 429,
+      "sleep": 7250,
+      "social": 4487,
+      "wake": 7182
+    }
+  },
+  "births_after_founders": 429,
+  "deaths": 118
+}

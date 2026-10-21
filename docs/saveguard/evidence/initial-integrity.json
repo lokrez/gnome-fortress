@@ -1,0 +1,13 @@
+{
+  "quick_check": [
+    [
+      "ok"
+    ]
+  ],
+  "application_id": 1196312373,
+  "format": "gnome-fortress-terrain-g5-v1",
+  "checksum_valid": true,
+  "tick": 26317,
+  "payload_bytes": 53428757,
+  "file_bytes": 113307648
+}

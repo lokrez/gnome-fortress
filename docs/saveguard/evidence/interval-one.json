@@ -1,0 +1,10 @@
+{
+  "frames": 40,
+  "rate": 60,
+  "checkpoint_interval": 1,
+  "final_tick": 38,
+  "state_and_rng_exact": true,
+  "exit_code": 0,
+  "stdout": "pygame-ce 2.5.8 (SDL 2.32.10, Python 3.14.4)\n{\"born\": 71, \"checkpoint\": \"/tmp/saveguard-interval-one-4cz93cft/frequent.g5.sqlite\", \"dead\": 0, \"digest\": \"08ae6588001d0d97cfd3cbb7673a2f3fbe2b02000adcc7349812242b2bb4d8c1\", \"events\": {\"birth\": 71, \"hazard\": 28, \"reproduce\": 11, \"social\": 82}, \"extinct\": false, \"interventions\": 0, \"living\": 71, \"tick\": 38}\n",
+  "stderr": ""
+}

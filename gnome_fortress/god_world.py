@@ -7,7 +7,7 @@ import sqlite3
 
 from .game_session import game_session,SaveInUse
 from .terrain_game import TerrainWorld as GameWorld
-from .terrain_storage import game_path,load_game,save_game,create_game,import_legacy
+from .terrain_storage import game_path,recover_game,save_game,create_game,import_legacy
 
 DEFAULT_SAVE=Path(__file__).resolve().parents[1]/'run-results/god-terrain/world.g5.sqlite'
 
@@ -45,7 +45,7 @@ def _launch(args,p,path):
         if args.import_legacy:
             if args.new:p.error('--new and --import-legacy are mutually exclusive')
             world=import_legacy(args.import_legacy,path)
-        elif path.exists():world=load_game(path)
+        elif path.exists():world=recover_game(path)
         else:
             world=GameWorld(args.seed);create_game(world,path)
     except (ValueError,OSError,sqlite3.Error,KeyError,TypeError,AssertionError) as error:

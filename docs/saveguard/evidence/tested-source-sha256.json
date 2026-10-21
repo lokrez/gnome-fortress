@@ -1,0 +1,11 @@
+{
+  "gnome_fortress/game_session.py": "7513fd826c8bf72f987f8b8d182f0cda563c050ce524c92943a968b58c786c3f",
+  "gnome_fortress/checkpoint_recovery.py": "17bc3b61b4b4909ae73732d7327afbf71160aa9b7e7f73b4967de074e1b8db54",
+  "gnome_fortress/game_storage.py": "f10215ef0938f17f5aac2bc3abd137df6d2830f428f39bc90f0a74b8882b4015",
+  "gnome_fortress/god_demo.py": "b70266108657f811af081116f1acf2634f38ae3ee470bcc610903c3efbdb6705",
+  "gnome_fortress/god_viewer.py": "09143bcdc73ea5a01077a42553000fe8028d548a876a792421afb5425e63cfc8",
+  "gnome_fortress/god_world.py": "c0fb712ec6401e6bb764c8e3eae8821d91b58ad38c8116ed0e80ebc0f8a64432",
+  "gnome_fortress/terrain_checkpoint.py": "5e0e9bdde830bcbf55c3f62dda531dcf29d967a0f213338d177ab1f5fa1bca7e",
+  "gnome_fortress/terrain_storage.py": "e198f60c466a90a78b54b7e8b5e0f18f88bffc800e0add55e865fe76c0a06dd9",
+  "tests/test_saveguard.py": "64243aea9495d0910dd7971939d1d634a23fe5a527f6865bcc2142e070fa642d"
+}

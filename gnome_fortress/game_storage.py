@@ -57,7 +57,9 @@ def save_game(world,path):
         db.execute('PRAGMA synchronous=FULL')
         db.execute('BEGIN IMMEDIATE')
         try:
-            if existed:_read(db)  # Recheck the pinned transactional snapshot.
+            if existed:
+                previous=_read(db)  # Recheck the pinned transactional snapshot.
+                if world.tick<previous.tick:raise ValueError('Checkpoint tick cannot move backward')
             else:
                 db.execute(f'PRAGMA application_id={APPLICATION_ID}')
                 db.execute('PRAGMA user_version=1')
@@ -68,3 +70,9 @@ def save_game(world,path):
         except BaseException:
             db.rollback();raise
     return dict(seconds=time.perf_counter()-started,file_bytes=path.stat().st_size,tick=world.tick)
+
+
+def recover_game(path):
+    """Active-session reader; explicit SQLite crash rollback, no archive mutation."""
+    from .checkpoint_recovery import recover_checkpoint
+    return recover_checkpoint(game_path(path),APPLICATION_ID,1,_read)

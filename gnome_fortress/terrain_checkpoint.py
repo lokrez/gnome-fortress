@@ -3,10 +3,15 @@ from concurrent.futures import ProcessPoolExecutor, Future
 from concurrent.futures.process import BrokenProcessPool
 import multiprocessing
 import pickle
+import os
+from pathlib import Path
+import random
 import signal
 
-from .terrain_game import TerrainWorld
-from .terrain_storage import save_game
+from .terrain_game import TerrainWorld, TerrainIntervention
+from .model import Agent, Cell, Episode, Event
+from .game_session import checkpoint_write_lock,session_owned
+from .terrain_storage import save_game, game_path, recover_game
 
 
 def _writer_init():
@@ -15,16 +20,54 @@ def _writer_init():
     signal.signal(signal.SIGINT,signal.SIG_IGN)
 
 
-def _save_snapshot(snapshot,path,callback):
-    # Trusted bytes made by this parent process, never a user checkpoint/file.
-    return callback(pickle.loads(snapshot),path)
+def _save_snapshot(snapshot,path,callback,owner_pid,owned_session=False):
+    # A surviving writer must finish before a replacement session may load. A
+    # queued orphan must never begin writing a newer owner's timeline.
+    try:
+        path=game_path(path)
+        with checkpoint_write_lock(path):
+            if os.getppid()!=owner_pid:
+                raise RuntimeError('Checkpoint owner exited before write started')
+            if owned_session and Path(str(path)+'-journal').exists():
+                recover_game(path,_owner_pid=owner_pid)
+            return callback(pickle.loads(snapshot),path)
+    finally:
+        # A pool whose parent was SIGKILLed must not become an idle orphan. Kernel
+        # exit releases all writer descriptors, including after a callback error.
+        if owner_pid>0 and os.getppid()!=owner_pid:os._exit(0)
+
+
+def _restore_graph(graph):
+    world=TerrainWorld.__new__(TerrainWorld)
+    world.__dict__.update(graph)
+    world.rng=random.Random();world.rng.setstate(graph['rng'])
+    world.cells=[[Cell(**c) for c in row] for row in graph['cells']]
+    world.agents={i:Agent(**{**a,'memories':[Episode(**m) for m in a['memories']]})
+                  for i,a in graph['agents'].items()}
+    world.events=[Event(**e) for e in graph['events']]
+    world.interventions=[TerrainIntervention(**p) for p in graph['interventions']]
+    world._rebuild_index()
+    return world
+
+
+class _Snapshot:
+    def __init__(self,graph):self.graph=graph
+    def __reduce__(self):return _restore_graph,(self.graph,)
 
 
 def capture_snapshot(world):
-    if not isinstance(world,TerrainWorld):raise ValueError('Terrain snapshot requires TerrainWorld')
-    # One complete-tick, detached object graph; faster than dataclass-to-JSON on
-    # the UI thread. Persistence is still the unchanged validated SQLite/JSON.
-    return pickle.dumps(world,protocol=5)
+    if type(world) is not TerrainWorld:raise ValueError('Terrain snapshot requires TerrainWorld')
+    # Flatten dataclass containers without recursive asdict/deepcopy/reducers.
+    # These references never cross a tick: pickle detaches the ENTIRE graph before
+    # returning to the owner loop. No live references are sent to the child.
+    graph=vars(world).copy();graph.pop('_living_agents')
+    graph['rng']=world.rng.getstate()
+    graph['cells']=[[vars(c) for c in row] for row in world.cells]
+    graph['agents']={i:{**vars(a),'memories':[vars(m) for m in a.memories]}
+                     for i,a in world.agents.items()}
+    graph['events']=[vars(e) for e in world.events]
+    graph['interventions']=[vars(p) for p in world.interventions]
+    return pickle.dumps(_Snapshot(graph),protocol=5)
 
 
 class TerrainCheckpointWorker:
@@ -51,8 +94,9 @@ class TerrainCheckpointWorker:
     def start(self,world,path):
         if self.pending:raise RuntimeError('Checkpoint already pending')
         try:
+            path=game_path(path)
             snapshot=capture_snapshot(world)
-            self.future=self.pool.submit(_save_snapshot,snapshot,path,self.callback)
+            self.future=self.pool.submit(_save_snapshot,snapshot,path,self.callback,os.getpid(),session_owned(path))
         except Exception as error:
             self.future=Future();self.future.set_exception(error)
 

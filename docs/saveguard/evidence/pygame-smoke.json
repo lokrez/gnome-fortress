@@ -1,0 +1,117 @@
+{
+  "driver": "dummy",
+  "controlled_writer_delay_seconds": 0.5,
+  "initial_saved_tick": 0,
+  "drained_snapshot_tick": 0,
+  "final_saved_tick": 10,
+  "saved_and_reloaded_exact": true,
+  "relaunch_lock_acquired": true,
+  "elapsed_seconds": 0.7274418640008662,
+  "digest": "048d4430bde4d10f44bc2ccbef3a42f537713fb2cc5af8d5c879efcfddeed791",
+  "intervention": 1,
+  "trace": [
+    {
+      "frame": 1,
+      "tick": 0,
+      "pending": false,
+      "advisor_open": false,
+      "tab": "gnome",
+      "watch": null
+    },
+    {
+      "frame": 2,
+      "tick": 0,
+      "pending": true,
+      "advisor_open": true,
+      "tab": "gnome",
+      "watch": null
+    },
+    {
+      "frame": 3,
+      "tick": 1,
+      "pending": true,
+      "advisor_open": true,
+      "tab": "gnome",
+      "watch": null
+    },
+    {
+      "frame": 4,
+      "tick": 2,
+      "pending": true,
+      "advisor_open": false,
+      "tab": "gnome",
+      "watch": null
+    },
+    {
+      "frame": 5,
+      "tick": 3,
+      "pending": true,
+      "advisor_open": false,
+      "tab": "life",
+      "watch": 1
+    },
+    {
+      "frame": 6,
+      "tick": 4,
+      "pending": true,
+      "advisor_open": false,
+      "tab": "terrain",
+      "watch": 1
+    },
+    {
+      "frame": 7,
+      "tick": 5,
+      "pending": true,
+      "advisor_open": false,
+      "tab": "terrain",
+      "watch": 1
+    },
+    {
+      "frame": 8,
+      "tick": 6,
+      "pending": true,
+      "advisor_open": false,
+      "tab": "terrain",
+      "watch": 1
+    },
+    {
+      "frame": 9,
+      "tick": 7,
+      "pending": true,
+      "advisor_open": false,
+      "tab": "powers",
+      "watch": 1
+    },
+    {
+      "frame": 10,
+      "tick": 8,
+      "pending": true,
+      "advisor_open": false,
+      "tab": "powers",
+      "watch": 1
+    },
+    {
+      "frame": 11,
+      "tick": 9,
+      "pending": true,
+      "advisor_open": false,
+      "tab": "powers",
+      "watch": 1
+    },
+    {
+      "kind": "exit_input",
+      "tick": 10,
+      "pending": true,
+      "watch": 1
+    },
+    {
+      "frame": 12,
+      "tick": 10,
+      "pending": true,
+      "advisor_open": false,
+      "tab": "powers",
+      "watch": 1
+    }
+  ],
+  "human_usability_check": false
+}

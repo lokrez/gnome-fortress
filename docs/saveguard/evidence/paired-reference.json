@@ -1,0 +1,1129 @@
+{
+  "seed": 1,
+  "results": [
+    {
+      "mode": "sync",
+      "capture_method": "reference",
+      "active_save_window_seconds": 0.08181102000526153,
+      "active_window_simulation_ticks_per_second": 0.0,
+      "fixture_tick": 0,
+      "retained_agents": 60,
+      "living": 60,
+      "events": 60,
+      "sample_count": 3,
+      "frame_samples": 3,
+      "max_frame_gap_seconds": 0.03851770699839108,
+      "p95_frame_gap_seconds": 0.021775753004476428,
+      "p99_frame_gap_seconds": 0.021775753004476428,
+      "main_thread_capture_seconds": [
+        0.03438368899514899,
+        0.017271740012802184,
+        0.017863406988908537
+      ],
+      "save_metrics": [
+        {
+          "tick": 0,
+          "seconds": 0.03416866599582136,
+          "cpu_seconds": 0.034167856999999996,
+          "phases_seconds": {
+            "snapshot_validation": 0.0008439800003543496,
+            "previous_checkpoint_validation": 0.02283989499846939,
+            "canonical_state_assembly": 0.0025644989946158603,
+            "json_serialization": 0.0013337059936020523,
+            "checksum": 7.355099660344422e-05,
+            "sqlite_connect": 0.00011304100917186588,
+            "sqlite_begin": 1.776999852154404e-05,
+            "transactional_previous_validation": 0.006032549994415604,
+            "sqlite_payload_write": 0.00010030099656432867,
+            "sqlite_commit_fsync": 1.4340010238811374e-05
+          },
+          "file_bytes": 102400,
+          "writer_peak_rss_kib": 48348
+        },
+        {
+          "tick": 0,
+          "seconds": 0.0170463170070434,
+          "cpu_seconds": 0.017046078999999992,
+          "phases_seconds": {
+            "snapshot_validation": 0.0005713760037906468,
+            "previous_checkpoint_validation": 0.006054850993677974,
+            "canonical_state_assembly": 0.0025424000050406903,
+            "json_serialization": 0.0014356059982674196,
+            "checksum": 7.375099812634289e-05,
+            "sqlite_connect": 9.92920104181394e-05,
+            "sqlite_begin": 1.7819998902268708e-05,
+            "transactional_previous_validation": 0.005941128998529166,
+            "sqlite_payload_write": 7.325000478886068e-05,
+            "sqlite_commit_fsync": 1.2090997188352048e-05
+          },
+          "file_bytes": 102400,
+          "writer_peak_rss_kib": 50140
+        },
+        {
+          "tick": 0,
+          "seconds": 0.01763686499907635,
+          "cpu_seconds": 0.01763619900000002,
+          "phases_seconds": {
+            "snapshot_validation": 0.0006253580068005249,
+            "previous_checkpoint_validation": 0.0062637619994347915,
+            "canonical_state_assembly": 0.0026075499918079004,
+            "json_serialization": 0.0014987169997766614,
+            "checksum": 8.164100290741771e-05,
+            "sqlite_connect": 0.0001044710079440847,
+            "sqlite_begin": 1.755000266712159e-05,
+            "transactional_previous_validation": 0.006127890999778174,
+            "sqlite_payload_write": 8.333100413437933e-05,
+            "sqlite_commit_fsync": 1.3519995263777673e-05
+          },
+          "file_bytes": 102400,
+          "writer_peak_rss_kib": 50268
+        }
+      ],
+      "simulation_ticks_during_saves": 0,
+      "wall_seconds": 0.18110937799792737,
+      "simulation_ticks_per_second": 0.0,
+      "main_cpu_seconds": 0.18110157300000002,
+      "main_peak_rss_kib": 50268,
+      "completion_notification_seconds": [],
+      "file_bytes": 102400,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "thread",
+      "capture_method": "reference",
+      "active_save_window_seconds": 0.14592075999826193,
+      "active_window_simulation_ticks_per_second": 0.0,
+      "fixture_tick": 0,
+      "retained_agents": 60,
+      "living": 60,
+      "events": 60,
+      "sample_count": 3,
+      "frame_samples": 9,
+      "max_frame_gap_seconds": 0.02573671899153851,
+      "p95_frame_gap_seconds": 0.02362967400404159,
+      "p99_frame_gap_seconds": 0.02362967400404159,
+      "main_thread_capture_seconds": [
+        0.0008394589967792854,
+        3.0009992769919336e-05,
+        2.1939995349384844e-05
+      ],
+      "save_metrics": [
+        {
+          "tick": 0,
+          "seconds": 0.04324167099548504,
+          "cpu_seconds": 0.04325626199999999,
+          "phases_seconds": {
+            "snapshot_validation": 0.0005291260022204369,
+            "previous_checkpoint_validation": 0.03186834898951929,
+            "canonical_state_assembly": 0.0026275900017935783,
+            "json_serialization": 0.001365186006296426,
+            "checksum": 8.529100159648806e-05,
+            "sqlite_connect": 0.00013428200327325612,
+            "sqlite_begin": 1.8520004232414067e-05,
+            "transactional_previous_validation": 0.00630406299023889,
+            "sqlite_payload_write": 7.60609982535243e-05,
+            "sqlite_commit_fsync": 1.2229997082613409e-05
+          },
+          "file_bytes": 102400,
+          "writer_peak_rss_kib": 50632
+        },
+        {
+          "tick": 0,
+          "seconds": 0.021714201997383498,
+          "cpu_seconds": 0.02161517099999999,
+          "phases_seconds": {
+            "snapshot_validation": 0.0006087369984015822,
+            "previous_checkpoint_validation": 0.006284413000685163,
+            "canonical_state_assembly": 0.0025807700003497303,
+            "json_serialization": 0.0013203050039010122,
+            "checksum": 7.227101013995707e-05,
+            "sqlite_connect": 0.00010050099808722734,
+            "sqlite_begin": 1.8039994756691158e-05,
+            "transactional_previous_validation": 0.006177941992064007,
+            "sqlite_payload_write": 0.0043063799967058,
+            "sqlite_commit_fsync": 1.758999133016914e-05
+          },
+          "file_bytes": 102400,
+          "writer_peak_rss_kib": 51016
+        },
+        {
+          "tick": 0,
+          "seconds": 0.023831126003642567,
+          "cpu_seconds": 0.02387000300000003,
+          "phases_seconds": {
+            "snapshot_validation": 0.0005821070080855861,
+            "previous_checkpoint_validation": 0.008635869991849177,
+            "canonical_state_assembly": 0.0026277400029357523,
+            "json_serialization": 0.0013278149999678135,
+            "checksum": 7.361099414993078e-05,
+            "sqlite_connect": 0.00010415200085844845,
+            "sqlite_begin": 1.8039994756691158e-05,
+            "transactional_previous_validation": 0.006102920000557788,
+            "sqlite_payload_write": 0.004116627998882905,
+            "sqlite_commit_fsync": 1.641099515836686e-05
+          },
+          "file_bytes": 102400,
+          "writer_peak_rss_kib": 51144
+        }
+      ],
+      "simulation_ticks_during_saves": 0,
+      "wall_seconds": 0.24547821399755776,
+      "simulation_ticks_per_second": 0.0,
+      "main_cpu_seconds": 0.20927063699999998,
+      "main_peak_rss_kib": 51144,
+      "completion_notification_seconds": [
+        7.85999873187393e-06,
+        7.170005119405687e-06,
+        4.9000082071870565e-06
+      ],
+      "file_bytes": 102400,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "spawn",
+      "capture_method": "reference",
+      "active_save_window_seconds": 0.19473446598567534,
+      "active_window_simulation_ticks_per_second": 5.135197793253301,
+      "fixture_tick": 0,
+      "retained_agents": 60,
+      "living": 60,
+      "events": 60,
+      "sample_count": 3,
+      "frame_samples": 11,
+      "max_frame_gap_seconds": 0.027107683999929577,
+      "p95_frame_gap_seconds": 0.022176446989760734,
+      "p99_frame_gap_seconds": 0.022176446989760734,
+      "main_thread_capture_seconds": [
+        0.0033796490024542436,
+        0.0013816760038025677,
+        0.0013881759950891137
+      ],
+      "save_metrics": [
+        {
+          "tick": 0,
+          "seconds": 0.03362118000222836,
+          "cpu_seconds": 0.033596977,
+          "phases_seconds": {
+            "snapshot_validation": 0.0006608780095120892,
+            "previous_checkpoint_validation": 0.019145291997119784,
+            "canonical_state_assembly": 0.0026580409903544933,
+            "json_serialization": 0.0013139049988240004,
+            "checksum": 7.305100734811276e-05,
+            "sqlite_connect": 0.00012760200479533523,
+            "sqlite_begin": 1.8049991922453046e-05,
+            "transactional_previous_validation": 0.009247048001270741,
+            "sqlite_payload_write": 0.00011770099808927625,
+            "sqlite_commit_fsync": 1.4299992471933365e-05
+          },
+          "file_bytes": 102400,
+          "writer_peak_rss_kib": 45664
+        },
+        {
+          "tick": 0,
+          "seconds": 0.015313818003050983,
+          "cpu_seconds": 0.015312917999999995,
+          "phases_seconds": {
+            "snapshot_validation": 0.0005951470084255561,
+            "previous_checkpoint_validation": 0.005682766000973061,
+            "canonical_state_assembly": 0.0024362279946217313,
+            "json_serialization": 0.0011521240085130557,
+            "checksum": 6.2980005168356e-05,
+            "sqlite_connect": 0.0001116820058086887,
+            "sqlite_begin": 1.545999839436263e-05,
+            "transactional_previous_validation": 0.004894606987363659,
+            "sqlite_payload_write": 0.0001244309969479218,
+            "sqlite_commit_fsync": 1.3769997167401016e-05
+          },
+          "file_bytes": 102400,
+          "writer_peak_rss_kib": 45664
+        },
+        {
+          "tick": 0,
+          "seconds": 0.017828085998189636,
+          "cpu_seconds": 0.017839248999999988,
+          "phases_seconds": {
+            "snapshot_validation": 0.0005830260051880032,
+            "previous_checkpoint_validation": 0.0066563069995027035,
+            "canonical_state_assembly": 0.0026358210016041994,
+            "json_serialization": 0.0014276559959398583,
+            "checksum": 7.335099508054554e-05,
+            "sqlite_connect": 0.0001426819944754243,
+            "sqlite_begin": 1.732999226078391e-05,
+            "transactional_previous_validation": 0.005897818991797976,
+            "sqlite_payload_write": 0.00012834100925829262,
+            "sqlite_commit_fsync": 1.7270009266212583e-05
+          },
+          "file_bytes": 102400,
+          "writer_peak_rss_kib": 45664
+        }
+      ],
+      "simulation_ticks_during_saves": 1,
+      "wall_seconds": 0.31905793699843343,
+      "simulation_ticks_per_second": 3.134226997791031,
+      "main_cpu_seconds": 0.186190338,
+      "main_peak_rss_kib": 50280,
+      "completion_notification_seconds": [
+        1.0539995855651796e-05,
+        8.529998012818396e-06,
+        5.689988029189408e-06
+      ],
+      "file_bytes": 102400,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "sync",
+      "capture_method": "reference",
+      "active_save_window_seconds": 0.6969558099954156,
+      "active_window_simulation_ticks_per_second": 0.0,
+      "fixture_tick": 1000,
+      "retained_agents": 185,
+      "living": 184,
+      "events": 5725,
+      "sample_count": 3,
+      "frame_samples": 3,
+      "max_frame_gap_seconds": 0.2470655240031192,
+      "p95_frame_gap_seconds": 0.22594205899804365,
+      "p99_frame_gap_seconds": 0.22594205899804365,
+      "main_thread_capture_seconds": [
+        0.24323683900001924,
+        0.22198340299655683,
+        0.22012092200748157
+      ],
+      "save_metrics": [
+        {
+          "tick": 1000,
+          "seconds": 0.23927458398975432,
+          "cpu_seconds": 0.23924657199999994,
+          "phases_seconds": {
+            "snapshot_validation": 0.001693040001555346,
+            "previous_checkpoint_validation": 0.09050840900454205,
+            "canonical_state_assembly": 0.03567472299619112,
+            "json_serialization": 0.02276230500137899,
+            "checksum": 0.0008899700042093173,
+            "sqlite_connect": 0.00012015100219286978,
+            "sqlite_begin": 1.5119992895051837e-05,
+            "transactional_previous_validation": 0.08462797099491581,
+            "sqlite_payload_write": 0.0008900110115064308,
+            "sqlite_commit_fsync": 1.4460005331784487e-05
+          },
+          "file_bytes": 1593344,
+          "writer_peak_rss_kib": 91724
+        },
+        {
+          "tick": 1000,
+          "seconds": 0.21789113599515986,
+          "cpu_seconds": 0.2178722019999999,
+          "phases_seconds": {
+            "snapshot_validation": 0.0016993299941532314,
+            "previous_checkpoint_validation": 0.0762814040062949,
+            "canonical_state_assembly": 0.04345786399790086,
+            "json_serialization": 0.022784493994549848,
+            "checksum": 0.0008780099888099357,
+            "sqlite_connect": 0.00011146199540235102,
+            "sqlite_begin": 1.4869990991428494e-05,
+            "transactional_previous_validation": 0.07001778199628461,
+            "sqlite_payload_write": 0.0007985590054886416,
+            "sqlite_commit_fsync": 1.4870005543343723e-05
+          },
+          "file_bytes": 1593344,
+          "writer_peak_rss_kib": 98192
+        },
+        {
+          "tick": 1000,
+          "seconds": 0.2159229640092235,
+          "cpu_seconds": 0.21588928000000007,
+          "phases_seconds": {
+            "snapshot_validation": 0.0017564900044817477,
+            "previous_checkpoint_validation": 0.06984426898998208,
+            "canonical_state_assembly": 0.034961724988534115,
+            "json_serialization": 0.022720123000908643,
+            "checksum": 0.0009116810106206685,
+            "sqlite_connect": 0.00010489100532140583,
+            "sqlite_begin": 1.5090001397766173e-05,
+            "transactional_previous_validation": 0.08292136099771596,
+            "sqlite_payload_write": 0.0008590310026193038,
+            "sqlite_commit_fsync": 1.3290002243593335e-05
+          },
+          "file_bytes": 1593344,
+          "writer_peak_rss_kib": 98568
+        }
+      ],
+      "simulation_ticks_during_saves": 0,
+      "wall_seconds": 1.5740510070027085,
+      "simulation_ticks_per_second": 0.0,
+      "main_cpu_seconds": 1.5738946169999999,
+      "main_peak_rss_kib": 98568,
+      "completion_notification_seconds": [],
+      "file_bytes": 1593344,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "thread",
+      "capture_method": "reference",
+      "active_save_window_seconds": 0.8800677630060818,
+      "active_window_simulation_ticks_per_second": 0.0,
+      "fixture_tick": 1000,
+      "retained_agents": 185,
+      "living": 184,
+      "events": 5725,
+      "sample_count": 3,
+      "frame_samples": 35,
+      "max_frame_gap_seconds": 0.0442449529946316,
+      "p95_frame_gap_seconds": 0.03692596800101455,
+      "p99_frame_gap_seconds": 0.040818652996676974,
+      "main_thread_capture_seconds": [
+        0.002832883008522913,
+        3.0269991839304566e-05,
+        2.2610998712480068e-05
+      ],
+      "save_metrics": [
+        {
+          "tick": 1000,
+          "seconds": 0.29524708300596103,
+          "cpu_seconds": 0.295214412,
+          "phases_seconds": {
+            "snapshot_validation": 0.001994842998101376,
+            "previous_checkpoint_validation": 0.11413951400027145,
+            "canonical_state_assembly": 0.045336985000176355,
+            "json_serialization": 0.026060231000883505,
+            "checksum": 0.00108216299850028,
+            "sqlite_connect": 0.00014005099365022033,
+            "sqlite_begin": 1.877998874988407e-05,
+            "transactional_previous_validation": 0.09904057800304145,
+            "sqlite_payload_write": 0.005243721010629088,
+            "sqlite_commit_fsync": 1.880999479908496e-05
+          },
+          "file_bytes": 1593344,
+          "writer_peak_rss_kib": 95228
+        },
+        {
+          "tick": 1000,
+          "seconds": 0.26374891700106673,
+          "cpu_seconds": 0.2639260550000001,
+          "phases_seconds": {
+            "snapshot_validation": 0.0018537310097599402,
+            "previous_checkpoint_validation": 0.09239530099148396,
+            "canonical_state_assembly": 0.05310514599841554,
+            "json_serialization": 0.02691325100022368,
+            "checksum": 0.0011013540060957894,
+            "sqlite_connect": 0.0001209110050695017,
+            "sqlite_begin": 1.8359991372562945e-05,
+            "transactional_previous_validation": 0.08585715500521474,
+            "sqlite_payload_write": 0.0008436000061919913,
+            "sqlite_commit_fsync": 2.2241001715883613e-05
+          },
+          "file_bytes": 1593344,
+          "writer_peak_rss_kib": 103796
+        },
+        {
+          "tick": 1000,
+          "seconds": 0.2623479519970715,
+          "cpu_seconds": 0.26251951400000006,
+          "phases_seconds": {
+            "snapshot_validation": 0.0018425710004521534,
+            "previous_checkpoint_validation": 0.08481582399690524,
+            "canonical_state_assembly": 0.04468972800532356,
+            "json_serialization": 0.02725186600582674,
+            "checksum": 0.0010984429973177612,
+            "sqlite_connect": 0.00011640199227258563,
+            "sqlite_begin": 2.4330001906491816e-05,
+            "transactional_previous_validation": 0.09575885999947786,
+            "sqlite_payload_write": 0.004951208000420593,
+            "sqlite_commit_fsync": 1.894999877549708e-05
+          },
+          "file_bytes": 1593344,
+          "writer_peak_rss_kib": 104792
+        }
+      ],
+      "simulation_ticks_during_saves": 0,
+      "wall_seconds": 1.7624536140065175,
+      "simulation_ticks_per_second": 0.0,
+      "main_cpu_seconds": 1.737734271,
+      "main_peak_rss_kib": 104792,
+      "completion_notification_seconds": [
+        7.650000043213367e-06,
+        7.089998689480126e-06,
+        3.930006641894579e-06
+      ],
+      "file_bytes": 1593344,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "spawn",
+      "capture_method": "reference",
+      "active_save_window_seconds": 0.9192189490131568,
+      "active_window_simulation_ticks_per_second": 13.054561171615102,
+      "fixture_tick": 1000,
+      "retained_agents": 185,
+      "living": 184,
+      "events": 5725,
+      "sample_count": 3,
+      "frame_samples": 39,
+      "max_frame_gap_seconds": 0.02862633200129494,
+      "p95_frame_gap_seconds": 0.028191217003040947,
+      "p99_frame_gap_seconds": 0.028482490990427323,
+      "main_thread_capture_seconds": [
+        0.02238940900133457,
+        0.015582350999466144,
+        0.016825514991069213
+      ],
+      "save_metrics": [
+        {
+          "tick": 1000,
+          "seconds": 0.2346707209944725,
+          "cpu_seconds": 0.23453954100000002,
+          "phases_seconds": {
+            "snapshot_validation": 0.0026311010005883873,
+            "previous_checkpoint_validation": 0.09542599599808455,
+            "canonical_state_assembly": 0.03457049099961296,
+            "json_serialization": 0.022547132000909187,
+            "checksum": 0.001326244993833825,
+            "sqlite_connect": 0.0001254719973076135,
+            "sqlite_begin": 1.5020006685517728e-05,
+            "transactional_previous_validation": 0.07339549099560827,
+            "sqlite_payload_write": 0.0021991350076859817,
+            "sqlite_commit_fsync": 1.9540995708666742e-05
+          },
+          "file_bytes": 1593344,
+          "writer_peak_rss_kib": 67344
+        },
+        {
+          "tick": 1000,
+          "seconds": 0.21541398800036404,
+          "cpu_seconds": 0.21539233100000005,
+          "phases_seconds": {
+            "snapshot_validation": 0.0016930000128922984,
+            "previous_checkpoint_validation": 0.07773492099659052,
+            "canonical_state_assembly": 0.035194487994886,
+            "json_serialization": 0.023222038988023996,
+            "checksum": 0.000888061011210084,
+            "sqlite_connect": 0.00012768199667334557,
+            "sqlite_begin": 1.4689998351968825e-05,
+            "transactional_previous_validation": 0.07215083600021899,
+            "sqlite_payload_write": 0.0022489060065709054,
+            "sqlite_commit_fsync": 2.2391002858057618e-05
+          },
+          "file_bytes": 1593344,
+          "writer_peak_rss_kib": 67344
+        },
+        {
+          "tick": 1000,
+          "seconds": 0.2213364269991871,
+          "cpu_seconds": 0.22131829299999994,
+          "phases_seconds": {
+            "snapshot_validation": 0.0017681109893601388,
+            "previous_checkpoint_validation": 0.08318269500159658,
+            "canonical_state_assembly": 0.035974676997284405,
+            "json_serialization": 0.023428472006344236,
+            "checksum": 0.0009170510020339862,
+            "sqlite_connect": 0.00013374100672081113,
+            "sqlite_begin": 1.4610996004194021e-05,
+            "transactional_previous_validation": 0.07153205899521708,
+            "sqlite_payload_write": 0.0021268749987939373,
+            "sqlite_commit_fsync": 1.5609999536536634e-05
+          },
+          "file_bytes": 1593344,
+          "writer_peak_rss_kib": 67344
+        }
+      ],
+      "simulation_ticks_during_saves": 12,
+      "wall_seconds": 1.8944590780010913,
+      "simulation_ticks_per_second": 6.334261921699365,
+      "main_cpu_seconds": 1.293995309,
+      "main_peak_rss_kib": 95576,
+      "completion_notification_seconds": [
+        9.099996532313526e-06,
+        8.720002369955182e-06,
+        4.169996827840805e-06
+      ],
+      "file_bytes": 1593344,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "sync",
+      "capture_method": "reference",
+      "active_save_window_seconds": 2.616100578015903,
+      "active_window_simulation_ticks_per_second": 0.0,
+      "fixture_tick": 3000,
+      "retained_agents": 607,
+      "living": 368,
+      "events": 27162,
+      "sample_count": 3,
+      "frame_samples": 3,
+      "max_frame_gap_seconds": 0.8784786489995895,
+      "p95_frame_gap_seconds": 0.8777662990032695,
+      "p99_frame_gap_seconds": 0.8777662990032695,
+      "main_thread_capture_seconds": [
+        0.8550497030082624,
+        0.8730523649865063,
+        0.8736865130049409
+      ],
+      "save_metrics": [
+        {
+          "tick": 3000,
+          "seconds": 0.837374317998183,
+          "cpu_seconds": 0.8373357690000001,
+          "phases_seconds": {
+            "snapshot_validation": 0.0072247030038852245,
+            "previous_checkpoint_validation": 0.3389963350055041,
+            "canonical_state_assembly": 0.11962273799872492,
+            "json_serialization": 0.08039373300562147,
+            "checksum": 0.003517430988722481,
+            "sqlite_connect": 0.00034594400494825095,
+            "sqlite_begin": 1.4810997527092695e-05,
+            "transactional_previous_validation": 0.2707393519958714,
+            "sqlite_payload_write": 0.006505855999421328,
+            "sqlite_commit_fsync": 2.9260001610964537e-05
+          },
+          "file_bytes": 5500928,
+          "writer_peak_rss_kib": 213376
+        },
+        {
+          "tick": 3000,
+          "seconds": 0.8552677380066598,
+          "cpu_seconds": 0.8550858379999999,
+          "phases_seconds": {
+            "snapshot_validation": 0.006467505998443812,
+            "previous_checkpoint_validation": 0.2963407290080795,
+            "canonical_state_assembly": 0.1313714450079715,
+            "json_serialization": 0.08018402100424282,
+            "checksum": 0.00538419300573878,
+            "sqlite_connect": 0.00011578098929021508,
+            "sqlite_begin": 1.5340003301389515e-05,
+            "transactional_previous_validation": 0.31963985100446735,
+            "sqlite_payload_write": 0.00634996299049817,
+            "sqlite_commit_fsync": 1.907999103423208e-05
+          },
+          "file_bytes": 5500928,
+          "writer_peak_rss_kib": 235756
+        },
+        {
+          "tick": 3000,
+          "seconds": 0.8564312140078982,
+          "cpu_seconds": 0.8562242589999993,
+          "phases_seconds": {
+            "snapshot_validation": 0.006757969007594511,
+            "previous_checkpoint_validation": 0.3235023849993013,
+            "canonical_state_assembly": 0.12322992100962438,
+            "json_serialization": 0.07777210300264414,
+            "checksum": 0.0031249559979187325,
+            "sqlite_connect": 0.00011838199861813337,
+            "sqlite_begin": 1.4770004781894386e-05,
+            "transactional_previous_validation": 0.3068953929905547,
+            "sqlite_payload_write": 0.006023030000505969,
+            "sqlite_commit_fsync": 1.772999530658126e-05
+          },
+          "file_bytes": 5500928,
+          "writer_peak_rss_kib": 235756
+        }
+      ],
+      "simulation_ticks_during_saves": 0,
+      "wall_seconds": 5.9232725399924675,
+      "simulation_ticks_per_second": 0.0,
+      "main_cpu_seconds": 5.921926745,
+      "main_peak_rss_kib": 235756,
+      "completion_notification_seconds": [],
+      "file_bytes": 5500928,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "thread",
+      "capture_method": "reference",
+      "active_save_window_seconds": 3.004832801001612,
+      "active_window_simulation_ticks_per_second": 0.0,
+      "fixture_tick": 3000,
+      "retained_agents": 607,
+      "living": 368,
+      "events": 27162,
+      "sample_count": 3,
+      "frame_samples": 92,
+      "max_frame_gap_seconds": 0.10817142600717489,
+      "p95_frame_gap_seconds": 0.08206062299723271,
+      "p99_frame_gap_seconds": 0.10249293000379112,
+      "main_thread_capture_seconds": [
+        0.005411743011791259,
+        3.85810126317665e-05,
+        2.4899985874071717e-05
+      ],
+      "save_metrics": [
+        {
+          "tick": 3000,
+          "seconds": 1.0113408050092403,
+          "cpu_seconds": 1.017354641,
+          "phases_seconds": {
+            "snapshot_validation": 0.011404391989344731,
+            "previous_checkpoint_validation": 0.41363132299738936,
+            "canonical_state_assembly": 0.15114347499911673,
+            "json_serialization": 0.09118966899404768,
+            "checksum": 0.003939435991924256,
+            "sqlite_connect": 0.0001384210045216605,
+            "sqlite_begin": 1.8221006030216813e-05,
+            "transactional_previous_validation": 0.3217946170043433,
+            "sqlite_payload_write": 0.008436127987806685,
+            "sqlite_commit_fsync": 1.968001015484333e-05
+          },
+          "file_bytes": 5500928,
+          "writer_peak_rss_kib": 222924
+        },
+        {
+          "tick": 3000,
+          "seconds": 0.9675373979989672,
+          "cpu_seconds": 0.9759240190000003,
+          "phases_seconds": {
+            "snapshot_validation": 0.006349274000967853,
+            "previous_checkpoint_validation": 0.34542303200578317,
+            "canonical_state_assembly": 0.15404723900428507,
+            "json_serialization": 0.08249970800534356,
+            "checksum": 0.004993547991034575,
+            "sqlite_connect": 0.00012667200644500554,
+            "sqlite_begin": 1.589999010320753e-05,
+            "transactional_previous_validation": 0.35798202799924184,
+            "sqlite_payload_write": 0.008602889996836893,
+            "sqlite_commit_fsync": 1.963999238796532e-05
+          },
+          "file_bytes": 5500928,
+          "writer_peak_rss_kib": 248416
+        },
+        {
+          "tick": 3000,
+          "seconds": 0.9506515329994727,
+          "cpu_seconds": 0.9570086309999999,
+          "phases_seconds": {
+            "snapshot_validation": 0.006786258003558032,
+            "previous_checkpoint_validation": 0.35975919000338763,
+            "canonical_state_assembly": 0.14360160799697042,
+            "json_serialization": 0.08334460800688248,
+            "checksum": 0.005010007997043431,
+            "sqlite_connect": 0.00011121098941657692,
+            "sqlite_begin": 1.5081008314155042e-05,
+            "transactional_previous_validation": 0.3364392679941375,
+            "sqlite_payload_write": 0.008335867009009235,
+            "sqlite_commit_fsync": 1.9270009943284094e-05
+          },
+          "file_bytes": 5500928,
+          "writer_peak_rss_kib": 248880
+        }
+      ],
+      "simulation_ticks_during_saves": 0,
+      "wall_seconds": 6.250323157000821,
+      "simulation_ticks_per_second": 0.0,
+      "main_cpu_seconds": 6.268739482,
+      "main_peak_rss_kib": 248880,
+      "completion_notification_seconds": [
+        6.479996955022216e-06,
+        5.889989552088082e-06,
+        4.589994205161929e-06
+      ],
+      "file_bytes": 5500928,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "spawn",
+      "capture_method": "reference",
+      "active_save_window_seconds": 3.2214112890069373,
+      "active_window_simulation_ticks_per_second": 14.27945576430273,
+      "fixture_tick": 3000,
+      "retained_agents": 607,
+      "living": 368,
+      "events": 27162,
+      "sample_count": 3,
+      "frame_samples": 125,
+      "max_frame_gap_seconds": 0.08001222000166308,
+      "p95_frame_gap_seconds": 0.030109910003375262,
+      "p99_frame_gap_seconds": 0.06678527699841652,
+      "main_thread_capture_seconds": [
+        0.08000904000073206,
+        0.07878068600257393,
+        0.06678274700243492
+      ],
+      "save_metrics": [
+        {
+          "tick": 3000,
+          "seconds": 0.9480536759947427,
+          "cpu_seconds": 0.9416829019999999,
+          "phases_seconds": {
+            "snapshot_validation": 0.009375328998430632,
+            "previous_checkpoint_validation": 0.3225931580091128,
+            "canonical_state_assembly": 0.15383322699926794,
+            "json_serialization": 0.0907393949892139,
+            "checksum": 0.0041602380078984424,
+            "sqlite_connect": 0.00014117200043983757,
+            "sqlite_begin": 1.5740006347186863e-05,
+            "transactional_previous_validation": 0.34969446300237905,
+            "sqlite_payload_write": 0.006551566009875387,
+            "sqlite_commit_fsync": 2.1339990780688822e-05
+          },
+          "file_bytes": 5500928,
+          "writer_peak_rss_kib": 161832
+        },
+        {
+          "tick": 3000,
+          "seconds": 0.8587460109993117,
+          "cpu_seconds": 0.8532709380000001,
+          "phases_seconds": {
+            "snapshot_validation": 0.006460254997364245,
+            "previous_checkpoint_validation": 0.29512329000863247,
+            "canonical_state_assembly": 0.12320520199136809,
+            "json_serialization": 0.07953426399035379,
+            "checksum": 0.0032540379907004535,
+            "sqlite_connect": 0.0001560910022817552,
+            "sqlite_begin": 1.5780999092385173e-05,
+            "transactional_previous_validation": 0.33812224899884313,
+            "sqlite_payload_write": 0.002695122006116435,
+            "sqlite_commit_fsync": 1.811000402085483e-05
+          },
+          "file_bytes": 5500928,
+          "writer_peak_rss_kib": 161832
+        },
+        {
+          "tick": 3000,
+          "seconds": 0.8025423990038689,
+          "cpu_seconds": 0.802491592,
+          "phases_seconds": {
+            "snapshot_validation": 0.006737578005413525,
+            "previous_checkpoint_validation": 0.2730094540020218,
+            "canonical_state_assembly": 0.12372110800060909,
+            "json_serialization": 0.07936103300016839,
+            "checksum": 0.003080266003962606,
+            "sqlite_connect": 0.00012904100003652275,
+            "sqlite_begin": 1.5400000847876072e-05,
+            "transactional_previous_validation": 0.3033520469907671,
+            "sqlite_payload_write": 0.0028074630099581555,
+            "sqlite_commit_fsync": 3.2409996492788196e-05
+          },
+          "file_bytes": 5500928,
+          "writer_peak_rss_kib": 161832
+        }
+      ],
+      "simulation_ticks_during_saves": 46,
+      "wall_seconds": 6.819766669010278,
+      "simulation_ticks_per_second": 6.74509880360405,
+      "main_cpu_seconds": 4.780102522,
+      "main_peak_rss_kib": 220332,
+      "completion_notification_seconds": [
+        8.069997420534492e-06,
+        8.310002158395946e-06,
+        4.2900064727291465e-06
+      ],
+      "file_bytes": 5500928,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "sync",
+      "capture_method": "reference",
+      "active_save_window_seconds": 9.887241695003468,
+      "active_window_simulation_ticks_per_second": 0.0,
+      "fixture_tick": 10000,
+      "retained_agents": 2017,
+      "living": 373,
+      "events": 107609,
+      "sample_count": 3,
+      "frame_samples": 3,
+      "max_frame_gap_seconds": 3.4216430590022355,
+      "p95_frame_gap_seconds": 3.286836269995547,
+      "p99_frame_gap_seconds": 3.286836269995547,
+      "main_thread_capture_seconds": [
+        3.173017779001384,
+        3.415337026002817,
+        3.2806444379966706
+      ],
+      "save_metrics": [
+        {
+          "tick": 10000,
+          "seconds": 3.10323198500555,
+          "cpu_seconds": 3.102983721,
+          "phases_seconds": {
+            "snapshot_validation": 0.02543170600256417,
+            "previous_checkpoint_validation": 1.125798829991254,
+            "canonical_state_assembly": 0.46841944800689816,
+            "json_serialization": 0.27394353300041985,
+            "checksum": 0.018643438001163304,
+            "sqlite_connect": 0.00012480099394451827,
+            "sqlite_begin": 1.4820005162619054e-05,
+            "transactional_previous_validation": 1.1311685539985774,
+            "sqlite_payload_write": 0.024106921002385207,
+            "sqlite_commit_fsync": 2.012000186368823e-05
+          },
+          "file_bytes": 19640320,
+          "writer_peak_rss_kib": 654484
+        },
+        {
+          "tick": 10000,
+          "seconds": 3.3444867599901045,
+          "cpu_seconds": 3.3267359249999995,
+          "phases_seconds": {
+            "snapshot_validation": 0.03614335099700838,
+            "previous_checkpoint_validation": 1.1460648130014306,
+            "canonical_state_assembly": 0.5216875430051005,
+            "json_serialization": 0.2826370459952159,
+            "checksum": 0.01912773300136905,
+            "sqlite_connect": 0.00012163200881332159,
+            "sqlite_begin": 1.4739998732693493e-05,
+            "transactional_previous_validation": 1.2738625859929016,
+            "sqlite_payload_write": 0.023804937009117566,
+            "sqlite_commit_fsync": 1.86709949048236e-05
+          },
+          "file_bytes": 19640320,
+          "writer_peak_rss_kib": 740248
+        },
+        {
+          "tick": 10000,
+          "seconds": 3.214113741007168,
+          "cpu_seconds": 3.2045478319999994,
+          "phases_seconds": {
+            "snapshot_validation": 0.02919644000940025,
+            "previous_checkpoint_validation": 1.0078265190095408,
+            "canonical_state_assembly": 0.4608071860129712,
+            "json_serialization": 0.28237058500235435,
+            "checksum": 0.010786785001982935,
+            "sqlite_connect": 0.0001345310010947287,
+            "sqlite_begin": 1.4460005331784487e-05,
+            "transactional_previous_validation": 1.3671763530001044,
+            "sqlite_payload_write": 0.02513593400362879,
+            "sqlite_commit_fsync": 1.990000600926578e-05
+          },
+          "file_bytes": 19640320,
+          "writer_peak_rss_kib": 740248
+        }
+      ],
+      "simulation_ticks_during_saves": 0,
+      "wall_seconds": 22.347843145995284,
+      "simulation_ticks_per_second": 0.0,
+      "main_cpu_seconds": 22.304850629,
+      "main_peak_rss_kib": 740248,
+      "completion_notification_seconds": [],
+      "file_bytes": 19640320,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "thread",
+      "capture_method": "reference",
+      "active_save_window_seconds": 12.320883255975787,
+      "active_window_simulation_ticks_per_second": 0.0,
+      "fixture_tick": 10000,
+      "retained_agents": 2017,
+      "living": 373,
+      "events": 107609,
+      "sample_count": 3,
+      "frame_samples": 264,
+      "max_frame_gap_seconds": 0.3333364850113867,
+      "p95_frame_gap_seconds": 0.10547362299985252,
+      "p99_frame_gap_seconds": 0.29409223899710923,
+      "main_thread_capture_seconds": [
+        0.005372783009079285,
+        3.963999915868044e-05,
+        2.641000901348889e-05
+      ],
+      "save_metrics": [
+        {
+          "tick": 10000,
+          "seconds": 4.178634943003999,
+          "cpu_seconds": 4.163258956,
+          "phases_seconds": {
+            "snapshot_validation": 0.03870005199860316,
+            "previous_checkpoint_validation": 1.5806577549956273,
+            "canonical_state_assembly": 0.6703832780040102,
+            "json_serialization": 0.27262775400595274,
+            "checksum": 0.017593174998182803,
+            "sqlite_connect": 0.00012992099800612777,
+            "sqlite_begin": 1.5141005860641599e-05,
+            "transactional_previous_validation": 1.5308314969879575,
+            "sqlite_payload_write": 0.022670745005598292,
+            "sqlite_commit_fsync": 2.325999957975e-05
+          },
+          "file_bytes": 19640320,
+          "writer_peak_rss_kib": 672652
+        },
+        {
+          "tick": 10000,
+          "seconds": 3.921817962997011,
+          "cpu_seconds": 3.9334484970000005,
+          "phases_seconds": {
+            "snapshot_validation": 0.035473203999572434,
+            "previous_checkpoint_validation": 1.2889866889890982,
+            "canonical_state_assembly": 0.7018478200043319,
+            "json_serialization": 0.30343765500583686,
+            "checksum": 0.011141090988530777,
+            "sqlite_connect": 0.00012438099656719714,
+            "sqlite_begin": 1.5959987649694085e-05,
+            "transactional_previous_validation": 1.528812824995839,
+            "sqlite_payload_write": 0.008399949001614004,
+            "sqlite_commit_fsync": 1.951000012923032e-05
+          },
+          "file_bytes": 19640320,
+          "writer_peak_rss_kib": 747096
+        },
+        {
+          "tick": 10000,
+          "seconds": 4.00070437300019,
+          "cpu_seconds": 3.9883244469999966,
+          "phases_seconds": {
+            "snapshot_validation": 0.03565225699276198,
+            "previous_checkpoint_validation": 1.5050373539997963,
+            "canonical_state_assembly": 0.5774991109938128,
+            "json_serialization": 0.2760758380027255,
+            "checksum": 0.011621176003245637,
+            "sqlite_connect": 0.00012003099254798144,
+            "sqlite_begin": 1.6820005839690566e-05,
+            "transactional_previous_validation": 1.5427459880011156,
+            "sqlite_payload_write": 0.009609732995158993,
+            "sqlite_commit_fsync": 2.0229999790899456e-05
+          },
+          "file_bytes": 19640320,
+          "writer_peak_rss_kib": 766164
+        }
+      ],
+      "simulation_ticks_during_saves": 0,
+      "wall_seconds": 24.83802913100226,
+      "simulation_ticks_per_second": 0.0,
+      "main_cpu_seconds": 24.740200406,
+      "main_peak_rss_kib": 766164,
+      "completion_notification_seconds": [
+        8.489994797855616e-06,
+        6.450005457736552e-06,
+        4.870002157986164e-06
+      ],
+      "file_bytes": 19640320,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    },
+    {
+      "mode": "spawn",
+      "capture_method": "reference",
+      "active_save_window_seconds": 11.518509604997234,
+      "active_window_simulation_ticks_per_second": 14.498403502441677,
+      "fixture_tick": 10000,
+      "retained_agents": 2017,
+      "living": 373,
+      "events": 107609,
+      "sample_count": 3,
+      "frame_samples": 411,
+      "max_frame_gap_seconds": 0.3768179579928983,
+      "p95_frame_gap_seconds": 0.030801650005741976,
+      "p99_frame_gap_seconds": 0.035143981003784575,
+      "main_thread_capture_seconds": [
+        0.3768161979969591,
+        0.3090420969965635,
+        0.29052673299156595
+      ],
+      "save_metrics": [
+        {
+          "tick": 10000,
+          "seconds": 3.191500629996881,
+          "cpu_seconds": 3.188945706,
+          "phases_seconds": {
+            "snapshot_validation": 0.038266777992248535,
+            "previous_checkpoint_validation": 1.1327365720062517,
+            "canonical_state_assembly": 0.4793359879986383,
+            "json_serialization": 0.2753196020057658,
+            "checksum": 0.018791110007441603,
+            "sqlite_connect": 0.00012872100342065096,
+            "sqlite_begin": 1.557999348733574e-05,
+            "transactional_previous_validation": 1.1868879770045169,
+            "sqlite_payload_write": 0.023093190000508912,
+            "sqlite_commit_fsync": 2.3160013370215893e-05
+          },
+          "file_bytes": 19640320,
+          "writer_peak_rss_kib": 514840
+        },
+        {
+          "tick": 10000,
+          "seconds": 3.051916076990892,
+          "cpu_seconds": 3.04475122,
+          "phases_seconds": {
+            "snapshot_validation": 0.02765285399800632,
+            "previous_checkpoint_validation": 1.0989647539972793,
+            "canonical_state_assembly": 0.46642447999329306,
+            "json_serialization": 0.273014295991743,
+            "checksum": 0.01211729200440459,
+            "sqlite_connect": 0.00014606199692934752,
+            "sqlite_begin": 1.554000482428819e-05,
+            "transactional_previous_validation": 1.1119843180058524,
+            "sqlite_payload_write": 0.02310942100302782,
+            "sqlite_commit_fsync": 1.9430008251219988e-05
+          },
+          "file_bytes": 19640320,
+          "writer_peak_rss_kib": 514840
+        },
+        {
+          "tick": 10000,
+          "seconds": 3.0794300779962214,
+          "cpu_seconds": 3.0787123870000004,
+          "phases_seconds": {
+            "snapshot_validation": 0.027009457000531256,
+            "previous_checkpoint_validation": 1.093782949988963,
+            "canonical_state_assembly": 0.4216427680075867,
+            "json_serialization": 0.2749391000106698,
+            "checksum": 0.01895331300329417,
+            "sqlite_connect": 0.00012001099821645766,
+            "sqlite_begin": 1.4649995137006044e-05,
+            "transactional_previous_validation": 1.1859234020084841,
+            "sqlite_payload_write": 0.023360453007626347,
+            "sqlite_commit_fsync": 1.9479994080029428e-05
+          },
+          "file_bytes": 19640320,
+          "writer_peak_rss_kib": 530948
+        }
+      ],
+      "simulation_ticks_during_saves": 167,
+      "wall_seconds": 24.066445260003093,
+      "simulation_ticks_per_second": 6.939122009744556,
+      "main_cpu_seconds": 17.267683986,
+      "main_peak_rss_kib": 685780,
+      "completion_notification_seconds": [
+        9.569994290359318e-06,
+        7.010006811469793e-06,
+        4.3900072341784835e-06
+      ],
+      "file_bytes": 19640320,
+      "exact_snapshot_and_continuation": true,
+      "wait_for_tick_seconds": 0,
+      "configured_game_interval_ticks": 300,
+      "configured_simulation_rate": 15,
+      "note": "SDL-dummy actual renderer; bounded save windows, not overall gameplay FPS; no wall-clock inputs"
+    }
+  ]
+}

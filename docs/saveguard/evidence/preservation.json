@@ -1,0 +1,33 @@
+{
+  "accepted_g7": "df3a3674fb19104f4be1a0a87c72aabd7474ad16",
+  "starting_commit": "52bf735d50c90b90141163934d7a173a1be257ec",
+  "protected_tracked_paths": [
+    "gnome_fortress/engine.py",
+    "gnome_fortress/model.py",
+    "gnome_fortress/game.py",
+    "gnome_fortress/terrain_game.py",
+    "gnome_fortress/advisor.py",
+    "gnome_fortress/life_presentation.py",
+    "gnome_fortress/game_presentation.py",
+    "gnome_fortress/terrain_presentation.py",
+    "gnome_fortress/terrain_advisor.py",
+    "docs/game-modes/CONTRACT.md"
+  ],
+  "baseline_research_file_count": 425,
+  "tracked_content_unchanged": true,
+  "historical_tags_unchanged": true,
+  "historical_tags": [
+    "63c706134a928c7d0c4357ddd6f1e2ac26ee12e4 refs/tags/g1-verified",
+    "8efe13713e34d18d8bca95b6b3b154935bf256a6 refs/tags/g7-verified",
+    "f32c1a612e36b046faa501273640bbabfce5159d refs/tags/phase0-verified",
+    "232dd30ce56a4d3645efb3d1dc35cd0539deb497 refs/tags/phase1-verified",
+    "5efc9b1bfdd8d49a13aefd4e9256e6c1e87c024f refs/tags/phase2-verified",
+    "2f5213c23300e61330ea665bfb4789622bf38bc6 refs/tags/phase3-verified"
+  ],
+  "prior_stabilization_addition": "research/g7_checkpoint_benchmark.py (new in cabfe70, not a change to an old research file)",
+  "scope": "Git content audit plus write-path inspection; ignored historical datasets were not rehashed or replayed. No campaign command opens them for writing.",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "sqlite": "3.46.1",
+  "cpu_model": "AMD Ryzen 7 3800X 8-Core Processor",
+  "full_historical_campaign": false
+}
