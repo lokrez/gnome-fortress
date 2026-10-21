@@ -9,7 +9,24 @@ This is an experiment in observable agent behavior. Its needs, reproduction rule
 interaction rewards and learning update are explicitly programmed. It does not model
 civilizations or claim that complex social organization has emerged.
 
-## Run
+## Play — First Contact (G8A)
+
+```bash
+cd ~/gnome-fortress && .venv/bin/python -m gnome_fortress.god_world
+```
+
+The terrain game now has a zoomable camera, readable gnome sprites, click-to-inspect
+cards, living camera follow, and a compact feed of actual world happenings. Wheel
+zooms, arrows/middle-drag pan, C follows, and O cancels a divine power. W retains
+Life Watch; Life/Family/Land and all five existing powers remain available.
+Use Esc to save and exit, then wait for the terminal prompt; do not suspend it with
+Ctrl+Z. This resumes the same `.g5.sqlite` world under unchanged Saveguard protection.
+
+[Controls](docs/g8a/CONTROLS.md) · [results and actual captures](docs/g8a/RESULTS.md) ·
+[rendering measurements and limits](docs/g8a/PERFORMANCE.md).
+No simulation rules, cosmetics in saves, game modes or AI services were added.
+
+## Run the research observer
 
 Python 3.11 or newer is required. This checkout already has an isolated `.venv` with
 its tested dependencies installed. From this directory:

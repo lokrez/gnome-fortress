@@ -1,0 +1,682 @@
+{
+  "seed": 1,
+  "fixture": "Natural engine updates; only the documented UI Rupture request changes environment",
+  "human_playtest": false,
+  "final_state_digest": "6541af7a7f985d9b0a12f5c1c51364d6dab0694be6906f1bf1ba5e3cae8e942b",
+  "family_example_rule": "Lowest retained ID with recorded parents",
+  "driver": "dummy",
+  "moving_selection_rule": "Lowest living ID with latest action move and health >=60 at tick120",
+  "follow_trace": [
+    {
+      "tick": 121,
+      "x": 18,
+      "y": 10,
+      "action": "move",
+      "alive": true,
+      "camera_x": 11.53125,
+      "camera_y": 6.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 122,
+      "x": 18,
+      "y": 11,
+      "action": "move",
+      "alive": true,
+      "camera_x": 11.53125,
+      "camera_y": 7.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 123,
+      "x": 18,
+      "y": 10,
+      "action": "move",
+      "alive": true,
+      "camera_x": 11.53125,
+      "camera_y": 6.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 124,
+      "x": 18,
+      "y": 10,
+      "action": "drink",
+      "alive": true,
+      "camera_x": 11.53125,
+      "camera_y": 6.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 125,
+      "x": 18,
+      "y": 10,
+      "action": "drink",
+      "alive": true,
+      "camera_x": 11.53125,
+      "camera_y": 6.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 126,
+      "x": 17,
+      "y": 10,
+      "action": "move",
+      "alive": true,
+      "camera_x": 10.53125,
+      "camera_y": 6.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 127,
+      "x": 17,
+      "y": 11,
+      "action": "move",
+      "alive": true,
+      "camera_x": 10.53125,
+      "camera_y": 7.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 128,
+      "x": 17,
+      "y": 10,
+      "action": "move",
+      "alive": true,
+      "camera_x": 10.53125,
+      "camera_y": 6.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 129,
+      "x": 17,
+      "y": 9,
+      "action": "move",
+      "alive": true,
+      "camera_x": 10.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 130,
+      "x": 17,
+      "y": 8,
+      "action": "move",
+      "alive": true,
+      "camera_x": 10.53125,
+      "camera_y": 4.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 131,
+      "x": 18,
+      "y": 8,
+      "action": "move",
+      "alive": true,
+      "camera_x": 11.53125,
+      "camera_y": 4.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 132,
+      "x": 19,
+      "y": 8,
+      "action": "move",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 4.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 133,
+      "x": 19,
+      "y": 9,
+      "action": "move",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 134,
+      "x": 20,
+      "y": 9,
+      "action": "move",
+      "alive": true,
+      "camera_x": 13.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 135,
+      "x": 19,
+      "y": 9,
+      "action": "move",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 136,
+      "x": 20,
+      "y": 9,
+      "action": "move",
+      "alive": true,
+      "camera_x": 13.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 137,
+      "x": 19,
+      "y": 9,
+      "action": "move",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 138,
+      "x": 20,
+      "y": 9,
+      "action": "move",
+      "alive": true,
+      "camera_x": 13.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 139,
+      "x": 19,
+      "y": 9,
+      "action": "move",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 140,
+      "x": 19,
+      "y": 9,
+      "action": "drink",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 141,
+      "x": 19,
+      "y": 9,
+      "action": "eat",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 142,
+      "x": 19,
+      "y": 9,
+      "action": "eat",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 143,
+      "x": 19,
+      "y": 9,
+      "action": "sleep",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 144,
+      "x": 19,
+      "y": 9,
+      "action": "sleep",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 145,
+      "x": 19,
+      "y": 9,
+      "action": "sleep",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 146,
+      "x": 19,
+      "y": 9,
+      "action": "sleep",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 147,
+      "x": 19,
+      "y": 9,
+      "action": "sleep",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 148,
+      "x": 19,
+      "y": 9,
+      "action": "sleep",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 149,
+      "x": 19,
+      "y": 9,
+      "action": "sleep",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    },
+    {
+      "tick": 150,
+      "x": 19,
+      "y": 9,
+      "action": "sleep",
+      "alive": true,
+      "camera_x": 12.53125,
+      "camera_y": 5.8671875,
+      "follow": 1
+    }
+  ],
+  "follow_observed_moves": 16,
+  "power_target": [
+    27,
+    14
+  ],
+  "preview_exact": true,
+  "changed_cells": 11,
+  "history_inspection_rule": "First actual changed cell, else original target",
+  "save_start_tick": 600,
+  "drained_snapshot_tick": 600,
+  "final_saved_tick": 611,
+  "save_trace": [
+    {
+      "frame": 1,
+      "tick": 600,
+      "pending": false,
+      "gap_ms": 15.904963001958095
+    },
+    {
+      "frame": 2,
+      "tick": 600,
+      "pending": true,
+      "gap_ms": 31.127307011047378
+    },
+    {
+      "frame": 3,
+      "tick": 602,
+      "pending": true,
+      "gap_ms": 17.703506993711926
+    },
+    {
+      "frame": 4,
+      "tick": 603,
+      "pending": true,
+      "gap_ms": 16.50091100600548
+    },
+    {
+      "frame": 5,
+      "tick": 604,
+      "pending": true,
+      "gap_ms": 15.553548990283161
+    },
+    {
+      "frame": 6,
+      "tick": 605,
+      "pending": true,
+      "gap_ms": 16.00671400956344
+    },
+    {
+      "frame": 7,
+      "tick": 606,
+      "pending": true,
+      "gap_ms": 16.28279899887275
+    },
+    {
+      "frame": 8,
+      "tick": 607,
+      "pending": true,
+      "gap_ms": 15.7675309892511
+    },
+    {
+      "frame": 9,
+      "tick": 608,
+      "pending": true,
+      "gap_ms": 15.996714006178081
+    },
+    {
+      "frame": 10,
+      "tick": 609,
+      "pending": true,
+      "gap_ms": 16.255737995379604
+    },
+    {
+      "frame": 11,
+      "tick": 610,
+      "pending": true,
+      "gap_ms": 16.179376005311497
+    },
+    {
+      "frame": 12,
+      "tick": 611,
+      "pending": true,
+      "gap_ms": 15.404296995257027
+    }
+  ],
+  "snapshot_capture": [
+    {
+      "tick": 600,
+      "seconds": 0.0161632270028349
+    }
+  ],
+  "drain_wait_seconds": 0.5757222039974295,
+  "final_save_seconds": 0.15655120700830594,
+  "captures": [
+    {
+      "name": "00-new-world",
+      "tick": 0,
+      "living": 60,
+      "selected": 1,
+      "follow": null,
+      "camera": {
+        "x": 3.3999999999999986,
+        "y": 6.3125,
+        "tile": 20
+      },
+      "viewport": [
+        12,
+        107,
+        892,
+        465
+      ],
+      "window": [
+        1280,
+        720
+      ],
+      "interventions": 0
+    },
+    {
+      "name": "01-zoomed-gnome",
+      "tick": 120,
+      "living": 76,
+      "selected": 1,
+      "follow": null,
+      "camera": {
+        "x": 11.53125,
+        "y": 7.8671875,
+        "tile": 64
+      },
+      "viewport": [
+        12,
+        107,
+        892,
+        465
+      ],
+      "window": [
+        1280,
+        720
+      ],
+      "interventions": 0
+    },
+    {
+      "name": "02-individual-card",
+      "tick": 120,
+      "living": 76,
+      "selected": 1,
+      "follow": null,
+      "camera": {
+        "x": 11.53125,
+        "y": 7.8671875,
+        "tile": 64
+      },
+      "viewport": [
+        12,
+        107,
+        892,
+        465
+      ],
+      "window": [
+        1280,
+        720
+      ],
+      "interventions": 0
+    },
+    {
+      "name": "03-camera-follow",
+      "tick": 150,
+      "living": 77,
+      "selected": 1,
+      "follow": 1,
+      "camera": {
+        "x": 12.53125,
+        "y": 5.8671875,
+        "tile": 64
+      },
+      "viewport": [
+        12,
+        107,
+        892,
+        465
+      ],
+      "window": [
+        1280,
+        720
+      ],
+      "interventions": 0
+    },
+    {
+      "name": "04-world-happenings",
+      "tick": 300,
+      "living": 88,
+      "selected": 1,
+      "follow": null,
+      "camera": {
+        "x": -7.857142857142858,
+        "y": 2.1071428571428577,
+        "tile": 14
+      },
+      "viewport": [
+        12,
+        107,
+        892,
+        389
+      ],
+      "window": [
+        1280,
+        720
+      ],
+      "interventions": 0
+    },
+    {
+      "name": "05-transformed-target-preview",
+      "tick": 300,
+      "living": 88,
+      "selected": 1,
+      "follow": null,
+      "camera": {
+        "x": 8.750000000000002,
+        "y": 4.595238095238096,
+        "tile": 24
+      },
+      "viewport": [
+        12,
+        107,
+        892,
+        465
+      ],
+      "window": [
+        1280,
+        720
+      ],
+      "interventions": 0
+    },
+    {
+      "name": "06-recorded-land-history",
+      "tick": 301,
+      "living": 88,
+      "selected": 1,
+      "follow": null,
+      "camera": {
+        "x": 8.916666666666668,
+        "y": 2.8125,
+        "tile": 24
+      },
+      "viewport": [
+        12,
+        107,
+        892,
+        465
+      ],
+      "window": [
+        1280,
+        720
+      ],
+      "interventions": 1
+    },
+    {
+      "name": "07-autosave-running",
+      "tick": 611,
+      "living": 126,
+      "selected": 1,
+      "follow": null,
+      "camera": {
+        "x": -5.25,
+        "y": 8.166666666666668,
+        "tile": 16
+      },
+      "viewport": [
+        12,
+        144,
+        936,
+        376
+      ],
+      "window": [
+        960,
+        668
+      ],
+      "interventions": 1
+    },
+    {
+      "name": "08-small-window",
+      "tick": 611,
+      "living": 126,
+      "selected": 1,
+      "follow": null,
+      "camera": {
+        "x": -0.25,
+        "y": 9.583333333333332,
+        "tile": 16
+      },
+      "viewport": [
+        12,
+        144,
+        776,
+        308
+      ],
+      "window": [
+        800,
+        600
+      ],
+      "interventions": 1
+    },
+    {
+      "name": "09-4k-window",
+      "tick": 611,
+      "living": 126,
+      "selected": 1,
+      "follow": null,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "tile": 96
+      },
+      "viewport": [
+        12,
+        107,
+        3356,
+        1905
+      ],
+      "window": [
+        3840,
+        2160
+      ],
+      "interventions": 1
+    },
+    {
+      "name": "10-personal-history",
+      "tick": 611,
+      "living": 126,
+      "selected": 61,
+      "follow": null,
+      "camera": {
+        "x": 3.3999999999999986,
+        "y": 6.3125,
+        "tile": 20
+      },
+      "viewport": [
+        12,
+        107,
+        892,
+        465
+      ],
+      "window": [
+        1280,
+        720
+      ],
+      "interventions": 1
+    },
+    {
+      "name": "11-direct-family",
+      "tick": 611,
+      "living": 126,
+      "selected": 61,
+      "follow": null,
+      "camera": {
+        "x": 3.3999999999999986,
+        "y": 6.3125,
+        "tile": 20
+      },
+      "viewport": [
+        12,
+        107,
+        892,
+        465
+      ],
+      "window": [
+        1280,
+        720
+      ],
+      "interventions": 1
+    }
+  ]
+}

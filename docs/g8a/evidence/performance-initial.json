@@ -1,0 +1,230 @@
+{
+  "seed": 1,
+  "driver": "dummy",
+  "window": [
+    1280,
+    720
+  ],
+  "results": [
+    {
+      "fixture_tick": 0,
+      "living": 60,
+      "retained": 60,
+      "events": 60,
+      "old_fixed_view": {
+        "samples": 40,
+        "median_ms": 3.2256480044452474,
+        "p95_ms": 3.5865179961547256,
+        "p99_ms": 3.6037079989910126,
+        "max_ms": 3.7098500033607706
+      },
+      "new_view": {
+        "samples": 40,
+        "median_ms": 6.087171997933183,
+        "p95_ms": 6.369915994582698,
+        "p99_ms": 6.52730799629353,
+        "max_ms": 6.6200990113429725
+      },
+      "sprite_layout": {
+        "samples": 40,
+        "median_ms": 0.09989649697672576,
+        "p95_ms": 0.10746200860012323,
+        "p99_ms": 0.10828100494109094,
+        "max_ms": 0.13890101399738342
+      },
+      "zoom_and_draw": {
+        "samples": 40,
+        "median_ms": 4.144880498643033,
+        "p95_ms": 6.249573998502456,
+        "p99_ms": 6.504188000690192,
+        "max_ms": 6.781991003663279
+      },
+      "follow_and_draw": {
+        "samples": 40,
+        "median_ms": 5.8899944997392595,
+        "p95_ms": 6.336156002362259,
+        "p99_ms": 6.36633500107564,
+        "max_ms": 9.15613399411086
+      },
+      "no_append_sync": {
+        "samples": 40,
+        "median_ms": 0.002934997610282153,
+        "p95_ms": 0.0034800032153725624,
+        "p99_ms": 0.004271001671440899,
+        "max_ms": 0.008429997251369059
+      },
+      "initial_index_seconds": 0.004438239993760362,
+      "natural_append_update_ms": 0.08781100041233003,
+      "new_events": 3,
+      "incremental_event_records_scanned": 3,
+      "visible_sprites": 45,
+      "state_and_rng_readonly": true,
+      "peak_rss_kib": 44460
+    },
+    {
+      "fixture_tick": 3000,
+      "living": 367,
+      "retained": 607,
+      "events": 27162,
+      "old_fixed_view": {
+        "samples": 40,
+        "median_ms": 4.435524504515342,
+        "p95_ms": 4.787313999258913,
+        "p99_ms": 4.824035000638105,
+        "max_ms": 4.943556996295229
+      },
+      "new_view": {
+        "samples": 40,
+        "median_ms": 6.904938505613245,
+        "p95_ms": 7.186656992416829,
+        "p99_ms": 7.277387994690798,
+        "max_ms": 7.286448002560064
+      },
+      "sprite_layout": {
+        "samples": 40,
+        "median_ms": 0.595473000430502,
+        "p95_ms": 0.6628590053878725,
+        "p99_ms": 0.6667490088148043,
+        "max_ms": 0.7148190052248538
+      },
+      "zoom_and_draw": {
+        "samples": 40,
+        "median_ms": 5.007231993658934,
+        "p95_ms": 7.102296003722586,
+        "p99_ms": 7.230646995594725,
+        "max_ms": 7.23258699872531
+      },
+      "follow_and_draw": {
+        "samples": 40,
+        "median_ms": 6.957548997888807,
+        "p95_ms": 7.31736900343094,
+        "p99_ms": 7.434408995322883,
+        "max_ms": 9.206054004607722
+      },
+      "no_append_sync": {
+        "samples": 40,
+        "median_ms": 0.0029849979910068214,
+        "p95_ms": 0.0036800047382712364,
+        "p99_ms": 0.004269997589290142,
+        "max_ms": 0.008000002708286047
+      },
+      "initial_index_seconds": 0.007730214012553915,
+      "natural_append_update_ms": 0.15297198842745274,
+      "new_events": 12,
+      "incremental_event_records_scanned": 12,
+      "visible_sprites": 274,
+      "state_and_rng_readonly": true,
+      "peak_rss_kib": 88004
+    },
+    {
+      "fixture_tick": 10000,
+      "living": 373,
+      "retained": 2017,
+      "events": 107609,
+      "old_fixed_view": {
+        "samples": 40,
+        "median_ms": 5.809418500575703,
+        "p95_ms": 6.481867996626534,
+        "p99_ms": 7.3833990027196705,
+        "max_ms": 8.341252003447153
+      },
+      "new_view": {
+        "samples": 40,
+        "median_ms": 7.092469997587614,
+        "p95_ms": 7.61736198910512,
+        "p99_ms": 7.9496170073980466,
+        "max_ms": 8.306022005854174
+      },
+      "sprite_layout": {
+        "samples": 40,
+        "median_ms": 0.5654179985867813,
+        "p95_ms": 0.5768879927927628,
+        "p99_ms": 0.6133880087872967,
+        "max_ms": 0.8079510007519275
+      },
+      "zoom_and_draw": {
+        "samples": 40,
+        "median_ms": 5.545364496356342,
+        "p95_ms": 7.658903006813489,
+        "p99_ms": 8.463183999992907,
+        "max_ms": 8.591006000642665
+      },
+      "follow_and_draw": {
+        "samples": 40,
+        "median_ms": 7.158366497606039,
+        "p95_ms": 8.399742990150116,
+        "p99_ms": 9.139543006313033,
+        "max_ms": 9.680679999291897
+      },
+      "no_append_sync": {
+        "samples": 40,
+        "median_ms": 0.004524998075794429,
+        "p95_ms": 0.006570000550709665,
+        "p99_ms": 0.013800992746837437,
+        "max_ms": 0.015419995179399848
+      },
+      "initial_index_seconds": 0.021588040006463416,
+      "natural_append_update_ms": 0.1538219948997721,
+      "new_events": 11,
+      "incremental_event_records_scanned": 11,
+      "visible_sprites": 255,
+      "state_and_rng_readonly": true,
+      "peak_rss_kib": 200000
+    },
+    {
+      "fixture_tick": 26000,
+      "living": 386,
+      "retained": 5341,
+      "events": 290808,
+      "old_fixed_view": {
+        "samples": 40,
+        "median_ms": 8.413482995820232,
+        "p95_ms": 8.942550004576333,
+        "p99_ms": 9.064651996595785,
+        "max_ms": 10.3937599924393
+      },
+      "new_view": {
+        "samples": 40,
+        "median_ms": 7.15960100205848,
+        "p95_ms": 7.459240994649008,
+        "p99_ms": 7.595172006404027,
+        "max_ms": 7.597372998134233
+      },
+      "sprite_layout": {
+        "samples": 40,
+        "median_ms": 0.6312984914984554,
+        "p95_ms": 0.6428890046663582,
+        "p99_ms": 0.6491980020655319,
+        "max_ms": 0.6637790065724403
+      },
+      "zoom_and_draw": {
+        "samples": 40,
+        "median_ms": 4.902075495920144,
+        "p95_ms": 7.566442000097595,
+        "p99_ms": 7.569202003651299,
+        "max_ms": 7.643592995009385
+      },
+      "follow_and_draw": {
+        "samples": 40,
+        "median_ms": 7.140955996874254,
+        "p95_ms": 8.19968999712728,
+        "p99_ms": 8.431383990682662,
+        "max_ms": 9.449036995647475
+      },
+      "no_append_sync": {
+        "samples": 40,
+        "median_ms": 0.0029455040930770338,
+        "p95_ms": 0.0035800039768218994,
+        "p99_ms": 0.0042199972085654736,
+        "max_ms": 0.00925999484024942
+      },
+      "initial_index_seconds": 0.052906280994648114,
+      "natural_append_update_ms": 0.15130199608393013,
+      "new_events": 15,
+      "incremental_event_records_scanned": 15,
+      "visible_sprites": 289,
+      "state_and_rng_readonly": true,
+      "peak_rss_kib": 472996
+    }
+  ]
+}

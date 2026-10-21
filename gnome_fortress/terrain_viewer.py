@@ -174,4 +174,7 @@ class TerrainObserver(GodObserver):
         self.label('Wheel: older/newer | Space pause | +/- speed | S save | Esc exit',x,self.screen.get_height()-18,MUTED)
 
 
-def run(*args,**kwargs):return run_base(*args,**kwargs,observer_class=TerrainObserver,worker_class=TerrainCheckpointWorker)
+def run(*args,**kwargs):
+    # G8A only changes presentation; retain the exact Saveguard run loop/worker.
+    from .living_viewer import LivingObserver
+    return run_base(*args,**kwargs,observer_class=LivingObserver,worker_class=TerrainCheckpointWorker)

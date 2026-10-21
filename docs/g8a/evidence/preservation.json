@@ -1,0 +1,24 @@
+{
+  "baseline": "58bfbd424214aa4fad8abe65f444cdd3032b2cd9",
+  "tracked_protected_files": 664,
+  "all_protected_content_unchanged": true,
+  "original_terrain_observer_ast_identical": true,
+  "historical_tags_unchanged": true,
+  "saveguard_sources_unchanged": true,
+  "save_format_unchanged": true,
+  "biological_rules_unchanged": true,
+  "original_gameplay_and_research_sources_unchanged": true,
+  "live_player_session": "402014 left untouched; no player checkpoint loaded",
+  "archive_scope": "Tracked files verified via Git; ignored archives not rehashed or opened. No historical campaign run.",
+  "allowed_existing_changes": [
+    "README.md",
+    "gnome_fortress/terrain_viewer.py (entrypoint only)"
+  ],
+  "new_source_sha256": {
+    "gnome_fortress/camera.py": "d4e4e96a2e160be32ae43e04fb6cc25c819c44aafd003acaa822ef75630bc5d4",
+    "gnome_fortress/pixel_art.py": "094edfeefae75f44688acb3a2a4b74714c06d3cd69a555fc1766ceb56239b910",
+    "gnome_fortress/living_viewer.py": "6da8d4b3f3251395d238f3b9fa5b3126fc764bf8bff50eee23ed5de409be8aa3",
+    "gnome_fortress/terrain_viewer.py": "8957eeb0f97b4aa03f25d64cff35f8f138b0b7e1f826b223db85e12022f49993",
+    "tests/test_g8a.py": "9888a8ad88a243c436d9557fb019aa8b36373764a3eb199f4b3c8cd18c3007ad"
+  }
+}
