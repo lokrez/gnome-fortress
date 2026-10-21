@@ -8,6 +8,7 @@ from functools import lru_cache
 import json
 
 from .terrain_game import FORMAT, RECORD_VERSION, TerrainWorld
+from .chronicle_index import EventJournal
 
 
 @lru_cache(maxsize=32)
@@ -16,6 +17,9 @@ def _field_names(cls):
 
 
 def _record(value):
+    # Chronicle adopts the original list without copying its entire history.
+    # Encoding is still synchronous on a stopped owner or detached worker.
+    if isinstance(value,EventJournal):return value.data
     if is_dataclass(value) and not isinstance(value, type):
         return {name: getattr(value, name) for name in _field_names(type(value))}
     raise TypeError(f'Object of type {type(value).__name__} is not JSON serializable')

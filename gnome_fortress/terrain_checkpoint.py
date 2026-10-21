@@ -96,6 +96,8 @@ class TerrainCheckpointWorker:
         if type(world) is not TerrainWorld:raise ValueError('Terrain preparation requires TerrainWorld')
         return self.chronicle.prepare(world,budget)
 
+    def prepared_for(self,world):return self.chronicle.prepared_for(world)
+
     @staticmethod
     def _new_pool():
         return ProcessPoolExecutor(max_workers=1,mp_context=multiprocessing.get_context('spawn'),initializer=_writer_init)

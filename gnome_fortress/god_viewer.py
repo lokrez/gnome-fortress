@@ -473,8 +473,13 @@ def run(world,path,save_callback,checkpoint_ticks=300,max_frames=None,stop_reque
             observer.advance(seconds)
             if hasattr(worker,'prepare'):worker.prepare(world)
             if not worker.pending and (observer.save_requested or (not auto_save_failed and world.tick-last_save>=checkpoint_ticks)):
-                worker.start(world,path);observer.saving=locks_world;observer.checkpoint_pending=True;observer.save_requested=False;dirty=True
-                observer.notice=f'Saving tick {world.tick} (last saved {last_save})'
+                if hasattr(worker,'prepared_for') and not worker.prepared_for(world):
+                    # Keep the existing bounded request flag. Do not capture an
+                    # enormous unprepared tail or pretend it is already saved.
+                    observer.notice=f'Preparing history for save (last saved {last_save})';dirty=True
+                else:
+                    worker.start(world,path);observer.saving=locks_world;observer.checkpoint_pending=True;observer.save_requested=False;dirty=True
+                    observer.notice=f'Saving tick {world.tick} (last saved {last_save})'
             if dirty or events or (not observer.paused and not observer.saving):
                 observer.draw();dirty=False
             frames+=1
