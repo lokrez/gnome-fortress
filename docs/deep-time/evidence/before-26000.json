@@ -1,0 +1,45 @@
+{
+  "scale": "26000",
+  "tick": 26000,
+  "agents": 5340,
+  "events": 290808,
+  "load_seconds": 3.1024879079996026,
+  "load_phases": {
+    "world_validate": 0.10601968700029829,
+    "world_validate_cpu": 0.10591093499999993,
+    "canonical_state_copy": 1.3043329319989425,
+    "canonical_state_copy_cpu": 1.3034351780000002,
+    "json_encode": 0.8209040290003031,
+    "json_encode_cpu": 0.8197767110000003,
+    "sqlite_transaction_acquire": 5.014099951949902e-05,
+    "sqlite_payload_write": 0.06851384099900315,
+    "sqlite_commit": 0.0010347850002290215
+  },
+  "save_seconds": 8.471632807999413,
+  "save_phases": {
+    "world_validate": 0.24719553400063887,
+    "world_validate_cpu": 0.2469364970000001,
+    "json_parse": 1.2295108560010704,
+    "json_parse_cpu": 1.221982336,
+    "strict_previous_decode": 5.877664429999641,
+    "strict_previous_decode_cpu": 5.866648307,
+    "canonical_state_copy": 1.3693460520007648,
+    "canonical_state_copy_cpu": 1.3686531109999995,
+    "json_encode": 0.7312813580010697,
+    "json_encode_cpu": 0.7310239940000001,
+    "sqlite_transaction_acquire": 1.2450000212993473e-05,
+    "sqlite_payload_write": 0.06122917600077926,
+    "sqlite_commit": 2.305000089108944e-05
+  },
+  "calls": {
+    "world_validate": 3,
+    "json_parse": 2,
+    "strict_previous_decode": 2,
+    "canonical_state_copy": 1,
+    "json_encode": 1
+  },
+  "file_bytes": 52801536,
+  "peak_rss_kib": 1052428,
+  "minor_faults": 505895,
+  "major_faults": 0
+}

@@ -1,0 +1,13 @@
+{
+  "load_seconds": 51.42394774999957,
+  "final_save_seconds": 78.21294244199999,
+  "committed_digest": "865f2d2304e3e302650860c25ddbae88d06ecc80323da61f0414bce7682a2611",
+  "load_save_summary_total_seconds": 129.96631628700015,
+  "post_commit_summary_seconds": 0.3293500350009708,
+  "shutdown_excluding_load_seconds": 78.54236853700058,
+  "reference": false,
+  "tick": 428868,
+  "peak_rss_kib": 15421768,
+  "minor_faults": 6346576,
+  "major_faults": 0
+}

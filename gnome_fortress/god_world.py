@@ -66,11 +66,11 @@ def _launch(args,p,path):
             run(world,path,save_game,args.checkpoint_every,args.frames,lambda:stopped,
                 args.rate,args.paused,args.capture)
     finally:
-        try:save_game(world,path)
+        try:committed=save_game(world,path)
         finally:
             for sig,handler in previous.items():signal.signal(sig,handler)
     print(json.dumps({**world.summary(),'extinct':world.extinct,'interventions':len(world.interventions),
-                      'digest':world.digest(),'checkpoint':str(path)},sort_keys=True))
+                      'digest':committed['digest'],'checkpoint':str(path)},sort_keys=True))
 
 
 if __name__=='__main__':main()

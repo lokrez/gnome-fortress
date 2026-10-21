@@ -10,6 +10,7 @@ import time
 
 from .terrain_game import FORMAT, TerrainWorld
 from .game_storage import RESEARCH, load_game as load_legacy
+from .terrain_encoding import canonical_payload
 
 APPLICATION_ID=0x474E4735
 SCHEMA_VERSION=1
@@ -43,22 +44,53 @@ def load_game(path):
         return _read(db)
 
 
-def _write(world,path,existing):
-    payload=json.dumps(world.state(),sort_keys=True,separators=(',',':'))
+def _metadata(db):
+    """Cheap read-only preflight; semantic validation still occurs in the write tx."""
+    if db.execute('PRAGMA application_id').fetchone()[0]!=APPLICATION_ID or db.execute('PRAGMA user_version').fetchone()[0]!=SCHEMA_VERSION:
+        raise ValueError('Not a supported G5 terrain checkpoint')
+    rows=db.execute('SELECT id,format,sha256 FROM game_checkpoint').fetchall()
+    if len(rows)!=1 or rows[0][0]!=1 or rows[0][1]!=FORMAT:
+        raise ValueError('Incomplete/unknown terrain checkpoint')
+    checksum=rows[0][2]
+    if not isinstance(checksum,str) or len(checksum)!=64 or any(c not in '0123456789abcdef' for c in checksum):
+        raise ValueError('Terrain checkpoint checksum mismatch')
+    return tuple(rows[0])
+
+
+def _identity(path):
+    stat=path.stat()
+    return stat.st_dev,stat.st_ino
+
+
+def _unchanged(path,identity):
+    if _identity(path)!=identity:raise ValueError('Checkpoint file was replaced during save')
+
+
+def _write(world,path,existing,expected=None):
+    payload=canonical_payload(world)
     checksum=hashlib.sha256(payload.encode()).hexdigest()
-    with closing(sqlite3.connect(path)) as db:
+    if existing:_unchanged(path,expected[0])
+    # Never create an empty database if an existing checkpoint disappears.
+    target=path.as_uri()+'?mode=rw' if existing else str(path)
+    with closing(sqlite3.connect(target,uri=existing)) as db:
         db.execute('PRAGMA synchronous=FULL');db.execute('BEGIN IMMEDIATE')
         try:
             if existing:
+                _unchanged(path,expected[0])
+                if _metadata(db)!=expected[1]:raise ValueError('Checkpoint metadata changed during save')
                 previous=_read(db)
                 if world.tick<previous.tick:raise ValueError('Checkpoint tick cannot move backward')
+                del previous
             else:
                 db.execute(f'PRAGMA application_id={APPLICATION_ID}')
                 db.execute(f'PRAGMA user_version={SCHEMA_VERSION}')
                 db.execute('CREATE TABLE game_checkpoint (id INTEGER PRIMARY KEY CHECK(id=1),format TEXT NOT NULL,payload TEXT NOT NULL,sha256 TEXT NOT NULL)')
+            if existing:_unchanged(path,expected[0])
             db.execute('INSERT INTO game_checkpoint VALUES (1,?,?,?) ON CONFLICT(id) DO UPDATE SET format=excluded.format,payload=excluded.payload,sha256=excluded.sha256',(FORMAT,payload,checksum))
             db.commit()
         except BaseException:db.rollback();raise
+    if existing:_unchanged(path,expected[0])
+    return checksum
 
 
 def create_game(world,path):
@@ -71,11 +103,11 @@ def create_game(world,path):
     fd,name=tempfile.mkstemp(prefix='.g5-',suffix='.tmp',dir=path.parent);os.close(fd)
     temporary=Path(name)
     try:
-        _write(world,temporary,False)
+        checksum=_write(world,temporary,False)
         # Atomic exclusive publication on the same filesystem; never replaces a file.
         os.link(temporary,path)
     finally:temporary.unlink(missing_ok=True)
-    return dict(seconds=time.perf_counter()-started,file_bytes=path.stat().st_size,tick=world.tick)
+    return dict(seconds=time.perf_counter()-started,file_bytes=path.stat().st_size,tick=world.tick,digest=checksum)
 
 
 def save_game(world,path):
@@ -83,9 +115,12 @@ def save_game(world,path):
     if not isinstance(world,TerrainWorld):raise ValueError('G5 storage requires TerrainWorld')
     path=game_path(path);world.validate()
     if not path.exists():return create_game(world,path)
-    load_game(path)  # Fail closed before any attempted update.
-    _write(world,path,True)
-    return dict(seconds=time.perf_counter()-started,file_bytes=path.stat().st_size,tick=world.tick)
+    identity=_identity(path)
+    with closing(sqlite3.connect(path.as_uri()+'?mode=ro',uri=True)) as db:
+        db.execute('BEGIN');metadata=_metadata(db)
+    _unchanged(path,identity)
+    checksum=_write(world,path,True,expected=(identity,metadata))
+    return dict(seconds=time.perf_counter()-started,file_bytes=path.stat().st_size,tick=world.tick,digest=checksum)
 
 
 def import_legacy(source,destination):

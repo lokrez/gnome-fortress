@@ -1,0 +1,27 @@
+{
+  "scale": "26000",
+  "tick": 26000,
+  "agents": 5340,
+  "events": 290808,
+  "load_seconds": 0.738327756000217,
+  "cold_full_capture_ms": 551.8056979999528,
+  "cold_bytes": 27323021,
+  "preparation_seconds": 3.2299247959999775,
+  "preparation_slices": 706,
+  "preparation_max_ms": 81.82901699910872,
+  "warm_detach_ms": [
+    14.610749001803924,
+    14.594178999686847,
+    14.540668000336154,
+    13.92128999941633,
+    15.335998999944422,
+    16.780709000158822,
+    17.17175399971893
+  ],
+  "feeder_pickle_seconds": 0.011067970999647514,
+  "segmented_bytes": 26438664,
+  "cached_event_bytes": 10668929,
+  "cached_dead_bytes": 14806524,
+  "hot_bytes": 876005,
+  "peak_rss_kib": 489352
+}

@@ -1,0 +1,8 @@
+{
+  "bytes": 891352072,
+  "sha256": "865f2d2304e3e302650860c25ddbae88d06ecc80323da61f0414bce7682a2611",
+  "chunk_bytes": 8388608,
+  "read_seconds": 0.209889926996766,
+  "hash_seconds": 0.44561659201281145,
+  "note": "Isolated bounded streaming hash probe, not a second complete writer profile"
+}

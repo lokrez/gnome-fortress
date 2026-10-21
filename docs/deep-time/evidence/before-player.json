@@ -1,0 +1,42 @@
+{
+  "scale": "player",
+  "tick": 428868,
+  "agents": 91003,
+  "events": 4691860,
+  "load_seconds": 51.225377263001064,
+  "load_phases": {
+    "json_parse": 11.666272151998783,
+    "json_parse_cpu": 11.570700168,
+    "world_validate": 1.2633883690014045,
+    "world_validate_cpu": 1.2623710860000017,
+    "strict_previous_decode": 51.21266129700052,
+    "strict_previous_decode_cpu": 51.072334572
+  },
+  "save_seconds": 142.23352789700039,
+  "save_phases": {
+    "world_validate": 3.7940615879979305,
+    "world_validate_cpu": 3.788046008000009,
+    "json_parse": 18.394223437999244,
+    "json_parse_cpu": 18.307841551999985,
+    "strict_previous_decode": 103.69923778900193,
+    "strict_previous_decode_cpu": 103.063511395,
+    "canonical_state_copy": 18.91322662099992,
+    "canonical_state_copy_cpu": 18.862170807,
+    "json_encode": 12.532154411001102,
+    "json_encode_cpu": 12.413224129,
+    "sqlite_transaction_acquire": 1.582100048835855e-05,
+    "sqlite_payload_write": 1.052015864999703,
+    "sqlite_commit": 3.96310006181011e-05
+  },
+  "calls": {
+    "world_validate": 3,
+    "json_parse": 2,
+    "strict_previous_decode": 2,
+    "canonical_state_copy": 1,
+    "json_encode": 1
+  },
+  "file_bytes": 1779752960,
+  "peak_rss_kib": 16256892,
+  "minor_faults": 8262524,
+  "major_faults": 0
+}

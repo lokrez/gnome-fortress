@@ -1,0 +1,35 @@
+{
+  "scale": "26000",
+  "tick": 26000,
+  "agents": 5340,
+  "events": 290808,
+  "load_seconds": 0.7210733159990923,
+  "load_phases": {},
+  "save_seconds": 4.844007191999481,
+  "save_phases": {
+    "world_validate": 0.18842503200175997,
+    "world_validate_cpu": 0.1853898540000003,
+    "json_encode": 1.2842929079997703,
+    "json_encode_cpu": 1.281525456,
+    "canonical_projection_and_encoding": 1.2844600900007208,
+    "canonical_projection_and_encoding_cpu": 1.2816870260000002,
+    "sqlite_transaction_acquire": 1.4889999874867499e-05,
+    "json_parse": 0.600352664001548,
+    "json_parse_cpu": 0.598885707,
+    "strict_previous_decode": 3.120850976998554,
+    "strict_previous_decode_cpu": 3.117336539,
+    "sqlite_payload_write": 0.06316067199986719,
+    "sqlite_commit": 2.260000110254623e-05
+  },
+  "calls": {
+    "world_validate": 2,
+    "json_encode": 1,
+    "canonical_projection_and_encoding": 1,
+    "json_parse": 1,
+    "strict_previous_decode": 1
+  },
+  "file_bytes": 52801536,
+  "peak_rss_kib": 997812,
+  "minor_faults": 333185,
+  "major_faults": 0
+}

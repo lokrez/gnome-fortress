@@ -1,0 +1,27 @@
+{
+  "scale": "player",
+  "tick": 428868,
+  "agents": 91003,
+  "events": 4691860,
+  "load_seconds": 54.101578096000594,
+  "cold_full_capture_ms": 13568.82535099976,
+  "cold_bytes": 629281671,
+  "preparation_seconds": 58.32806267199885,
+  "preparation_slices": 13018,
+  "preparation_max_ms": 1077.5219489987649,
+  "warm_detach_ms": [
+    147.79652499964868,
+    115.28088199884223,
+    106.56479299905186,
+    110.02258999906189,
+    113.21065300035116,
+    108.03393300011521,
+    115.85498000022199
+  ],
+  "feeder_pickle_seconds": 0.31042459099990083,
+  "segmented_bytes": 547388616,
+  "cached_event_bytes": 211638791,
+  "cached_dead_bytes": 332640299,
+  "hot_bytes": 1446456,
+  "peak_rss_kib": 12077204
+}

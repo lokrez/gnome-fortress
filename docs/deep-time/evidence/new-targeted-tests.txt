@@ -1,0 +1,82 @@
+........F                                                                [100%]
+=================================== FAILURES ===================================
+_________ test_commit_digest_and_launcher_do_not_rematerialize_history _________
+
+args = Namespace(new=False, import_legacy=None, seed=1, headless=True, ticks=0, checkpoint_every=300, db=PosixPath('/tmp/pytest-of-zerkol/pytest-6/test_commit_digest_and_launche0/world.g5.sqlite'))
+p = ArgumentParser(prog='python -m pytest', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-6/test_commit_digest_and_launche0/world.g5.sqlite')
+
+    def _launch(args,p,path):
+        try:
+            path=game_path(args.db)
+            if args.new and path.exists():p.error('--new needs an unused save path; preserved runs are not replaced')
+            if args.import_legacy:
+                if args.new:p.error('--new and --import-legacy are mutually exclusive')
+                world=import_legacy(args.import_legacy,path)
+>           elif path.exists():world=recover_game(path)
+                                     ^^^^^^^^^^^^^^^^^^
+
+gnome_fortress/god_world.py:48:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+gnome_fortress/terrain_storage.py:137: in recover_game
+    return recover_checkpoint(game_path(path),APPLICATION_ID,1,_read,owner_pid=_owner_pid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-6/test_commit_digest_and_launche0/world.g5.sqlite')
+application_id = 1196312373, schema_version = 1
+reader = <function _read at 0x73ecba9d6090>, owner_pid = None
+
+    def recover_checkpoint(path,application_id,schema_version,reader,owner_pid=None):
+        path=Path(path).expanduser().resolve()
+        delegated=owner_pid is not None and os.getppid()==owner_pid and writer_owned(path)
+        if not session_owned(path) and not delegated:
+>           raise ValueError('Checkpoint recovery requires session ownership or its delegated writer gate')
+E           ValueError: Checkpoint recovery requires session ownership or its delegated writer gate
+
+gnome_fortress/checkpoint_recovery.py:14: ValueError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-6/test_commit_digest_and_launche0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x73ecba9b57b0>
+capsys = <_pytest.capture.CaptureFixture object at 0x73ecb86e92b0>
+
+    def test_commit_digest_and_launcher_do_not_rematerialize_history(tmp_path, monkeypatch, capsys):
+        import argparse
+        from gnome_fortress.god_world import _launch
+        w = TerrainWorld(); p = tmp_path/'world.g5.sqlite'
+        expected = w.digest(); result = storage.save_game(w, p)
+        assert result['digest'] == expected
+        def forbidden(self): raise AssertionError('Final digest needlessly rematerialized state')
+        monkeypatch.setattr(TerrainWorld, 'digest', forbidden)
+        parser = argparse.ArgumentParser()
+        args = argparse.Namespace(new=False, import_legacy=None, seed=1, headless=True,
+                                  ticks=0, checkpoint_every=300, db=p)
+>       _launch(args, parser, p)
+
+tests/test_deep_time_storage.py:138:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+gnome_fortress/god_world.py:52: in _launch
+    p.error(f'Cannot open gameplay checkpoint: {error}')
+/usr/lib/python3.14/argparse.py:2797: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = ArgumentParser(prog='python -m pytest', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+status = 2
+message = 'python -m pytest: error: Cannot open gameplay checkpoint: Checkpoint recovery requires session ownership or its delegated writer gate\n'
+
+    def exit(self, status=0, message=None):
+        if message:
+            self._print_message(message, _sys.stderr)
+>       _sys.exit(status)
+E       SystemExit: 2
+
+/usr/lib/python3.14/argparse.py:2784: SystemExit
+----------------------------- Captured stderr call -----------------------------
+usage: python -m pytest [-h]
+python -m pytest: error: Cannot open gameplay checkpoint: Checkpoint recovery requires session ownership or its delegated writer gate
+=========================== short test summary info ============================
+FAILED tests/test_deep_time_storage.py::test_commit_digest_and_launcher_do_not_rematerialize_history
+1 failed, 8 passed in 14.01s

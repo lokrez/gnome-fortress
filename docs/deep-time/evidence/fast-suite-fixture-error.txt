@@ -1,0 +1,43 @@
+........................................................................ [ 22%]
+..F...................
+=================================== FAILURES ===================================
+_________ test_commit_digest_and_launcher_do_not_rematerialize_history _________
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-5/test_commit_digest_and_launche0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x74d358edd550>
+capsys = <_pytest.capture.CaptureFixture object at 0x74d358b7a120>
+
+    def test_commit_digest_and_launcher_do_not_rematerialize_history(tmp_path, monkeypatch, capsys):
+        import argparse
+        from gnome_fortress.god_world import _launch
+        w = TerrainWorld(); p = tmp_path/'world.g5.sqlite'
+        expected = w.digest(); result = storage.save_game(w, p)
+        assert result['digest'] == expected
+        def forbidden(self): raise AssertionError('Final digest needlessly rematerialized state')
+        monkeypatch.setattr(TerrainWorld, 'digest', forbidden)
+        parser = argparse.ArgumentParser()
+        args = argparse.Namespace(new=False, import_legacy=None, seed=1, headless=True,
+                                  ticks=0, checkpoint_every=300, db=p)
+>       from gnome_fortress.game_session import game_session
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_deep_time_storage.py:138:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+args = Namespace(new=False, import_legacy=None, seed=1, headless=True, ticks=0, checkpoint_every=300)
+p = ArgumentParser(prog='python -m pytest', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+path = PosixPath('/tmp/pytest-of-zerkol/pytest-5/test_commit_digest_and_launche0/world.g5.sqlite')
+
+    def _launch(args,p,path):
+        try:
+>           path=game_path(args.db)
+                           ^^^^^^^
+E           AttributeError: 'Namespace' object has no attribute 'db'
+
+gnome_fortress/god_world.py:43: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_deep_time_storage.py::test_commit_digest_and_launcher_do_not_rematerialize_history
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! KeyboardInterrupt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/home/zerkol/gnome-fortress/gnome_fortress/engine.py:169: KeyboardInterrupt
+(to show a full traceback on KeyboardInterrupt use --full-trace)
+1 failed, 93 passed in 131.97s (0:02:11)

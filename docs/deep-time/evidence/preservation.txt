@@ -1,0 +1,1 @@
+Protected artifact and private canonical bytes exact; protected sources unchanged.
