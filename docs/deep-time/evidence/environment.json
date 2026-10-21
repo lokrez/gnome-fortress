@@ -1,0 +1,8 @@
+{
+  "python": "3.14.4",
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+  "sqlite": "3.46.1",
+  "numpy": "2.5.4",
+  "matplotlib": "3.11.2",
+  "pygame": "2.5.8"
+}

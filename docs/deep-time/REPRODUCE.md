@@ -53,3 +53,7 @@ Regression:
 
 Do not rerun old endurance/archive campaigns for this change. Do not overwrite
 historical evidence directories. Use `--out` for fresh benchmark outputs.
+
+CSV files retain Python csv's standard CRLF terminators so their recorded replay
+hashes are stable. A dataset-local .gitattributes recognizes CR at end of CSV
+records; no old dataset or global Git whitespace policy changes.

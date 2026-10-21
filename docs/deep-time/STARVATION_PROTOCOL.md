@@ -34,3 +34,11 @@ summaries use recorded parent and child traits; the original mutation sample is
 not stored, so `child - floor(parent average)` is mutation **plus clamping**, not
 an inferred exact random roll. Death examples are first occurrences, not curated
 for dramatic outcomes.
+
+## Pilot decision (before six-world launch)
+
+Seed 1 / 1,000 ticks: uninstrumented 3.585 s; instrumented 3.633 s, exact canonical
+state/RNG match. Linear six-by-10k projection 218 s plus approximately 38 s for the
+seed-1 reference replay; this young-world estimate may understate mature-world
+cost. Allow roughly 4–8 minutes. Keep the declared horizon and seeds unchanged.
+Do not extend or tune based on whether the results are interesting.

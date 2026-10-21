@@ -41,7 +41,7 @@ This executed the real `_launch` headless finalization at zero additional ticks 
 | 26,000 | 551.8 | 3.23 | 81.8 | 14.6 / 17.2 | 0.011 |
 | 428,868 | 13568.8 | 58.33 | 1077.5 | 113.2 / 147.8 | 0.310 |
 
-**Residual hitch is real.** Chronicle is unchanged: at player scale even warmed capture can exceed 100 ms. A completely unprepared fallback can take seconds; preparation budgets are soft and a garbage-collection/allocation outlier can exceed them. Cold preparation was a tight-loop measurement, not a promise about wall time while playing. Cached bytes grow with retained history; they are not constant memory. No new caching, GC policy or history truncation is introduced to hide these limits.
+**Residual hitch is real.** Chronicle is unchanged: at player scale even warmed capture can exceed 100 ms. A completely unprepared fallback can take seconds; preparation budgets are soft; the root cause of the largest preparation outlier was not isolated. Allocation/GC is a hypothesis, not a measured attribution. Cold preparation was a tight-loop measurement, not a promise about wall time while playing. Cached bytes grow with retained history; they are not constant memory. No new caching, GC policy or history truncation is introduced to hide these limits.
 
 ## Real Pygame / Saveguard operational runs, generated 26,000-tick fixture
 
@@ -63,3 +63,21 @@ SDL dummy exercised the real renderer, input handling, follow, Decisions, Adviso
 Full checkpoint writes remain O(retained history); the reader still parses and rehydrates one complete previous world, and JSON remains a complete document. This deliberately smaller optimization preserves all integrity checks. Further reductions need a separately tested streaming semantic validator or a proven validation-receipt protocol, and a profile-led Chronicle cold/warm preparation design. Replacing full files with auxiliary delta caches is not performed. Large-world final saves still require patience.
 
 Reproduction commands are in `REPRODUCE.md`; all raw measurements are adjacent.
+
+## Additional cold object-graph load probe
+
+The strict reader is unchanged before/after. Fresh-process loads of the generated
+0/10k/26k and private player checkpoints took 0.019/1.160/2.986/50.417 seconds.
+At player scale JSON parsing took 11.853 s, reconstruction including validation
+35.622 s, validation 1.241 s (nested, not additive). Peak load-only RSS 10.48 GiB.
+OS cache state was uncontrolled; “cold” means no prepared World/Chronicle cache,
+not a claim that the SSD/page cache was flushed. See `load-*.json` and
+`research.deep_time.profile_load`.
+
+Measurements ran on the Ryzen 7 3800X (8 cores/16 threads), Python 3.14.4,
+SQLite 3.46.1. Exact library/platform versions are in `environment.json`.
+No owner-process frame trace at 428k was collected: that scale has direct snapshot
+and storage probes, while the actual Pygame frame trace uses the 26k fixture. We do
+not certify giant-world smoothness from the smaller viewport test.
+
+![Complete save time across the four measured worlds](evidence/save-performance.png)

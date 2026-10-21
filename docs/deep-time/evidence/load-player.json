@@ -1,0 +1,22 @@
+{
+  "scale": "player",
+  "tick": 428868,
+  "agents": 91003,
+  "events": 4691860,
+  "load_seconds": 50.41659783199975,
+  "phases": {
+    "json_parse": {
+      "wall_seconds": 11.853324925999914,
+      "cpu_seconds": 11.770891556
+    },
+    "validation": {
+      "wall_seconds": 1.2412177189999056,
+      "cpu_seconds": 1.2399169860000043
+    },
+    "reconstruction_including_validation": {
+      "wall_seconds": 35.62223113800064,
+      "cpu_seconds": 35.580116257
+    }
+  },
+  "peak_rss_kib": 10992348
+}

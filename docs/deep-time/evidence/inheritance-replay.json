@@ -1,0 +1,8 @@
+{
+  "exact": true,
+  "sha256": {
+    "inheritance-generations.csv": "ad50f76e70a01474d02abf356bd4391d86061c0c1d5eed913c4a8a163d03e73a",
+    "inheritance-arithmetic.csv": "a7c1b4e1c7b103ee83ab2c822b3ad43842df71b6044901e999497d7de005b84c",
+    "inheritance-paired.csv": "914e1612b7fababd122b0219b9fe4cf58e34000fd66c8bc4b94718abfbc567ae"
+  }
+}

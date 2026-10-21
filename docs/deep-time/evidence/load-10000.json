@@ -1,0 +1,22 @@
+{
+  "scale": "10000",
+  "tick": 10000,
+  "agents": 2017,
+  "events": 107609,
+  "load_seconds": 1.159808124999472,
+  "phases": {
+    "json_parse": {
+      "wall_seconds": 0.27558372400017106,
+      "cpu_seconds": 0.275279312
+    },
+    "validation": {
+      "wall_seconds": 0.02777100499952212,
+      "cpu_seconds": 0.027760494000000024
+    },
+    "reconstruction_including_validation": {
+      "wall_seconds": 0.8074654110005213,
+      "cpu_seconds": 0.8065525029999999
+    }
+  },
+  "peak_rss_kib": 289576
+}

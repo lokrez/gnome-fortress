@@ -29,18 +29,23 @@ def main():
  changed=subprocess.check_output(['git','diff','--name-only','72a1017','--','gnome_fortress'],cwd=root,text=True).splitlines()
  assert set(changed)<= {'gnome_fortress/terrain_storage.py','gnome_fortress/terrain_encoding.py','gnome_fortress/god_world.py'},changed
  assert 'gnome_fortress/terrain_storage.py' in changed
- protected=('engine.py','model.py','chronicle.py','terrain_checkpoint.py','game_session.py','checkpoint_recovery.py',
-  'game.py','terrain_game.py','living_viewer.py','pixel_art.py','camera.py','god_viewer.py','decision_observation.py')
+ all_sources=subprocess.check_output(['git','ls-files','gnome_fortress'],cwd=root,text=True).splitlines()
+ allowed={'gnome_fortress/terrain_storage.py','gnome_fortress/terrain_encoding.py','gnome_fortress/god_world.py'}
+ protected=[name for name in all_sources if name not in allowed]
  source_hashes={}
  for name in protected:
-  name='gnome_fortress/'+name
   old=subprocess.check_output(['git','show','72a1017:'+name],cwd=root)
   assert (root/name).read_bytes()==old,name
   source_hashes[name]=hashlib.sha256(old).hexdigest()
+ changed_all=subprocess.check_output(['git','diff','--name-only','72a1017'],cwd=root,text=True).splitlines()
+ assert all(name in allowed or name.startswith(('docs/deep-time/','research/deep_time/','tests/test_deep_time_')) for name in changed_all),changed_all
+ tags=subprocess.check_output(['git','show-ref','--tags'],cwd=root,text=True).splitlines()
+ first=json.loads(subprocess.check_output(['git','show','787edef:docs/deep-time/evidence/preservation.json'],cwd=root))
+ assert tags==first['tags'],'Historical tags changed'
  data=dict(source=original['source'],payload_sha256=original['sha256'],payload_bytes=metadata[3],source_bytes=before.st_size,
    source_unchanged=True,private_rewrite_payload_identical=True,source_mtime_ns=before.st_mtime_ns,
    protected_sources=source_hashes,changed_existing_production=changed,
-   tags=subprocess.check_output(['git','show-ref','--tags'],cwd=root,text=True).splitlines())
+   tags=tags,protected_history_paths_unchanged=True)
  (out/'preservation.json').write_text(json.dumps(data,indent=2)+'\n');print('Protected artifact and private canonical bytes exact; protected sources unchanged.')
 
 if __name__=='__main__':main()

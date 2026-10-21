@@ -1,0 +1,406 @@
+{
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "generations": 1000,
+  "population": 60,
+  "traits": [
+    "curiosity",
+    "caution",
+    "sociability",
+    "fertility",
+    "stamina",
+    "vision"
+  ],
+  "conditions": [
+    [
+      "floor10",
+      "floor",
+      10,
+      false
+    ],
+    [
+      "unbiased10",
+      "unbiased",
+      10,
+      false
+    ],
+    [
+      "floor0",
+      "floor",
+      0,
+      false
+    ],
+    [
+      "unbiased0",
+      "unbiased",
+      0,
+      false
+    ],
+    [
+      "floor5",
+      "floor",
+      5,
+      false
+    ],
+    [
+      "fertility_weighted",
+      "floor",
+      10,
+      true
+    ]
+  ],
+  "seconds": 9.479403520001142,
+  "rows": 5040,
+  "paired_comparisons": [
+    {
+      "left": "floor10",
+      "right": "unbiased10",
+      "trait": "curiosity",
+      "n": 20,
+      "mean_difference": -30.500833333333333,
+      "low95": -38.49012499999999,
+      "high95": -23.165833333333335,
+      "minimum": -71.08333333333334,
+      "maximum": -4.450000000000001
+    },
+    {
+      "left": "floor10",
+      "right": "unbiased10",
+      "trait": "caution",
+      "n": 20,
+      "mean_difference": -38.56166666666666,
+      "low95": -47.874229166666666,
+      "high95": -28.99052083333334,
+      "minimum": -69.25,
+      "maximum": -3.6999999999999993
+    },
+    {
+      "left": "floor10",
+      "right": "unbiased10",
+      "trait": "sociability",
+      "n": 20,
+      "mean_difference": -38.33,
+      "low95": -47.90595833333334,
+      "high95": -29.178291666666667,
+      "minimum": -71.53333333333333,
+      "maximum": -5.666666666666666
+    },
+    {
+      "left": "floor10",
+      "right": "unbiased10",
+      "trait": "fertility",
+      "n": 20,
+      "mean_difference": -41.14416666666666,
+      "low95": -50.9491875,
+      "high95": -31.241416666666666,
+      "minimum": -68.93333333333334,
+      "maximum": -3.0999999999999996
+    },
+    {
+      "left": "floor10",
+      "right": "unbiased10",
+      "trait": "stamina",
+      "n": 20,
+      "mean_difference": -35.927499999999995,
+      "low95": -45.21764583333334,
+      "high95": -26.709833333333336,
+      "minimum": -69.68333333333334,
+      "maximum": -4.716666666666667
+    },
+    {
+      "left": "floor10",
+      "right": "unbiased10",
+      "trait": "vision",
+      "n": 20,
+      "mean_difference": -30.498333333333335,
+      "low95": -39.712583333333335,
+      "high95": -21.314104166666667,
+      "minimum": -69.21666666666667,
+      "maximum": -2.3499999999999996
+    },
+    {
+      "left": "floor10",
+      "right": "floor0",
+      "trait": "curiosity",
+      "n": 20,
+      "mean_difference": -35.995,
+      "low95": -37.86841666666666,
+      "high95": -34.12164583333333,
+      "minimum": -43.4,
+      "maximum": -29.233333333333334
+    },
+    {
+      "left": "floor10",
+      "right": "floor0",
+      "trait": "caution",
+      "n": 20,
+      "mean_difference": -35.37666666666666,
+      "low95": -37.66166666666666,
+      "high95": -33.163250000000005,
+      "minimum": -46.666666666666664,
+      "maximum": -24.9
+    },
+    {
+      "left": "floor10",
+      "right": "floor0",
+      "trait": "sociability",
+      "n": 20,
+      "mean_difference": -32.03666666666666,
+      "low95": -34.918395833333335,
+      "high95": -29.428270833333332,
+      "minimum": -46.81666666666666,
+      "maximum": -22.666666666666668
+    },
+    {
+      "left": "floor10",
+      "right": "floor0",
+      "trait": "fertility",
+      "n": 20,
+      "mean_difference": -33.64333333333334,
+      "low95": -35.84252083333334,
+      "high95": -31.263229166666665,
+      "minimum": -43.06666666666666,
+      "maximum": -22.833333333333332
+    },
+    {
+      "left": "floor10",
+      "right": "floor0",
+      "trait": "stamina",
+      "n": 20,
+      "mean_difference": -33.975,
+      "low95": -35.68506250000001,
+      "high95": -32.33997916666667,
+      "minimum": -42.85,
+      "maximum": -26.266666666666666
+    },
+    {
+      "left": "floor10",
+      "right": "floor0",
+      "trait": "vision",
+      "n": 20,
+      "mean_difference": -35.346666666666664,
+      "low95": -37.35422916666667,
+      "high95": -33.24914583333334,
+      "minimum": -44.05,
+      "maximum": -26.15
+    },
+    {
+      "left": "floor10",
+      "right": "floor5",
+      "trait": "curiosity",
+      "n": 20,
+      "mean_difference": 6.795833333333334,
+      "low95": 5.9974791666666665,
+      "high95": 7.753354166666668,
+      "minimum": 4.716666666666666,
+      "maximum": 13.083333333333332
+    },
+    {
+      "left": "floor10",
+      "right": "floor5",
+      "trait": "caution",
+      "n": 20,
+      "mean_difference": 6.911666666666667,
+      "low95": 6.085,
+      "high95": 7.8533541666666675,
+      "minimum": 4.016666666666666,
+      "maximum": 13.383333333333335
+    },
+    {
+      "left": "floor10",
+      "right": "floor5",
+      "trait": "sociability",
+      "n": 20,
+      "mean_difference": 8.2175,
+      "low95": 7.315812499999999,
+      "high95": 9.170833333333334,
+      "minimum": 4.766666666666666,
+      "maximum": 13.733333333333333
+    },
+    {
+      "left": "floor10",
+      "right": "floor5",
+      "trait": "fertility",
+      "n": 20,
+      "mean_difference": 7.218333333333334,
+      "low95": 6.3073958333333335,
+      "high95": 8.178395833333331,
+      "minimum": 4.1,
+      "maximum": 11.849999999999998
+    },
+    {
+      "left": "floor10",
+      "right": "floor5",
+      "trait": "stamina",
+      "n": 20,
+      "mean_difference": 6.705,
+      "low95": 6.159166666666666,
+      "high95": 7.319187500000001,
+      "minimum": 4.916666666666667,
+      "maximum": 10.299999999999999
+    },
+    {
+      "left": "floor10",
+      "right": "floor5",
+      "trait": "vision",
+      "n": 20,
+      "mean_difference": 6.705000000000001,
+      "low95": 5.893291666666667,
+      "high95": 7.555,
+      "minimum": 3.9833333333333334,
+      "maximum": 11.516666666666666
+    },
+    {
+      "left": "fertility_weighted",
+      "right": "floor10",
+      "trait": "curiosity",
+      "n": 20,
+      "mean_difference": -0.18916666666666676,
+      "low95": -1.3258333333333334,
+      "high95": 0.8866666666666665,
+      "minimum": -6.899999999999999,
+      "maximum": 4.550000000000001
+    },
+    {
+      "left": "fertility_weighted",
+      "right": "floor10",
+      "trait": "caution",
+      "n": 20,
+      "mean_difference": 1.2441666666666666,
+      "low95": 0.2507916666666668,
+      "high95": 2.3441666666666667,
+      "minimum": -3.0666666666666664,
+      "maximum": 7.449999999999999
+    },
+    {
+      "left": "fertility_weighted",
+      "right": "floor10",
+      "trait": "sociability",
+      "n": 20,
+      "mean_difference": -0.6024999999999998,
+      "low95": -1.708375,
+      "high95": 0.5708333333333336,
+      "minimum": -5.500000000000001,
+      "maximum": 4.166666666666668
+    },
+    {
+      "left": "fertility_weighted",
+      "right": "floor10",
+      "trait": "fertility",
+      "n": 20,
+      "mean_difference": 71.46000000000001,
+      "low95": 69.50241666666666,
+      "high95": 73.12587499999998,
+      "minimum": 58.71666666666667,
+      "maximum": 77.23333333333333
+    },
+    {
+      "left": "fertility_weighted",
+      "right": "floor10",
+      "trait": "stamina",
+      "n": 20,
+      "mean_difference": 0.21666666666666692,
+      "low95": -0.8716666666666664,
+      "high95": 1.5108333333333335,
+      "minimum": -5.316666666666665,
+      "maximum": 9.3
+    },
+    {
+      "left": "fertility_weighted",
+      "right": "floor10",
+      "trait": "vision",
+      "n": 20,
+      "mean_difference": -0.2833333333333331,
+      "low95": -1.285020833333333,
+      "high95": 0.7700416666666664,
+      "minimum": -3.716666666666667,
+      "maximum": 5.116666666666667
+    },
+    {
+      "left": "floor0",
+      "right": "unbiased0",
+      "trait": "curiosity",
+      "n": 20,
+      "mean_difference": -3.5,
+      "low95": -3.7,
+      "high95": -3.3,
+      "minimum": -4.0,
+      "maximum": -3.0
+    },
+    {
+      "left": "floor0",
+      "right": "unbiased0",
+      "trait": "caution",
+      "n": 20,
+      "mean_difference": -3.5,
+      "low95": -3.8,
+      "high95": -3.2,
+      "minimum": -5.0,
+      "maximum": -2.0
+    },
+    {
+      "left": "floor0",
+      "right": "unbiased0",
+      "trait": "sociability",
+      "n": 20,
+      "mean_difference": -3.25,
+      "low95": -3.5,
+      "high95": -3.0,
+      "minimum": -4.0,
+      "maximum": -2.0
+    },
+    {
+      "left": "floor0",
+      "right": "unbiased0",
+      "trait": "fertility",
+      "n": 20,
+      "mean_difference": -3.4,
+      "low95": -3.7,
+      "high95": -3.1,
+      "minimum": -5.0,
+      "maximum": -2.0
+    },
+    {
+      "left": "floor0",
+      "right": "unbiased0",
+      "trait": "stamina",
+      "n": 20,
+      "mean_difference": -3.45,
+      "low95": -3.75,
+      "high95": -3.1,
+      "minimum": -5.0,
+      "maximum": -2.0
+    },
+    {
+      "left": "floor0",
+      "right": "unbiased0",
+      "trait": "vision",
+      "n": 20,
+      "mean_difference": -3.45,
+      "low95": -3.75,
+      "high95": -3.15,
+      "minimum": -4.0,
+      "maximum": -2.0
+    }
+  ]
+}
