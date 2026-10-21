@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zerkol/gnome-fortress/research/g8c/replay.py", line 47, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/zerkol/gnome-fortress/research/g8c/replay.py", line 31, in main
+    states=[canonical_payload(w) for w in worlds];assert states[0]==states[1]==states[2]
+            ~~~~~~~~~~~~~~~~~^^^
+  File "/home/zerkol/gnome-fortress/gnome_fortress/terrain_encoding.py", line 36, in canonical_payload
+    return json.dumps(data, default=_record, sort_keys=True, separators=(',', ':'))
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/home/zerkol/gnome-fortress/gnome_fortress/terrain_encoding.py", line 21, in _record
+    raise TypeError(f'Object of type {type(value).__name__} is not JSON serializable')
+TypeError: Object of type EventJournal is not JSON serializable
+when serializing dict item 'events'

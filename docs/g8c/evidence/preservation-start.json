@@ -1,0 +1,12 @@
+{
+  "source": "/home/zerkol/gnome-fortress/run-results/god-terrain/world.g5.sqlite",
+  "private": "/tmp/gnome-deep-time/player-copy.g5.sqlite",
+  "hashes": {
+    "protected": "865f2d2304e3e302650860c25ddbae88d06ecc80323da61f0414bce7682a2611",
+    "private": "865f2d2304e3e302650860c25ddbae88d06ecc80323da61f0414bce7682a2611"
+  },
+  "source_bytes": 1779752960,
+  "source_mtime_ns": 1792603990938823161,
+  "independent_inode": true,
+  "owner_and_writer_shared_gates": true
+}

@@ -1,0 +1,32 @@
+         1807 function calls (1806 primitive calls) in 0.001 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.001    0.001 /home/zerkol/gnome-fortress/gnome_fortress/chronicle.py:261(detach)
+        1    0.000    0.000    0.001    0.001 /home/zerkol/gnome-fortress/gnome_fortress/terrain_checkpoint.py:65(capture_snapshot)
+        1    0.000    0.000    0.000    0.000 {built-in method _pickle.dumps}
+     1657    0.000    0.000    0.000    0.000 {built-in method builtins.vars}
+      120    0.000    0.000    0.000    0.000 /home/zerkol/gnome-fortress/gnome_fortress/terrain_checkpoint.py:60(_record_vars)
+        1    0.000    0.000    0.000    0.000 /home/zerkol/gnome-fortress/gnome_fortress/chronicle.py:205(bind)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.14/random.py:176(getstate)
+        1    0.000    0.000    0.000    0.000 {function Random.getstate at 0x7171c6ba0300}
+        2    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:648(parent)
+        1    0.000    0.000    0.000    0.000 <string>:2(__init__)
+        1    0.000    0.000    0.000    0.000 /home/zerkol/gnome-fortress/gnome_fortress/chronicle_index.py:45(items)
+      2/1    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        1    0.000    0.000    0.000    0.000 /home/zerkol/gnome-fortress/gnome_fortress/chronicle_index.py:13(__iter__)
+        2    0.000    0.000    0.000    0.000 {method 'rpartition' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {method 'update' of 'set' objects}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}
+        1    0.000    0.000    0.000    0.000 /home/zerkol/gnome-fortress/gnome_fortress/chronicle_index.py:12(__len__)
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000    0.000    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'clear' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 /home/zerkol/gnome-fortress/gnome_fortress/terrain_checkpoint.py:57(__reduce__)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.iter}
+        1    0.000    0.000    0.000    0.000 {method 'clear' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 /home/zerkol/gnome-fortress/gnome_fortress/terrain_checkpoint.py:56(__init__)

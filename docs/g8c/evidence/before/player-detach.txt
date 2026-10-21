@@ -1,0 +1,27 @@
+         389884 function calls in 0.170 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.098    0.098    0.170    0.170 /home/zerkol/gnome-fortress/gnome_fortress/chronicle.py:215(detach)
+   127282    0.020    0.000    0.020    0.000 /home/zerkol/gnome-fortress/gnome_fortress/chronicle.py:119(encode)
+    36656    0.011    0.000    0.016    0.000 /home/zerkol/gnome-fortress/gnome_fortress/chronicle.py:235(<genexpr>)
+    91003    0.015    0.000    0.015    0.000 {method 'get' of 'dict' objects}
+        1    0.011    0.011    0.011    0.011 {built-in method _pickle.dumps}
+    90627    0.009    0.000    0.009    0.000 {method 'append' of 'list' objects}
+    21376    0.003    0.000    0.005    0.000 /home/zerkol/gnome-fortress/gnome_fortress/terrain_checkpoint.py:60(_record_vars)
+    22919    0.002    0.000    0.002    0.000 {built-in method builtins.vars}
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.14/random.py:176(getstate)
+        1    0.000    0.000    0.000    0.000 {function Random.getstate at 0x7eefb7171850}
+        1    0.000    0.000    0.000    0.000 /home/zerkol/gnome-fortress/gnome_fortress/chronicle.py:172(bind)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        2    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:648(parent)
+        1    0.000    0.000    0.000    0.000 <string>:2(__init__)
+        2    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+        2    0.000    0.000    0.000    0.000 {method 'rpartition' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {method 'copy' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}
+        3    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        1    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 /home/zerkol/gnome-fortress/gnome_fortress/chronicle.py:194(<genexpr>)

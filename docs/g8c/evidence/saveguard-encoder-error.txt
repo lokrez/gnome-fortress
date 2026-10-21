@@ -1,0 +1,95 @@
+......................F...........F........                              [100%]
+=================================== FAILURES ===================================
+__ test_viewer_progresses_and_casts_during_isolated_save_exit_flushes_latest ___
+
+tmp_path = PosixPath('/tmp/pytest-of-zerkol/pytest-13/test_viewer_progresses_and_cas0')
+
+    def test_viewer_progresses_and_casts_during_isolated_save_exit_flushes_latest(tmp_path):
+        instances=[];w=TerrainWorld();path=tmp_path/'viewer.g5.sqlite'
+        class Inspector(TerrainObserver):
+            def __init__(self,*args,**kwargs):
+                super().__init__(*args,**kwargs);self.save_requested=True;self.changed=False;instances.append(self)
+            def handle(self,events):
+                super().handle(events)
+                if getattr(self,'checkpoint_pending',False) and not self.changed:
+                    assert not self.saving
+                    self.changed=True
+                    super().handle([pygame.event.Event(pygame.KEYDOWN,key=pygame.K_r),
+                        pygame.event.Event(pygame.MOUSEBUTTONDOWN,button=1,pos=(50,70)),
+                        pygame.event.Event(pygame.KEYDOWN,key=pygame.K_PERIOD)])
+                elif 'Saved tick' in self.notice:self.running=False
+        run(w,path,delayed_save,paused=True,max_frames=120,observer_class=Inspector,worker_class=TerrainCheckpointWorker)
+        assert instances[0].changed and w.tick==1 and len(w.interventions)==1
+        assert load_game(path).tick==0 and not load_game(path).interventions
+        # Same final flush as god_world.main: wait for worker, then save latest live state.
+>       save_game(w,path);assert load_game(path).state()==w.state()
+        ^^^^^^^^^^^^^^^^^
+
+tests/test_terrain_checkpoint.py:78:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+gnome_fortress/terrain_storage.py:122: in save_game
+    checksum=_write(world,path,True,expected=(identity,metadata))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gnome_fortress/terrain_storage.py:70: in _write
+    payload=canonical_payload(world)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+gnome_fortress/terrain_encoding.py:36: in canonical_payload
+    game=dict(format=FORMAT, record_version=RECORD_VERSION,
+/usr/lib/python3.14/json/__init__.py:242: in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+/usr/lib/python3.14/json/encoder.py:202: in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.14/json/encoder.py:263: in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = [Event(tick=0, kind='birth', actor=1, target=None, detail={'parents': [], 'founder': True}), Event(tick=0, kind='birth...9, detail={'reward': 6}), Event(tick=1, kind='hazard', actor=49, target=None, detail={'damage': 23, 'x': 13, 'y': 15})]
+
+>   ???
+E   TypeError: Object of type EventJournal is not JSON serializable
+E   when serializing dict item 'events'
+
+gnome_fortress/terrain_encoding.py:21: TypeError
+_____________ test_projection_exact_bytes_and_chronicle_mutations ______________
+
+    def test_projection_exact_bytes_and_chronicle_mutations():
+        w = TerrainWorld(7)
+        for kind in ('rain', 'drought', 'rupture', 'rewild', 'wellspring'):
+            w.request(kind, 2, 2)
+        for ticks in (0, 1, 10, 200, 3000):
+            w.step(ticks-w.tick)
+            assert canonical_payload(w) == canonical(w)
+        c = Chronicle()
+        for _ in range(100): c.prepare(w, .01)
+>       assert canonical_payload(w) == canonical(w)
+               ^^^^^^^^^^^^^^^^^^^^
+
+tests/test_deep_time_storage.py:28:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+gnome_fortress/terrain_encoding.py:36: in canonical_payload
+    game=dict(format=FORMAT, record_version=RECORD_VERSION,
+/usr/lib/python3.14/json/__init__.py:242: in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+/usr/lib/python3.14/json/encoder.py:202: in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.14/json/encoder.py:263: in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = [TrackedEvent(tick=0, kind='birth', actor=1, target=None, detail={'parents': [], 'founder': True}), TrackedEvent(tick=...56, target=None, detail={'until': 3012}), Event(tick=3000, kind='social', actor=363, target=367, detail={'reward': 4})]
+
+>   ???
+E   TypeError: Object of type EventJournal is not JSON serializable
+E   when serializing dict item 'events'
+
+gnome_fortress/terrain_encoding.py:21: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_terrain_checkpoint.py::test_viewer_progresses_and_casts_during_isolated_save_exit_flushes_latest
+FAILED tests/test_deep_time_storage.py::test_projection_exact_bytes_and_chronicle_mutations
+2 failed, 41 passed in 60.42s (0:01:00)
